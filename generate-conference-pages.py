@@ -1,19 +1,20 @@
 #!/usr/bin/env python
-import json
-from datetime import date
-from string import Template
 import copy
-import unicodedata
+from datetime import date
+import json
 import string
+import unicodedata
+import os
 
 #thanks lazyweb
 #https://stackoverflow.com/questions/295135/turn-a-string-into-a-valid-filename
 validFilenameChars = "-_%s%s" % (string.ascii_letters, string.digits)
 def generateFilename(filename):
-	filename = filename.replace(' ','-')
+	filename = filename.replace(' ', '-')
 	filename = filename.replace('@','at')
 	cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
 	newFilename = ''.join(c for c in cleanedFilename if c in validFilenameChars)
+	newFilename = newFilename.replace('--', '-')
 	return newFilename.lower() + '.html'
 
 
@@ -23,7 +24,7 @@ with open('conferences.json', 'r') as f:
 
 #get the page template
 with open('talkpagetemplate.html') as f:
-	talkpagetemplate = Template( f.read() )
+	talkpagetemplate = string.Template( f.read() )
 
 #get the page variables (which becomes our template dictionary)
 #the json file looks like
@@ -35,6 +36,11 @@ with open('talkpagetemplate.html') as f:
 #}
 with open('pagevariables.json') as f:
 	pagevariables = json.load(f)
+
+#create the output director
+output_directory = 'talks/'
+if not os.path.exists(output_directory):
+	os.makedirs(output_directory)
 
 unique_talks = {}
 
@@ -55,7 +61,7 @@ for conference in conference_talks:
 for talk_index in unique_talks:
 	talktitle = talk_index
 	print "generating page for {0}".format(talktitle.encode('utf-8'))
-	filetitle = generateFilename(talktitle)
+	filetitle = output_directory + generateFilename(talktitle)
 	print "creating file: {0}".format(filetitle)
 
 	pagevalues = copy.deepcopy(pagevariables)
@@ -95,10 +101,6 @@ for talk_index in unique_talks:
 
 	if len(presentations) > 0:
 		pagevalues['presentationlist'] = unicode('\n'.join(presentations), 'utf-8')
-#		print "PRESENTED AT:"
-#		for presentation in presentations:
-#			print presentation
-#		print
 	else:
 		pagevalues['presentationlist'] = u''
 
@@ -107,10 +109,6 @@ for talk_index in unique_talks:
 		reactionstring += '\n'.join(reactions)
 		reactionstring += '</ul></div>'
 		pagevalues['reactions'] = unicode(reactionstring, 'utf-8')
-#		print "REACTIONS:"
-#		for reaction in reactions:
-#			print reaction
-#		print
 	else:
 		pagevalues['reactions'] = u''
 
