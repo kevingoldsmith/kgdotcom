@@ -59,6 +59,7 @@ for talk_index in unique_talks:
 	print "creating file: {0}".format(filetitle)
 
 	pagevalues = copy.deepcopy(pagevariables)
+	pagevalues['title'] = talktitle
 	recordings = []
 	presentations = []
 	reactions = []
@@ -76,15 +77,15 @@ for talk_index in unique_talks:
 			if 'recording-url' in this_talk:
 				recording = this_talk['recording-url']
 				recordings.append("<li><a href=\"{0}\">{1} - {2}</a></li>".format(recording, conference_name, talkdate.strftime("%B, %Y")))
-			city = this_talk['location']['city'].encode('utf-8') if 'city' in this_talk['location'] else ""
-			country = this_talk['location']['country'].encode('utf-8') if 'country' in this_talk['location'] else ""
-			presentations.append("<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencecity\">{2}</span>, <span=\"conferencecountry\">{3}</span></li>".format(conference_name.encode('utf-8'), talkdate.strftime("%B %d, %Y"), city, country))
+			city = this_talk['location']['city'] if 'city' in this_talk['location'] else ""
+			country = this_talk['location']['country'] if 'country' in this_talk['location'] else ""
+			presentations.append("<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencecity\">{2}</span>, <span=\"conferencecountry\">{3}</span></li>".format(conference_name.encode('utf-8'), talkdate.strftime("%B %d, %Y"), city.encode('utf-8'), country.encode('utf-8')))
 			if 'reactions' in this_talk:
 				for reaction in this_talk['reactions']:
 					quote = reaction['quote'].encode('utf-8')
 					credit = reaction['credit'].encode('utf-8')
 					ref = reaction['reference-url'].encode('utf-8')
-					reactions.append("<li><span class=\"quote\">{0}</span> - <a href=\"{1}\">{2}</a></li>".format(quote, ref, credit))
+					reactions.append('<li><span class=\"quote\">{0}</span> - <a href=\"{1}\">{2}</a></li>'.format(quote, ref, credit))
 
 	if len(recordings) >0:
 		print "RECORDINGS:"
@@ -93,27 +94,27 @@ for talk_index in unique_talks:
 		print
 
 	if len(presentations) > 0:
-		pagevalues['presentationList'] = '\n'.join(presentations)
+		pagevalues['presentationlist'] = unicode('\n'.join(presentations), 'utf-8')
 #		print "PRESENTED AT:"
 #		for presentation in presentations:
 #			print presentation
 #		print
 	else:
-		pagevalues['presentationList'] = presentations
+		pagevalues['presentationlist'] = u''
 
 	if len(reactions) > 0:
 		reactionstring = '<div id=\"reactions\">\n<div class=\"subheader\">Reactions</div>\n<ul>'
 		reactionstring += '\n'.join(reactions)
 		reactionstring += '</ul></div>'
-		pagevalues['reactions'] = reactionstring
+		pagevalues['reactions'] = unicode(reactionstring, 'utf-8')
 #		print "REACTIONS:"
 #		for reaction in reactions:
 #			print reaction
 #		print
 	else:
-		pagevalues['reactions'] = ''
+		pagevalues['reactions'] = u''
 
-	print talkpagetemplate.substitute(pagevalues)
+	with open(filetitle, 'w') as f:
+		f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))
 
-	print
 	print
