@@ -1469,6 +1469,37 @@
 		]
 	},
 	{
+		"conference": "Seattle Startup Week",
+		"url": "https://seattlestartupweek2017.sched.com/",
+		"talks": [
+			{
+				"talk": "David vs. Goliath (Competing for Top Engineers Against Seattle Giants)",
+				"talk-type": "panel",
+				"date": "2017-10-02",
+				"talk-description": "So, you’re growing exponentially and need top talent to push your startup to the next level. Now what? This round table discussion will explore the main drivers for engineering candidates and align them with what your startup needs to offer. This is your chance to hear from the people who spend day in and day out deciphering candidates desires and matching them with companies who are navigating what it means to compete in this hot Seattle market.",
+				"talk-url": "https://seattlestartupweek2017.sched.com/event/C0nJ",
+				"length": 60,
+				"location": {
+					"venue": "Galvanize",
+					"address":"111 S Jackson St.",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98104",
+					"gps": [47.598962, -122.333799]
+				},
+				"reactions": [
+					{
+						"quote": "Before joining Avvo, a Seattle-based legal advice marketplace, Goldsmith spent time at Microsoft, Adobe, and Spotify. He’s learned that even though someone may meet your standards for a given skillset, he prioritizes a “strong values fit.”\n“You can be the most amazing technical person in the world, but I’m not going to hire you if I think you’ll pull us backward,” Goldsmith said.",
+						"credit": "Taylor Soper, Geekwire",
+						"credit-url": "https://www.geekwire.com/author/taylor-soper/",
+						"reference-url": "https://www.geekwire.com/2017/tech-recruiting-advice-startups-can-compete-tech-giants-find-best-talent/"
+					}
+				]
+			}
+		]
+	},
+	{
 		"conference": "",
 		"url": "",
 		"talks": [
