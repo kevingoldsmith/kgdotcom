@@ -20,11 +20,11 @@ def generateFilename(filename):
 
 
 #get the data
-with open('conferences.json', 'r') as f:
+with open('data/conferences.json', 'r') as f:
 	conference_talks = json.load(f)
 
 #get the page template
-with open('talkpagetemplate.html') as f:
+with open('templates/talkpagetemplate.html') as f:
 	talkpagetemplate = string.Template( f.read() )
 
 #get the page variables (which becomes our template dictionary)
@@ -35,7 +35,7 @@ with open('talkpagetemplate.html') as f:
 #	"googauthor": "<your google plus url>",
 #	"googpublisher": "<your google publisher url>"
 #}
-with open('pagevariables.json') as f:
+with open('data/pagevariables.json') as f:
 	pagevariables = json.load(f)
 
 #create the output director
@@ -153,7 +153,7 @@ for conference in labs:
 
 # generate the index page
 # get the list of current talks, they will go in a separate section
-with open('current_talks.json') as f:
+with open('data/current_talks.json') as f:
 	current_talks = json.load(f)
 
 #generate lis for the panels
@@ -209,7 +209,7 @@ if len(index_page['talks']) > 0:
 	other_talks_string += '</ul>\n</li>\n'
 
 #get the page template
-with open('indexpagetemplate.html') as f:
+with open('templates/indexpagetemplate.html') as f:
 	talkpagetemplate = string.Template( f.read() )
 
 pagevalues = copy.deepcopy(pagevariables)
