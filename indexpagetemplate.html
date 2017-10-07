@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>$title</title>
-    <meta name="description" content="Page describing the talk $title by $author">
+    <meta name="description" content="talks by $author">
     <meta name="author" content="$author">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="$googsiteverification" />
@@ -19,24 +19,30 @@
 </head>
 <body>
 	<div id="header"></div>
-	<div id="talktitle">$title</div>
-	<div id="photo">
-		<img src="$photo" />
-		<div class="photocaption">$photocaption</div>
-	</div>
-	<div id="description">
-		<div class="subheader">Description</div>
-		<div id="talkdescription">$description</div>
-	</div>
-	$video
-	$slides
-	<div id="presentations">
-		<div class="subheader">Presented at</div>
+	<div id="featured-talks">
+		<div class="subheader">Current Talks</div>
 		<ul>
-			$presentationlist
+			$currenttalklist
 		</ul>
 	</div>
-	$reactions
+	<div id="other-talks">
+		<div class="subheader">Older Talks</div>
+		<ul>
+			$othertalklist
+		</ul>
+	</div>
+	<div id="panels">
+		<div class="subheader">Panels</div>
+		<ul>
+			$panellist
+		</ul>
+	</div>
+	<div id="workshops">
+		<div class="subheader">Workshops</div>
+		<ul>
+			$workshoplist
+		</ul>
+	</div>
 	<div id="footer"></div>
 </body>
 </html>

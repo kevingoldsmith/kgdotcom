@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import copy
 from datetime import date
+from operator import itemgetter
 import json
 import string
 import unicodedata
@@ -151,5 +152,70 @@ for conference in labs:
 			index_page['labs'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
 
 # generate the index page
+# get the list of current talks, they will go in a separate section
 with open('current_talks.json') as f:
 	current_talks = json.load(f)
+
+#generate lis for the panels
+panel_list_string = ''
+if len(index_page['panels']) > 0:
+	sorted_panels = sorted(index_page['panels'], key=itemgetter('date'), reverse=True)
+	panel_strings = []
+	#add city and conference URL?
+	listring = string.Template('<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>')
+	for panel in sorted_panels:
+		panel['datestring'] = panel['date'].strftime("%B %d, %Y")
+		panel_strings.append(listring.substitute(panel))
+	panel_list_string = '\n'.join(panel_strings)
+
+#generate lis for the labs
+lab_list_string = ''
+if len(index_page['labs']) > 0:
+	sorted_labs = sorted(index_page['labs'], key=itemgetter('date'), reverse=True)
+	labs_strings = []
+	#add city and conference URL?
+	listring = string.Template('<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>')
+	for lab in sorted_labs:
+		lab['datestring'] = lab['date'].strftime("%B %d, %Y")
+		labs_strings.append(listring.substitute(lab))
+	lab_list_string = '\n'.join(labs_strings)
+
+# create the featured and other talk lists
+other_talks_string = ''
+featured_talks_string = ''
+if len(index_page['talks']) > 0:
+	featured_talk_strings = []
+	other_talk_strings = []
+	sorted_talks = sorted(index_page['talks'], key=itemgetter('date'), reverse=True)
+	listring = string.Template('<li><a href="$file"><span class=\"talk-title\">$name</span></a></li>')
+	for talk in sorted_talks:
+		if talk['name'] in current_talks:
+			featured_talk_strings.append(listring.substitute(talk))
+		else:
+			other_talk_strings.append({'year':talk['date'].year, 'li':listring.substitute(talk)})
+	featured_talks_string = '\n'.join(featured_talk_strings)
+
+	current_year = 0
+	first_year = True
+	for other_talk_string in other_talk_strings:
+		if current_year != other_talk_string['year']:
+			current_year = other_talk_string['year']
+			if not first_year:
+				other_talks_string += "</ul>\n</li>\n"
+			else:
+				first_year = False
+			other_talks_string += '<li>\n<div class=\"year\">{0}</div>\n<ul>\n'.format(other_talk_string['year'])
+		other_talks_string += '{0}\n'.format(other_talk_string['li'])
+	other_talks_string += '</ul>\n</li>\n'
+
+#get the page template
+with open('indexpagetemplate.html') as f:
+	talkpagetemplate = string.Template( f.read() )
+
+pagevalues = copy.deepcopy(pagevariables)
+pagevalues['currenttalklist'] = featured_talks_string
+pagevalues['othertalklist'] = unicode(other_talks_string, 'utf-8')
+pagevalues['panellist'] = panel_list_string
+pagevalues['workshoplist'] = lab_list_string
+with open(output_directory+'index.html', 'w') as f:
+	f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))
