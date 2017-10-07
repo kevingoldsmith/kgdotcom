@@ -43,6 +43,8 @@ if not os.path.exists(output_directory):
 	os.makedirs(output_directory)
 
 unique_talks = {}
+panels = []
+labs = []
 
 #conference JSON is organized by conference for ease of editing
 #but for the purposes of creating pages, we want to store by talks
@@ -51,17 +53,25 @@ for conference in conference_talks:
 	for talk in conference['talks']:
 		talk_index = ""
 		talk_index = talk['root-talk'] if 'root-talk' in talk else talk['talk']
-		if len(talk_index) > 0:
-			if talk_index in unique_talks:
-				unique_talks[talk_index].append(conference)
-			else:
-				unique_talks[talk_index]=[conference]
+		if 'talk-type' in talk and talk['talk-type'] == 'talk':
+			if len(talk_index) > 0:
+				if talk_index in unique_talks:
+					unique_talks[talk_index].append(conference)
+				else:
+					unique_talks[talk_index]=[conference]
+		elif 'talk-type' in talk and talk['talk-type'] == 'panel':
+			panels.append(conference)
+		elif 'talk-type' in talk and talk['talk-type'] == 'lab':
+			labs.append(conference)
+
+index_page = {'talks': [], 'labs': [], 'panels': []}
 
 #now walk through our talk list generating pages for each talk
 for talk_index in unique_talks:
 	talktitle = talk_index
 	print "generating page for {0}".format(talktitle.encode('utf-8'))
-	filetitle = output_directory + generateFilename(talktitle)
+	filetitle = generateFilename(talktitle)
+	filepath = output_directory + filetitle
 	print "creating file: {0}".format(filetitle)
 
 	pagevalues = copy.deepcopy(pagevariables)
@@ -92,8 +102,14 @@ for talk_index in unique_talks:
 					credit = reaction['credit'].encode('utf-8')
 					ref = reaction['reference-url'].encode('utf-8')
 					reactions.append('<li><span class=\"quote\">{0}</span> - <a href=\"{1}\">{2}</a></li>'.format(quote, ref, credit))
+			try:
+				index = next(index for (index, d) in enumerate(index_page['talks']) if d["name"] == talk_index)
+				if talkdate > index_page['talks'][index]['date']:
+					index_page['talks'][index]['date'] = talkdate
+			except StopIteration:
+				index_page['talks'].append({'name':talk_index, 'file': filetitle, 'date': talkdate})
 
-	if len(recordings) >0:
+	if len(recordings) > 0:
 		print "RECORDINGS:"
 		for recording in recordings:
 			print recording
@@ -112,7 +128,28 @@ for talk_index in unique_talks:
 	else:
 		pagevalues['reactions'] = u''
 
-	with open(filetitle, 'w') as f:
+	with open(filepath, 'w') as f:
 		f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))
 
 	print
+
+
+for conference in panels:
+	conference_name = conference['conference']
+	for talk in conference['talks']:
+		if 'talk-type' in talk and talk['talk-type'] == 'panel':
+			talk_date = date(*map(int, talk['date'].split("-")))
+			talk_name = talk['talk']
+			index_page['panels'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
+
+for conference in labs:
+	conference_name = conference['conference']
+	for talk in conference['talks']:
+		if 'talk-type' in talk and talk['talk-type'] == 'lab':
+			talk_date = date(*map(int, talk['date'].split("-")))
+			talk_name = talk['talk']
+			index_page['labs'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
+
+# generate the index page
+with open('current_talks.json') as f:
+	current_talks = json.load(f)
