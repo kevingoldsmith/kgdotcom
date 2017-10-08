@@ -54,6 +54,25 @@ body {	background-color: white;
 #slides {
 	margin-bottom:20px;
 }
+#otherslides .subheader {
+	font-size: 100%;
+	display: inline;
+}
+#otherslides ul {
+  display: inline;
+  list-style: none;
+  margin-left: 5px;
+  padding-left: 0px;
+}
+#otherslides li {
+  display: inline;
+}
+#otherslides li:after {
+  content: ", ";
+}
+#otherslides li:last-child:after {
+	content: "";
+}
 #presentations ul {
 	list-style: none;
 	padding-left: 5px;
