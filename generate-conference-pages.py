@@ -21,7 +21,7 @@ def generateFilename(filename):
 	cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
 	newFilename = ''.join(c for c in cleanedFilename if c in validFilenameChars)
 	newFilename = newFilename.replace('--', '-')
-	return newFilename.lower() + '.html'
+	return newFilename.lower()
 
 
 def getEmbedCodeFromVideoURL(video_url):
@@ -107,7 +107,8 @@ for talk_index in unique_talks:
 	talktitle = talk_index
 	# print "generating page for {0}".format(talktitle.encode('utf-8'))
 	filetitle = generateFilename(talktitle)
-	filepath = output_directory + filetitle
+	outputfilename = filetitle + '.html'
+	filepath = output_directory + filetitle + '.html'
 	print "creating file: {0}".format(filetitle)
 
 	pagevalues = copy.deepcopy(pagevariables)
@@ -118,6 +119,11 @@ for talk_index in unique_talks:
 	reactions = []
 	conferences = unique_talks[talk_index]
 	description = ''
+
+	if os.path.isfile('public/'+filetitle+'.jpg'):
+		photofile = filetitle + '.jpg'
+		photo = '<div id=\"photo\">\n<img src=\"{0}\" />\n</div>'.format(photofile)
+		pagevalues['photo'] = photo
 
 	for conference in conferences:
 		this_talk = None
@@ -154,7 +160,7 @@ for talk_index in unique_talks:
 				if talkdate > index_page['talks'][index]['date']:
 					index_page['talks'][index]['date'] = talkdate
 			except StopIteration:
-				index_page['talks'].append({'name': talk_index, 'file': filetitle, 'date': talkdate})
+				index_page['talks'].append({'name': talk_index, 'file': outputfilename, 'date': talkdate})
 
 	if len(description) > 0:
 		pagevalues['description'] = description
@@ -210,6 +216,9 @@ for talk_index in unique_talks:
 		pagevalues['reactions'] = u''
 
 	with open(filepath, 'w') as f:
+# use Beautiful Soup to prettify the html?
+# look for an image file with the same filename to add the photo
+# add keynotes indications?
 		f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))
 
 for conference in panels:

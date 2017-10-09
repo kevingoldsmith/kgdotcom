@@ -472,6 +472,7 @@
 		"talks": [
 			{
 				"talk": "Culture Leads, Everything Else Follows (La culture précède tout le reste)",
+				"root-talk": "Culture Leads, Everything Else Follows",
 				"talk-type": "keynote",
 				"date": "2014-05-16",
 				"talk-description": "Les bonnes équipes partagent une même culture, les mêmes valeurs, le même objectif. Moins on passe de temps à devoir se mettre d'accord, plus on a de chances de produire de la valeur. Prenez le temps de définir des valeurs sur lesquelles vous pourrez construire.",
@@ -1494,6 +1495,12 @@
 						"credit": "Taylor Soper, Geekwire",
 						"credit-url": "https://www.geekwire.com/author/taylor-soper/",
 						"reference-url": "https://www.geekwire.com/2017/tech-recruiting-advice-startups-can-compete-tech-giants-find-best-talent/"
+					},
+					{
+						"quote": "David vs. Goliath  was a great event at Techstars Startup Week Seattle 2017 @SEAstartupweek #SSW2017 @adamb0mb @kevingoldsmith",
+						"credit": "Jason Cavness, SPHR",
+						"credit-url": "https://twitter.com/jasoncavnesshr",
+						"reference-url": "https://twitter.com/jasoncavnesshr/status/917236679152463872"
 					}
 				]
 			}
