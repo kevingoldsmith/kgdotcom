@@ -9,6 +9,7 @@ import unicodedata
 import os
 import requests
 from bs4 import BeautifulSoup
+import pycountry
 
 #thanks lazyweb
 #https://stackoverflow.com/questions/295135/turn-a-string-into-a-valid-filename
@@ -51,7 +52,7 @@ def getEmbedCodeFromSlidesURL(slides_url):
 	#https://www.slideshare.net/developers/oembed
 	response = requests.get('http://www.slideshare.net/api/oembed/2', params={'url': slides_url, 'format': 'json', 'maxwidth': 600})
 	if response.status_code == 200:
-		bs = BeautifulSoup(response.json()['html'])
+		bs = BeautifulSoup(response.json()['html'], 'html.parser')
 		aspect_ratio = float(bs.iframe['height']) / float(bs.iframe['width'])
 		bs.iframe['width'] = u'600'
 		bs.iframe['height'] = unicode(int(600*aspect_ratio))
@@ -151,6 +152,8 @@ for talk_index in unique_talks:
 
 			city = this_talk['location']['city'] if 'city' in this_talk['location'] else ""
 			country = this_talk['location']['country'] if 'country' in this_talk['location'] else ""
+			if len(country) == 2:
+				country = pycountry.countries.get(alpha_2=country.encode('utf-8')).name
 			presentations.append("<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencecity\">{2}</span>, <span=\"conferencecountry\">{3}</span></li>".format(conference_name.encode('utf-8'), talkdate.strftime("%B %d, %Y"), city.encode('utf-8'), country.encode('utf-8')))
 			if 'reactions' in this_talk:
 				for reaction in this_talk['reactions']:
@@ -181,7 +184,7 @@ for talk_index in unique_talks:
 			next(iterrecordings)
 			other_recordings_list = ''
 			for recording in iterrecordings:
-				other_recordings_list += '<li class=\"inlinelistitem\"><a href=\"{0}\">{1}, {2}</a></li>\n'.format(recording['recording-url'], recording['conference'], recording['date'].year)
+				other_recordings_list += '<li class=\"inlinelistitem\"><a href=\"{0}\">{1} ({2})</a></li>\n'.format(recording['recording-url'], recording['conference'], recording['date'].year)
 			other_recordings_string = other_recordings_string.format(other_recordings_list)
 			video_string += other_recordings_string
 		video_string += "</div>"
@@ -199,7 +202,7 @@ for talk_index in unique_talks:
 			next(iterslides)
 			other_slides_list = ''
 			for slide in iterslides:
-				other_slides_list += '<li class=\"inlinelistitem\"><a href=\"{0}\">{1}, {2}</a></li>\n'.format(slide['slides-url'], slide['talk'], slide['date'].year)
+				other_slides_list += '<li class=\"inlinelistitem\"><a href=\"{0}\">{1} ({2})</a></li>\n'.format(slide['slides-url'], slide['talk'], slide['date'].year)
 			other_slides_string = other_slides_string.format(other_slides_list)
 			slides_string += other_slides_string
 		slides_string += "</div>"

@@ -413,7 +413,7 @@
 					"venue": "BBC White City",
 					"address":"Shepherd's Bush",
 					"city": "London",
-					"country": "UK",
+					"country": "GB",
 					"postal code": "W12",
 					"gps": [51.514060, -0.226235]
 				}
@@ -549,7 +549,7 @@
 					"venue": "The View From the Shard",
 					"address":"Railway Approach",
 					"city": "London",
-					"country": "UK",
+					"country": "GB",
 					"postal code": "SE1 9SG",
 					"gps": [51.504403, -0.086512]
 				}
@@ -675,7 +675,7 @@
 					"venue": "The Brewery",
 					"address":"52 Chiswell St",
 					"city": "London",
-					"country": "UK",
+					"country": "GB",
 					"postal code": "EC1Y 4SD",
 					"gps": [51.520610, -0.091594]
 				}
@@ -907,7 +907,7 @@
 					"venue": "Department for Culture, Media and Sport",
 					"address":"100 Parliament St",
 					"city": "London",
-					"country": "UK",
+					"country": "GB",
 					"postal code": "SW1A 2NH",
 					"gps": [51.501602, -0.126521]
 				}
@@ -1001,7 +1001,7 @@
 					"venue": "Think Money",
 					"address":"Trafford Park, Stretford",
 					"city": "Manchester",
-					"country": "UK",
+					"country": "GB",
 					"postal code": "M17 1SQ",
 					"gps": [53.474084, -2.334896]
 				}
@@ -1024,7 +1024,7 @@
 					"venue": "ao.com headquarters",
 					"address":"5a, The Parklands",
 					"city": "Bolton",
-					"country": "UK",
+					"country": "GB",
 					"postal code": "BL6 4SD",
 					"gps": [53.577617, -2.532824]
 				}
@@ -1253,7 +1253,7 @@
 					"venue": "Queen Elizabeth II Centre",
 					"address": "Broad Sanctuary, Westminster",
 					"city": "London",
-					"country": "UK",
+					"country": "GB",
 					"postal code": "SW1P 3EE",
 					"gps": [51.500202, -0.129009]
 				},
