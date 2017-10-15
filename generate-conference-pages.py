@@ -58,6 +58,12 @@ def getEmbedCodeFromSlidesURL(slides_url):
 		bs.iframe['height'] = unicode(int(600*aspect_ratio))
 		return bs.iframe.prettify()
 
+def checkForMissingValues(original, new):
+	for key in original.keys():
+		if (original[key] == new[key]) and (key in ['description', 'title', 'presentationlist']):
+			print "\tWARNING: {0} has default value".format(key)
+
+
 #get the data
 with open('data/conferences.json', 'r') as f:
 	conference_talks = json.load(f)
@@ -220,6 +226,8 @@ for talk_index in unique_talks:
 		pagevalues['reactions'] = unicode(reactionstring, 'utf-8')
 	else:
 		pagevalues['reactions'] = u''
+
+	checkForMissingValues(pagevariables, pagevalues)
 
 	# add keynotes indications?
 	with open(filepath, 'w') as f:

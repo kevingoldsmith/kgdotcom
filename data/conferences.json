@@ -363,6 +363,7 @@
 			{
 				"talk": "It Is All About the Benjamins: The Real World Economics of HPC",
 				"talk-type": "talk",
+				"talk-description": "Being able to spin up a GPU cluster on AWS is very attractive, but we need to do it in a cost-effective manner. This talk delves into the real world costs Adobe faces as we move more of our processing into the cloud. It also covers some techniques to achieve the performance our customers demand while maintaining reasonable costs.",
 				"date": "2013-02-07",
 				"length": 60,
 				"location": {
@@ -384,6 +385,7 @@
 			{
 				"talk": "Building with Lean and Agile in the Real World",
 				"talk-type": "talk",
+				"talk-description": "A tale of using Agile and Lean techniques to build products, using three products that I've worked on in my career.",
 				"date": "2013-10-24",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/valtech-day2013-kevingoldsmithbuildingleanandagileintherealworld",
 				"length": 60,
@@ -543,6 +545,7 @@
 				"talk": "Empowering Your Engineering Talent",
 				"talk-type": "talk",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/empowering-engineering-talent",
+				"talk-description": "An introduction to the Spotify Tribe/Squad/Chapter model, including changes made since the whitepaper was published.",
 				"date": "2014-09-22",
 				"length": 60,
 				"location": {
@@ -641,10 +644,11 @@
 		]
 	},
 	{
-		"conference": "Philips Leadership Offsite",
+		"conference": "Philips Personal Health Company Leadership Offsite",
 		"talks": [
 			{
 				"talk": "Innovation and Organization",
+				"talk-description": "In introduction to how organizational structure can support and enhance innovation within the enterprise.",
 				"talk-type": "talk",
 				"date": "2015-06-24",
 				"length": 60,
@@ -830,7 +834,7 @@
 				"talk": "Innovation and Organization",
 				"talk-type": "talk",
 				"date": "2015-11-24",
-				"talk-description": "",
+				"talk-description": "In introduction to how organizational structure can support and enhance innovation within the enterprise.",
 				"talk-url": "",
 				"length": 60,
 				"location": {
@@ -1321,7 +1325,7 @@
 				"talk": "A Software Career",
 				"talk-type": "talk",
 				"date": "2017-08-19",
-				"talk-description": "",
+				"talk-description": "You are working to become a professional software developer. It's a field that is constantly changing and evolving. Many of the things you'll be using as part of your job in ten years haven't been invented yet. How do you build a career in this environment? How can you stay relevant and successful in the industry? We'll cover some of the core traits of successful software developers. We'll discuss what a multi-year career can look like in the field. I'll share the things that software development managers look for in candidates. And I will answer your questions.",
 				"talk-url": "",
 				"length": 60,
 				"location": {
