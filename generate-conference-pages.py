@@ -29,7 +29,8 @@ format_reactions_div = '<div id=\"reactions\">\n<div class=\"subheader\">Reactio
 template_panel_list_item = '<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
 template_lab_list_item = '<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
 template_talk_list_item = '<li><a href="$file"><span class=\"talk-title\">$name</span></a></li>'
-format_other_talks_list_item = '<li>\n<div class=\"year\">{0}</div>\n<ul>\n'
+format_featured_talk_list_item = '<li><a href="{0}"><span class=\"talk-title\">{1}</span></a><div class="talk-description">{2}</div></li>'
+format_other_talks_list_item = '<li class=\"year-item\">\n<div class=\"year\">{0}</div>\n<ul>\n'
 format_close_div = '</div>\n'
 format_close_ul = '</ul>\n'
 format_close_li = '</li>\n'
@@ -279,8 +280,11 @@ for conference in labs:
 
 # generate the index page
 # get the list of current talks, they will go in a separate section
+current_talks = {}
 with open('data/current_talks.json') as f:
-	current_talks = json.load(f)
+	current_talk_list = json.load(f)
+	for talk in current_talk_list:
+		current_talks[talk['talk']] = talk['description']
 
 #generate lis for the panels
 panel_list_string = ''
@@ -313,12 +317,11 @@ if len(index_page['talks']) > 0:
 	featured_talk_strings = []
 	other_talk_strings = []
 	sorted_talks = sorted(index_page['talks'], key=itemgetter('date'), reverse=True)
-	listring = string.Template(template_talk_list_item)
 	for talk in sorted_talks:
-		if talk['name'] in current_talks:
-			featured_talk_strings.append(listring.substitute(talk))
+		if talk['name'] in current_talks.keys():
+			featured_talk_strings.append(format_featured_talk_list_item.format(talk['file'], talk['name'], current_talks[talk['name']]))
 		else:
-			other_talk_strings.append({'year': talk['date'].year, 'li': listring.substitute(talk)})
+			other_talk_strings.append({'year': talk['date'].year, 'li': string.Template(template_talk_list_item).substitute(talk)})
 	featured_talks_string = '\n'.join(featured_talk_strings)
 
 	current_year = 0
@@ -344,5 +347,9 @@ pagevalues['currenttalklist'] = featured_talks_string
 pagevalues['othertalklist'] = unicode(other_talks_string, 'utf-8')
 pagevalues['panellist'] = panel_list_string
 pagevalues['workshoplist'] = lab_list_string
+pagevalues['title'] = 'Kevin Goldsmith: talks'
+pagevalues['presentationlist'] = ''
+pagevalues['description'] = 'Kevin Goldsmith Talks'
+check_for_missing_values(pagevariables, pagevalues)
 with open(output_directory+'index.html', 'w') as f:
 	f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))

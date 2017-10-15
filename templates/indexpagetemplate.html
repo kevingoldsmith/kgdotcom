@@ -16,9 +16,40 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:300,400,600" />
 	<link rel="stylesheet" href="talkpages.css" />
+	<style>
+		.talk-description {
+			font-weight: 300;
+			font-size: .9em;
+			margin-bottom: 1em;
+		}
+		#featured-talks ul {
+			list-style: none;
+			padding-left: 1em;
+		}
+		.year-list {
+			list-style: none;
+			padding-left: 1em;
+		}
+		.year {
+			font-size: 1.2em;
+		}
+		.year-item {
+			padding-bottom: 1em;
+		}
+		.year-item ul {
+			list-style: none;
+			padding-left: 0em;
+		}
+		.panel-list {
+			padding-left: 1em;
+		}
+		.workshop-list {
+			padding-left: 1em;
+		}
+	</style>
 </head>
 <body>
-	<div id="header"></div>
+	<header></header>
 	<div id="featured-talks">
 		<div class="subheader">Current Talks</div>
 		<ul>
@@ -27,22 +58,22 @@
 	</div>
 	<div id="other-talks">
 		<div class="subheader">Older Talks</div>
-		<ul>
+		<ul class="year-list">
 			$othertalklist
 		</ul>
 	</div>
 	<div id="panels">
 		<div class="subheader">Panels</div>
-		<ul>
+		<ul class="panel-list">
 			$panellist
 		</ul>
 	</div>
 	<div id="workshops">
 		<div class="subheader">Workshops</div>
-		<ul>
+		<ul class="workshop-list">
 			$workshoplist
 		</ul>
 	</div>
-	<div id="footer"></div>
+	<footer></footer>
 </body>
 </html>

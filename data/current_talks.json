@@ -1,6 +1,18 @@
 [
-	"Building a Culture of Continuous Improvement in Your Company",
-	"Fail Fast, Fail Smart... Succeed!",
-	"What Does Good Agile Look Like?",
-	"Architecture and Organization"
+	{
+		"talk":"Building a Culture of Continuous Improvement in Your Company",
+		"description": "Avvo created tools to encourage data-driven thinking, autonomy and a spirit of continuous improvement. This talk describes those tools, their implementation and the issues and challenges encountered when doing large-scale culture change in a ten-year-old company."
+	},
+	{
+		"talk": "Fail Fast, Fail Smart... Succeed!",
+		"description": "A talk on why failure is important in innovation and tips on how to create en environment where the effects of failure are minimized while maximizing the learning."
+	},
+	{
+		"talk": "What Does Good Agile Look Like?",
+		"description": "One of the challenges when making an agile transformation or trying to level up agile teams is that many folks have never seen a truly high-performing agile organization. In this talk, I show what that looks like, to inspire and give a goal to those who are struggling with agile."
+	},
+	{
+		"talk": "Architecture and Organization",
+		"description": "You might know Conway's law, but do you know the Inverse Conway Maneuver? How your team is organized influences your architecture. Kevin Goldsmith explores why you should consider changing your organization to improve your architecture."
+	}
 ]
