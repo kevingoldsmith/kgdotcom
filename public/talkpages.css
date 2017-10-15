@@ -3,6 +3,12 @@ body {	background-color: white;
 		font-family: 'Encode Sans Expanded', sans-serif;
 		margin: 20px;
 	 }
+#wrapper {
+    min-width: 800px;
+    max-width: 900px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
 #talktitle {
 	font-size: 300%;
 	margin-bottom: 20px;
@@ -13,11 +19,16 @@ body {	background-color: white;
 .photocaption {
 	font-weight: 300;
 }
+.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
 #photo img {
 /*			width: 560px;
 	height: 258px;*/
 	width: 100%;
-	max-width: 960px;
+	max-width: 600px;
 }
 #description {
 	margin-bottom: 20px;
@@ -29,53 +40,35 @@ body {	background-color: white;
 .subheader {
 	font-size: 200%;
 }
+.othersubheader {
+	display:inline;
+}
 #video {
 	margin-bottom: 20px;
 }
-#othervideos .subheader {
-	font-size: 100%;
-	display: inline;
-}
-#othervideos ul {
+.inlinelist {
   display: inline;
   list-style: none;
-  margin-left: 5px;
-  padding-left: 0px;
+  margin-left: .2em;
+  padding-left: 0em;
 }
-#othervideos li {
+.inlinelistitem {
   display: inline;
 }
-#othervideos li:after {
+.inlinelistitem:after {
   content: ", ";
 }
-#othervideos li:last-child:after {
+.inlinelistitem:last-child:after {
 	content: "";
 }
+
 #slides {
 	margin-bottom:20px;
 }
-#otherslides .subheader {
-	font-size: 100%;
-	display: inline;
-}
-#otherslides ul {
-  display: inline;
-  list-style: none;
-  margin-left: 5px;
-  padding-left: 0px;
-}
-#otherslides li {
-  display: inline;
-}
-#otherslides li:after {
-  content: ", ";
-}
-#otherslides li:last-child:after {
-	content: "";
-}
+
 #presentations ul {
 	list-style: none;
-	padding-left: 5px;
+	padding-left: .6em;
 }
 #presentations li {
 	margin-bottom: .3em;
@@ -86,13 +79,14 @@ body {	background-color: white;
 .conferencedate {
 	font-style: italic;
 }
+
 #reactions ul {
 	list-style: none;
-	padding-left: 5px;
+	padding-left: .6em;
 }
 #reactions li {
 	margin-bottom: .5em;
 }
-#reactions .quote {
+.quote {
 	font-style: italic;
 }

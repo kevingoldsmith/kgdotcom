@@ -40,18 +40,21 @@ def getEmbedCodeFromVideoURL(video_url):
 		if 'v' in qs:
 			youtube_id = qs['v'][0]
 	elif parsed.netloc == 'vimeo.com':
-		response = requests.get('https://vimeo.com/api/oembed.json', params={'url': video_url})
+		response = requests.get('https://vimeo.com/api/oembed.json', params={'url': video_url, 'width': 600})
 		if response.status_code == 200:
 			return response.json()['html']
 	if len(youtube_id) > 0:
-		return '<iframe width="560" height="315" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'.format(youtube_id)
+		return '<iframe width="600" height="338" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'.format(youtube_id)
 
 
 def getEmbedCodeFromSlidesURL(slides_url):
 	#https://www.slideshare.net/developers/oembed
-	response = requests.get('http://www.slideshare.net/api/oembed/2', params={'url': slides_url, 'format': 'json'})
+	response = requests.get('http://www.slideshare.net/api/oembed/2', params={'url': slides_url, 'format': 'json', 'maxwidth': 600})
 	if response.status_code == 200:
 		bs = BeautifulSoup(response.json()['html'])
+		aspect_ratio = float(bs.iframe['height']) / float(bs.iframe['width'])
+		bs.iframe['width'] = u'600'
+		bs.iframe['height'] = unicode(int(600*aspect_ratio))
 		return bs.iframe.prettify()
 
 #get the data
@@ -122,7 +125,7 @@ for talk_index in unique_talks:
 
 	if os.path.isfile('public/'+filetitle+'.jpg'):
 		photofile = filetitle + '.jpg'
-		photo = '<div id=\"photo\">\n<img src=\"{0}\" />\n</div>'.format(photofile)
+		photo = '<div id=\"photo\">\n<img src=\"{0}\" class=\"aligncenter\"/>\n</div>'.format(photofile)
 		pagevalues['photo'] = photo
 
 	for conference in conferences:
@@ -173,12 +176,12 @@ for talk_index in unique_talks:
 
 		other_recordings_string = ''
 		if len(sorted_recordings) > 1:
-			other_recordings_string = '<div id=\"othervideos\">\n<div class=\"subheader\">Other recordings</div>\n<ul>{0}\n</ul>\n</div>'
+			other_recordings_string = '<div id=\"othervideos\">\n<div class=\"othersubheader\">Other recordings</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
 			iterrecordings = iter(sorted_recordings)
 			next(iterrecordings)
 			other_recordings_list = ''
 			for recording in iterrecordings:
-				other_recordings_list += '<li><a href=\"{0}\">{1}, {2}</a></li>\n'.format(recording['recording-url'], recording['conference'], recording['date'].year)
+				other_recordings_list += '<li class=\"inlinelistitem\"><a href=\"{0}\">{1}, {2}</a></li>\n'.format(recording['recording-url'], recording['conference'], recording['date'].year)
 			other_recordings_string = other_recordings_string.format(other_recordings_list)
 			video_string += other_recordings_string
 		video_string += "</div>"
@@ -191,12 +194,12 @@ for talk_index in unique_talks:
 
 		other_slides_string = ''
 		if len(sorted_slides) > 1:
-			other_slides_string = '<div id=\"otherslides\">\n<div class=\"subheader\">Other Versions</div>\n<ul>{0}\n</ul>\n</div>'
+			other_slides_string = '<div id=\"otherslides\">\n<div class=\"othersubheader\">Other Versions</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
 			iterslides = iter(sorted_slides)
 			next(iterslides)
 			other_slides_list = ''
 			for slide in iterslides:
-				other_slides_list += '<li><a href=\"{0}\">{1}, {2}</a></li>\n'.format(slide['slides-url'], slide['talk'], slide['date'].year)
+				other_slides_list += '<li class=\"inlinelistitem\"><a href=\"{0}\">{1}, {2}</a></li>\n'.format(slide['slides-url'], slide['talk'], slide['date'].year)
 			other_slides_string = other_slides_string.format(other_slides_list)
 			slides_string += other_slides_string
 		slides_string += "</div>"
@@ -215,10 +218,8 @@ for talk_index in unique_talks:
 	else:
 		pagevalues['reactions'] = u''
 
+	# add keynotes indications?
 	with open(filepath, 'w') as f:
-# use Beautiful Soup to prettify the html?
-# look for an image file with the same filename to add the photo
-# add keynotes indications?
 		f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))
 
 for conference in panels:

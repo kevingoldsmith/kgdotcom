@@ -3,37 +3,51 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>$title</title>
-    <meta name="description" content="Page describing the talk $title by $author">
-    <meta name="author" content="$author">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Page describing the talk $title by $author" />
+    <meta name="author" content="$author" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="$googsiteverification" />
 
     <!-- Google ownership links -->
     <link rel="author" href="$googauthor"/>
     <link rel="publisher" href="$googpublisher" />
 
+	<!-- Google Analytics -->
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-2753331-2', 'auto');
+	ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:300,400,600" />
 	<link rel="stylesheet" href="talkpages.css" />
 </head>
 <body>
-	<div id="header"></div>
-	<div id="talktitle">$title</div>
-	$photo
-	<div id="description">
-		<div class="subheader">Description</div>
-		<div id="talkdescription">$description</div>
+	<header></header>
+	<div id="wrapper" class="aligncenter">
+		<div id="talktitle">$title</div>
+		$photo
+		<div id="description">
+			<div class="subheader">Description</div>
+			<div id="talkdescription">$description</div>
+		</div>
+		$video
+		$slides
+		<div id="presentations">
+			<div class="subheader">Presented at</div>
+			<ul>
+				$presentationlist
+			</ul>
+		</div>
+		$reactions
 	</div>
-	$video
-	$slides
-	<div id="presentations">
-		<div class="subheader">Presented at</div>
-		<ul>
-			$presentationlist
-		</ul>
-	</div>
-	$reactions
-	<div id="footer"></div>
+	<footer></footer>
 </body>
 </html>
