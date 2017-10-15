@@ -1051,7 +1051,7 @@
 					"venue": "Pigott Building, Seattle University",
 					"address":"901 12th Avenue",
 					"city": "Seattle",
-					"state": "Washington",
+					"state": "WA",
 					"country": "US",
 					"postal code":"98122",
 					"gps": [47.610704, 122.318728]
@@ -1114,7 +1114,7 @@
 					"venue": "Starbucks Headquarters",
 					"address":"2401 Utah Ave S",
 					"city": "Seattle",
-					"state": "Washington",
+					"state": "WA",
 					"country": "US",
 					"postal code":"98134",
 					"gps": [47.580888, -122.335535]
@@ -1138,7 +1138,7 @@
 					"venue": "The Westin St. Francis Hotel",
 					"address": "335 Powell St",
 					"city": "San Francisco",
-					"state": "California",
+					"state": "CA",
 					"country": "US",
 					"postal code": "94102",
 					"gps": [37.787795, -122.408592]
@@ -1208,7 +1208,7 @@
 					"venue": "Zillow Corporate Headquarters",
 					"address": "1301 2nd Ave",
 					"city": "Seattle",
-					"state": "Washington",
+					"state": "WA",
 					"country": "US",
 					"postal code": "98101",
 					"gps": [47.607913, -122.337864]
@@ -1402,7 +1402,7 @@
 					"venue": "Pigott Building, Seattle University",
 					"address":"901 12th Avenue",
 					"city": "Seattle",
-					"state": "Washington",
+					"state": "WA",
 					"country": "US",
 					"postal code":"98122",
 					"gps": [47.610704, 122.318728]
@@ -1420,7 +1420,7 @@
 					"venue": "Pigott Building, Seattle University",
 					"address":"901 12th Avenue",
 					"city": "Seattle",
-					"state": "Washington",
+					"state": "WA",
 					"country": "US",
 					"postal code":"98122",
 					"gps": [47.610704, 122.318728]
