@@ -34,10 +34,13 @@ format_other_talks_list_item = '<li class=\"year-item\">\n<div class=\"year\">{0
 format_close_div = '</div>\n'
 format_close_ul = '</ul>\n'
 format_close_li = '</li>\n'
+format_a = '<a href=\"{0}\">{1}</a>'
 talk_type_keynote = 'keynote'
 talk_type_talk = 'talk'
 talk_type_panel = 'panel'
 talk_type_lab = 'lab'
+format_marker = '[\'{0} {1}\', {2}, {3}]'
+format_info_window = '[\'<div class=\"info_content\"><h3>{0} {1}</h3><p>{2}</p></div>\']'
 
 # thanks lazyweb
 # https://stackoverflow.com/questions/295135/turn-a-string-into-a-valid-filename
@@ -162,6 +165,7 @@ for talk_index in unique_talks:
 				this_talk = talk
 
 		if (this_talk is not None):
+			this_talk[u'outputfilename'] = unicode(outputfilename)
 			talk_date = date(*map(int, this_talk['date'].split("-")))
 
 			if ('talk-description' in this_talk) and (len(this_talk['talk-description']) > len(description)):
@@ -175,9 +179,9 @@ for talk_index in unique_talks:
 			if ('slides-url' in this_talk) and (not any(d.get('slides-url', None) == this_talk['slides-url'] for d in slides)):
 				slides.append({'date': talk_date, 'slides-url': this_talk['slides-url'], 'talk': this_talk['talk']})
 
-			city = this_talk['location']['city'].encode('utf-8') if 'city' in this_talk['location'] else ""
-			state = this_talk['location']['state'].encode('utf-8') if 'state' in this_talk['location'] else ""
-			country = this_talk['location']['country'].encode('utf-8') if 'country' in this_talk['location'] else ""
+			city = this_talk['location']['city'].encode('utf-8') if ('location' in this_talk) and ('city' in this_talk['location']) else ""
+			state = this_talk['location']['state'].encode('utf-8') if ('location' in this_talk) and ('state' in this_talk['location']) else ""
+			country = this_talk['location']['country'].encode('utf-8') if ('location' in this_talk) and ('country' in this_talk['location']) else ""
 			if len(country) == 2:
 				country = pycountry.countries.get(alpha_2=country.encode('utf-8')).name
 			#if there is no location, it is vritual
@@ -342,6 +346,28 @@ with open('templates/indexpagetemplate.html') as f:
 	talkpagetemplate = string.Template(f.read())
 
 print "creating index.html"
+
+marker_list = []
+info_list = []
+for conference in conference_talks:
+	if ('location' in conference['talks'][0]) and len(conference['conference']) > 0:
+		conference_name = conference['conference'].replace("\'","&apos;")
+		year = date(*map(int, conference['talks'][0]['date'].split("-"))).year
+		lat = conference['talks'][0]['location']['gps'][0]
+		log = conference['talks'][0]['location']['gps'][1]
+		marker = format_marker.format(conference_name, year, lat, log)
+		marker_list.append(marker)
+
+		talks = []
+		for talk in conference['talks']:
+			talk_name = talk['talk'].replace("\'","&apos;")
+			if 'outputfilename' in talk:
+				talks.append(format_a.format(talk['outputfilename'],talk_name.encode('utf-8')))
+			else:
+				talks.append(talk_name.encode('utf-8'))
+		info = format_info_window.format(conference_name, year, '<br />'.join(talks))
+		info_list.append(info)
+
 pagevalues = copy.deepcopy(pagevariables)
 pagevalues['currenttalklist'] = featured_talks_string
 pagevalues['othertalklist'] = unicode(other_talks_string, 'utf-8')
@@ -350,6 +376,8 @@ pagevalues['workshoplist'] = lab_list_string
 pagevalues['title'] = 'Kevin Goldsmith: talks'
 pagevalues['presentationlist'] = ''
 pagevalues['description'] = 'Kevin Goldsmith Talks'
+pagevalues['markerlist'] = unicode(',\n'.join(marker_list), 'utf-8')
+pagevalues['infolist'] = unicode(',\n'.join(info_list), 'utf-8')
 check_for_missing_values(pagevariables, pagevalues)
 with open(output_directory+'index.html', 'w') as f:
 	f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))

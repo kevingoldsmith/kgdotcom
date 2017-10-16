@@ -58,10 +58,21 @@
 		.workshop-list {
 			padding-left: 1em;
 		}
+		#map_wrapper {
+			height: 400px;
+		}
+		#map_canvas {
+		    width: 100%;
+		    height: 100%;
+		}
 	</style>
+	<!-- thanks to Ian Wright for the Mapping stuff https://wrightshq.com/playground/placing-multiple-markers-on-a-google-map-using-api-3/ -->
 </head>
 <body>
 	<header></header>
+	<div id="map_wrapper">
+    	<div id="map_canvas" class="mapping"></div>
+	</div>
 	<div id="featured-talks">
 		<div class="subheader">Current Talks</div>
 		<ul>
@@ -87,5 +98,68 @@
 		</ul>
 	</div>
 	<footer></footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		jQuery(function($$) {
+		    // Asynchronously Load the map API
+		    // $$$$ gets escapted to a single $$ in string template
+		    var script = document.createElement('script');
+		    script.src = "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+		    document.body.appendChild(script);
+		});
+
+		function initialize() {
+		    var map;
+		    var bounds = new google.maps.LatLngBounds();
+		    var mapOptions = {
+		        mapTypeId: 'roadmap'
+		    };
+
+		    // Display a map on the page
+		    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		    map.setTilt(45);
+
+		    // Multiple Markers
+		    var markers = [
+		        $markerlist
+		    ];
+
+		    // Info Window Content
+		    var infoWindowContent = [
+		        $infolist
+		    ];
+
+		    // Display multiple markers on a map
+		    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+		    // Loop through our array of markers & place each one on the map
+		    for( i = 0; i < markers.length; i++ ) {
+		        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+		        bounds.extend(position);
+		        marker = new google.maps.Marker({
+		            position: position,
+		            map: map,
+		            title: markers[i][0]
+		        });
+
+		        // Allow each marker to have an info window
+		        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		            return function() {
+		                infoWindow.setContent(infoWindowContent[i][0]);
+		                infoWindow.open(map, marker);
+		            }
+		        })(marker, i));
+
+		        // Automatically center the map fitting all markers on the screen
+		        map.fitBounds(bounds);
+		    }
+
+		    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+		    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+		        //this.setZoom(14);
+		        google.maps.event.removeListener(boundsListener);
+		    });
+		}
+	</script>
 </body>
 </html>

@@ -759,11 +759,7 @@
 				"talk-description": "How Spotify has built an organization around autonomy, innovation and velocity.",
 				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
-				"length": 60,
-				"location": {
-					"venue": "virtual",
-					"gps": [0,0]
-				}
+				"length": 60
 			}
 		]
 	},
@@ -1054,7 +1050,7 @@
 					"state": "WA",
 					"country": "US",
 					"postal code":"98122",
-					"gps": [47.610704, 122.318728]
+					"gps": [47.610704, -122.318728]
 				}
 			}
 		]
@@ -1405,7 +1401,7 @@
 					"state": "WA",
 					"country": "US",
 					"postal code":"98122",
-					"gps": [47.610704, 122.318728]
+					"gps": [47.610704, -122.318728]
 				}
 			},
 			{
@@ -1423,7 +1419,7 @@
 					"state": "WA",
 					"country": "US",
 					"postal code":"98122",
-					"gps": [47.610704, 122.318728]
+					"gps": [47.610704, -122.318728]
 				}
 			}
 		]
