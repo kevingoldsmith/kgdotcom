@@ -39,6 +39,7 @@ talk_type_keynote = 'keynote'
 talk_type_talk = 'talk'
 talk_type_panel = 'panel'
 talk_type_lab = 'lab'
+talk_type_workshop = 'workshop'
 format_marker = '[\'{0} {1}\', {2}, {3}]'
 format_info_window = '[\'<div class=\"info_content\"><h3>{0} {1}</h3><p>{2}</p></div>\']'
 
@@ -130,7 +131,7 @@ for conference in conference_talks:
 					unique_talks[talk_index] = [conference]
 		elif 'talk-type' in talk and talk['talk-type'] == talk_type_panel:
 			panels.append(conference)
-		elif 'talk-type' in talk and talk['talk-type'] == talk_type_lab:
+		elif 'talk-type' in talk and ((talk['talk-type'] == talk_type_lab) or (talk['talk-type'] == talk_type_workshop)):
 			labs.append(conference)
 
 index_page = {'talks': [], 'labs': [], 'panels': []}
