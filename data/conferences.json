@@ -1507,6 +1507,46 @@
 		]
 	},
 	{
+		"conference": "Tech Inclusion",
+		"url": "https://sf17.techinclusion.co/",
+		"talks": [
+			{
+				"talk": "Tech Apprenticeship: The Solution for Diversity and Talent Gaps",
+				"talk-type": "panel",
+				"date": "2017-10-18",
+				"talk-description": "Today, women make up 19% of the tech force nationally, people of color make up 5%, and Veterans make up only 1%. As we look to close these gaps, we in the tech sector find ourselves experiencing the perfect storm of economic challenges:\n-- Hiring need is out-pacing University output\n-- Socio-economic disparity is growing, driving more people to less industry desired degrees and secondary or tertiary education sources.\n-- Industry operating culture is under attack as diversity continue to decline, and we fail to represent the diverse marketplace that we serve.\n\nThis is why Apprenti (a program from Seattle-based nonprofit Washington Technology Industry Association) partnered with Industry and the U.S. Department of Labor to create a registered tech apprenticeship program. The program attracts diverse tech talent, provides training and a pathway to become successful in tech roles without regard for experience or education, as well as paid on-the-job training experience with top companies across the U.S.\n\nCome hear how companies like Amazon, Microsoft, Accenture and Avvo have adopted the tech apprenticeship model, are closing their diversity and talent gaps, and are hiring top talent from underrepresented groups.",
+				"talk-url": "https://sf17.techinclusion.co/agenda/session/208363",
+				"length": 40,
+				"location": {
+					"venue": "The Armory",
+					"address":"1800 Mission St",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code":"94103",
+					"gps": [37.767802, -122.420614]
+				}
+			},
+			{
+				"talk": "Best Practices in Apprenticeship Programs for Diverse Tech Talent",
+				"talk-type": "workshop",
+				"date": "2017-10-18",
+				"talk-description": "Diving into how to help create inclusive cultures for those with non traditional backgrounds.",
+				"talk-url": "https://sf17.techinclusion.co/agenda/session/208359",
+				"length": 60,
+				"location": {
+					"venue": "The Armory",
+					"address":"1800 Mission St",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code":"94103",
+					"gps": [37.767802, -122.420614]
+				}
+			}
+		]
+	},
+	{
 		"conference": "",
 		"url": "",
 		"talks": [
