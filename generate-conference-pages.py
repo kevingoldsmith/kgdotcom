@@ -35,13 +35,17 @@ format_close_div = '</div>\n'
 format_close_ul = '</ul>\n'
 format_close_li = '</li>\n'
 format_a = '<a href=\"{0}\">{1}</a>'
+format_marker = '[\'{0} {1}\', {2}, {3}]'
+format_info_window = '[\'<div class=\"info_content\"><h3>{0} {1}</h3><p>{2}</p></div>\']'
+
+#string constants
 talk_type_keynote = 'keynote'
 talk_type_talk = 'talk'
 talk_type_panel = 'panel'
+talk_type_panel_chair = 'panel (chair)'
 talk_type_lab = 'lab'
 talk_type_workshop = 'workshop'
-format_marker = '[\'{0} {1}\', {2}, {3}]'
-format_info_window = '[\'<div class=\"info_content\"><h3>{0} {1}</h3><p>{2}</p></div>\']'
+
 
 # thanks lazyweb
 # https://stackoverflow.com/questions/295135/turn-a-string-into-a-valid-filename
@@ -95,6 +99,17 @@ def check_for_missing_values(original, new):
 			print "\tWARNING: {0} has default value".format(key)
 
 
+def is_workshop(talk):
+	return 'talk-type' in talk and ((talk['talk-type'] == talk_type_lab) or (talk['talk-type'] == talk_type_workshop))
+
+def is_talk(talk):
+	return 'talk-type' in talk and ((talk['talk-type'] == talk_type_talk) or (talk['talk-type'] == talk_type_keynote))
+
+
+def is_panel(talk):
+	return 'talk-type' in talk and ((talk['talk-type'] == talk_type_panel) or (talk['talk-type'] == talk_type_panel_chair))
+
+
 #get the data
 with open('data/conferences.json', 'r') as f:
 	conference_talks = json.load(f)
@@ -123,26 +138,27 @@ for conference in conference_talks:
 	for talk in conference['talks']:
 		talk_index = ""
 		talk_index = talk['root-talk'] if 'root-talk' in talk else talk['talk']
-		if 'talk-type' in talk and ((talk['talk-type'] == talk_type_talk) or (talk['talk-type'] == talk_type_keynote)):
+		if is_talk(talk):
 			if len(talk_index) > 0:
 				if talk_index in unique_talks:
 					unique_talks[talk_index].append(conference)
 				else:
 					unique_talks[talk_index] = [conference]
-		elif 'talk-type' in talk and talk['talk-type'] == talk_type_panel:
+		elif is_panel(talk):
 			panels.append(conference)
-		elif 'talk-type' in talk and ((talk['talk-type'] == talk_type_lab) or (talk['talk-type'] == talk_type_workshop)):
+		elif is_workshop(talk):
 			labs.append(conference)
 
 index_page = {'talks': [], 'labs': [], 'panels': []}
 
 #now walk through our talk list generating pages for each talk
 for talk_index in unique_talks:
+
 	talktitle = talk_index
-	# print "generating page for {0}".format(talktitle.encode('utf-8'))
 	filetitle = generate_filename(talktitle)
 	outputfilename = filetitle + '.html'
 	filepath = output_directory + filetitle + '.html'
+
 	print "creating file: {0}".format(filetitle)
 
 	pagevalues = copy.deepcopy(pagevariables)
@@ -270,7 +286,7 @@ for talk_index in unique_talks:
 for conference in panels:
 	conference_name = conference['conference']
 	for talk in conference['talks']:
-		if 'talk-type' in talk and talk['talk-type'] == 'panel':
+		if is_panel(talk):
 			talk_date = date(*map(int, talk['date'].split("-")))
 			talk_name = talk['talk']
 			index_page['panels'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
@@ -278,7 +294,7 @@ for conference in panels:
 for conference in labs:
 	conference_name = conference['conference']
 	for talk in conference['talks']:
-		if 'talk-type' in talk and talk['talk-type'] == 'lab':
+		if is_workshop(talk):
 			talk_date = date(*map(int, talk['date'].split("-")))
 			talk_name = talk['talk']
 			index_page['labs'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
