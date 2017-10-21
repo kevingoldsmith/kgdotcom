@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -26,7 +26,12 @@
 	</script>
 	<!-- End Google Analytics -->
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:300,400,600" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
+    <!-- remove query on end of css before finishing, just used for debugging -->
+    <link rel="stylesheet" href="../css/genericons.css" />
+    <link rel="stylesheet" href="../css/site.css" />
 	<link rel="stylesheet" href="talkpages.css" />
 	<style>
 		.talk-description {
@@ -37,6 +42,9 @@
 		#featured-talks ul {
 			list-style: none;
 			padding-left: 1em;
+		}
+		#featured-talks .talk-title {
+			font-weight: 800;
 		}
 		.year-list {
 			list-style: none;
@@ -60,45 +68,92 @@
 		}
 		#map_wrapper {
 			height: 400px;
+			margin-top: 1em;
+    		margin-bottom: 1em;
 		}
 		#map_canvas {
 		    width: 100%;
 		    height: 100%;
 		}
+
+       /* iPhone portrait */
+        @media (max-device-width: 640px) {
+			#map_wrapper {
+				height: 300px;
+			}
+        }
+
 	</style>
 	<!-- thanks to Ian Wright for the Mapping stuff https://wrightshq.com/playground/placing-multiple-markers-on-a-google-map-using-api-3/ -->
 </head>
-<body>
-	<header></header>
-	<div id="map_wrapper">
-    	<div id="map_canvas" class="mapping"></div>
+<body class="twoColLiqRtHdr">
+	<div id="container">
+	    <header id="header">
+	        <div id="masthead">
+	            <div id="hdrText">
+	                Kevin Goldsmith
+	            </div>
+	        </div>
+	        <div id="links" class="desktop-only">
+	            <span><a href="/">home</a></span>
+	            <span><a href="/resume.html">resume</a></span>
+	            <span class="thispage">talks</span>
+	            <span><a href="/labs/">software</a></span>
+	            <span><a href="/music/">music</a></span>
+	            <span><a href="/photography/">photos</a></span>
+	        </div>
+	        <div id="linkicons" class="mobile-only">
+	            <span><a href="/"><img src="../img/Home-Icon.png" alt="home" title="home" /></a></span>
+	            <span><a href="/resume.html"><img src="../img/Resume-Icon.png" alt="resume" title="my resume" /></a></span>
+	            <span class="thispage"><img src="../img/Talks-Icon.png" alt="talks" title="talks I've given" /></span>
+	            <span><a href="/labs/"><img src="../img/Software-Icon.png" alt="software" title="software I've worked on" /></a></span>
+	            <span><a href="/music/"><img src="../img/Music-Icon.png" alt="music" title="discography" /></a></span>
+	            <span><a href="/photography/"><img src="../img/Photos-Icon.png" alt="photography" title="my photographs" /></a></span>
+	        </div>
+	        <!-- end #header -->
+	    </header>
+		<div id="mainContent">
+			<div id="map_wrapper">
+		    	<div id="map_canvas" class="mapping"></div>
+			</div>
+			<div id="featured-talks">
+				<div class="subheader">Current Talks</div>
+				<ul>
+					$currenttalklist
+				</ul>
+			</div>
+			<div id="other-talks">
+				<div class="subheader">Older Talks</div>
+				<ul class="year-list">
+					$othertalklist
+				</ul>
+			</div>
+			<div id="panels">
+				<div class="subheader">Panels</div>
+				<ul class="panel-list">
+					$panellist
+				</ul>
+			</div>
+			<div id="workshops">
+				<div class="subheader">Workshops</div>
+				<ul class="workshop-list">
+					$workshoplist
+				</ul>
+			</div>
+		<!-- end #mainContent -->
+		</div>
+	    <br class="clearfloat" />
+		<footer id="footer">
+	        <p>&copy; 2008-2017, Kevin Goldsmith</p>
+	        <!-- end #footer -->
+		</footer>
+	<!-- end #container -->
 	</div>
-	<div id="featured-talks">
-		<div class="subheader">Current Talks</div>
-		<ul>
-			$currenttalklist
-		</ul>
-	</div>
-	<div id="other-talks">
-		<div class="subheader">Older Talks</div>
-		<ul class="year-list">
-			$othertalklist
-		</ul>
-	</div>
-	<div id="panels">
-		<div class="subheader">Panels</div>
-		<ul class="panel-list">
-			$panellist
-		</ul>
-	</div>
-	<div id="workshops">
-		<div class="subheader">Workshops</div>
-		<ul class="workshop-list">
-			$workshoplist
-		</ul>
-	</div>
-	<footer></footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/headerAnimations.js"></script>
+    <script src="../js/vendor/retina.js"></script>
 	<script type="text/javascript">
 		jQuery(function($$) {
 		    // Asynchronously Load the map API
