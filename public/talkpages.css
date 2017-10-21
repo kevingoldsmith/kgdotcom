@@ -91,3 +91,25 @@
 .twoColLiqRtHdr #mainContent a:link {
 	   color: #550000;
 }
+/* iPhone portrait */
+@media (max-device-width: 640px) {
+    #slides iframe {
+        width: 320px;
+        height: 266px;
+    }
+    #video iframe {
+        width: 320px;
+        height: 180px;
+    }
+}
+/* iphone 5 */
+@media (max-device-width: 320px) {
+    #slides iframe {
+        width: 280px;
+        height: 233px;
+    }
+    #video iframe {
+        width: 280px;
+        height: 158px;
+    }
+}
