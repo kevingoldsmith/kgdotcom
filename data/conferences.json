@@ -1547,6 +1547,53 @@
 		]
 	},
 	{
+		"conference": "Agile Camp Silicon Valley",
+		"url": "http://agilecamp.org/silicon-valley",
+		"talks": [
+			{
+				"talk": "Building a Culture of Continuous Improvement in Your Company",
+				"talk-type": "talk",
+				"date": "2017-11-08",
+				"talk-description": "Avvo is a 10-year old company that is in high growth mode. In June, Kevin Goldsmith joined Avvo as its CTO after three years at Spotify. He will share learnings of how the team is bringing a lean and agile culture to this rapidly growing company. How do you scale the tools of transformation from the team to the company? In a company eager for change, how do you decide where to invest and how fast to go? Kevin will also share some of the programs that have been put into place to begin the transition from a top-down to bottom-up culture.",
+				"talk-url": "https://agilecampsiliconvalley2017.sched.com/event/COLz/building-a-culture-of-continuous-improvement-in-your-company",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-in-your-company",
+				"length": 60,
+				"location": {
+					"venue": "Santa Clara Convention Center",
+					"address":"5001 Great America Pkwy",
+					"city": "Santa Clara",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95054",
+					"gps": [37.404628, -121.975258]
+				}
+			}
+		]
+	},
+	{
+		"conference": "General Assembly talk series",
+		"url": "https://www.eventbrite.com/e/tech-and-the-new-workforce-tickets-38306985224#",
+		"talks": [
+			{
+				"talk": "Tech And... The New Workforce",
+				"talk-type": "panel",
+				"date": "2017-11-15",
+				"talk-description": "Ever wondered how the new workforce got to where it is today? The answer likely lies in tech!\nOverview: As a pioneer of tech education and training, General Assembly is committed to re-skilling and on-boarding employees in new economy, 21st century skills. Our approach to immersive and blended education enables companies to retain talent and boost their overall bench. Join us for an exclusive panel event, featuring thought-leaders from companies fueling the next generation of the workforce. They will discuss how they've been impacted by the rise of tech, ways they’ve adapted and innovated along the way, and what they expect to see in the future.\nWhat You’ll Take Away: Gain insight and inspiration from experts in the field and hear first-hand how technology is transforming their work. Expand your understanding of today’s tech-based world, and fuel your own ideas for the future.\nFeatured Experts: Leaders in the community will break down the biggest challenges and opportunities they face with the rise of new technology, and explain how their teams adapt to the fast pace of innovation.\nWhy It Matters: The omnipresence of technology has rapidly transformed lives over the last decade. Now, it’s rare to go about a regular day without interacting with tech in some way. Staying ahead of the innovation curve and being able to predict the future of tech in various industries has never been more important.",
+				"talk-url": "https://www.eventbrite.com/e/tech-and-the-new-workforce-tickets-38306985224#",
+				"length": 60,
+				"location": {
+					"venue": "General Assembly Seattle",
+					"address":"1218 3rd Avenue, 3rd floor",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98101",
+					"gps": [47.607737, -122.335472]
+				}
+			}
+		]
+	},
+	{
 		"conference": "",
 		"url": "",
 		"talks": [
