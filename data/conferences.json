@@ -1594,35 +1594,47 @@
 		]
 	},
 	{
-		"conference": "",
-		"url": "",
+		"conference": "The 26th Annual National Seattle Conference on Cutting edge issues in Technology Law",
+		"url": "https://www.lawseminars.com/seminars/2017/17COMWA.php",
 		"talks": [
 			{
-				"talk": "",
+				"talk": "Moving forward under weaker US net neutrality rules",
 				"talk-type": "talk",
-				"date": "2017-09-09",
-				"talk-description": "",
-				"talk-url": "",
-				"slides-url": "",
-				"recording-url": "",
-				"length": 60,
+				"date": "2017-11-30",
+				"talk-description": "Implications of the loss of Net Neutrality for technology startups: Coping strategies for companies that can't afford to buy their way into the fast lane",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/moving-forward-under-weaker-us-net-neutrality-rules",
+				"length": 30,
 				"location": {
-					"venue": "",
-					"address":"",
-					"city": "",
-					"state": "",
-					"country": "",
-					"postal code":"",
-					"gps": [0,0]
-				},
-				"reactions": [
-					{
-						"quote": "",
-						"credit": "",
-						"credit-url": "",
-						"reference-url": ""
-					}
-				]
+					"venue": "US Bank Centre, D. Wayne Gittinger Conference Center",
+					"address":"1420 5th Ave",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98101",
+					"gps": [47.610345, -122.334139]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Stretch: Leadership and Management Conference",
+		"url": "http://www.stretchcon.com/2017/",
+		"talks": [
+			{
+				"talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "talk",
+				"date": "2017-12-08",
+				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high. Over the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster. In this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Adobe, Spotify, and Avvo; and I give real architectural, cultural and organizational tools you can use to make your projects and company more failure safe.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"length": 45,
+				"location": {
+					"venue": "Uránia Film Theather",
+					"address":"Rákóczi út 21",
+					"city": "Budapest",
+					"country": "HU",
+					"postal code":"1088",
+					"gps": [47.495405, 19.065105]
+				}
 			}
 		]
 	}
