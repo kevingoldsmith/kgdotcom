@@ -1637,5 +1637,18 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "The FCC's Dismantling of Net Neutrality - Law Seminars International Webcast Panel",
+		"url": "http://lawseminars.com/seminars/2017/17NETTB.php",
+		"talks": [
+			{
+				"talk": "The FCC's Dismantling of Net Neutrality",
+				"talk-type": "panel",
+				"date": "2017-12-20",
+				"talk-description": "On November 21, the now Republican controlled Federal Communications Commission (FCC) released a draft order proposing to dismantle the Obama era net neutrality policies. The much-publicized vote is scheduled for December 14 with what is expected to be a partisan 3-2 approval of the order along party lines. If approved, the order will reverse the utility-style (\"Title II\") regulation of mobile and broadband internet access providers, as well as removing the current prohibitions on blocking, throttling, paid prioritization, and general discrimination of Internet access traffic.\nThe order will also return jurisdiction over broadband internet practices to the Federal Trade Commission and pre-empt state and local regulations that might attempt to restore the Obama era policies. This controversial decision will have a major impact on the future of the Internet, with strong reactions from the information industry, consumers, and lawmakers certain to follow.\nWe're pleased that, in anticipation of the vote, Law Seminars International has assembled a diverse panel of experts and scheduled an in depth analysis, via webcast, for the next day. We hope you will be able to join us via the web or by phone. Replays also will be available. For background on this complicated topic, we're pleased to also offer our updated publication \"The Rise and Fall of Net Neutrality (a short history\" (Sapronov & Associates, P.C., Rev. Dec. 2017).",
+				"length": 90
+			}
+		]
 	}
 ]
