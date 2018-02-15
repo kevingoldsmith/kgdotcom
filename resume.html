@@ -1,0 +1,165 @@
+<html>
+<head>
+	<title>Kevin Goldsmith</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Cinzel|Didact+Gothic');
+		body {
+			font-family: 'Didact Gothic', sans-serif;
+		}
+		a {
+			text-decoration: none;
+		}
+		a:visited {
+			color: black;
+		}
+		#header {
+			top: 0;
+			padding-top: .5em;
+			border-bottom-width: .1em;
+			border-bottom-style: solid;
+			position: fixed;
+			width: 100%;
+			background: #FFFFFF;
+		}
+		#name {
+			font-family: 'Cinzel', serif;
+			font-weight: 500;
+			font-size: 4em;
+			margin-bottom: 0em;
+			margin-top: 0em;
+			line-height: 80%;
+		}
+		#menu {
+			margin-bottom: .3em;
+		}
+		#menu ul {
+			list-style-type: none;
+			padding-left: 0;
+			margin-top:0;
+			margin-bottom:0;
+			margin-left:.2em;
+		}
+		#menu li {
+			display: inline-block;
+			margin-right:1em;
+			vertical-align: top;
+			text-align: right;
+		}
+		#submenu {
+			position: fixed;
+		}
+		#submenu ul {
+			list-style-type: none;
+			padding-left: 0;
+			margin-top:0;
+			margin-bottom:0;
+			margin-left:.2em;
+		}
+		#content {
+			padding-top: 5em;
+		}
+		#scrolled-content {
+			padding-left: 10em;
+		}
+		.active {
+			color: white;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div id="name"><a href="index.html">Kevin Goldsmith</a></div>
+		<div id="menu">
+			<ul>
+				<li>technology leader</li>
+				<li>speaker</li>
+				<li>writer</li>
+				<li>musician</li>
+				<li>photographer</li>
+			</ul>
+		</div>
+	</div>
+	<div id="content">
+		<div id="submenu">
+			<ul>
+				<li class="navigation active"><a href="#experience">experience</a></li>
+				<li class="navigation"><a href="#patents">patents</a></li>
+				<li class="navigation"><a href="#education">education</a></li>
+				<li class="navigation"><a href="#interviews">interviews</a></li>
+				<li class="navigation"><a href="#invited">invited keynotes</a></li>
+				<li class="navigation"><a href="#publishing">publishing credits</a></li>
+				<li class="navigation"><a href="#production">production credits</a></li>
+				<li class="navigation"><a href="#honors">honors</a></li>
+			</ul>
+		</div>
+		<div id="scrolled-content">
+			<div class="page-section" id="experience">
+				<div class="section-title">Experience</div>
+			</div>
+			<div class="page-section" id="patents">
+				<div class="section-title">Patents</div>
+			</div>
+			<div class="page-section" id="education">
+				<div class="section-title">Education</div>
+			</div>
+			<div class="page-section" id="interviews">
+				<div class="section-title">interviews</div>
+			</div>
+			<div class="page-section" id="invited">
+				<div class="section-title">invited</div>
+			</div>
+			<div class="page-section" id="publishing">
+				<div class="section-title">publishing</div>
+			</div>
+			<div class="page-section" id="production">
+				<div class="section-title">production</div>
+			</div>
+			<div class="page-section" id="honors">
+				<div class="section-title">honors</div>
+			</div>
+		</div>
+	<div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script>
+	$(document).ready(function() {
+		$('a[href*=#]').bind('click', function(e) {
+				e.preventDefault(); // prevent hard jump, the default behavior
+
+				var target = $(this).attr("href"); // Set the target as variable
+				//$('.navigation, .active').removeClass('active');
+				//$(this).parent('.navigation').addClass('active');
+
+				// perform animated scrolling by getting top-position of target-element and set it as scroll target
+				$('html, body').stop().animate({
+						scrollTop: $(target).offset().top - $('#header').height() - 10
+				}, 600, function() {
+						location.hash = target; //attach the hash (#jumptarget) to the pageurl
+				});
+
+				return false;
+		});
+	});
+
+	$(window).scroll(function() {
+		var content = $('#content');
+		var scrollDistance = $(window).scrollTop() + parseInt(content.css("paddingTop")) + content.position().top;
+
+		// Assign active class to nav links while scolling
+		$('.section-title').each(function(i) {
+				if ($(this).position().top <= scrollDistance) {
+						$('.navigation, .active').removeClass('active');
+						$('.navigation').eq(i).addClass('active');
+				}
+		});
+		//console.log($(window).scrollTop() + ', ' + window.innerHeight + ', ' + $(document).height());
+		if($(window).scrollTop() + window.innerHeight == $(document).height()) {
+			$('.navigation, .active').removeClass('active');
+			$('.navigation').last().addClass('active');
+		}
+	}).scroll();
+    </script>
+
+
+</body>
+</html>
