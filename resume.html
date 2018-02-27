@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Kevin Goldsmith</title>
+	<title>Kevin Goldsmith: Resume</title>
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Cinzel|Didact+Gothic');
 		body {
@@ -29,26 +29,26 @@
 			margin-top: 0em;
 			line-height: 80%;
 		}
-		#menu {
+		#site-nav {
 			margin-bottom: .3em;
 		}
-		#menu ul {
+		#site-nav ul {
 			list-style-type: none;
 			padding-left: 0;
 			margin-top:0;
 			margin-bottom:0;
 			margin-left:.2em;
 		}
-		#menu li {
+		#site-nav li {
 			display: inline-block;
 			margin-right:1em;
 			vertical-align: top;
 			text-align: right;
 		}
-		#submenu {
+		#page-nav {
 			position: fixed;
 		}
-		#submenu ul {
+		#page-nav ul {
 			list-style-type: none;
 			padding-left: 0;
 			margin-top:0;
@@ -65,12 +65,18 @@
 			color: white;
 			background-color: gray;
 		}
+		section {
+			padding-bottom: 1em;
+		}
+		h2 {
+			margin: 0 0 0 0;
+		}
 	</style>
 </head>
 <body>
-	<div id="header">
+	<header id="header">
 		<div id="name"><a href="index.html">Kevin Goldsmith</a></div>
-		<div id="menu">
+		<div id="site-nav">
 			<ul>
 				<li>technology leader</li>
 				<li>speaker</li>
@@ -79,11 +85,13 @@
 				<li>photographer</li>
 			</ul>
 		</div>
-	</div>
+	</header>
 	<div id="content">
-		<div id="submenu">
+		<div id="page-nav">
 			<ul>
-				<li class="navigation active"><a href="#experience">experience</a></li>
+				<li class="navigation active"><a href="#contact">Contact</a></li>
+				<li class="navigation"><a href="#summary">Summary</a></li>
+				<li class="navigation"><a href="#experience">experience</a></li>
 				<li class="navigation"><a href="#patents">patents</a></li>
 				<li class="navigation"><a href="#education">education</a></li>
 				<li class="navigation"><a href="#interviews">interviews</a></li>
@@ -94,30 +102,181 @@
 			</ul>
 		</div>
 		<div id="scrolled-content">
-			<div class="page-section" id="experience">
-				<div class="section-title">Experience</div>
-			</div>
-			<div class="page-section" id="patents">
-				<div class="section-title">Patents</div>
-			</div>
-			<div class="page-section" id="education">
-				<div class="section-title">Education</div>
-			</div>
-			<div class="page-section" id="interviews">
-				<div class="section-title">interviews</div>
-			</div>
-			<div class="page-section" id="invited">
-				<div class="section-title">invited</div>
-			</div>
-			<div class="page-section" id="publishing">
-				<div class="section-title">publishing</div>
-			</div>
-			<div class="page-section" id="production">
-				<div class="section-title">production</div>
-			</div>
-			<div class="page-section" id="honors">
-				<div class="section-title">honors</div>
-			</div>
+			<section class="page-section" id="contact">
+				<h2>Contact</h2>
+				<div class="section-content">
+					<div id="resume-email" class="center"><table cellpadding="0" cellspacing="0"><tr><td><i>kevin<!-- blah --></i></td><td>@</td><td><i>unitcircle.</i><!-- blah --></td><td><!--blah--><i>com</i></td></tr></table></div>
+					<div id="resume-weblink"><a href="https://kevingoldsmith.com/">https://kevingoldsmith.com/</a></div>
+				</div>
+			</section>
+			<section class="page-section" id="summary">
+				<h2>Summary</h2>
+				<div class="section-content">
+					<div id="resume-mini-summary">Innovative, strategic, hands-on technical and people leader with a record of building high-performing teams to address new technologies, new markets, and to deliver on revenue opportunities quickly.</div>
+					<div id="resume-summary">Am an experienced, hands-on, technical leader of high profile, high-performing product, research, and shared technology engineering organizations. Pioneered the use of new technologies and development methodologies within organizations, and evangelized them successfully to senior management and other engineering teams. Routinely receive excellent reviews for leadership and customer focus. Am often invited to speak about building strong engineering teams at conferences internationally. Technical areas of expertise include: service scalability, user experience, consumer product development, GPGPU, multi-core, distributed computing, desktop, mobile, and connected architectures, image, audio and video processing, domain-specific languages and graphics. Have extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.</div>
+				</div>
+			</section>
+			<section class="page-section" id="experience">
+				<h2>Experience</h2>
+				<div class="section-content">
+					<div class="resume-job newest-job">
+					<div class="job-title">Chief Technology Officer (CTO)</div>
+					<div class="job-dates">June 2016 - present</div>
+					<div class="job-company"><a href="http://www.avvo.com" target="_blank">Avvo</a></div>
+					<div class="job-city">Seattle, WA</div>
+					<div class="job-description">
+					Responsible for all product development, data science, data engineering, business technology support, and IT for this venture-funded, growing startup.
+					</div>
+					</div>
+
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Vice President of Engineering, Consumer</div>
+					<div class="job-dates">May 2013 - June 2016</div>
+					<div class="job-company"><a href="http://www.spotify.com" target="_blank">Spotify AB</a></div>
+					<div class="job-city">Stockholm, Sweden</div>
+					</div>
+					<div class="job-description">
+					Led the one hundred and seventy-six person consumer engineering organization in Sweden, three tribes consisting of nineteen squads in Stockholm and Göteborg, Sweden and New York City, USA; including engineering, test and agile coaches. The Consumer Alliance is responsible for all of features in the Spotify product on the primary platforms, and for the media path from ingestion to storage, streaming and playback. Each of the teams was responsible for their full stack (from services to client UI) for Spotify's mobile, desktop and web platforms. I was responsible for both large step-change product innovation efforts and continuing high-velocity incremental innovation, helping Spotify grow several hundred percent in active and paying users.</div>
+					</div>
+
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Director, Engineering</div>
+					<div class="job-dates">April 2004 - May 2013</div>
+					<div class="job-company"><a href="http://www.adobe.com" target="_blank">Adobe Systems, Incorporated</a></div>
+					<div class="job-city">Seattle, WA</div>
+					</div>
+					<div class="job-description">
+					<p>Managed a thirty-eight person organization focused on building the <a href="http://www.adobe.com/products/revel.html" target="_new">Adobe Revel</a> mobile, desktop and web clients; as well as building a shared client, cloud and imaging architecture to be used across all of Adobe's mainstream products based on the architecture my team created for the Adobe Carousel (renamed Adobe Revel) product. Direct reports were senior engineering, operations and quality engineering managers as well as senior architects. Lead the effort to take the product from its initial prototypes to a full commercial version on the iOS and OS X operating systems while building out the engineering and quality engineering teams. From prototype to 1.0 launch was less than 8 months. The product was downloaded over four million times in its first two months of release, and remained in the top 10 photography apps during my time on the product. From Revel’s launch until my departure, the product grew from managing zero to 300 million user assets, and from zero to 4.5 million user accounts. Was the primary Engineering manager responsible for the 1.0 1.1, 1.6, 1.8 and 2.0 releases.</p>
+					<p>From 2005 until 2011, managed the Adobe Image Foundation group: fourteen senior development and quality engineers creating the <span class="product-name">Pixel Bender</span> image and video processing language and its CPU and GPU runtime for use in Adobe Products. Was one of the principal Adobe engineering contacts with ISVs, IHVs and standards bodies on areas of high performance computing, GPUs, and Multi-core development. Additionally, was the primary developer of the <span class="product-name">Pixel Bender Toolkit IDE</span> application that shipped with the Creative Suite. AIF technology shipped in After Effects CS3/4/5, Photoshop CS4/5, Premiere CS4/5, Flash Pro CS4/5, Flash Player 10 and all other Adobe imaging and video products. The increased performance from the GPU and multi-core acceleration was an oft-cited major selling point for Adobe’s applications in reviews and customer feedback.</p>
+					<p>From 2004 to 2005, was the Project Lead and Architect in the Innovative Technologies for Emerging Markets team. Worked with Photoshop Elements team to transition nascent technology to create the Adobe Help Center, a new help system. Shipped with Photoshop Elements (version 3, 4 and 5), Premiere Elements (Version 2 and 3), Creative Suite CS2 (and all associated apps), and the Digital Video Suite 2005 (including all associated apps).</p>
+					</div>
+					</div>
+
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Software Design Engineer</div>
+					<div class="job-dates">December 2002 - April 2004</div>
+					<div class="job-company"><a href="http://www.microsoft.com/" target="_blank">Microsoft Corporation</a></div>
+					<div class="job-city">Redmond, WA</div>
+					</div>
+					<div class="job-description">
+					Member of the <span class="product-name">Windows CE</span> Core OS team; responsible for half of the Windows CE standard shell UI APIs shipped in Windows CE 4.2 and 5.0. For version 5.0, completely re-architected and did the majority of the implementation work for the build system in the WindowsCE Platform Builder IDE tool. Overcame significant political resistance from Program Management and Quality Engineering organizations by creating a small tiger team that adopted an agile-based approach to develop the new system quickly and with high code coverage from automated unit tests. The new build system was an unqualified success with Microsoft’s embedded IHV partners.
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Software Developer Level 4</div>
+					<div class="job-dates">June 2002 - December 2002</div>
+					<div class="job-company"><a href="http://www.volt.com">Volt Technologies, Inc.</a></div>
+					<div class="job-city">Redmond, WA</div>
+					</div>
+					<div class="job-description">
+					Was a consultant to Microsoft's <span class="product-name">Windows CE.NET</span> team. Ported the Pocket Excel application to Windows CE 4.2, and created a common shell library to unify the API for the many versions of the Windows CE shell.
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Director of Engineering</div>
+					<div class="job-dates">June 2001 - June 2002</div>
+					<div class="job-company">Agnostic Media</div>
+					<div class="job-city">Seattle, WA</div>
+					</div>
+					<div class="job-description">
+					Designed the architecture and did the server-side implementation of an automated media encoding and digital asset management application directed at companies with large media libraries. Also met with potential investors, hardware and software partners.
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Development Lead</div>
+					<div class="job-dates">July 2000 - June 2001</div>
+					<div class="job-company">BootlegNetworks, Inc.</div>
+					<div class="job-city">Seattle, WA</div>
+					</div>
+					<div class="job-description">
+					Managed a team using Extreme Programming methodologies to develop a world-class media management, archiving, and productizing solution. Additionally, was responsible for meeting with angel investors, venture capital partners, potential customers, hardware and software partners. Hired all members of the development organization and directly contributed to development of the product.
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Software Design Engineer</div>
+					<div class="job-dates">Sept 1994 - July 2000</div>
+					<div class="job-company"><a href="http://www.microsoft.com/">Microsoft Corporation</a></div>
+					<div class="job-city">Redmond, WA</div>
+					</div>
+					<div class="job-description">
+					<p>Was a developer with the <span class="product-name">Windows Media</span> version 7.0 Encoder application team in the Digital Media Division from August 1999 to July 2000. Designed and implemented significant pieces of the application. This release was pivotal in Microsoft taking a leadership position in streaming media.</p>
+					<p>From September 1994 until August 1999, was a development lead in the Virtual Worlds Group of Microsoft Research. The goal of the project was to define the future of multi-user on-line virtual environments. The first shipping version of the project was called <span class="product-name">V-Chat</span>. Created initial prototypes of V-Chat; designed significant parts of the software architecture; and wrote production code for audio support and 3D graphics architecture. Lead development on the V-Chat authoring system shipped to all content developers. Following V-Chat, lead a Development group of four to create a next-generation authoring tool for virtual environments. That work was shipped in the Microsoft <span class="product-name">Virtual Worlds Platform</span> v1.0, v1.1, v1.5 and v2.0 releases.</p>
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Research and Development Staff</div>
+					<div class="job-dates">April 1994 - Sept 1994</div>
+					<div class="job-company">(Colossal) Pictures</div>
+					<div class="job-city">San Francisco, CA</div>
+					</div>
+					<div class="job-description">
+					Developed a Renderman interface for the Alive performance animation system. Also developed tools for (C)P animators using softImage and Ark, and was a technical consultant on the Squeezels networked VR game that was being developed for the Silicon Graphics Indigo 2 workstation.
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Member of Technical Staff</div>
+					<div class="job-dates">May 1992 - April 1994</div>
+					<div class="job-company"><a href="http://www.sgi.com/">Silicon Graphics Inc.</a></div>
+					<div class="job-city">Mountain View, CA</div>
+					</div>
+					<div class="job-description">
+					Initiated and executed several projects, including: <span class="product-name">Gallery</span>, a virtual reality Art Gallery for the Reality Engine Computer, developed with a team of three other people. <span class="product-name">Trainer</span>, a multimedia computer-based training station for the United Airlines maintenance base, developed with consultation from the United Airlines technology groups. Lead developer on <span class="product-name">The Out Of Box Experience</span>, a joint project between Silicon Graphics and (Colossal) Pictures shipped as part of every SGI Indy system, including developers from both companies. <span class="product-name">3D Annotator</span>, a prototype of a product that allows users to attach audio, video clips, images and text to 3D objects, which was later developed into the <span class="product-name">IRIS Annotator</span> product.
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Programmer</div>
+					<div class="job-dates">May 1991 - May 1992</div>
+					<div class="job-company">IBM Information Technology Center</div>
+					<div class="job-city">Pittsburgh, PA</div>
+					</div>
+					<div class="job-description">
+					Worked on an editing system for the <span class="product-name">TACTUS multimedia toolkit</span>. Acknowledged in <em>Tactus: toolkit-level support for synchronized</em> <em>interactive multimedia</em> (Dannenberg, Nuendorffer, Newcomer, Rubine, Anderson), Multimedia Systems, Springer-Verlag, 1993
+					</div>
+					</div>
+					<div class="resume-job">
+					<div class="resume-job-header">
+					<div class="job-title">Programmer</div>
+					<div class="job-dates">January 1990 - October 1990</div>
+					<div class="job-company">Center For Integrated Manufacturing Decision Systems</div>
+					<div class="job-city">Pittsburgh, PA</div>
+					</div>
+					<div class="job-description">
+					Developed a graphical interface and command-language interpreter in Common Lisp for the <span class="product-name">CDART</span> military scheduler project.
+					</div>
+					</div>
+				</div>
+			</section>
+			<section class="page-section" id="patents">
+				<h2>Patents</h2>
+			</section>
+			<section class="page-section" id="education">
+				<h2>Education</h2>
+			</section>
+			<section class="page-section" id="interviews">
+				<h2>interviews</h2>
+			</section>
+			<section class="page-section" id="invited">
+				<h2>invited</h2>
+			</section>
+			<section class="page-section" id="publishing">
+				<h2>publishing</h2>
+			</section>
+			<section class="page-section" id="production">
+				<h2>production</h2>
+			</section>
+			<section class="page-section" id="honors">
+				<h2>honors</h2>
+			</section>
 		</div>
 	<div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
