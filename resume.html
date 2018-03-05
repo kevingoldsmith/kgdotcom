@@ -54,9 +54,16 @@
 		}
 		#site-nav li {
 			display: inline-block;
+			padding-left: .2em;
+			padding-right: .2em;
+			padding-bottom: .1em;
 			margin-right:1em;
 			vertical-align: top;
 			text-align: right;
+		}
+		.current-page {
+			color: #DDDDDD;
+			background-color: #333333;
 		}
 		#page-nav {
 			position: fixed;
@@ -153,6 +160,10 @@
 		display: block;
 		text-align: center;
 	}
+	.current-page {
+		color: #DD0000;
+		background-color: inherit;
+	}
 	#scrolled-content {
 		padding-left: 0em;
 	}
@@ -235,7 +246,7 @@
 		<div id="name"><a href="index.html">Kevin Goldsmith</a></div>
 		<div id="site-nav">
 			<ul>
-				<li>technology leader</li>
+				<li class="current-page">technology leader</li>
 				<li>speaker</li>
 				<li>writer</li>
 				<li>musician</li>
