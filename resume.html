@@ -1,11 +1,13 @@
 <html>
 <head>
 	<title>Kevin Goldsmith: Resume</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<style>
 		/* Common header elements, move to separate file? */
 		@import url('https://fonts.googleapis.com/css?family=Cinzel|Didact+Gothic');
 		body {
 			font-family: 'Didact Gothic', sans-serif;
+			margin: 0;
 		}
 		a {
 			text-decoration: none;
@@ -19,9 +21,9 @@
 			padding-top: .5em;
 			border-bottom-width: .1em;
 			border-bottom-style: solid;
-			position: fixed;
 			width: 100%;
 			background: #FFFFFF;
+			position: fixed;
 		}
 		footer {
 			padding-top: .5em;
@@ -132,6 +134,98 @@
 		.simple-list li:last-of-type {
 			padding-bottom: 0em;
 		}
+
+// Small screens
+@media only screen { 
+	body { background-color: #FF0000; }
+} /* Define mobile styles */
+
+@media only screen and (max-width: 40em) {
+	header {
+		position: relative;
+		padding: .5em .5em .2em .5em;
+	}
+	#name {
+		font-size: 2em;
+		text-align: center;
+	}
+	#site-nav li {
+		display: block;
+		text-align: center;
+	}
+	#scrolled-content {
+		padding-left: 0em;
+	}
+	#content {
+		padding: .2em .5em 0em .5em;
+	}
+	#page-nav {
+		visibility: hidden;
+	}
+	.job-dates {
+		float: none;
+		margin-top: 0;
+	}
+	.job-city {
+		float: none;
+		margin-top: 0;
+	}
+	footer {
+		padding: .5em .5em .5em .5em;
+	}
+} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens
+@media only screen and (min-width: 40.063em) {
+	body { background-color: #0000FF; }
+} /* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+	header {
+		padding: .5em .5em .2em .5em;
+	}
+	#content {
+		padding: 5em 1em 0em .5em;
+		margin-top: 1em;
+	}
+	footer {
+		padding: 0em 0em 0em .5em;
+	}
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+// Large screens
+@media only screen and (min-width: 64.063em) {
+	body { background-color: #00AA00; }
+} /* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+	header {
+		padding: .5em .5em .2em .5em;
+	}
+	#content {
+		padding: 5em 1em 0em .5em;
+		margin-top: 1em;
+	}
+	footer {
+		padding: 0em 0em 0em .5em;
+	}	
+} /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+// XLarge screens
+@media only screen and (min-width: 90.063em) {
+	body { background-color: #CC0000; }
+} /* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
+	body { background-color: #00CC00; }
+} /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+// XXLarge screens
+@media only screen and (min-width: 120.063em) {
+	body { background-color: #0000CC; }
+} /* min-width 1921px, xxlarge screens */
+
+
 	</style>
 </head>
 <body>
@@ -150,8 +244,8 @@
 	<div id="content">
 		<div id="page-nav">
 			<ul>
-				<li class="navigation active"><a href="#contact">Contact</a></li>
-				<li class="navigation"><a href="#summary">Summary</a></li>
+				<li class="navigation active"><a href="#contact">contact</a></li>
+				<li class="navigation"><a href="#summary">summary</a></li>
 				<li class="navigation"><a href="#experience">experience</a></li>
 				<li class="navigation"><a href="#patents">patents</a></li>
 				<li class="navigation"><a href="#education">education</a></li>
@@ -164,21 +258,21 @@
 		</div>
 		<div id="scrolled-content">
 			<section class="page-section" id="contact">
-				<h2 class="section-title">Contact</h2>
+				<h2 class="section-title">contact</h2>
 				<div class="section-content">
 					<div id="resume-email" class="center"><table cellpadding="0" cellspacing="0"><tr><td><i>kevin<!-- blah --></i></td><td>@</td><td><i>unitcircle.</i><!-- blah --></td><td><!--blah--><i>com</i></td></tr></table></div>
 					<div id="resume-weblink"><a href="https://kevingoldsmith.com/">https://kevingoldsmith.com/</a></div>
 				</div>
 			</section>
 			<section class="page-section" id="summary">
-				<h2 class="section-title">Summary</h2>
+				<h2 class="section-title">summary</h2>
 				<div class="section-content">
 					<div id="resume-mini-summary">Innovative, strategic, hands-on technical and people leader with a record of building high-performing teams to address new technologies, new markets, and to deliver on revenue opportunities quickly.</div>
 					<div id="resume-summary">Am an experienced, hands-on, technical leader of high profile, high-performing product, research, and shared technology engineering organizations. Pioneered the use of new technologies and development methodologies within organizations, and evangelized them successfully to senior management and other engineering teams. Routinely receive excellent reviews for leadership and customer focus. Am often invited to speak about building strong engineering teams at conferences internationally. Technical areas of expertise include: service scalability, user experience, consumer product development, GPGPU, multi-core, distributed computing, desktop, mobile, and connected architectures, image, audio and video processing, domain-specific languages and graphics. Have extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.</div>
 				</div>
 			</section>
 			<section class="page-section" id="experience">
-				<h2 class="section-title">Experience</h2>
+				<h2 class="section-title">experience</h2>
 				<div class="section-content">
 					<ul class="job-list">
 						<li>
@@ -319,7 +413,7 @@
 				</div>
 			</section>
 			<section class="page-section" id="patents">
-				<h2 class="section-title">Patents</h2>
+				<h2 class="section-title">patents</h2>
 				<div class="section-content">
 					<ul class="simple-list">
 						<li><span class="patent-title"><a href="http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&co1=AND&d=PG01&s1=20140056530&OS=20140056530&RS=20140056530">Facilitating access to content in a content-aware mesh</a></span>: <span class="patent-author">co-author</span>; Patent application number 20140056530; filed February 27, 2014</li>
@@ -330,7 +424,7 @@
 				</div>
 			</section>
 			<section class="page-section" id="education">
-				<h2 class="section-title">Education</h2>
+				<h2 class="section-title">education</h2>
 				<div class="section-content">
 					<a href="http://www.cmu.edu/"><strong>Carnegie Mellon University</strong></a>, Pittsburgh, PA. Bachelor of Science Degree in Applied Mathematics and Computer Science, graduated May 1992.  course work focused on Computer Graphics, Software Engineering, Computer and Electronic Music and New Media Arts
 				</div>
@@ -360,7 +454,7 @@
 				</div>
 			</section>
 			<section class="page-section" id="invited">
-				<h2 class="section-title">Invited Keynotes</h2>
+				<h2 class="section-title">invited keynotes</h2>
 				<div class="section-content">
 					Complete list of talks is at <a href="https://kevingoldsmith.com/talks">https://kevingoldsmith.com/talks</a>
 					<ul class="simple-list">
@@ -377,7 +471,7 @@
 				</div>
 			</section>
 			<section class="page-section" id="publishing">
-				<h2 class="section-title">Publishing Credits</h2>
+				<h2 class="section-title">publishing credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
                         <li><span class="credit-title"><a href="http://www.adobe.com/devnet/author_bios/kevin_goldsmith.html">Multiple articles: Adobe Developer Network</a></span>, authored several articles between January 2010 and March 2011 on using the Pixel Bender image processing language.</li>
@@ -389,7 +483,7 @@
 				</div>
 			</section>
 			<section class="page-section" id="production">
-				<h2 class="section-title">Production Credits</h2>
+				<h2 class="section-title">production credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
 						<li><span class="production-title">Moxy's Pirate Television Show</span>, 1994-5 season, Cartoon Network. Developed software animation tools used in the production</li>
@@ -397,7 +491,7 @@
 				</div>
 			</section>
 			<section class="page-section" id="honors">
-				<h2 class="section-title">Honors</h2>
+				<h2 class="section-title">honors</h2>
 				<div class="section-content">
 					<ul class="simple-list">
 						<li><span class="honor-title">Adobe Technology Summit 2011</span>, Program Committee Member and Software Engineering Track Chair. <em>Invited to take a leadership position for a company-wide internal Adobe technical conference with over 2000 attendees.</em></li>
