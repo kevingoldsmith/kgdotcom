@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>$title</title>
+    <meta name="description" content="talks by $author">
+    <meta name="author" content="$author">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="$googsiteverification" />
+
+    <!-- Google ownership links -->
+    <link rel="author" href="$googauthor"/>
+    <link rel="publisher" href="$googpublisher" />
+
+	<!-- Google Analytics -->
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-2753331-2', 'auto');
+	ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
+    <!-- remove query on end of css before finishing, just used for debugging -->
+    <link rel="stylesheet" href="../css/genericons.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+	<link rel="stylesheet" href="talkpages.css" />
+	<style>
+		.talk-description {
+			font-weight: 300;
+			font-size: .9em;
+			margin-bottom: 1em;
+		}
+		#featured-talks ul {
+			list-style: none;
+			padding-left: 1em;
+		}
+		#featured-talks .talk-title {
+			font-weight: 800;
+		}
+		.year-list {
+			list-style: none;
+			padding-left: 1em;
+		}
+		.year {
+			font-size: 1.2em;
+		}
+		.year-item {
+			padding-bottom: 1em;
+		}
+		.year-item ul {
+			list-style: none;
+			padding-left: 0em;
+		}
+		.panel-list {
+			padding-left: 1em;
+		}
+		.panel-list .talk-title {
+			font-weight: 600;
+		}
+		.workshop-list {
+			padding-left: 1em;
+		}
+		.workshop-list .talk-title {
+			font-weight: 600;
+		}
+		#map_wrapper {
+			height: 400px;
+			margin-top: 1em;
+    		margin-bottom: 1em;
+		}
+		#map_canvas {
+		    width: 100%;
+		    height: 100%;
+		}
+
+       /* iPhone portrait */
+        @media (max-device-width: 640px) {
+			#map_wrapper {
+				height: 300px;
+			}
+        }
+
+	</style>
+	<!-- thanks to Ian Wright for the Mapping stuff https://wrightshq.com/playground/placing-multiple-markers-on-a-google-map-using-api-3/ -->
+</head>
+<body class="twoColLiqRtHdr">
+	<div id="container">
+	    <header id="header">
+	        <div id="masthead">
+	            <div id="hdrText">
+	                Kevin Goldsmith
+	            </div>
+	        </div>
+	        <div id="links" class="desktop-only">
+	            <span><a href="/">home</a></span>
+	            <span><a href="/resume.html">resume</a></span>
+	            <span class="thispage">talks</span>
+	            <span><a href="/music/">music</a></span>
+	            <span><a href="/photography/">photos</a></span>
+	        </div>
+	        <div id="linkicons" class="mobile-only">
+	            <span><a href="/"><img src="../img/Home-Icon.png" alt="home" title="home" /></a></span>
+	            <span><a href="/resume.html"><img src="../img/Resume-Icon.png" alt="resume" title="my resume" /></a></span>
+	            <span class="thispage"><img src="../img/Talks-Icon.png" alt="talks" title="talks I've given" /></span>
+	            <span><a href="/music/"><img src="../img/Music-Icon.png" alt="music" title="discography" /></a></span>
+	            <span><a href="/photography/"><img src="../img/Photos-Icon.png" alt="photography" title="my photographs" /></a></span>
+	        </div>
+	        <!-- end #header -->
+	    </header>
+		<div id="mainContent">
+			<div id="map_wrapper">
+		    	<div id="map_canvas" class="mapping"></div>
+			</div>
+			<div id="featured-talks">
+				<div class="subheader">Current Talks</div>
+				<ul>
+					$currenttalklist
+				</ul>
+			</div>
+			<div id="other-talks">
+				<div class="subheader">Older Talks</div>
+				<ul class="year-list">
+					$othertalklist
+				</ul>
+			</div>
+			<div id="panels">
+				<div class="subheader">Panels</div>
+				<ul class="panel-list">
+					$panellist
+				</ul>
+			</div>
+			<div id="workshops">
+				<div class="subheader">Workshops</div>
+				<ul class="workshop-list">
+					$workshoplist
+				</ul>
+			</div>
+		<!-- end #mainContent -->
+		</div>
+	    <br class="clearfloat" />
+		<footer id="footer">
+	        <p>&copy; 2008-2018, Kevin Goldsmith</p>
+	        <!-- end #footer -->
+		</footer>
+	<!-- end #container -->
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/headerAnimations.js"></script>
+    <script src="../js/vendor/retina.js"></script>
+	<script type="text/javascript">
+		jQuery(function($$) {
+		    // Asynchronously Load the map API
+		    // $$$$ gets escapted to a single $$ in string template
+		    var script = document.createElement('script');
+		    script.src = "https://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize";
+		    document.body.appendChild(script);
+		});
+
+		function initialize() {
+		    var map;
+		    var bounds = new google.maps.LatLngBounds();
+		    var mapOptions = {
+		        mapTypeId: 'roadmap'
+		    };
+
+		    // Display a map on the page
+		    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		    map.setTilt(45);
+
+		    // Multiple Markers
+		    var markers = [
+		        $markerlist
+		    ];
+
+		    // Info Window Content
+		    var infoWindowContent = [
+		        $infolist
+		    ];
+
+		    // Display multiple markers on a map
+		    var infoWindow = new google.maps.InfoWindow(), marker, i;
+
+		    // Loop through our array of markers & place each one on the map
+		    for( i = 0; i < markers.length; i++ ) {
+		        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+		        bounds.extend(position);
+		        marker = new google.maps.Marker({
+		            position: position,
+		            map: map,
+		            title: markers[i][0]
+		        });
+
+		        // Allow each marker to have an info window
+		        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+		            return function() {
+		                infoWindow.setContent(infoWindowContent[i][0]);
+		                infoWindow.open(map, marker);
+		            }
+		        })(marker, i));
+
+		        // Automatically center the map fitting all markers on the screen
+		        map.fitBounds(bounds);
+		    }
+
+		    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+		    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+		        //this.setZoom(14);
+		        google.maps.event.removeListener(boundsListener);
+		    });
+		}
+	</script>
+</body>
+</html>

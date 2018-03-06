@@ -1,0 +1,115 @@
+/*@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:300,400,600');*/
+/*body {	background-color: white;
+		font-family: 'Encode Sans Expanded', sans-serif;
+		margin: 20px;
+	 }
+#wrapper {
+    min-width: 800px;
+    max-width: 900px;
+    padding-left: 30px;
+    padding-right: 30px;
+}*/
+#talktitle {
+	font-size: 250%;
+	margin-bottom: 20px;
+}
+#photo {
+	margin-bottom: 20px;
+}
+.photocaption {
+	font-weight: 300;
+}
+.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+#photo img {
+	width: 100%;
+	max-width: 600px;
+}
+#description {
+	margin-bottom: 20px;
+	max-width: 960px;
+}
+#reactions {
+	max-width: 960px;
+}
+.subheader {
+	font-size: 150%;
+}
+.othersubheader {
+	display:inline;
+}
+#video {
+	margin-bottom: 20px;
+}
+.inlinelist {
+  display: inline;
+  list-style: none;
+  margin-left: .2em;
+  padding-left: 0em;
+}
+.inlinelistitem {
+  display: inline;
+}
+.inlinelistitem:after {
+  content: ", ";
+}
+.inlinelistitem:last-child:after {
+	content: "";
+}
+#slides {
+	margin-bottom:20px;
+}
+#presentations ul {
+	list-style: none;
+	padding-left: .6em;
+}
+#presentations li {
+	margin-bottom: .3em;
+}
+.conferencename {
+	font-weight:600;
+}
+.conferencedate {
+	font-style: italic;
+}
+#reactions ul {
+	list-style: none;
+	padding-left: .6em;
+}
+#reactions li {
+	margin-bottom: .5em;
+}
+.quote {
+	font-style: italic;
+}
+.twoColLiqRtHdr #mainContent {
+	   margin: 0 1em 0 1em;
+}
+.twoColLiqRtHdr #mainContent a:link {
+	   color: #550000;
+}
+/* iPhone portrait */
+@media (max-device-width: 640px) {
+    #slides iframe {
+        width: 320px;
+        height: 266px;
+    }
+    #video iframe {
+        width: 320px;
+        height: 180px;
+    }
+}
+/* iphone 5 */
+@media (max-device-width: 320px) {
+    #slides iframe {
+        width: 280px;
+        height: 233px;
+    }
+    #video iframe {
+        width: 280px;
+        height: 158px;
+    }
+}

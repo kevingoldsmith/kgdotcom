@@ -1,0 +1,1654 @@
+[
+	{
+		"conference": "Adobe Technology Summit",
+		"talks": [
+			{
+				"talk": "Blogging Technologies History",
+				"talk-type": "talk",
+				"date": "2006-02-07",
+				"talk-description": "Background and history of blog syndication formats and technologies",
+				"length": 60,
+				"location": {
+					"venue": "Fairmont Hotel San Jose",
+					"address": "170 S Market St",
+					"city": "San Jose",
+					"state": "CA",
+					"country": "US",
+					"postal code": "95113",
+					"gps": [37.332979, -121.889056]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe MAX Conference",
+		"url": "https://max.adobe.com/",
+		"talks": [
+			{
+				"talk": "Image and Video Processing Using Adobe Image Foundation's Toolkit For Flash",
+				"talk-type": "talk",
+				"date": "2007-10-03",
+				"talk-description": "An introduction to the Adobe Pixel Bender language",
+				"talk-url": "http://adobemax2007.com/na/sessions/locator/session/DP210W",
+				"length": 60,
+				"location": {
+					"venue": "McCormick Place",
+					"address": "2301 S King Dr",
+					"city": "Chicago",
+					"state": "IL",
+					"country": "US",
+					"postal code":"60616",
+					"gps": [41.853306, -87.616059]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe Technology Summit",
+		"talks": [
+			{
+				"talk": "The (near) Future of Personal Computers",
+				"talk-type": "talk",
+				"date": "2008-02-06",
+				"talk-description": "How multi-cores and GPUs are transforming what is possible in computing.",
+				"length": 30,
+				"location": {
+					"venue": "San Jose McEnery Convention Center",
+					"address":"150 W San Carlos St",
+					"city": "San Jose",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95113",
+					"gps": [37.328974, -121.888450]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Photographic Archive Council of America Conference",
+		"url": "http://digitalmedialicensing.org/conference_schedule08.shtml",
+		"talks": [
+			{
+				"talk": "What Role is Technology Playing in New Business Opportunities?  (P.S. It’s already happening...)",
+				"talk-type": "panel",
+				"date": "2008-10-26",
+				"talk-description": "This session brings together a range of panelists, some (relatively) new to the stock photography industry, others from creative industries outside our own; but all with a real interest in technology and how it is rapidly changing—and for some, has already changed—the landscape and business of monetizing digital assets in an online environment. Expect a lively discussion, revealing insights, and differing perspectives that reflect the diverse backgrounds of the panelists.\nPanelists: Kevin Goldsmith (Adobe), John Griffin (CutCaster), Oleg Tscheltzoff (Fotolia), Ben London (National Academy of Recording Arts and Sciences), Giles Copp (Version Industries)\nModerator: Jeff Burke, Former PACA President",
+				"length": 120,
+				"location": {
+					"venue": "New York Marriott Downtown",
+					"address":"140 Washington St.",
+					"city": "New York",
+					"state": "NY",
+					"country": "US",
+					"postal code":"10006",
+					"gps": [40.709641, -74.014153]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe MAX Conference",
+		"talks": [
+			{
+				"talk": "Creating Effects with Pixel Bender",
+				"talk-type": "lab",
+				"date": "2008-11-18",
+				"length": 120,
+				"location": {
+					"venue": "San Francisco Marriott Marquis",
+					"address":"780 Mission St.",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code":"94103",
+					"gps": [37.785222, -122.404287]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe MAX Conference",
+		"talks": [
+			{
+				"talk": "Creating Effects with Pixel Bender",
+				"talk-type": "lab",
+				"date": "2008-12-02",
+				"length": 120,
+				"location": {
+					"venue": "MIC - Milano Convention Centre",
+					"address":"Piazzale Carlo Magno, 1",
+					"city": "Milano",
+					"state": "MI",
+					"country": "IT",
+					"postal code":"20149",
+					"gps": [45.480890, 9.153661]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe MAX Conference",
+		"talks": [
+			{
+				"talk": "Flash Platform Gaming Showcase",
+				"talk-type": "panel",
+				"date": "2009-10-07",
+				"length": 60,
+				"location": {
+					"venue": "Los Angeles Convention Center",
+					"address":"1201 S Figueroa St",
+					"city": "Los Angeles",
+					"state": "CA",
+					"country": "US",
+					"postal code": "90015",
+					"gps": [34.040347, -118.270002]
+				}
+			}
+		]
+	},
+	{
+		"conference": "SC (Super Computing) Conference",
+		"url": "http://sc09.supercomputing.org/",
+		"talks": [
+			{
+				"talk": "Preparing the World for Ubiquitous Parallelism",
+				"talk-type": "panel",
+				"date": "2009-11-20",
+				"talk-description": "",
+				"recording-url": "https://www.youtube.com/watch?v=7U3cO3h8Pao",
+				"length": 90,
+				"location": {
+					"venue": "Oregon Convention Center",
+					"address":"777 NE Martin Luther King Jr Blvd",
+					"city": "Portland",
+					"state": "OR",
+					"country": "US",
+					"postal code":"97232",
+					"gps": [45.528076, -122.663440]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Intel Developer Forum",
+		"url": "https://newsroom.intel.com/press-kits/intel-developer-forum-idf-san-francisco-2010/",
+		"talks": [
+			{
+				"talk": "Parallelism and Education: Navigating Through a Sea of Cores",
+				"talk-type": "panel",
+				"date": "2010-09-13",
+				"talk-description": "Parallelism and Education: Rough Waters in a Sea of Change\nSeptember 13, 2010\nOne measure of the quality of education might well be how soon you find yourself employed once you're out of school. But the problem the past few years hasn't been in the quality of education, rather in the demands of the job market.\nIn other words, employers increasingly have demands that students can't meet -- and there's no better example of this than with parallelization. The solution? Schools need to go parallel just as much as industry, at least according to the panel \"Parallelism and Education: Navigating through a Sea of Cores\" at the Intel Developer Forum.\nModerated by Georgia Tech's Matthew Wolf, the panel included a mix of industry and academia that included Daniel Ernst of the University of Wisconsin-Eau Clair, Adobe's Kevin Goldsmith , Intel's Michael McCool, Thomas Murphy from Contra Costa College, and Ryan Newton from Intel.\nWolf kicked off the session by pointing out the challenges educators face when it comes to parallel programming:\nWhat does the move to a many core platform mean to education in general, and the Computer Science curriculum in particular?\nIn the face of ubiquitous parallel systems, what CS core topics need to change?\nWhat are the tools, languages, models and patterns that will allow academia to take advantage of this new platform?\nHow can Industry help?\nWhat skills will hiring managers be demanding?\nAdobe's Goldsmith is one such hiring manager who quickly pointed out that parallel programming is no longer considered a \"special\" skill, at least at Adobe where virtually all software created these days involves multithreading. Consequently, if job applicants can't demonstrate some knowledge of parallel programming, they likely won't make it to the second interview. \"We look for people with parallel skills,\" said Goldsmith. From his outside-of-academia perspective, Goldsmith believes that parallelism needs to be integrated into the whole computer science curriculum, not simply a \"parallel\" class here or there.\nMatthew Wolf's Parallelism and Education: Navigating through a Sea of Cores panel discussion at IDF2010\nFrom inside academia, Dan Ernst concurred, explaining students don't need to be able to write highly optimized code, but they do need to be able to write \"forward scaling code.\"\nMichael McCool, who joined Intel when the company acquired RapidMind which McCool co-founded, acknowledged that one of the problems for students is that parallelism does make it more difficult to write correct code that performs well. To circumvent this problem, said McCool, curriculums need to emphaize stuctured design patterns, such as those McCool discusses in Structured Patterns: An Overview. Doing so is the first step students can take to become developers who efficiently create scalable and reliable parallel applications.\nUnderstanding parallel algorithms and patterns were at the top of Tom Murphy's list too, while Ryan Newton pointed out that \"technology will change, but paradigms -- like parallelism -- will have lasting power. Mathew Wolf closed in agreement, urging educators not to teach specific technologies, but teach to put technology in context.\nhttp://www.drdobbs.com/parallel/parallelism-and-education-rough-waters-i/228800478",
+				"talk-url": "http://intelstudios.edgesuite.net/idf/2010/sf/aep/ACAP001/ACAP001.html",
+				"length": 60,
+				"location": {
+					"venue": "Moscone Center",
+					"address":"747 Howard St",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code":"94103",
+					"gps": [37.783128, -122.403746]
+				}
+			}
+		]
+	},
+	{
+		"conference": "NVidia Graphics Technology Conference",
+		"url": "http://www.gputechconf.com/",
+		"talks": [
+			{
+				"talk": "GPGPU in Commercial Software: Lessons From Three Cycles of the Adobe Creative Suite",
+				"talk-type": "talk",
+				"date": "2010-09-23",
+				"talk-description": "Learn about leveraging GPUs for commercial software. We will discuss lessons learned creating and using the Adobe Image Foundation libraries to accelerate image and video processing using GPUs and multi-core. These libraries are used by most of Adobe''s applications as well as integrated by hobbyist and professional applications with different levels of experience with GPUs and diverse user bases.",
+				"talk-url": "http://on-demand-gtc.gputechconf.com/gtcnew/on-demand-gtc.php?searchByKeyword=kevin+goldsmith&searchItems=speaker_name&sessionTopic=&sessionEvent=&sessionYear=2010&sessionFormat=&submit=&select=",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/gpgpu-in-commercial-software-lessons-from-three-cycles-of-the-adobe-creative-suite",
+				"length": 60,
+				"location": {
+					"venue": "San Jose McEnery Convention Center",
+					"address":"150 W San Carlos St",
+					"city": "San Jose",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95113",
+					"gps": [37.328974, -121.888450]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe MAX Conference",
+		"url": "https://max.adobe.com/",
+		"talks": [
+			{
+				"talk": "Intermediate Pixel Bender: Pixels and Beyond",
+				"talk-type": "lab",
+				"date": "2010-10-27",
+				"talk-description": "Attend this lab for an introduction to topics like optimizing your Adobe Pixel Bender and ActionScript code; using ShaderJobs to process data asynchronously; using Pixel Bender to process audio and other non-image data efficiently in your Flash movies; taking advantage of Pixel Bender parameter metadata; and new Pixel Bender APIs in Flex 4. We’ll also give you a look under the hood regarding how the Pixel Bender runtime works in Adobe Flash Player 10.",
+				"length": 90,
+				"location": {
+					"venue": "Los Angeles Convention Center",
+					"address":"1201 S Figueroa St",
+					"city": "Los Angeles",
+					"state": "CA",
+					"country": "US",
+					"postal code":"90015",
+					"gps": [34.040451, -118.270245]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe Technology Summit",
+		"talks": [
+			{
+				"talk": "Battle of the Cloud Sync Solutions",
+				"talk-type": "panel (chair)",
+				"date": "2011-05-12",
+				"length": 90,
+				"location": {
+					"venue": "San Jose McEnery Convention Center",
+					"address":"150 W San Carlos St",
+					"city": "San Jose",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95113",
+					"gps": [37.328974, -121.888450]
+				}
+			}
+		]
+	},
+	{
+		"conference": "AMD Fusion Developer Summit",
+		"url": "http://developer.amd.com/apu/",
+		"talks": [
+			{
+				"talk": "Pixel Bender",
+				"talk-type": "talk",
+				"date": "2011-06-14",
+				"talk-description": "Pixel Bender is a domain-specific image processing language created by the Adobe Image Foundation, and includes a runtime designed to work well across heterogeneous hardware, scaling efficiently for multiple cores. This runtime currently ships in a number of Adobe’s flagship products. Bob Archer, Technical Lead, and Kevin Goldsmith, Engineering Manager, will talk about the design of the language, compilers, and runtime. They will also discuss how the Adobe system can incorporate complimentary technologies like OpenCL and can scale to accommodate new hardware paradigms like the AMD Fusion processors.",
+				"length": 60,
+				"location": {
+					"venue": "Maydenbauer Center",
+					"address":"11100 NE 6th St",
+					"city": "Bellevue",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98004",
+					"gps": [47.615945, -122.191212]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Intel Developer Forum",
+		"url": "https://newsroom.intel.com/press-kits/intel-developer-forum-san-francisco-2011/",
+		"talks": [
+			{
+				"talk": "Parallel Education Status Check – Which Programming Approaches Make the Cut for Parallelism in Undergraduate Education?",
+				"talk-type": "panel",
+				"date": "2011-09-15",
+				"talk-description": "As a hiring manager building teams working on modern computer software; I’ve often been disappointed in the lack of a proper foundation in parallel algorithms and architectures being taught in current Computer Science curricula. To that end, I’ve been working with a group called the Educational Alliance for a Parallel Future that aims to improve Computer Science curricula in this critical area. The EAPF is once again convening a panel of educators and industry representatives to talk about this important issue and once again I am delighted to participate.\nThe panel is entitled: Parallel Education Status Check – Which Programming Approaches Make the Cut for Parallelism in Undergraduate Education? Unlike previous iterations of this panel where we spoke in generalities, this time we’ll be diving a bit deeper into specific technologies that we think are good starting places for educators to introduce to their students.\nHere is an excerpt of the abstract:\nThe industry and research communities face increasing workforce preparedness challenges in parallel (and distributed) computing, due to today’s ubiquitous multi-/many-core and cloud computing. Underlying the excitement over technical details of the newest platforms is one of the thorniest questions facing educators and practitioners — What languages, libraries, or programming models are best suited to make use of current and future innovations? This panel will confront this conundrum directly through discussions with technical managers and academics from different perspectives. The session is convened by the Educational Alliance for a Parallel Future (EAPF), an organization with wide-ranging industry/academia/research membership, including Intel, ACM, AMD, and other prominent technology corporations.\nThe panel will be presented on September 15th, 2011 at 10:15am as part of the Intel Developer Forum 2011 at the Moscone Center in San Francisco, California. There are free passes for interested educators. Register now for a free IDF day pass using promo code DCPACN1.\nMy specific take has always been that I am not as interested in grounding in a specific parallelism library or abstraction. The pace of change in this area has only increased over the last few years with the rise of multi-core, GPGPU, HPC and heterogenous computing. Techniques and libraries have arisen, gained adoption, and fallen out of favor one after another.\nA developer who only understands how algorithms can be mapped to OpenMP-style libraries is not as useful once the team moves to Grand Central Dispatch or OpenCL. A grounding in traditional task-level parallelism as well as data-parallelism techniques is a starting point. It is important not only to understand what each of them are but the different types of problems that they are each applicable to.\nHigher level abstractions like OpenMP are good for introductory courses. However, it is important to understand fully how high-level abstractions map to lower level implementations and even the hardware itself. Understanding the hardware your software runs on is critical to find the best performance for your code. It is also critical to understanding why one particular higher level library might work better than another for a particular task on specific hardware.\nOnce you understand things like hyperthreading, pThreads, locking mechanisms, and why OpenCL or CUDA maps really well to specific problems, but not to others, then you can return to using higher level abstractions that let you focus on your algorithm and not the details.\nIf I was a Dean of Computer Science somewhere, I’d look to creating a curriculum where parallel programming using higher-level abstractions was part of the introductory courses using something like C++11, OpenMP or TBB. Mid-level requirements would include some computer architecture instruction. Specifically, how computer architecture maps to the software that runs on top of it. This may also include some lower level instruction in things like pThreads, Race conditions, lock-free programming or even GPU or heterogenous programming techniques using OpenCL. In later courses focused more on software engineering, specific areas like graphics, or larger projects: I’d encourage the students to use whichever tools they found most appropriate to the tasks at hand. This might even include very high level proprietary abstractions like DirectCompute or C++AMP as long as the students could make the tradeoffs intelligently because of their understanding of the area from previous courses.\nGiven that the panel consists of representatives from Intel, AMD, Microsoft, Georgia Tech as well as myself, I’m expecting this to be a very spirited conversation. I hope to see you there.",
+				"length": 90,
+				"location": {
+					"venue": "Moscone Center",
+					"address":"747 Howard St",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code":"94103",
+					"gps": [37.783128, -122.403746]
+				}
+			}
+		]
+	},
+	{
+		"conference": "SC (Super Computing) Conference",
+		"url": "http://sc11.supercomputing.org/",
+		"talks": [
+			{
+				"talk": "Parallelism, the Cloud, and the Tools of the Future for the next generation of practitioners",
+				"talk-type": "panel",
+				"date": "2011-11-16",
+				"talk-description": "Industry, academia and research communities face increasing workforce preparedness challenges in parallel (and distributed) computing, due to the onslaught of multi-/many-core and cloud computing platforms. What initiatives have begun to address those challenges? What changes to hardware platforms, languages and tools will be necessary? How will we train the next generation of engineers for ubiquitous parallel and distributed computing? Following on from the successful model used at SC10, the session will be highly interactive, combining aspects of BOF, workshop, and Panel discussions. An initial panel will lay out some of the core issues in this topic with experts from multiple areas in education and industry. Following this will be moderated breakouts, much like collective mini-BOFS, for further discussion and to gather ideas from participants about industry and research needs.",
+				"talk-url": "http://sc11.supercomputing.org/schedule/event_detail.php-evid=wfpan102.html",
+				"length": 90,
+				"location": {
+					"venue": "Washington State Convention Center",
+					"address":"705 Pike St",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98101",
+					"gps": [47.611704, -122.332909]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Adobe Technology Summit",
+		"talks": [
+			{
+				"talk": "Adobe Revel and the Blissful Chaos of High Velocity, Low Process",
+				"talk-type": "talk",
+				"date": "2013-02-04",
+				"talk-description": "The Adobe Revel product is built by multiple teams contributing to different parts of the platform. We use multiple feature tracking tools, and each team is responsible for making its own choices. We use multiple SCMs and each team makes a decision on which tools works for it. We use different development processes, again driven by the individual team. We don't even align on schedules. This kind of chaos could be a management nightmare, but we've made it work.",
+				"length": 60,
+				"location": {
+					"venue": "San Jose McEnery Convention Center",
+					"address":"150 W San Carlos St",
+					"city": "San Jose",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95113",
+					"gps": [37.328974, -121.888450]
+				}
+			},
+			{
+				"talk": "Building Revel For Nine Platforms",
+				"talk-type": "talk",
+				"date": "2013-02-05",
+				"talk-description": "Revel currently ships on iOS, OS X, and the web. Ports to Windows, Windows RT and Android are under way. This talk describes how Revel is architected to look like a native application on each of these platforms, yet share the majority of its code across platforms in order to reduce per-platform development costs. The use of continuous integration, automated testing, and other techniques to target a six-week update cycle are also discussed.",
+				"length": 60,
+				"location": {
+					"venue": "San Jose McEnery Convention Center",
+					"address":"150 W San Carlos St",
+					"city": "San Jose",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95113",
+					"gps": [37.328974, -121.888450]
+				}
+			},
+			{
+				"talk": "It Is All About the Benjamins: The Real World Economics of HPC",
+				"talk-type": "talk",
+				"talk-description": "Being able to spin up a GPU cluster on AWS is very attractive, but we need to do it in a cost-effective manner. This talk delves into the real world costs Adobe faces as we move more of our processing into the cloud. It also covers some techniques to achieve the performance our customers demand while maintaining reasonable costs.",
+				"date": "2013-02-07",
+				"length": 60,
+				"location": {
+					"venue": "Adobe Corporate Headquarters",
+					"address":"345 Park Ave",
+					"city": "San Jose",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95110",
+					"gps": [37.330769, -121.893834]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Valtech Day",
+		"url": "https://valtech.se/events/valtech-day-2013/",
+		"talks": [
+			{
+				"talk": "Building with Lean and Agile in the Real World",
+				"talk-type": "talk",
+				"talk-description": "A tale of using Agile and Lean techniques to build products, using three products that I've worked on in my career.",
+				"date": "2013-10-24",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/valtech-day2013-kevingoldsmithbuildingleanandagileintherealworld",
+				"length": 60,
+				"location": {
+					"venue": "Valtech Stockholm",
+					"address":"Hantverkargatan 5",
+					"city": "Stockholm",
+					"country": "SE",
+					"postal code": "112 21",
+					"gps": [59.327917, 18.050547]
+				}
+			}
+		]
+	},
+	{
+		"conference": "BBC Develop 2013",
+		"talks": [
+			{
+				"talk": "Building a Strong Engineering Culture",
+				"talk-type": "keynote",
+				"date": "2013-11-12",
+				"talk-description": "In this talk I discuss what I believe makes a strong engineering culture. Also, how to protect it if you have it, and how to fix it if you don't.",
+				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
+				"length": 60,
+				"location": {
+					"venue": "BBC White City",
+					"address":"Shepherd's Bush",
+					"city": "London",
+					"country": "GB",
+					"postal code": "W12",
+					"gps": [51.514060, -0.226235]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Software 2014",
+		"url": "https://event.dnd.no/software/",
+		"talks": [
+			{
+				"talk": "Building a Strong Engineering Culture",
+				"talk-type": "talk",
+				"date": "2014-02-26",
+				"talk-description": "A good culture helps you go fast. This talk will give you some keys for building a culture, maintaining it and fixing a broken culture.",
+				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
+				"length": 60,
+				"location": {
+					"venue": "Radisson Blu Scandinavia Hotel",
+					"address":"Holbergsgate 30",
+					"city": "Oslo",
+					"country": "NO",
+					"postal code": "0166",
+					"gps": [59.918273, 10.733775]
+				}
+			}
+		]
+	},
+	{
+		"conference": "SmartMobil 2014",
+		"url": "http://www.smartconference.hu/",
+		"talks": [
+			{
+				"talk": "Focus on How You Build, Not Just on What You Build",
+				"talk-type": "talk",
+				"date": "2014-04-03",
+				"talk-description": "A vezetők messze nem fordítanak elég időt arra, hogy felépítsék a vállalat kultúráját, ez pedig sok időbe és pénzbe, néha pedig a vállalat sikerébe kerül nekik. A Spotify-nál nep csupán a termék fejlesztésére fókuszálunk, hanem a megfelelő gyakorlatokra és vállalati kultúrára is. Ez az irány lehetővé tette számunkra, hogy gyorsan reagáljunk a folyamatos változásra egy rendkívül kompetitív piacon, még úgy is, hogy a vállalat mérete az elmúlt néhány évben több száz százalékkal nőtt. A prezentávióban szó lesz arról, hogy miért kritikus a megfelelő vállalati kultúra a sikerhez és hogyan lehet ezt átültetni a gyakorlatba.\nLeaders don’t spend enough time thinking about their culture and it costs them time, money and sometimes their entire company. At Spotify, we are focused not only on continuously improving our own product, but also our practices and culture. This focus on how we work has allowed us to move quickly and adapt to the continuous change in our highly-competitive market, even as the company has grown several hundred percent over the last few years. In this talk, I’ll discuss why spending time on your culture is critical to your success and I’ll show how we’ve put this into practice.",
+				"talk-url": "http://blog.kevingoldsmith.com/2014/04/06/my-slides-from-smartmobil-2014/",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/focus-on-how-you-build-not-just-what-you-build-archive-version",
+				"length": 20,
+				"location": {
+					"venue": "Vam Design Center",
+					"address":"Király u. 26",
+					"city": "Budapest",
+					"country": "HU",
+					"postal code": "1061",
+					"gps": [47.499547, 19.058762]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Sudweb",
+		"url": "http://sudweb.fr/2014/",
+		"talks": [
+			{
+				"talk": "Culture Leads, Everything Else Follows (La culture précède tout le reste)",
+				"root-talk": "Culture Leads, Everything Else Follows",
+				"talk-type": "keynote",
+				"date": "2014-05-16",
+				"talk-description": "Les bonnes équipes partagent une même culture, les mêmes valeurs, le même objectif. Moins on passe de temps à devoir se mettre d'accord, plus on a de chances de produire de la valeur. Prenez le temps de définir des valeurs sur lesquelles vous pourrez construire.",
+				"recording-url": "https://vimeo.com/102774091",
+				"length": 30,
+				"location": {
+					"venue": "Epitech Toulouse",
+					"address":"40 Boulevard de la Marquette",
+					"city": "Toulouse",
+					"country": "FR",
+					"postal code": "31000",
+					"gps": [43.612426, 1.429042]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Embrainz 2014",
+		"url": "http://embrainz.com/",
+		"talks": [
+			{
+				"talk": "Building a Strong Engineering Culture",
+				"talk-type": "keynote",
+				"date": "2014-05-27",
+				"talk-description": "A good culture helps you go fast. This talk will give you some keys for building a culture, maintaining it and fixing a broken culture.",
+				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
+				"length": 60,
+				"location": {
+					"venue": "Embriq AS",
+					"address":"Dronning Eufemias gate 16",
+					"city": "Oslo",
+					"country": "NO",
+					"postal code": "0191",
+					"gps": [59.908209, 10.758870]
+				}
+			}
+		]
+	},
+	{
+		"conference": "ProductTank Sthlm",
+		"url": "http://www.meetup.com/ProductTank-Stockholm/events/185198132/",
+		"talks": [
+			{
+				"talk": "Autonomy For the Win: How Spotify Builds Product Balancing Alignment with Autonomy",
+				"talk-type": "talk",
+				"date": "2014-08-27",
+				"talk-description": "Spotify has made a central bet that we can move faster, be happier and be more effective with autonomous, full-stack teams. We've had some great success with this approach, but it hasn't been without some tweaking and adjustments. I'll talk about what is critical to think about if you want to try this with your product.",
+				"talk-url": "https://kevingoldsmith.com/talks/#AutonomyFTW",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/kevin-goldsmith-product-tank-stockholm-talk",
+				"length": 30,
+				"location": {
+					"venue": "SUP46",
+					"address":"Regeringsgatan 29",
+					"city": "Stockholm",
+					"country": "SE",
+					"postal code": "111 53",
+					"gps": [59.331994, 18.067940]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Godel IT Leaders Breakfast",
+		"url": "http://www.godeltech.com/news-events/sky-high-attendance-at-godels-it-leaders-event-at-the-shard/",
+		"talks": [
+			{
+				"talk": "Empowering Your Engineering Talent",
+				"talk-type": "talk",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/empowering-engineering-talent",
+				"talk-description": "An introduction to the Spotify Tribe/Squad/Chapter model, including changes made since the whitepaper was published.",
+				"date": "2014-09-22",
+				"length": 60,
+				"location": {
+					"venue": "The View From the Shard",
+					"address":"Railway Approach",
+					"city": "London",
+					"country": "GB",
+					"postal code": "SE1 9SG",
+					"gps": [51.504403, -0.086512]
+				}
+			}
+		]
+	},
+	{
+		"conference": "QCon China",
+		"url": "http://qconshanghai.com/",
+		"talks": [
+			{
+				"talk": "Building a Strong Engineering Culture",
+				"talk-type": "keynote",
+				"date": "2014-10-16",
+				"talk-description": "主题演讲: 建设强大的工程师文化\n在工程师文化上的专注为建立一个高效的工程技术团队打下坚实的基础。如果该文化偏离正轨，那么在这上面投入时间来建设、培养、维护是值得的。在演讲中我还会分享Soptify的文化价值观念，它可以使我们公司在成长的同时，在组织上实现敏捷，并能迅速采取行动。",
+				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
+				"length": 60,
+				"location": {
+					"venue": "Shanghai Everbright Convention & Exhibition Center (上海光大会展中心)",
+					"address":"66 Caobao Rd, TianLin, Xuhui Qu",
+					"city": "Shanghai Shi",
+					"country": "CN",
+					"postal code": "200235",
+					"gps": [31.167126, 121.428818]
+				}
+			},
+			{
+				"talk": "Building Lean",
+				"talk-type": "talk",
+				"date": "2014-10-17",
+				"talk-description": "演讲主题: 精益建造\n所属专题:\n大中型团队中的精益创新\n分享的经验包括通过利用精益创业技术来构建Adobe新产品，和Spotify如何利用精益创业技术来在我们的产品中增加新性能。",
+				"length": 60,
+				"location": {
+					"venue": "Shanghai Everbright Convention & Exhibition Center (上海光大会展中心)",
+					"address":"66 Caobao Rd, TianLin, Xuhui Qu",
+					"city": "Shanghai Shi",
+					"country": "CN",
+					"postal code": "200235",
+					"gps": [31.167126, 121.428818]
+				}
+			}
+
+		]
+	},
+	{
+		"conference": "Godel Technologies Speaker Series",
+		"url": "http://dev.by/lenta/main/chto-top-menedzhery-spotify-laterooms-com-i-godel-technologies-delali-v-minske",
+		"talks": [
+			{
+				"talk": "Apportioning Monoliths",
+				"talk-type": "talk",
+				"date": "2015-03-26",
+				"talk-description": "How breaking big things into small things can improve innovation, velocity and team happiness.",
+				"talk-url": "https://kevingoldsmith.com/talks/#apportioning-monoliths",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/apportioning-monoliths",
+				"length": 60,
+				"location": {
+					"venue": "Space",
+					"address":"Октябрьская ул., 16A",
+					"city": "Minsk",
+					"country": "BY",
+					"gps": [53.890161, 27.569153]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Daho.am",
+		"url": "http://love.stylight.de/work/daho-am-tech-conference/",
+		"talks": [
+			{
+				"talk": "Apportioning Monoliths",
+				"talk-type": "talk",
+				"date": "2015-06-12",
+				"talk-description": "How breaking big things into small things can improve innovation, velocity and team happiness.",
+				"talk-url": "https://kevingoldsmith.com/talks/#apportioning-monoliths",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/apportioning-monoliths",
+				"length": 60,
+				"location": {
+					"venue": "Stylight HQ",
+					"address":"Nymphenburger Str. 86",
+					"city": "München",
+					"country": "DE",
+					"postal code": "80636",
+					"gps": [48.150552, 11.547583]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Philips Personal Health Company Leadership Offsite",
+		"talks": [
+			{
+				"talk": "Innovation and Organization",
+				"talk-description": "In introduction to how organizational structure can support and enhance innovation within the enterprise.",
+				"talk-type": "talk",
+				"date": "2015-06-24",
+				"length": 60,
+				"location": {
+					"venue": "De Haven van Zandvoort",
+					"address":"Strandafgang Paulus Loot 9",
+					"city": "Zandvoort",
+					"country": "NL",
+					"postal code": "2042 AA",
+					"gps": [52.372753, 4.524138]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Spark the Change",
+		"url": "http://sparkthechange.co.uk/2015/",
+		"talks": [
+			{
+				"talk": "The Spotify Tribe",
+				"talk-type": "talk",
+				"date": "2015-07-01",
+				"talk-description": "One of the new wave of internet disruptors, Spotify has a unique culture that seeks to promote collaboration and creativity as part of its organisational DNA. Learn about the internal groupings that keep individuals and teams aligned and cross-functional. As the culture has evolved over time, Spotify has become ever clearer about the competitive advantage their culture offers.",
+				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
+				"length": 45,
+				"location": {
+					"venue": "The Brewery",
+					"address":"52 Chiswell St",
+					"city": "London",
+					"country": "GB",
+					"postal code": "EC1Y 4SD",
+					"gps": [51.520610, -0.091594]
+				}
+			}
+		]
+	},
+	{
+		"conference": "WEBBOS",
+		"url": "http://www.abilitypartner.se/konferenser_kurser/webbstrategidagarna-offentlig-sektor/",
+		"talks": [
+			{
+				"talk": "Culture Leads, Everything Else Follows",
+				"talk-type": "talk",
+				"date": "2015-09-29",
+				"talk-description": "Many groups let their culture grow organically as they grow. In this talk I argue that focusing on your culture early helps set you up for long-term success.",
+				"talk-url": "https://kevingoldsmith.com/talks/#culture-leads",
+				"length": 30,
+				"location": {
+					"venue": "Bygget",
+					"address":"Norrlandsgatan 11",
+					"city": "Stockholm",
+					"country": "SE",
+					"postal code": "111 43",
+					"gps": [59.334026, 18.070930]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Mobiconf",
+		"url": "https://2015.mobiconf.org/",
+		"talks": [
+			{
+				"talk": "Apportioning Monoliths",
+				"talk-type": "keynote",
+				"date": "2015-10-01",
+				"talk-description": "How breaking up monoliths in your schedule, your team and in your software architectures can increase velocity and innovation.",
+				"talk-url": "https://kevingoldsmith.com/talks/#apportioning-monoliths",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/apportioning-monoliths",
+				"length": 60,
+				"location": {
+					"venue": "Multikino",
+					"address":"Dobrego Pasterza 128",
+					"city": "Kraków",
+					"country": "PL",
+					"postal code": "30-962",
+					"gps": [50.088805, 19.984397]
+				}
+			},
+			{
+				"talk": "The Spotify Tribe",
+				"talk-type": "talk",
+				"date": "2015-10-01",
+				"talk-description": "How Spotify has built an organization around autonomy, innovation and velocity.",
+				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
+				"length": 60,
+				"location": {
+					"venue": "Multikino",
+					"address":"Dobrego Pasterza 128",
+					"city": "Kraków",
+					"country": "PL",
+					"postal code": "30-962",
+					"gps": [50.088805, 19.984397]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Automattic Speakers Series",
+		"url": "https://automattic.com/",
+		"talks": [
+			{
+				"talk": "The Spotify Tribe",
+				"talk-type": "talk",
+				"date": "2015-11-18",
+				"talk-description": "How Spotify has built an organization around autonomy, innovation and velocity.",
+				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
+				"length": 60
+			}
+		]
+	},
+	{
+		"conference": "Tomtom Internal Product Conference",
+		"url": "http://tomtom.com/",
+		"talks": [
+			{
+				"talk": "Failing Up: Creating a Failsafe Environment",
+				"root-talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "keynote",
+				"date": "2015-11-23",
+				"talk-description": "A talk on why failure is important in innovation and tips on how to create en environment where the effects of failure are minimized while maximizing the learning.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/failing-up-creating-a-failsafe-environment",
+				"length": 60,
+				"location": {
+					"venue": "Bimhuis",
+					"address":"Piet Heinkade 3",
+					"city": "Amsterdam",
+					"country": "Netherlands",
+					"postal code": "1019 BR",
+					"gps": [52.377961, 4.912790]
+				},
+				"reactions": [
+					{
+						"quote": "@KevinGoldsmith Great talk at TomTom!",
+						"credit": "Heiko Schilling‏",
+						"credit-url": "https://twitter.com/heikoschilling",
+						"reference-url": "https://twitter.com/heikoschilling/status/668741685736796160"
+					},
+					{
+						"quote": "Great lessons learned about failure from @KevinGoldsmith #spotify #tomtom",
+						"credit": "Rositsa Vasileva",
+						"credit-url": "https://twitter.com/RositsaVasileva",
+						"reference-url": "https://twitter.com/RositsaVasileva/status/668727975895031808"
+					}
+				]
+			}
+		]
+	},
+	{
+		"conference": "ING internal speakers series",
+		"url": "https://www.ing.com/web/show",
+		"talks": [
+			{
+				"talk": "Autonomy For the Win: How Spotify Builds Product Balancing Alignment with Autonomy",
+				"talk-type": "talk",
+				"date": "2015-11-24",
+				"talk-description": "",
+				"talk-url": "https://kevingoldsmith.com/talks/#AutonomyFTW",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/kevin-goldsmith-product-tank-stockholm-talk",
+				"length": 60,
+				"location": {
+					"venue": "ING Haarlemmerweg",
+					"address":"Haarlemmerweg 506-520",
+					"city": "Amsterdam",
+					"country": "NL",
+					"postal code": "1014 BL",
+					"gps": [52.385602, 4.854346]
+				}
+			}
+		]
+	},
+	{
+		"conference": "de Bijenkorf Leadership Meeting",
+		"talks": [
+			{
+				"talk": "Innovation and Organization",
+				"talk-type": "talk",
+				"date": "2015-11-24",
+				"talk-description": "In introduction to how organizational structure can support and enhance innovation within the enterprise.",
+				"talk-url": "",
+				"length": 60,
+				"location": {
+					"venue": "de Bijenkorf",
+					"address":"Dam 1",
+					"city": "Amsterdam",
+					"country": "NL",
+					"postal code": "1012 JS",
+					"gps": [52.373542, 4.894379]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Wooga Speaker Series",
+		"url": "https://www.wooga.com/",
+		"talks": [
+			{
+				"talk": "The Spotify Tribe",
+				"talk-type": "talk",
+				"date": "2015-12-02",
+				"talk-description": "An introduction to the Spotify matrix model including recent updates we've made as we have continued to grow.",
+				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
+				"length": 60,
+				"location": {
+					"venue": "Wooga",
+					"address":"Saarbrücker Str. 38",
+					"city": "Berlin",
+					"country": "DE",
+					"postal code": "10405",
+					"gps": [52.528708, 13.416191]
+				}
+			}
+		]
+	},
+	{
+		"conference": "GOTO; conference",
+		"url": "http://gotocon.com/berlin-2015",
+		"talks": [
+			{
+				"talk": "Microservices @ Spotify",
+				"talk-type": "talk",
+				"date": "2015-12-03",
+				"talk-description": "The software industry used to be all about building monoliths: monolithic applications and services, with bing-bang product releasees. All that has now changed and we are much better for it.\nThis talk is about how breaking up those monoliths in your schedule, your organization and your architectures can help you increase your team's innovation throughput and making you more competitive in today's fast moving markets.",
+				"talk-url": "https://kevingoldsmith.com/talks/#microservices",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/microservices-at-spotify",
+				"recording-url": "https://youtu.be/7LGPeBgNFuU",
+				"length": 45,
+				"location": {
+					"venue": "Kosmos",
+					"address":"Karl-Marx-Allee 131A",
+					"city": "Berlin",
+					"country": "DE",
+					"postal code": "10243",
+					"gps": [52.517135, 13.449991]
+				}
+			}
+		]
+	},
+	{
+		"conference": "United Kingdom Department for Digital, Culture, Media & Sport",
+		"url": "https://www.gov.uk/government/organisations/department-for-culture-media-sport",
+		"talks": [
+			{
+				"talk": "Innovation, Autonomy and Accountability",
+				"talk-type": "talk",
+				"date": "2016-01-27",
+				"talk-description": "My presentation to the UK Department of Media, Culture and Sport. Autonomy is a strong tool to unlock innovation in your organization. The constant question is how to handle accountability in autonomous organizations. In this talk, I look at the benefits of an organization with autonomous teams and discuss ways of ensuring accountability and governance in those organizations.",
+				"talk-url": "",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/innovation-autonomy-and-accountability",
+				"length": 60,
+				"location": {
+					"venue": "Department for Culture, Media and Sport",
+					"address":"100 Parliament St",
+					"city": "London",
+					"country": "GB",
+					"postal code": "SW1A 2NH",
+					"gps": [51.501602, -0.126521]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Bonnier Digital Forum",
+		"url": "https://www.bonnier.com/sv/",
+		"talks": [
+			{
+				"talk": "The Spotify Tribe",
+				"talk-type": "talk",
+				"date": "2016-02-09",
+				"talk-description": "An introduction to the Spotify matrix model including recent updates we've made as we have continued to grow.",
+				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
+				"length": 30,
+				"location": {
+					"venue": "Hotellet",
+					"address":"Linnégatan 18",
+					"city": "Stockholm",
+					"country": "SE",
+					"postal code": "114 47",
+					"gps": [59.337562, 18.078095]
+				}
+			}
+		]
+	},
+	{
+		"conference": "AppBuilders",
+		"url": "http://2016.appbuilders.ch/",
+		"talks": [
+			{
+				"talk": "Embracing Failure",
+				"root-talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "keynote",
+				"date": "2016-04-26",
+				"talk-description": "",
+				"talk-url": "http://kevingoldsmith.com/talks/#failingup",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/failing-up-creating-a-failsafe-environment",
+				"length": 40,
+				"location": {
+					"venue": "Technopark",
+					"address":"Technoparkstrasse 1",
+					"city": "Zürich",
+					"country": "Switzerland",
+					"postal code": "8005",
+					"gps": [47.390180, 8.515846]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Infoshare",
+		"url": "https://infoshare.pl/history/agenda.html?year=2016",
+		"talks": [
+			{
+				"talk": "How Spotify builds products",
+				"talk-type": "talk",
+				"date": "2016-05-19",
+				"talk-description": "At Spotify we believe that \"We believe that you need a great company to build a great product, and we are trying to do both.\" In this talk I will show how the way we organize our teams helps us innovate and build a great product while continuing to scale our user base substantially.",
+				"talk-url": "http://www.kevingoldsmith.com/talks/#howspotifybuildsproducts",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-spotify-builds-products-organization-architecture-autonomy-accountability",
+				"recording-url": "https://youtu.be/7B-qKT2sHDo",
+				"length": 30,
+				"location": {
+					"venue": "AmberExpo",
+					"address":"Żaglowa 11",
+					"city": "Gdańsk",
+					"country": "PL",
+					"postal code": "80-560",
+					"gps": [54.386496, 18.634989]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Think Money Group speaker series",
+		"url": "https://www.thinkmoney.co.uk/",
+		"talks": [
+			{
+				"talk": "Organization, Architecture, Autonomy and Accountability",
+				"talk-type": "talk",
+				"date": "2016-05-23",
+				"talk-description": "This talk is the \"mega-mix\" of all my previous Spotify talks, drawing a through-line to how Spotify uses Lean Startup principles, organization design and agile techniques to build the largest streaming music service in the world.",
+				"talk-url": "http://www.kevingoldsmith.com/talks/#howspotifybuildsproducts",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-spotify-builds-products-organization-architecture-autonomy-accountability",
+				"length": 90,
+				"location": {
+					"venue": "Think Money",
+					"address":"Trafford Park, Stretford",
+					"city": "Manchester",
+					"country": "GB",
+					"postal code": "M17 1SQ",
+					"gps": [53.474084, -2.334896]
+				}
+			}
+		]
+	},
+	{
+		"conference": "ao.com speaker series",
+		"url": "https://ao.com/",
+		"talks": [
+			{
+				"talk": "Organization, Architecture, Autonomy and Accountability",
+				"talk-type": "talk",
+				"date": "2016-05-23",
+				"talk-description": "This talk is the \"mega-mix\" of all my previous Spotify talks, drawing a through-line to how Spotify uses Lean Startup principles, organization design and agile techniques to build the largest streaming music service in the world.",
+				"talk-url": "https://www.ao-jobs.com/kevin-goldsmith-spotify-masterclass/",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-spotify-builds-products-organization-architecture-autonomy-accountability",
+				"length": 90,
+				"location": {
+					"venue": "ao.com headquarters",
+					"address":"5a, The Parklands",
+					"city": "Bolton",
+					"country": "GB",
+					"postal code": "BL6 4SD",
+					"gps": [53.577617, -2.532824]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Seattle Code Camp",
+		"url": "https://seattle.codecamp.us/",
+		"talks": [
+			{
+				"talk": "Fail Safe, Fail Fast, Succeed",
+				"root-talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "talk",
+				"date": "2016-09-10",
+				"slides-url": "http://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"talk-description":"This talk is an updated version of my earlier talk \"Failing Up\" that I presented at Tom Tom and at App Builders Switzerland, 2016. It's a talk about how to create a failsafe environment for software companies and teams. It's critical to acknowledge that failure is necessary for innovation. So, if failure is a given, how do you fail well?",
+				"length":60,
+				"location": {
+					"venue": "Pigott Building, Seattle University",
+					"address":"901 12th Avenue",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98122",
+					"gps": [47.610704, -122.318728]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Agile by Example",
+		"url": "http://2016.agilebyexample.com/",
+		"talks": [
+			{
+				"talk": "Let's build a product development organization!",
+				"talk-type": "workshop",
+				"date": "2016-10-10",
+				"talk-description":"A workshop on building agile organizations from small single teams through large numbers of teams including discussions of long term organizational thinking and leadership coaching. Participants will use their current organizations as a starting point and will project them through future growth and challenges.",
+				"slides-url": "http://www.slideshare.net/kevingoldsmith/lets-build-a-product-development-organization",
+				"length":210,
+				"location": {
+					"venue":"Centrum Konferencyjne Zielna",
+					"address":"Zielna 37",
+					"city":"Warszawa",
+					"country":"PL",
+					"postal code":"00-108",
+					"gps": [52.235936,21.006722]
+				}
+			},
+			{
+				"talk": "Creating a culture of continuous improvement at Avvo",
+				"root-talk": "Building a Culture of Continuous Improvement in Your Company",
+				"talk-type": "talk",
+				"date": "2016-10-12",
+				"talk-description": "Avvo is a 10-year old company that is in high growth mode, having increased headcount by 100% in the past year. In June, Kevin Goldsmith joined Avvo as its CTO after three years at Spotify. He will share learnings of how the team is bringing a lean and agile culture to this rapidly growing company, which now has 400 employees. How do you scale the tools of transformation from the team to the company? In a company eager for change, how do you decide where to invest and how fast to go? Kevin will also share some of the programs that have been put into place to begin the transition from a top-down to bottom-up culture.",
+				"talk-url": "http://www.kevingoldsmith.com/talks/#avvoculture",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-at-avvo",
+				"recording-url": "https://youtu.be/evZ0Fdv7454",
+				"length":30,
+				"location": {
+					"venue": "Multikino, Ursynów",
+					"address": "Al. KEN 60",
+					"city": "Warszawa",
+					"country": "PL",
+					"gps": [52.149844,21.046852]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Starbucks Innovation Expo",
+		"talks": [
+			{
+				"talk": "Fail Safe, Fail Fast, Succeed",
+				"root-talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "talk",
+				"date": "2016-11-10",
+				"slides-url": "http://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"talk-description":"This talk is an updated version of my earlier talk \"Failing Up\" that I presented at Tom Tom and at App Builders Switzerland, 2016. It's a talk about how to create a failsafe environment for software companies and teams. It's critical to acknowledge that failure is necessary for innovation. So, if failure is a given, how do you fail well?",
+				"length":50,
+				"location": {
+					"venue": "Starbucks Headquarters",
+					"address":"2401 Utah Ave S",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98134",
+					"gps": [47.580888, -122.335535]
+				}
+			}
+		]
+	},
+	{
+		"conference": "O'Reilly Software Architecture Conference",
+		"url": "http://conferences.oreilly.com/software-architecture/",
+		"talks": [
+			{
+				"talk": "Architecture and Organization",
+				"talk-type": "talk",
+				"slides-url": "http://www.slideshare.net/kevingoldsmith/organization-and-architecture",
+				"talk-url": "https://conferences.oreilly.com/software-architecture/engineering-business-ca/public/schedule/detail/52689",
+				"date": "2016-11-15",
+				"talk-description": "Drawing on real-life examples from Avvo, Spotify, Adobe and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures.\nKevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed. Kevin relates his own journey to a more experimental organizational style.\nAs a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance.\nWhen Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and agile architecture for its products, but the company struggled to realize these goals because it was it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled.\nKevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome.\nToday, Kevin is the CTO at Avvo. When he joined, the company had the same organization and architectural challenges as many other startups, but rather than attack them only from an architectural angle, Avvo is experimenting with architecture and organization together to improve its legacy systems and help build new ones faster and with higher quality.",
+				"length": 50,
+				"location": {
+					"venue": "The Westin St. Francis Hotel",
+					"address": "335 Powell St",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code": "94102",
+					"gps": [37.787795, -122.408592]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The Lead Developer",
+		"url": "http://2017.theleaddeveloper-ny.com/",
+		"talks": [
+			{
+				"talk": "Finding the right ingredients for the perfect team",
+				"talk-type": "talk",
+				"date": "2017-02-21",
+				"talk-description": "A great team is a like a great dish, balanced flavors, tastes, textures and smells combine to create something unique and delicious. I’ve made the mistakes of trying to build unbalanced teams either with poor distributions of experience, bad combinations of temperament, clashing skill sets or lack of diversity. I’ll share those mistakes. I’ll also share some of the things I did right (either intentionally or unintentionally) to create the teams that have worked very well. I’ll provide some things to look out and consider for as you build a team or just expand the one you have.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/finding-the-right-ingredients-for-your-perfect-team",
+				"recording-url": "https://youtu.be/JnCYxM9z1dE",
+				"talk-url": "https://2017.theleaddeveloper-ny.com/talks#kevin-goldsmith",
+				"length": 30,
+				"location": {
+					"venue": "New World Stages",
+					"address": "340 W 50th St",
+					"city": "New York",
+					"state": "New York",
+					"country": "US",
+					"postal code": "10019",
+					"gps": [40.762771, -73.987423]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Business Transformation & Operational Excellence World Summit",
+		"url": "http://btoes.com/",
+		"talks": [
+			{
+				"talk": "Agile Business Transformation: Using Operational Excellence Tools & Methodologies",
+				"talk-type": "talk",
+				"date": "2017-03-23",
+				"talk-description": "In this unique presentation, Kevin will discuss his experience at Adobe, Microsoft, Spotify and now at a legal online marketplace, Avvo. In each organization, Kevin used his background in Operational Excellence to transform businesses. Kevin has created nimble innovation cultures at Adobe & Microsoft, and has used operational excellence tools to help innovation at Spotify. He will discuss how:\nHow Avvo’s leadership team focuses on the larger strategy at this rapidly growing company, empowering employees to make decisions Articulating and communicating the strategy in a way that employees understand Aligning and prioritizing innovation projects at Spotify to overall business goals and objectives How to benefit from speed and how to operate on a larger scale.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/agile-business-transformation-73566626",
+				"length": 20,
+				"location": {
+					"venue": "Orlando Four Seasons Resort Orlando at Walt Disney World® Resort",
+					"address": "Walt Disney World Resort, 10100 Dream Tree Boulevard",
+					"city": "Orlando",
+					"state": "Florida",
+					"country": "US",
+					"postal code": "32836",
+					"gps": [28.401658, -81.545511]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Zillow Speakers Series",
+		"talks": [
+			{
+				"talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "talk",
+				"date": "2017-04-26",
+				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high.\nOver the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster.\nIn this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Adobe, Spotify, and Avvo; and I give real architectural, cultural and organizational tools you can use to make your projects and company more failure safe.",
+				"slides-url": "http://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"length": 30,
+				"location": {
+					"venue": "Zillow Corporate Headquarters",
+					"address": "1301 2nd Ave",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98101",
+					"gps": [47.607913, -122.337864]
+				}
+			}
+		]
+	},
+	{
+		"conference": "JAX",
+		"url": "https://jax.de/",
+		"talks": [
+			{
+				"talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "keynote",
+				"date": "2017-05-09",
+				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high.\nOver the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster.\nIn this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Adobe, Spotify, and Avvo; and I give real architectural, cultural and organizational tools you can use to make your projects and company more failure safe.",
+				"talk-url": "http://blog.kevingoldsmith.com/2017/05/13/my-talk-and-interview-from-jax-2017-in-mainz-germany/",
+				"recording-url": "https://youtu.be/9wiySyy-ahk",
+				"slides-url": "http://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"length": 30,
+				"location": {
+					"venue": "Mainz Congress: Rheingoldhalle",
+					"address": "Rheinstraße 66",
+					"city": "Mainz",
+					"country": "Germany",
+					"postal code": "55116",
+					"gps": [50.001891, 8.275618]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The Lead Developer",
+		"url": "http://2017.theleaddeveloper.com/",
+		"talks": [
+			{
+				"talk": "Fail Fast, Fail Safe... Succeed!",
+				"root-talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "talk",
+				"date": "2017-06-09",
+				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This was partly due to our waterfall processes, but also to how software was distributed and marketed. A dud for a smaller company could mean the end of the line. The cost of failure was incredibly high. Over the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster. In this talk, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Adobe, Spotify and Avvo; and I give real architectural, cultural and organizational tools you can use to make your projects and team more failure-safe.",
+				"slides-url": "http://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"recording-url": "https://youtu.be/oU3G6xAAIoo",
+				"length": 30,
+				"location": {
+					"venue": "Queen Elizabeth II Centre",
+					"address": "Broad Sanctuary, Westminster",
+					"city": "London",
+					"country": "GB",
+					"postal code": "SW1P 3EE",
+					"gps": [51.500202, -0.129009]
+				},
+				"reactions": [
+					{
+						"quote": "\"Invention requires failure.\" Great start of the 2nd day at #LeadDev by @KevinGoldsmith",
+						"credit": "Tamara Forza",
+						"credit-url": "https://twitter.com/tforza",
+						"reference-url": "https://twitter.com/tforza/status/873105054764417025"
+					},
+					{
+						"quote": "Great talk from @KevinGoldsmith on learning from failure at #LeadDev!",
+						"credit": "Anjuan Simmons",
+						"credit-url": "https://twitter.com/anjuan",
+						"reference-url": "https://twitter.com/anjuan/status/873104166133956608"
+					},
+					{
+						"quote": ".@KevinGoldsmith reminds us about the importance of embracing failure and fail-safe cultures to grow and innovate. Brilliant talk #LeadDev",
+						"credit": "Maria Gutierrez",
+						"credit-url": "https://twitter.com/mariagutierrez",
+						"reference-url": "https://twitter.com/mariagutierrez/status/873105639970553856"
+					},
+					{
+						"quote": "Really interesting talk on failure by @KevinGoldsmith and lessons learned from Spotify Now #leaddev",
+						"credit": "Nat Wallbank",
+						"credit-url": "https://twitter.com/natwallbank",
+						"reference-url": "https://twitter.com/natwallbank/status/873104635292041221"
+					},
+					{
+						"quote": "Great advise from @KevinGoldsmith about creating failing safe environment #LeadDev #failsafe",
+						"credit": "Sergey",
+						"credit-url": "https://twitter.com/bolshchikov",
+						"reference-url": "https://twitter.com/bolshchikov/status/873099697811898368"
+					}
+				]
+			}
+		]
+	},
+	{
+		"conference": "Apprenti: Tech Apprenticeship Summit",
+		"talks": [
+			{
+				"talk": "Hiring Company Panel",
+				"talk-type": "panel",
+				"date": "2017-07-11",
+				"talk-description": "A panel including companies who have hired apprentices from the Apprenti program",
+				"length": 60,
+				"location": {
+					"venue": "The Alliance Center",
+					"address": "1536 Wynkoop St",
+					"city": "Denver",
+					"state": "CO",
+					"country": "US",
+					"postal code": "80202",
+					"gps": [39.751233, -105.001217]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Code Fellows 101 Industry Speaker Series",
+		"url": "https://www.codefellows.org/",
+		"talks": [
+			{
+				"talk": "A Software Career",
+				"talk-type": "talk",
+				"date": "2017-08-19",
+				"talk-description": "You are working to become a professional software developer. It's a field that is constantly changing and evolving. Many of the things you'll be using as part of your job in ten years haven't been invented yet. How do you build a career in this environment? How can you stay relevant and successful in the industry? We'll cover some of the core traits of successful software developers. We'll discuss what a multi-year career can look like in the field. I'll share the things that software development managers look for in candidates. And I will answer your questions.",
+				"talk-url": "",
+				"length": 60,
+				"location": {
+					"venue": "Code Fellows",
+					"address": "2901 3rd Ave #300",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98121",
+					"gps": [47.618259, -122.351870]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Agile Camp Northwest",
+		"url": "http://agilecamp.org/northwest",
+		"talks": [
+			{
+				"talk": "Building a Culture of Continuous Improvement in Your Company",
+				"talk-type": "talk",
+				"date": "2017-09-06",
+				"talk-description": "Continuous improvement is the goal for agile teams. We strive for it.\nWhat does it look like when we create a continuous improvement beyond our agile teams and bring it to the larger organization: the company level?\nKevin Goldsmith was leaving Spotify, a company that had a built an amazing continuous improvement culture. He saw the benefits that it brought, first hand. When he joined Avvo as its new CTO, his primary goal was to help Avvo create that culture for itself.\nIn this talk, Kevin shows what Avvo has done to build a foundation for a continuous improvement culture: frameworks, organizational and processes that support and empower individuals and groups to own and drive improvements to make themselves more efficient and the company a better place to work.\nThe ideas presented will inspire cultural and organizational changes that you can make to bring continuous improvement to your institutions.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-in-your-company",
+				"recording-url": "https://youtu.be/WOMdaU0Rn1k",
+				"length": 60,
+				"location": {
+					"venue": "Nike Tiger Woods Conference Center",
+					"address": "One Bowerman Dr",
+					"city": "Beaverton",
+					"state": "OR",
+					"country": "US",
+					"postal code": "97006",
+					"gps": [45.510283, -122.828319]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Code Fellows Lunch and Learn",
+		"url": "https://www.codefellows.org/",
+		"talks": [
+			{
+				"talk": "What is Agile?",
+				"talk-type": "talk",
+				"date": "2017-09-08",
+				"talk-description": "An introduction to Agile thinking and Agile frameworks",
+				"talk-url": "",
+				"length": 45,
+				"location": {
+					"venue": "Code Fellows",
+					"address": "2901 3rd Ave #300",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98121",
+					"gps": [47.618259, -122.351870]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Seattle Code Camp",
+		"url": "https://seattle.codecamp.us/",
+		"talks": [
+			{
+				"talk": "Architecture and Organization",
+				"talk-type": "talk",
+				"date": "2017-09-09",
+				"talk-description": "Drawing on real-life examples from Avvo, Spotify, Adobe, and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures.\nKevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed. Kevin relates his own journey to a more experimental organizational style.\nAs a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance.\nWhen Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and Agile architecture for its products, but the company struggled to realize these goals because it was it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled.\nKevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-and-architecture",
+				"length": 60,
+				"location": {
+					"venue": "Pigott Building, Seattle University",
+					"address":"901 12th Avenue",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98122",
+					"gps": [47.610704, -122.318728]
+				}
+			},
+			{
+				"talk": "What Does Good Agile Look Like?",
+				"talk-type": "talk",
+				"date": "2017-09-09",
+				"talk-description": "Do you love agile? Do you hate agile? Have you ever seen what a good agile project works like? Companies claim to do agile, but just use the words without understanding what they mean. Developers join companies and find out that their previous experience doing agile development was way better or way worse than their current company.\nIn this talk, I go through my 17+ years of agile development, using XP, Scrum, Kanban, Rational, and other techniques with large organizations, small startups, co-located teams and distributed teams to talk about why companies aspire to agile and why they often come nowhere close.",
+				"talk-url": "",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/what-does-good-agile-look-like",
+				"length": 60,
+				"location": {
+					"venue": "Pigott Building, Seattle University",
+					"address":"901 12th Avenue",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98122",
+					"gps": [47.610704, -122.318728]
+				}
+			}
+		]
+	},
+	{
+		"conference": "BiFrost",
+		"url": "http://bifrostconf.ca/",
+		"talks": [
+			{
+				"talk": "Building A Culture Of Continuous Improvement, Agility And Autonomy In Your Company",
+				"root-talk": "Building a Culture of Continuous Improvement in Your Company",
+				"talk-type": "talk",
+				"date": "2017-09-22",
+				"talk-description": "\"Autonomy,\" \"Agility,\" and \"Continuous Improvement\" are over-used words when we talk about development teams. This talk explains what they are, why they are valuable, and how you can create them in your own teams.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-in-your-company",
+				"recording-url": "https://youtu.be/_67NPdn6ygY",
+				"length": 45,
+				"location": {
+					"venue": "Tellus Digital",
+					"address":"25 York St.",
+					"city": "Toronto",
+					"state": "ON",
+					"country": "CA",
+					"postal code":"M5J 2V5",
+					"gps": [43.643436, -79.380928]
+				},
+				"reactions": [
+					{
+						"quote": "...Loving your talk right now. #bifrostconf",
+						"credit": "Shanta R. Nathwani",
+						"credit-url": "https://twitter.com/ShantaDotCa",
+						"reference-url": "https://twitter.com/ShantaDotCa/status/911292812875968514"
+					},
+					{
+						"quote": "TIL the Change Curve thanks @KevinGoldsmith #BifrostConf",
+						"credit": "Full Stack Toronto",
+						"credit-url": "https://twitter.com/fullstackTO",
+						"reference-url": "https://twitter.com/fullstackTO/status/911300443166449664"
+					},
+					{
+						"quote": "@KevinGoldsmith - loved your talk at #BifrostConf.",
+						"credit": "Devlon Duthie",
+						"credit-url": "https://twitter.com/duthied",
+						"reference-url": "https://twitter.com/duthied/status/911577996095623169"
+					}
+				]
+			}
+		]
+	},
+	{
+		"conference": "Seattle Startup Week",
+		"url": "https://seattlestartupweek2017.sched.com/",
+		"talks": [
+			{
+				"talk": "David vs. Goliath (Competing for Top Engineers Against Seattle Giants)",
+				"talk-type": "panel",
+				"date": "2017-10-02",
+				"talk-description": "So, you’re growing exponentially and need top talent to push your startup to the next level. Now what? This round table discussion will explore the main drivers for engineering candidates and align them with what your startup needs to offer. This is your chance to hear from the people who spend day in and day out deciphering candidates desires and matching them with companies who are navigating what it means to compete in this hot Seattle market.",
+				"talk-url": "https://seattlestartupweek2017.sched.com/event/C0nJ",
+				"length": 60,
+				"location": {
+					"venue": "Galvanize",
+					"address":"111 S Jackson St.",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98104",
+					"gps": [47.598962, -122.333799]
+				},
+				"reactions": [
+					{
+						"quote": "Before joining Avvo, a Seattle-based legal advice marketplace, Goldsmith spent time at Microsoft, Adobe, and Spotify. He’s learned that even though someone may meet your standards for a given skillset, he prioritizes a “strong values fit.”\n“You can be the most amazing technical person in the world, but I’m not going to hire you if I think you’ll pull us backward,” Goldsmith said.",
+						"credit": "Taylor Soper, Geekwire",
+						"credit-url": "https://www.geekwire.com/author/taylor-soper/",
+						"reference-url": "https://www.geekwire.com/2017/tech-recruiting-advice-startups-can-compete-tech-giants-find-best-talent/"
+					},
+					{
+						"quote": "David vs. Goliath  was a great event at Techstars Startup Week Seattle 2017 @SEAstartupweek #SSW2017 @adamb0mb @kevingoldsmith",
+						"credit": "Jason Cavness, SPHR",
+						"credit-url": "https://twitter.com/jasoncavnesshr",
+						"reference-url": "https://twitter.com/jasoncavnesshr/status/917236679152463872"
+					}
+				]
+			}
+		]
+	},
+	{
+		"conference": "Tech Inclusion",
+		"url": "https://sf17.techinclusion.co/",
+		"talks": [
+			{
+				"talk": "Tech Apprenticeship: The Solution for Diversity and Talent Gaps",
+				"talk-type": "panel",
+				"date": "2017-10-18",
+				"talk-description": "Today, women make up 19% of the tech force nationally, people of color make up 5%, and Veterans make up only 1%. As we look to close these gaps, we in the tech sector find ourselves experiencing the perfect storm of economic challenges:\n-- Hiring need is out-pacing University output\n-- Socio-economic disparity is growing, driving more people to less industry desired degrees and secondary or tertiary education sources.\n-- Industry operating culture is under attack as diversity continue to decline, and we fail to represent the diverse marketplace that we serve.\n\nThis is why Apprenti (a program from Seattle-based nonprofit Washington Technology Industry Association) partnered with Industry and the U.S. Department of Labor to create a registered tech apprenticeship program. The program attracts diverse tech talent, provides training and a pathway to become successful in tech roles without regard for experience or education, as well as paid on-the-job training experience with top companies across the U.S.\n\nCome hear how companies like Amazon, Microsoft, Accenture and Avvo have adopted the tech apprenticeship model, are closing their diversity and talent gaps, and are hiring top talent from underrepresented groups.",
+				"talk-url": "https://sf17.techinclusion.co/agenda/session/208363",
+				"length": 40,
+				"location": {
+					"venue": "The Armory",
+					"address":"1800 Mission St",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code":"94103",
+					"gps": [37.767802, -122.420614]
+				}
+			},
+			{
+				"talk": "Best Practices in Apprenticeship Programs for Diverse Tech Talent",
+				"talk-type": "workshop",
+				"date": "2017-10-18",
+				"talk-description": "Diving into how to help create inclusive cultures for those with non traditional backgrounds.",
+				"talk-url": "https://sf17.techinclusion.co/agenda/session/208359",
+				"length": 60,
+				"location": {
+					"venue": "The Armory",
+					"address":"1800 Mission St",
+					"city": "San Francisco",
+					"state": "CA",
+					"country": "US",
+					"postal code":"94103",
+					"gps": [37.767802, -122.420614]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Agile Camp Silicon Valley",
+		"url": "http://agilecamp.org/silicon-valley",
+		"talks": [
+			{
+				"talk": "Building a Culture of Continuous Improvement in Your Company",
+				"talk-type": "talk",
+				"date": "2017-11-08",
+				"talk-description": "Avvo is a 10-year old company that is in high growth mode. In June, Kevin Goldsmith joined Avvo as its CTO after three years at Spotify. He will share learnings of how the team is bringing a lean and agile culture to this rapidly growing company. How do you scale the tools of transformation from the team to the company? In a company eager for change, how do you decide where to invest and how fast to go? Kevin will also share some of the programs that have been put into place to begin the transition from a top-down to bottom-up culture.",
+				"talk-url": "https://agilecampsiliconvalley2017.sched.com/event/COLz/building-a-culture-of-continuous-improvement-in-your-company",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-in-your-company",
+				"length": 60,
+				"location": {
+					"venue": "Santa Clara Convention Center",
+					"address":"5001 Great America Pkwy",
+					"city": "Santa Clara",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95054",
+					"gps": [37.404628, -121.975258]
+				}
+			}
+		]
+	},
+	{
+		"conference": "General Assembly talk series",
+		"url": "https://www.eventbrite.com/e/tech-and-the-new-workforce-tickets-38306985224#",
+		"talks": [
+			{
+				"talk": "Tech And... The New Workforce",
+				"talk-type": "panel",
+				"date": "2017-11-15",
+				"talk-description": "Ever wondered how the new workforce got to where it is today? The answer likely lies in tech!\nOverview: As a pioneer of tech education and training, General Assembly is committed to re-skilling and on-boarding employees in new economy, 21st century skills. Our approach to immersive and blended education enables companies to retain talent and boost their overall bench. Join us for an exclusive panel event, featuring thought-leaders from companies fueling the next generation of the workforce. They will discuss how they've been impacted by the rise of tech, ways they’ve adapted and innovated along the way, and what they expect to see in the future.\nWhat You’ll Take Away: Gain insight and inspiration from experts in the field and hear first-hand how technology is transforming their work. Expand your understanding of today’s tech-based world, and fuel your own ideas for the future.\nFeatured Experts: Leaders in the community will break down the biggest challenges and opportunities they face with the rise of new technology, and explain how their teams adapt to the fast pace of innovation.\nWhy It Matters: The omnipresence of technology has rapidly transformed lives over the last decade. Now, it’s rare to go about a regular day without interacting with tech in some way. Staying ahead of the innovation curve and being able to predict the future of tech in various industries has never been more important.",
+				"talk-url": "https://www.eventbrite.com/e/tech-and-the-new-workforce-tickets-38306985224#",
+				"length": 60,
+				"location": {
+					"venue": "General Assembly Seattle",
+					"address":"1218 3rd Avenue, 3rd floor",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98101",
+					"gps": [47.607737, -122.335472]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The 26th Annual National Seattle Conference on Cutting edge issues in Technology Law",
+		"url": "https://www.lawseminars.com/seminars/2017/17COMWA.php",
+		"talks": [
+			{
+				"talk": "Moving forward under weaker US net neutrality rules",
+				"talk-type": "talk",
+				"date": "2017-11-30",
+				"talk-description": "Implications of the loss of Net Neutrality for technology startups: Coping strategies for companies that can't afford to buy their way into the fast lane",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/moving-forward-under-weaker-us-net-neutrality-rules",
+				"length": 30,
+				"location": {
+					"venue": "US Bank Centre, D. Wayne Gittinger Conference Center",
+					"address":"1420 5th Ave",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98101",
+					"gps": [47.610345, -122.334139]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Stretch: Leadership and Management Conference",
+		"url": "http://www.stretchcon.com/2017/",
+		"talks": [
+			{
+				"talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "talk",
+				"date": "2017-12-08",
+				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high. Over the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster. In this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Adobe, Spotify, and Avvo; and I give real architectural, cultural and organizational tools you can use to make your projects and company more failure safe.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"length": 45,
+				"location": {
+					"venue": "Uránia Film Theather",
+					"address":"Rákóczi út 21",
+					"city": "Budapest",
+					"country": "HU",
+					"postal code":"1088",
+					"gps": [47.495405, 19.065105]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The FCC's Dismantling of Net Neutrality - Law Seminars International Webcast Panel",
+		"url": "http://lawseminars.com/seminars/2017/17NETTB.php",
+		"talks": [
+			{
+				"talk": "The FCC's Dismantling of Net Neutrality",
+				"talk-type": "panel",
+				"date": "2017-12-20",
+				"talk-description": "On November 21, the now Republican controlled Federal Communications Commission (FCC) released a draft order proposing to dismantle the Obama era net neutrality policies. The much-publicized vote is scheduled for December 14 with what is expected to be a partisan 3-2 approval of the order along party lines. If approved, the order will reverse the utility-style (\"Title II\") regulation of mobile and broadband internet access providers, as well as removing the current prohibitions on blocking, throttling, paid prioritization, and general discrimination of Internet access traffic.\nThe order will also return jurisdiction over broadband internet practices to the Federal Trade Commission and pre-empt state and local regulations that might attempt to restore the Obama era policies. This controversial decision will have a major impact on the future of the Internet, with strong reactions from the information industry, consumers, and lawmakers certain to follow.\nWe're pleased that, in anticipation of the vote, Law Seminars International has assembled a diverse panel of experts and scheduled an in depth analysis, via webcast, for the next day. We hope you will be able to join us via the web or by phone. Replays also will be available. For background on this complicated topic, we're pleased to also offer our updated publication \"The Rise and Fall of Net Neutrality (a short history\" (Sapronov & Associates, P.C., Rev. Dec. 2017).",
+				"length": 90
+			}
+		]
+	}
+]

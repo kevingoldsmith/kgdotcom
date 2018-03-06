@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>$title</title>
+    <meta name="description" content="Page describing the talk $title by $author" />
+    <meta name="author" content="$author" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="$googsiteverification" />
+
+    <!-- Google ownership links -->
+    <link rel="author" href="$googauthor"/>
+    <link rel="publisher" href="$googpublisher" />
+
+	<!-- Google Analytics -->
+	<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-2753331-2', 'auto');
+	ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
+    <!-- remove query on end of css before finishing, just used for debugging -->
+    <link rel="stylesheet" href="../css/genericons.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+	<link rel="stylesheet" href="talkpages.css" />
+</head>
+<body class="twoColLiqRtHdr">
+	<div id="container">
+	    <header id="header">
+	        <div id="masthead">
+	            <div id="hdrText">
+	                Kevin Goldsmith
+	            </div>
+	        </div>
+	        <div id="links" class="desktop-only">
+	            <span><a href="/">home</a></span>
+	            <span><a href="/resume.html">resume</a></span>
+	            <span><a href="index.html">talks</a></span>
+	            <span><a href="/music/">music</a></span>
+	            <span><a href="/photography/">photos</a></span>
+	        </div>
+	        <div id="linkicons" class="mobile-only">
+	            <span><a href="/"><img src="../img/Home-Icon.png" alt="home" title="home" /></a></span>
+	            <span><a href="/resume.html"><img src="../img/Resume-Icon.png" alt="resume" title="my resume" /></a></span>
+	            <span><a href="index.html"><img src="../img/Talks-Icon.png" alt="talks" title="talks I've given" /></a></span>
+	            <span><a href="/music/"><img src="../img/Music-Icon.png" alt="music" title="discography" /></a></span>
+	            <span><a href="/photography/"><img src="../img/Photos-Icon.png" alt="photography" title="my photographs" /></a></span>
+	        </div>
+	        <!-- end #header -->
+	    </header>
+		<div id="mainContent">
+			<div id="talktitle">$title</div>
+			$photo
+			<div id="description">
+				<div class="subheader">Description</div>
+				<div id="talkdescription">$description</div>
+			</div>
+			$video
+			$slides
+			<div id="presentations">
+				<div class="subheader">Presented at</div>
+				<ul>
+					$presentationlist
+				</ul>
+			</div>
+			$reactions
+		<!-- end #mainContent -->
+		</div>
+	    <br class="clearfloat" />
+		<footer id="footer">
+	        <p>&copy; 2008-2018, Kevin Goldsmith</p>
+	        <!-- end #footer -->
+		</footer>
+	<!-- end #container -->
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/headerAnimations.js"></script>
+    <script src="../js/vendor/retina.js"></script>
+</body>
+</html>

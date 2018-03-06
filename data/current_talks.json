@@ -1,0 +1,22 @@
+[
+	{
+		"talk":"Building a Culture of Continuous Improvement in Your Company",
+		"description": "Avvo created tools to encourage data-driven thinking, autonomy and a spirit of continuous improvement. This talk describes those tools, their implementation and the issues and challenges encountered when doing large-scale culture change in a ten-year-old company."
+	},
+	{
+		"talk": "Fail Fast, Fail Smart... Succeed!",
+		"description": "A talk on why failure is important in innovation and tips on how to create en environment where the effects of failure are minimized while maximizing the learning."
+	},
+	{
+		"talk": "What Does Good Agile Look Like?",
+		"description": "One of the challenges when making an agile transformation or trying to level up agile teams is that many folks have never seen a truly high-performing agile organization. In this talk, I show what that looks like, to inspire and give a goal to those who are struggling with agile."
+	},
+	{
+		"talk": "Finding the right ingredients for the perfect team",
+		"description": "A great team is a like a great dish, balanced flavors, tastes, textures and smells combine to create something unique and delicious. I've made the mistakes of trying to build unbalanced teams either with poor distributions of experience, bad combinations of temperament, clashing skill sets or lack of diversity. I'll share those mistakes. I'll also share some of the things I did right (either intentionally or unintentionally) to create the teams that have worked very well. I'll provide some things to look out and consider for as you build a team or just expand the one you have."
+	},
+	{
+		"talk": "Architecture and Organization",
+		"description": "You might know Conway's law, but do you know the Inverse Conway Maneuver? How your team is organized influences your architecture. Kevin Goldsmith explores why you should consider changing your organization to improve your architecture."
+	}
+]
