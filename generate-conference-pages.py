@@ -123,7 +123,7 @@ with open('data/pagevariables.json') as f:
 	pagevariables = json.load(f)
 
 #create the output director
-output_directory = 'talks/'
+output_directory = 'output/talks/'
 if not os.path.exists(output_directory):
 	os.makedirs(output_directory)
 

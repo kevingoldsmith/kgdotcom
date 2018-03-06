@@ -11,10 +11,10 @@ while getopts cd opts; do
 done
 
 if $clean ; then
-    rm -rf talks
+    rm -rf output
 fi
 python generate-conference-pages.py
-cp -r public/* talks
+cp -r public/* output
 if $debug ; then
-    open talks/index.html
+    open output/index.html
 fi
