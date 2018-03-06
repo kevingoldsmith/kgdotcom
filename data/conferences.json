@@ -1547,35 +1547,107 @@
 		]
 	},
 	{
-		"conference": "",
-		"url": "",
+		"conference": "Agile Camp Silicon Valley",
+		"url": "http://agilecamp.org/silicon-valley",
 		"talks": [
 			{
-				"talk": "",
+				"talk": "Building a Culture of Continuous Improvement in Your Company",
 				"talk-type": "talk",
-				"date": "2017-09-09",
-				"talk-description": "",
-				"talk-url": "",
-				"slides-url": "",
-				"recording-url": "",
+				"date": "2017-11-08",
+				"talk-description": "Avvo is a 10-year old company that is in high growth mode. In June, Kevin Goldsmith joined Avvo as its CTO after three years at Spotify. He will share learnings of how the team is bringing a lean and agile culture to this rapidly growing company. How do you scale the tools of transformation from the team to the company? In a company eager for change, how do you decide where to invest and how fast to go? Kevin will also share some of the programs that have been put into place to begin the transition from a top-down to bottom-up culture.",
+				"talk-url": "https://agilecampsiliconvalley2017.sched.com/event/COLz/building-a-culture-of-continuous-improvement-in-your-company",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-in-your-company",
 				"length": 60,
 				"location": {
-					"venue": "",
-					"address":"",
-					"city": "",
-					"state": "",
-					"country": "",
-					"postal code":"",
-					"gps": [0,0]
-				},
-				"reactions": [
-					{
-						"quote": "",
-						"credit": "",
-						"credit-url": "",
-						"reference-url": ""
-					}
-				]
+					"venue": "Santa Clara Convention Center",
+					"address":"5001 Great America Pkwy",
+					"city": "Santa Clara",
+					"state": "CA",
+					"country": "US",
+					"postal code":"95054",
+					"gps": [37.404628, -121.975258]
+				}
+			}
+		]
+	},
+	{
+		"conference": "General Assembly talk series",
+		"url": "https://www.eventbrite.com/e/tech-and-the-new-workforce-tickets-38306985224#",
+		"talks": [
+			{
+				"talk": "Tech And... The New Workforce",
+				"talk-type": "panel",
+				"date": "2017-11-15",
+				"talk-description": "Ever wondered how the new workforce got to where it is today? The answer likely lies in tech!\nOverview: As a pioneer of tech education and training, General Assembly is committed to re-skilling and on-boarding employees in new economy, 21st century skills. Our approach to immersive and blended education enables companies to retain talent and boost their overall bench. Join us for an exclusive panel event, featuring thought-leaders from companies fueling the next generation of the workforce. They will discuss how they've been impacted by the rise of tech, ways they’ve adapted and innovated along the way, and what they expect to see in the future.\nWhat You’ll Take Away: Gain insight and inspiration from experts in the field and hear first-hand how technology is transforming their work. Expand your understanding of today’s tech-based world, and fuel your own ideas for the future.\nFeatured Experts: Leaders in the community will break down the biggest challenges and opportunities they face with the rise of new technology, and explain how their teams adapt to the fast pace of innovation.\nWhy It Matters: The omnipresence of technology has rapidly transformed lives over the last decade. Now, it’s rare to go about a regular day without interacting with tech in some way. Staying ahead of the innovation curve and being able to predict the future of tech in various industries has never been more important.",
+				"talk-url": "https://www.eventbrite.com/e/tech-and-the-new-workforce-tickets-38306985224#",
+				"length": 60,
+				"location": {
+					"venue": "General Assembly Seattle",
+					"address":"1218 3rd Avenue, 3rd floor",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98101",
+					"gps": [47.607737, -122.335472]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The 26th Annual National Seattle Conference on Cutting edge issues in Technology Law",
+		"url": "https://www.lawseminars.com/seminars/2017/17COMWA.php",
+		"talks": [
+			{
+				"talk": "Moving forward under weaker US net neutrality rules",
+				"talk-type": "talk",
+				"date": "2017-11-30",
+				"talk-description": "Implications of the loss of Net Neutrality for technology startups: Coping strategies for companies that can't afford to buy their way into the fast lane",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/moving-forward-under-weaker-us-net-neutrality-rules",
+				"length": 30,
+				"location": {
+					"venue": "US Bank Centre, D. Wayne Gittinger Conference Center",
+					"address":"1420 5th Ave",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code":"98101",
+					"gps": [47.610345, -122.334139]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Stretch: Leadership and Management Conference",
+		"url": "http://www.stretchcon.com/2017/",
+		"talks": [
+			{
+				"talk": "Fail Fast, Fail Smart... Succeed!",
+				"talk-type": "talk",
+				"date": "2017-12-08",
+				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high. Over the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster. In this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Adobe, Spotify, and Avvo; and I give real architectural, cultural and organizational tools you can use to make your projects and company more failure safe.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/fail-safe-fail-smart-succeed",
+				"length": 45,
+				"location": {
+					"venue": "Uránia Film Theather",
+					"address":"Rákóczi út 21",
+					"city": "Budapest",
+					"country": "HU",
+					"postal code":"1088",
+					"gps": [47.495405, 19.065105]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The FCC's Dismantling of Net Neutrality - Law Seminars International Webcast Panel",
+		"url": "http://lawseminars.com/seminars/2017/17NETTB.php",
+		"talks": [
+			{
+				"talk": "The FCC's Dismantling of Net Neutrality",
+				"talk-type": "panel",
+				"date": "2017-12-20",
+				"talk-description": "On November 21, the now Republican controlled Federal Communications Commission (FCC) released a draft order proposing to dismantle the Obama era net neutrality policies. The much-publicized vote is scheduled for December 14 with what is expected to be a partisan 3-2 approval of the order along party lines. If approved, the order will reverse the utility-style (\"Title II\") regulation of mobile and broadband internet access providers, as well as removing the current prohibitions on blocking, throttling, paid prioritization, and general discrimination of Internet access traffic.\nThe order will also return jurisdiction over broadband internet practices to the Federal Trade Commission and pre-empt state and local regulations that might attempt to restore the Obama era policies. This controversial decision will have a major impact on the future of the Internet, with strong reactions from the information industry, consumers, and lawmakers certain to follow.\nWe're pleased that, in anticipation of the vote, Law Seminars International has assembled a diverse panel of experts and scheduled an in depth analysis, via webcast, for the next day. We hope you will be able to join us via the web or by phone. Replays also will be available. For background on this complicated topic, we're pleased to also offer our updated publication \"The Rise and Fall of Net Neutrality (a short history\" (Sapronov & Associates, P.C., Rev. Dec. 2017).",
+				"length": 90
 			}
 		]
 	}
