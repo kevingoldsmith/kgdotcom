@@ -92,67 +92,52 @@
 	</style>
 	<!-- thanks to Ian Wright for the Mapping stuff https://wrightshq.com/playground/placing-multiple-markers-on-a-google-map-using-api-3/ -->
 </head>
-<body class="twoColLiqRtHdr">
-	<div id="container">
-	    <header id="header">
-	        <div id="masthead">
-	            <div id="hdrText">
-	                Kevin Goldsmith
-	            </div>
-	        </div>
-	        <div id="links" class="desktop-only">
-	            <span><a href="/">home</a></span>
-	            <span><a href="/resume.html">resume</a></span>
-	            <span class="thispage">talks</span>
-	            <span><a href="/music/">music</a></span>
-	            <span><a href="/photography/">photos</a></span>
-	        </div>
-	        <div id="linkicons" class="mobile-only">
-	            <span><a href="/"><img src="../img/Home-Icon.png" alt="home" title="home" /></a></span>
-	            <span><a href="/resume.html"><img src="../img/Resume-Icon.png" alt="resume" title="my resume" /></a></span>
-	            <span class="thispage"><img src="../img/Talks-Icon.png" alt="talks" title="talks I've given" /></span>
-	            <span><a href="/music/"><img src="../img/Music-Icon.png" alt="music" title="discography" /></a></span>
-	            <span><a href="/photography/"><img src="../img/Photos-Icon.png" alt="photography" title="my photographs" /></a></span>
-	        </div>
-	        <!-- end #header -->
-	    </header>
-		<div id="mainContent">
-			<div id="map_wrapper">
-		    	<div id="map_canvas" class="mapping"></div>
-			</div>
-			<div id="featured-talks">
-				<div class="subheader">Current Talks</div>
-				<ul>
-					$currenttalklist
-				</ul>
-			</div>
-			<div id="other-talks">
-				<div class="subheader">Older Talks</div>
-				<ul class="year-list">
-					$othertalklist
-				</ul>
-			</div>
-			<div id="panels">
-				<div class="subheader">Panels</div>
-				<ul class="panel-list">
-					$panellist
-				</ul>
-			</div>
-			<div id="workshops">
-				<div class="subheader">Workshops</div>
-				<ul class="workshop-list">
-					$workshoplist
-				</ul>
-			</div>
-		<!-- end #mainContent -->
+<body>
+	<header id="header">
+		<div id="name"><a href="index.html">Kevin Goldsmith</a></div>
+		<div id="site-nav">
+			<ul>
+				<li><a href="../index.html">technology leader</a></li>
+				<li class="current-page">speaker</li>
+				<li>writer</li>
+				<li>musician</li>
+				<li>photographer</li>
+			</ul>
 		</div>
-	    <br class="clearfloat" />
-		<footer id="footer">
-	        <p>&copy; 2008-2018, Kevin Goldsmith</p>
-	        <!-- end #footer -->
-		</footer>
-	<!-- end #container -->
+	</header>
+	<div id="mainContent">
+		<div id="map_wrapper">
+	    	<div id="map_canvas" class="mapping"></div>
+		</div>
+		<div id="featured-talks">
+			<div class="subheader">Current Talks</div>
+			<ul>
+				$currenttalklist
+			</ul>
+		</div>
+		<div id="other-talks">
+			<div class="subheader">Older Talks</div>
+			<ul class="year-list">
+				$othertalklist
+			</ul>
+		</div>
+		<div id="panels">
+			<div class="subheader">Panels</div>
+			<ul class="panel-list">
+				$panellist
+			</ul>
+		</div>
+		<div id="workshops">
+			<div class="subheader">Workshops</div>
+			<ul class="workshop-list">
+				$workshoplist
+			</ul>
+		</div>
+	<!-- end #mainContent -->
 	</div>
+	<footer>
+		kevingoldsmith.com
+	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../js/plugins.js"></script>
     <script src="../js/main.js"></script>
