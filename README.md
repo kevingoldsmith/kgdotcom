@@ -1,2 +1,2 @@
-# talkpages
-python generate the "talks" section of my site from a json file
+# kgdotcom
+redesigning kevingoldsmith.com for the 21st century
