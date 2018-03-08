@@ -65,6 +65,27 @@ header {
 	color: #DDDDDD;
 	background-color: #333333;
 }
+#content
+{
+	padding-top: 5em;
+	padding-left: 1em;
+}
+.myButton {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+    padding: 5px 3px 5px 3px;
+}
+.myButton a {
+	color: black;
+}
+.genericon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+    vertical-align: middle;
+}
 footer {
 	padding-top: .5em;
 	border-top-width: .1em;

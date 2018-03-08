@@ -2,18 +2,23 @@
 
 clean=false
 debug=false
-while getopts cd opts; do
+simple=false
+while getopts cds opts; do
     case ${opts} in
         c) clean=true ;;
         d) debug=true ;;
-       \?) echo "Usage: build -c -d" ;;
+        s) simple=true ;;
+        *) echo "Usage: build -c -d -s" 
+           exit 1;;
     esac
 done
 
 if $clean ; then
     rm -rf output
 fi
-python generate-conference-pages.py
+if ! $simple ; then
+	python generate-conference-pages.py
+fi
 cp -r public/* output
 if $debug ; then
     open output/index.html

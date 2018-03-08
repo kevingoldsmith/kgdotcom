@@ -1650,5 +1650,28 @@
 				"length": 90
 			}
 		]
+	},
+	{
+		"conference": "QCon London",
+		"url": "https://qconlondon.com/",
+		"talks": [
+			{
+				"talk": "Building a Culture of Continuous Improvement",
+				"root-talk": "Building a Culture of Continuous Improvement in Your Company",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-at-avvo",
+				"talk-type": "talk",
+				"date": "2018-03-06",
+				"talk-description": "",
+				"length": 50,
+				"location": {
+					"venue": "Queen Elizabeth II Centre",
+					"address": "Broad Sanctuary, Westminster",
+					"city": "London",
+					"country": "GB",
+					"postal code": "SW1P 3EE",
+					"gps": [51.500202, -0.129009]
+				}
+			}
+		]
 	}
 ]
