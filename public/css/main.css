@@ -1,0 +1,132 @@
+@import url('normalize.css')
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+
+body {
+	font-family: 'Didact Gothic', sans-serif;
+}
+a {
+	text-decoration: none;
+	color: #AA0000;
+}
+a:visited {
+	color: #AAAAAA;
+}
+h1 {
+	font-family: 'Roboto Slab', serif;
+}
+h2 {
+	font-family: 'Roboto Slab', serif;
+}
+h3 {
+	font-family: 'Roboto Slab', serif;
+}
+h4 {
+	font-family: 'Roboto Slab', serif;
+}
+header {
+	top: 0;
+	padding-top: .5em;
+	border-bottom-width: .1em;
+	border-bottom-style: solid;
+	width: 100%;
+	background: #FFFFFF;
+	position: fixed;
+}
+#name {
+	font-size: 3em;
+	margin: 0 0 0.1em 0.05em;
+	line-height: 80%;
+}
+#name a {
+	color: #000000;
+}
+#site-nav {
+	margin-bottom: .3em;
+}
+#site-nav ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-top:0;
+	margin-bottom:0;
+	margin-left:.2em;
+}
+#site-nav li {
+	display: inline-block;
+	padding-left: .2em;
+	padding-right: .2em;
+	padding-bottom: .1em;
+	margin-right:1em;
+	vertical-align: top;
+	text-align: right;
+}
+.current-page {
+	color: #DDDDDD;
+	background-color: #333333;
+}
+footer {
+	padding-top: .5em;
+	border-top-width: .1em;
+	border-top-style: solid;
+	width: 100%;
+}
+
+// Small screens
+@media only screen { 
+} /* Define mobile styles */
+
+@media only screen and (max-width: 40em) {
+	body {
+		margin: 0;
+	}
+	header {
+		position: relative;
+		padding: .5em .5em .2em .5em;
+	}
+	#name {
+		font-size: 2em;
+		text-align: center;
+	}
+	#site-nav li {
+		display: block;
+		text-align: center;
+	}
+	.current-page {
+		color: #DD0000;
+		background-color: inherit;
+	}
+	footer {
+		padding: .5em .5em .5em .5em;
+	}
+} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+// Medium screens
+@media only screen and (min-width: 40.063em) {
+} /* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+	body {
+		margin: 0;
+	}
+	header {
+		padding: .5em .5em .2em .5em;
+	}
+	footer {
+		padding: 0em 0em 0em .5em;
+	}
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+// Large screens
+@media only screen and (min-width: 64.063em) {
+} /* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+} /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+// XLarge screens
+@media only screen and (min-width: 90.063em) {
+} /* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) {
+} /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
