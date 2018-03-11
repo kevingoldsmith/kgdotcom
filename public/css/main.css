@@ -1,4 +1,4 @@
-@import url('normalize.css')
+@import url('normalize.css');
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
@@ -11,7 +11,7 @@ a {
 	color: #AA0000;
 }
 a:visited {
-	color: #AAAAAA;
+	color: #888888;
 }
 h1 {
 	font-family: 'Roboto Slab', serif;
@@ -127,7 +127,7 @@ footer {
 } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-	body {
+/*	body {
 		margin: 0;
 	}
 	header {
@@ -135,7 +135,7 @@ footer {
 	}
 	footer {
 		padding: 0em 0em 0em .5em;
-	}
+	}*/
 } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 // Large screens
