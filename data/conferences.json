@@ -1670,7 +1670,21 @@
 					"country": "GB",
 					"postal code": "SW1P 3EE",
 					"gps": [51.500202, -0.129009]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "Live coverage of #Qconlondon on @InfoQ: Interview with @KevinGoldsmith on Data-Driven Thinking for Continuous Improvement",
+						"credit": "Ben Linders, InfoQ",
+						"credit-url": "https://www.infoq.com/news/2018/03/data-driven-improvement",
+						"reference-url": "https://twitter.com/BenLinders/status/971017378736820224"
+					},
+					{
+						"quote": "Great talk on building a CI culture by @KevinGoldsmith at #QConLondon lots to think about and some very clear areas for me improve",
+						"credit": "Jim Connor",
+						"credit-url": "https://twitter.com/JConnorQA",
+						"reference-url": "https://twitter.com/JConnorQA/status/970982933979951104"
+					}
+				]
 			}
 		]
 	}

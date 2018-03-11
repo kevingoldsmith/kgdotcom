@@ -3,44 +3,50 @@
 	<title>Kevin Goldsmith</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/genericons.css" />	
+    <link rel="stylesheet" href="css/genericons.css" />
 	<style>
+		.inline-list {
+			list-style: none;
+			padding: 0;
+		}
+		.inline-list li {
+			display: inline;
+			margin-right: 1em;
+		}
+		.inline-list li:last-of-type {
+			margin-right: 0em;
+		}
+
 		h1 {
 			font-family: 'Cinzel', serif;
 			font-size: 4em;
-			margin-bottom: 0em;
-			margin-top: 0em;
-			text-align: right;
+			margin: 0 auto 0 auto;
+			text-align: center;
 			line-height: 80%;
 		}
-		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
 		#header {
-			margin-left: 4em;
 			margin-top: 6em;
-			float:left;
+			width: 100%;
 		}
 		#menu {
-			margin-top: 5.8em;
-			margin-left: 1em;
-			float:left;
+			margin-top: .5em;
+		}
+		#menu ul {
+			margin: 0 auto 0 auto;
+			display: block;
+			width: 29em;
+		}
+		#photo img {
+			margin: 0 auto 0 auto;
+			display: block;
 		}
 		#links {
-			margin-top: 1em;
-			width: 160px;
-/*			position: fixed;
-			bottom: 0%;
-			margin-bottom: 1em;
-			margin-left: 1em;
-			width: 100%;*/
-
+			width: 140px;
+			margin: 2em auto 0 auto;
 		}
 
 		// Small screens
-		@media only screen { 
+		@media only screen {
 		} /* Define mobile styles */
 
 		@media only screen and (max-width: 40em) {
@@ -49,8 +55,10 @@
 				text-align: center;
 				line-height: 100%
 			}
-			li {
+			.inline-list li {
 				text-align: center;
+				display: block;
+				margin-right: 0;
 			}
 			#header {
 				float: none;
@@ -61,6 +69,12 @@
 				float: none;
 				margin-top: 2em;
 				margin-left: 0em;
+			}
+			#menu ul {
+				width: auto;
+			}
+			#photo img {
+				width: 100%;
 			}
 		} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
@@ -87,22 +101,23 @@
 	</style>
 </head>
 <body>
-	<div id="header"><h1>Kevin<br>Goldsmith</h1></div>
+	<div id="header"><h1>Kevin Goldsmith</h1></div>
+	<div id="photo"><img src="sm.jpg"></div>
 	<div id="menu">
-		<ul>
+		<ul class="inline-list">
 			<li><a href="resume.html">technology leader</a></li>
 			<li><a href="talks/index.html">speaker</a></li>
 			<li>writer</li>
-			<li>musician</li>
+			<li><a href="music/index.html">musician</a></li>
 			<li>photographer</li>
 		</ul>
+	</div>
 	<div id="links">
 		<span class="myButton"><a class="outbound" href="http://twitter.com/kevingoldsmith"><span class="genericon genericon-twitter"></span></a></span>
 		<span class="myButton"><a class="outbound" href="http://www.linkedin.com/in/goldsmith"><span class="genericon genericon-linkedin"></span></a></span>
 		<span class="myButton"><a class="outbound-mobile" href="http://instagram.com/kevingoldsmith"><span class="genericon genericon-instagram"></span></a></span>
 		<span class="myButton"><a class="outbound-mobile" href="http://www.youtube.com/kevingoldsmith"><span class="genericon genericon-youtube"></span></a></span>
 		<span class="myButton"><a class="outbound" href="https://github.com/kevingoldsmith"><span class="genericon genericon-github"></span></a></span>
-	</div>
 	</div>
 </body>
 </html>
