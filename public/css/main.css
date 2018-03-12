@@ -83,10 +83,10 @@ header {
     vertical-align: middle;
 }
 footer {
-	padding-top: .5em;
 	border-top-width: .1em;
 	border-top-style: solid;
 	width: 100%;
+	padding: 0.5em 0em 0em .5em;
 }
 
 /* Small screens */
