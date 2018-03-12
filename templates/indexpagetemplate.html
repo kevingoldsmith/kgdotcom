@@ -26,13 +26,13 @@
 	</script>
 	<!-- End Google Analytics -->
 
-    <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/main.css" />
-    <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
     <link rel="stylesheet" href="../css/genericons.css" />
-    <link rel="stylesheet" href="../css/site.css" />
 	<link rel="stylesheet" href="talkpages.css" />
 	<style>
+		body {
+			margin: 0;
+		}
 		.talk-description {
 			font-weight: 300;
 			font-size: .9em;
@@ -93,13 +93,13 @@
 </head>
 <body>
 	<header id="header">
-		<div id="name"><a href="index.html">Kevin Goldsmith</a></div>
+		<h1 id="name"><a href="index.html">Kevin Goldsmith</a></h1>
 		<div id="site-nav">
 			<ul>
-				<li><a href="../index.html">technology leader</a></li>
+				<li><a href="../resume.html">technology leader</a></li>
 				<li class="current-page">speaker</li>
 				<li>writer</li>
-				<li>musician</li>
+				<li><a href="../music/index.html">musician</a></li>
 				<li>photographer</li>
 			</ul>
 		</div>
@@ -109,7 +109,7 @@
 	    	<div id="map_canvas" class="mapping"></div>
 		</div>
 		<section id="featured-talks">
-			<h2>Current Talks</div>
+			<h2>Current Talks</h2>
 			<ul>
 				$currenttalklist
 			</ul>
@@ -138,10 +138,6 @@
 		kevingoldsmith.com
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/headerAnimations.js"></script>
-    <script src="../js/vendor/retina.js"></script>
 	<script type="text/javascript">
 		jQuery(function($$) {
 		    // Asynchronously Load the map API

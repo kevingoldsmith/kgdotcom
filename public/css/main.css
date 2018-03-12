@@ -35,7 +35,6 @@ header {
 	position: fixed;
 }
 #name {
-	font-size: 3em;
 	margin: 0 0 0.1em 0.05em;
 	line-height: 80%;
 }
@@ -48,9 +47,7 @@ header {
 #site-nav ul {
 	list-style-type: none;
 	padding-left: 0;
-	margin-top:0;
-	margin-bottom:0;
-	margin-left:.2em;
+	margin: 0;
 }
 #site-nav li {
 	display: inline-block;
@@ -67,8 +64,7 @@ header {
 }
 #content
 {
-	padding-top: 5em;
-	padding-left: 1em;
+	padding: 5em 1em 0em .5em;
 }
 .myButton {
     -moz-border-radius: 5px;
@@ -93,8 +89,8 @@ footer {
 	width: 100%;
 }
 
-// Small screens
-@media only screen { 
+/* Small screens */
+@media only screen {
 } /* Define mobile styles */
 
 @media only screen and (max-width: 40em) {
@@ -117,37 +113,59 @@ footer {
 		color: #DD0000;
 		background-color: inherit;
 	}
+	#content {
+		padding: .2em .5em 0em .5em;
+	}
 	footer {
 		padding: .5em .5em .5em .5em;
 	}
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
-// Medium screens
+/* Medium screens */
 @media only screen and (min-width: 40.063em) {
 } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-/*	body {
-		margin: 0;
-	}
 	header {
 		padding: .5em .5em .2em .5em;
 	}
+	#content {
+		padding: 5em 1em 0em .5em;
+		margin-top: 1em;
+	}
 	footer {
 		padding: 0em 0em 0em .5em;
-	}*/
+	}
 } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
-// Large screens
+/* Large screens */
 @media only screen and (min-width: 64.063em) {
 } /* min-width 1025px, large screens */
 
 @media only screen and (min-width: 64.063em) and (max-width: 90em) {
+	header {
+		padding: .5em .5em .2em .5em;
+	}
+	#content {
+		padding: 5em 1em 0em .5em;
+		margin-top: 1em;
+	}
+	footer {
+		padding: 0em 0em 0em .5em;
+	}
 } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
 
-// XLarge screens
+/* XLarge screens */
 @media only screen and (min-width: 90.063em) {
 } /* min-width 1441px, xlarge screens */
 
 @media only screen and (min-width: 90.063em) {
+	#content {
+		width: 90em;
+		padding: 5em 1em 0em .5em;
+		margin-top: 1em;
+	}
+	header {
+		padding: .5em .5em .2em .5em;
+	}
 } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
