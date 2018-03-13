@@ -26,67 +26,43 @@
 	</script>
 	<!-- End Google Analytics -->
 
-    <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/main.css" />
-    <script src="../js/vendor/modernizr-2.7.1.min.js"></script>
-    <!-- remove query on end of css before finishing, just used for debugging -->
     <link rel="stylesheet" href="../css/genericons.css" />
-    <link rel="stylesheet" href="../css/site.css" />
 	<link rel="stylesheet" href="talkpages.css" />
 </head>
-<body class="twoColLiqRtHdr">
-	<div id="container">
-	    <header id="header">
-	        <div id="masthead">
-	            <div id="hdrText">
-	                Kevin Goldsmith
-	            </div>
-	        </div>
-	        <div id="links" class="desktop-only">
-	            <span><a href="/">home</a></span>
-	            <span><a href="/resume.html">resume</a></span>
-	            <span><a href="index.html">talks</a></span>
-	            <span><a href="/music/">music</a></span>
-	            <span><a href="/photography/">photos</a></span>
-	        </div>
-	        <div id="linkicons" class="mobile-only">
-	            <span><a href="/"><img src="../img/Home-Icon.png" alt="home" title="home" /></a></span>
-	            <span><a href="/resume.html"><img src="../img/Resume-Icon.png" alt="resume" title="my resume" /></a></span>
-	            <span><a href="index.html"><img src="../img/Talks-Icon.png" alt="talks" title="talks I've given" /></a></span>
-	            <span><a href="/music/"><img src="../img/Music-Icon.png" alt="music" title="discography" /></a></span>
-	            <span><a href="/photography/"><img src="../img/Photos-Icon.png" alt="photography" title="my photographs" /></a></span>
-	        </div>
-	        <!-- end #header -->
-	    </header>
-		<div id="mainContent">
-			<div id="talktitle">$title</div>
-			$photo
-			<div id="description">
-				<div class="subheader">Description</div>
-				<div id="talkdescription">$description</div>
-			</div>
-			$video
-			$slides
-			<div id="presentations">
-				<div class="subheader">Presented at</div>
-				<ul>
-					$presentationlist
-				</ul>
-			</div>
-			$reactions
-		<!-- end #mainContent -->
+<body>
+	<header id="header">
+		<h1 id="name"><a href="index.html">Kevin Goldsmith</a></h1>
+		<div id="site-nav">
+			<ul>
+				<li><a href="../resume.html">technology leader</a></li>
+				<li class="current-page"><a href="index.html">speaker</a></li>
+				<li>writer</li>
+				<li><a href="../music/index.html">musician</a></li>
+				<li>photographer</li>
+			</ul>
 		</div>
-	    <br class="clearfloat" />
-		<footer id="footer">
-	        <p>&copy; 2008-2018, Kevin Goldsmith</p>
-	        <!-- end #footer -->
-		</footer>
-	<!-- end #container -->
+	</header>
+	<div id="content">
+		<h1 id="talktitle">$title</h1>
+		$photo
+		<div id="description">
+			<div class="subheader">Description</div>
+			<div id="talkdescription">$description</div>
+		</div>
+		$video
+		$slides
+		<div id="presentations">
+			<div class="subheader">Presented at</div>
+			<ul>
+				$presentationlist
+			</ul>
+		</div>
+		$reactions
+		<!-- end #mainContent -->
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/headerAnimations.js"></script>
-    <script src="../js/vendor/retina.js"></script>
+	<footer>
+		kevingoldsmith.com
+	</footer>
 </body>
 </html>

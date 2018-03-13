@@ -2,7 +2,7 @@
 import copy
 from datetime import date
 from operator import itemgetter
-import urlparse
+from urllib.parse import urlparse
 import json
 import string
 import unicodedata
@@ -52,7 +52,8 @@ talk_type_workshop = 'workshop'
 def generate_filename(filename):
 	filename = filename.replace(' ', '-')
 	filename = filename.replace('@', 'at')
-	cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
+	#cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
+	cleanedFilename = filename
 	valid_filename_chars = "-_%s%s" % (string.ascii_letters, string.digits)
 	newFilename = ''.join(c for c in cleanedFilename if c in valid_filename_chars)
 	newFilename = newFilename.replace('--', '-')
@@ -65,7 +66,7 @@ def get_embed_code_from_videoURL(video_url):
 	#https://vimeo.com/102774091
 	#<iframe width="560" height="315" src="https://www.youtube.com/embed/_67NPdn6ygY?rel=0" frameborder="0" allowfullscreen></iframe>
 	#https://developer.vimeo.com/apis/oembed
-	parsed = urlparse.urlparse(video_url)
+	parsed = urlparse(video_url)
 	youtube_id = ''
 	if parsed.netloc == 'youtu.be':
 		split = os.path.split(parsed.path)
@@ -88,15 +89,15 @@ def get_embed_code_from_slides_URL(slides_url):
 	if response.status_code == 200:
 		bs = BeautifulSoup(response.json()['html'], 'html.parser')
 		aspect_ratio = float(bs.iframe['height']) / float(bs.iframe['width'])
-		bs.iframe['width'] = u'600'
-		bs.iframe['height'] = unicode(int(600*aspect_ratio))
+		bs.iframe['width'] = '600'
+		bs.iframe['height'] = str(int(600*aspect_ratio))
 		return bs.iframe.prettify()
 
 
 def check_for_missing_values(original, new):
 	for key in original.keys():
 		if (key in ['description', 'title', 'presentationlist']) and (original[key] == new[key]):
-			print "\tWARNING: {0} has default value".format(key)
+			print("\tWARNING: {0} has default value".format(key))
 
 
 def is_workshop(talk):
@@ -159,7 +160,7 @@ for talk_index in unique_talks:
 	outputfilename = filetitle + '.html'
 	filepath = output_directory + filetitle + '.html'
 
-	print "creating file: {0}".format(filetitle)
+	print("creating file: {0}".format(filetitle))
 
 	pagevalues = copy.deepcopy(pagevariables)
 	pagevalues['title'] = talktitle
@@ -170,7 +171,7 @@ for talk_index in unique_talks:
 	conferences = unique_talks[talk_index]
 	description = ''
 
-	if os.path.isfile('public/'+filetitle+'.jpg'):
+	if os.path.isfile('public/talks/'+filetitle+'.jpg'):
 		photofile = filetitle + '.jpg'
 		photo = format_photo_div.format(photofile)
 		pagevalues['photo'] = photo
@@ -182,7 +183,8 @@ for talk_index in unique_talks:
 				this_talk = talk
 
 		if (this_talk is not None):
-			this_talk[u'outputfilename'] = unicode(outputfilename)
+			#this_talk[u'outputfilename'] = unicode(outputfilename)
+			this_talk[u'outputfilename'] = outputfilename
 			talk_date = date(*map(int, this_talk['date'].split("-")))
 
 			if ('talk-description' in this_talk) and (len(this_talk['talk-description']) > len(description)):
@@ -196,11 +198,12 @@ for talk_index in unique_talks:
 			if ('slides-url' in this_talk) and (not any(d.get('slides-url', None) == this_talk['slides-url'] for d in slides)):
 				slides.append({'date': talk_date, 'slides-url': this_talk['slides-url'], 'talk': this_talk['talk']})
 
-			city = this_talk['location']['city'].encode('utf-8') if ('location' in this_talk) and ('city' in this_talk['location']) else ""
-			state = this_talk['location']['state'].encode('utf-8') if ('location' in this_talk) and ('state' in this_talk['location']) else ""
-			country = this_talk['location']['country'].encode('utf-8') if ('location' in this_talk) and ('country' in this_talk['location']) else ""
+			city = this_talk['location']['city'] if ('location' in this_talk) and ('city' in this_talk['location']) else ""
+			state = this_talk['location']['state'] if ('location' in this_talk) and ('state' in this_talk['location']) else ""
+			country = this_talk['location']['country'] if ('location' in this_talk) and ('country' in this_talk['location']) else ""
 			if len(country) == 2:
-				country = pycountry.countries.get(alpha_2=country.encode('utf-8')).name
+				#country = pycountry.countries.get(alpha_2=country.encode('utf-8')).name
+				country = pycountry.countries.get(alpha_2=country).name
 			#if there is no location, it is vritual
 			conference_location = 'virtual'
 			if len(state) > 0:
@@ -212,13 +215,13 @@ for talk_index in unique_talks:
 			if this_talk['talk-type'] == talk_type_keynote:
 				talk_list_item_format = format_keynote_list_item
 
-			presentations.append(talk_list_item_format.format(conference_name.encode('utf-8'), talk_date.strftime("%B %d, %Y"), conference_location))
+			presentations.append(talk_list_item_format.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
 
 			if 'reactions' in this_talk:
 				for reaction in this_talk['reactions']:
-					quote = reaction['quote'].encode('utf-8')
-					credit = reaction['credit'].encode('utf-8')
-					ref = reaction['reference-url'].encode('utf-8')
+					quote = reaction['quote']
+					credit = reaction['credit']
+					ref = reaction['reference-url']
 					reactions.append(format_reactions_list_item.format(quote, ref, credit))
 			try:
 				index = next(index for (index, d) in enumerate(index_page['talks']) if d["name"] == talk_index)
@@ -268,20 +271,20 @@ for talk_index in unique_talks:
 		pagevalues['slides'] = slides_string
 
 	if len(presentations) > 0:
-		pagevalues['presentationlist'] = unicode('\n'.join(presentations), 'utf-8')
+		pagevalues['presentationlist'] = '\n'.join(presentations)
 	else:
-		pagevalues['presentationlist'] = u''
+		pagevalues['presentationlist'] = ''
 
 	if len(reactions) > 0:
 		reactionstring = format_reactions_div.format('\n'.join(reactions))
-		pagevalues['reactions'] = unicode(reactionstring, 'utf-8')
+		pagevalues['reactions'] = reactionstring
 	else:
-		pagevalues['reactions'] = u''
+		pagevalues['reactions'] = ''
 
 	check_for_missing_values(pagevariables, pagevalues)
 
 	with open(filepath, 'w') as f:
-		f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))
+		f.write(talkpagetemplate.substitute(pagevalues))
 
 for conference in panels:
 	conference_name = conference['conference']
@@ -355,14 +358,14 @@ if len(index_page['talks']) > 0:
 			else:
 				first_year = False
 			other_talks_string += format_other_talks_list_item.format(other_talk_string['year'])
-		other_talks_string += '{0}\n'.format(other_talk_string['li'].encode('utf-8'))
+		other_talks_string += '{0}\n'.format(other_talk_string['li'])
 	other_talks_string += format_close_ul + format_close_li
 
 #get the page template
 with open('templates/indexpagetemplate.html') as f:
 	talkpagetemplate = string.Template(f.read())
 
-print "creating index.html"
+print("creating index.html")
 
 marker_list = []
 info_list = []
@@ -379,22 +382,22 @@ for conference in conference_talks:
 		for talk in conference['talks']:
 			talk_name = talk['talk'].replace("\'","&apos;")
 			if 'outputfilename' in talk:
-				talks.append(format_a.format(talk['outputfilename'],talk_name.encode('utf-8')))
+				talks.append(format_a.format(talk['outputfilename'],talk_name))
 			else:
-				talks.append(talk_name.encode('utf-8'))
+				talks.append(talk_name)
 		info = format_info_window.format(conference_name, year, '<br />'.join(talks))
 		info_list.append(info)
 
 pagevalues = copy.deepcopy(pagevariables)
 pagevalues['currenttalklist'] = featured_talks_string
-pagevalues['othertalklist'] = unicode(other_talks_string, 'utf-8')
+pagevalues['othertalklist'] = other_talks_string
 pagevalues['panellist'] = panel_list_string
 pagevalues['workshoplist'] = lab_list_string
 pagevalues['title'] = 'Kevin Goldsmith: talks'
 pagevalues['presentationlist'] = ''
 pagevalues['description'] = 'Kevin Goldsmith Talks'
-pagevalues['markerlist'] = unicode(',\n'.join(marker_list), 'utf-8')
-pagevalues['infolist'] = unicode(',\n'.join(info_list), 'utf-8')
+pagevalues['markerlist'] = ',\n'.join(marker_list)
+pagevalues['infolist'] = ',\n'.join(info_list)
 check_for_missing_values(pagevariables, pagevalues)
 with open(output_directory+'index.html', 'w') as f:
-	f.write(talkpagetemplate.substitute(pagevalues).encode('utf-8'))
+	f.write(talkpagetemplate.substitute(pagevalues))

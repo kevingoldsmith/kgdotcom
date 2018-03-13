@@ -1,17 +1,6 @@
-/*@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:300,400,600');*/
-/*body {	background-color: white;
-		font-family: 'Encode Sans Expanded', sans-serif;
-		margin: 20px;
-	 }
-#wrapper {
-    min-width: 800px;
-    max-width: 900px;
-    padding-left: 30px;
-    padding-right: 30px;
-}*/
 #talktitle {
-	font-size: 250%;
 	margin-bottom: 20px;
+	margin-top: 0.2em;
 }
 #photo {
 	margin-bottom: 20px;
