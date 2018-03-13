@@ -1,0 +1,56 @@
+[
+{
+	"name": "In 2018 Decide to Work Deliberately",
+	"url": "http://blog.kevingoldsmith.com/2018/01/01/in-2018-decide-to-work-deliberately/",
+	"description": "What does it mean to live (and work) deliberately?",
+	"tags": [ 
+		"Management",
+		"Leadership"
+	],
+	"date": "2018-01-01"
+},
+{
+	"name": "Thoughts on emulating Spotify’s matrix organization in other companies",
+	"url": "http://blog.kevingoldsmith.com/2014/03/14/thoughts-on-emulating-spotifys-matrix-organization-in-other-companies/",
+	"description": "I was in San Francisco in December for a conference. While I was there, I ended up connecting with a couple different companies who have been inspired by Henrik Kniberg’s whitepaper on Scaling Agile at Spotify, and who have been trying to do implement some of those ideas in their own companies.",
+	"tags": [
+		"Management",
+		"Leadership",
+		"Spotify",
+		"Organizational Design"
+	],
+	"date": "2014-03-14"
+},
+{
+	"name": "A diversity challenge: tech start-ups have a great opportunity",
+	"url": "http://blog.kevingoldsmith.com/2017/05/16/a-diversity-challenge-tech-start-ups-have-a-great-opportunity/",
+	"description": "Large technology companies should still work consistently to improve their diversity, but startups are much better suited to solve the diversity problem for the industry as a whole.",
+	"tags": [
+		"Management",
+		"Leadership",
+		"Diversity",
+		"Hiring"
+	],
+	"date": "2017-05-16"
+},
+{
+	"name": "The Spotify model: how to create, dissolve, and remix teams to be more dynamic and more innovative",
+	"url": "http://blog.kevingoldsmith.com/2015/03/23/the-spotify-model-how-to-create-dissolve-and-remix-teams-to-be-more-dynamic-and-more-innovative/",
+	"description": "One of the most challenging parts of managing a traditional, hierarchical, organization is being responsive to new opportunities; especially those that require leveraging skillsets outside your own team. At Spotify, our organizational model allows us to create, dissolve, and remix teams with a minimal disruption to individuals or managers. This gives us tremendous abilities to address both temporary and long term opportunities.",
+	"tags": [
+		"Spotify",
+		"Organizational Design",
+		"Leadership",
+		"Management"
+	],
+	"date": "2015-03-23"
+},
+{
+	"name": "",
+	"url": "",
+	"description": "",
+	"tags": [
+	],
+	"date": ""
+}
+]
