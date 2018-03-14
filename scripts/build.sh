@@ -18,6 +18,7 @@ if $clean ; then
 fi
 if ! $simple ; then
 	python generate-conference-pages.py
+	python generate-writing-page.py
 fi
 cp -r public/* output
 if $debug ; then
