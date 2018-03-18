@@ -3,11 +3,22 @@
 	"name": "In 2018 Decide to Work Deliberately",
 	"url": "http://blog.kevingoldsmith.com/2018/01/01/in-2018-decide-to-work-deliberately/",
 	"description": "What does it mean to live (and work) deliberately?",
-	"tags": [ 
+	"tags": [
 		"Management",
 		"Leadership"
 	],
 	"date": "2018-01-01"
+},
+{
+	"name": "Building a Management Training Curriculum at Avvo",
+	"url": "https://medium.com/avvo/building-a-management-training-curriculum-at-avvo-5286b1d804f",
+	"description": "An approach to collectively determining the priorities for a team training program.",
+	"tags": [
+		"Management",
+		"Leadership",
+		"Avvo"
+	],
+	"date": "2017-10-05"
 },
 {
 	"name": "Thoughts on emulating Spotify’s matrix organization in other companies",
@@ -22,6 +33,18 @@
 	"date": "2014-03-14"
 },
 {
+	"name": "The Spotify model: how to create, dissolve, and remix teams to be more dynamic and more innovative",
+	"url": "http://blog.kevingoldsmith.com/2015/03/23/the-spotify-model-how-to-create-dissolve-and-remix-teams-to-be-more-dynamic-and-more-innovative/",
+	"description": "One of the most challenging parts of managing a traditional, hierarchical, organization is being responsive to new opportunities; especially those that require leveraging skillsets outside your own team. At Spotify, our organizational model allows us to create, dissolve, and remix teams with a minimal disruption to individuals or managers. This gives us tremendous abilities to address both temporary and long term opportunities.",
+	"tags": [
+		"Spotify",
+		"Organizational Design",
+		"Leadership",
+		"Management"
+	],
+	"date": "2015-03-23"
+},
+{
 	"name": "A diversity challenge: tech start-ups have a great opportunity",
 	"url": "http://blog.kevingoldsmith.com/2017/05/16/a-diversity-challenge-tech-start-ups-have-a-great-opportunity/",
 	"description": "Large technology companies should still work consistently to improve their diversity, but startups are much better suited to solve the diversity problem for the industry as a whole.",
@@ -34,16 +57,44 @@
 	"date": "2017-05-16"
 },
 {
-	"name": "The Spotify model: how to create, dissolve, and remix teams to be more dynamic and more innovative",
-	"url": "http://blog.kevingoldsmith.com/2015/03/23/the-spotify-model-how-to-create-dissolve-and-remix-teams-to-be-more-dynamic-and-more-innovative/",
-	"description": "One of the most challenging parts of managing a traditional, hierarchical, organization is being responsive to new opportunities; especially those that require leveraging skillsets outside your own team. At Spotify, our organizational model allows us to create, dissolve, and remix teams with a minimal disruption to individuals or managers. This gives us tremendous abilities to address both temporary and long term opportunities.",
+	"name": "Building a technical career path at Spotify",
+	"url": "http://blog.kevingoldsmith.com/2016/03/15/building-a-technical-career-path-at-spotify/",
+	"description": "Spotify launched a career path framework for individuals last year. Since then, I’ve spoken to leaders at several other companies about it. This seems to be a bit of a hot topic, so I’ve decided to write about our model and how we arrived at it. Hopefully, this may be useful to your company.",
 	"tags": [
 		"Spotify",
-		"Organizational Design",
-		"Leadership",
 		"Management"
 	],
-	"date": "2015-03-23"
+	"date": "2016-02-08"
+},
+{
+	"name": "Spotify Technology Career Steps",
+	"url": "http://blog.kevingoldsmith.com/2016/03/16/spotify-technology-career-steps/",
+	"description": "Spotify's first technology career pathing structure",
+	"tags": [
+		"Spotify",
+		"Management"
+	],
+	"date": "2016-02-15"
+},
+{
+	"name": "Things We Learned Creating Technology Career Steps",
+	"url": "http://blog.kevingoldsmith.com/2016/03/17/things-we-learned-creating-technology-career-steps/",
+	"description": "The things we learned building a non-tradtional career pathing structure at a company which thrives on autonomy, servant leadership and strong teams",
+	"tags": [
+		"Spotify",
+		"Management"
+	],
+	"date": "2016-02-22"
+},
+{
+	"name": "The Myth of the Startup in a Large Company",
+	"url": "http://blog.kevingoldsmith.com/2014/08/10/the-myth-of-the-startup-in-a-large-company/",
+	"description": "Can you really 'act like a startup' in the middle of a large, established, company?",
+	"tags": [
+		"Organizational Design",
+		"Management"
+	],
+	"date": "2014-08-10"
 },
 {
 	"name": "",
