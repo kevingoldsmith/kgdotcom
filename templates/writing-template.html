@@ -20,6 +20,18 @@
         #content {
             padding-top:4em;
         }
+        .buttonlist {
+            margin-bottom: 1em;
+        }
+        .buttonlist button {
+            margin-right: .5em;
+        }
+        .buttonlist button:focus {
+            outline: none;
+        }
+        .clickedbutton {
+            background: #AAAAAA;
+        }
         .articlelist {
             list-style: none;
             margin: 0;
@@ -72,7 +84,8 @@
     </header>
     <div id="content">
         <div class="buttonlist">
-            <button onclick="resetFilter('articlelist')">Reset</button>$tagbuttons
+            <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
+            $tagbuttons
         </div>
         <ul class="articlelist">
             $writinglist
@@ -126,6 +139,7 @@
 
         // Filter tag
         function filterTag (filter, tag) {
+            resetFilter(filter);
             var items = document.querySelectorAll('.' + filter + ' > li');
 
             for (var i = 0; i < items.length; i++) {
@@ -138,6 +152,7 @@
                     }
                 }
             }
+            selectbutton(tag);
         }
 
         // Reset filters
@@ -146,6 +161,20 @@
 
             for (var i = 0; i < items.length; i++) {
                 items[i].setAttribute('data-toggle', 'on');
+            }
+        }
+
+        // Reset select
+        function selectbutton(select_id) {
+            var items = document.querySelectorAll('.buttonlist > button');
+
+            for (var i = 0; i < items.length; i++) {
+                items[i].classList.remove('clickedbutton');
+            }
+
+            var items = document.querySelectorAll('.buttonlist > ' + '#' + select_id);
+            for (var i = 0; i < items.length; i++) {
+                items[i].classList.add('clickedbutton');
             }
         }
         </script>
