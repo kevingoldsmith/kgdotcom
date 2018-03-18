@@ -7,7 +7,7 @@ from datetime import date
 
 format_article_template = Template('<li class=\"article\" data-tags=\"$datatags\"><div class=\"articlename\"><a href="$url">$name</a></div><div class=\"articledate\">$formatteddate</div><div class=\"articledescription\">$description</div><ul class="keywordlist">$keywords</ul></li>')
 format_article_keyword_template = Template('<li class=\"keyword\">$tag</li>')
-format_filter_button_template = Template('<button data-filter=\"ping\" data-filter-tag=\"$tag\">$name</button>')
+format_filter_button_template = Template('<button onclick=\"filterTag(\'articlelist\',\'$tag\')\">$name</button>')
 output_directory = 'output/'
 
 def tagifyTag(tag):
