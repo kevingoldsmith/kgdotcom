@@ -140,7 +140,7 @@
         // Filter tag
         function filterTag (filter, tag) {
             resetFilter(filter);
-            var items = document.querySelectorAll('.' + filter + ' > li');
+            var items = $$('.' + filter + ' > li');
 
             for (var i = 0; i < items.length; i++) {
                 var itemTags = items[i].getAttribute('data-tags');
@@ -157,25 +157,13 @@
 
         // Reset filters
         function resetFilter (filter) {
-            var items = document.querySelectorAll('.' + filter + ' > li');
-
-            for (var i = 0; i < items.length; i++) {
-                items[i].setAttribute('data-toggle', 'on');
-            }
+            $$('.' + filter + ' > li').attr('data-toggle', 'on')
         }
 
         // Reset select
         function selectbutton(select_id) {
-            var items = document.querySelectorAll('.buttonlist > button');
-
-            for (var i = 0; i < items.length; i++) {
-                items[i].classList.remove('clickedbutton');
-            }
-
-            var items = document.querySelectorAll('.buttonlist > ' + '#' + select_id);
-            for (var i = 0; i < items.length; i++) {
-                items[i].classList.add('clickedbutton');
-            }
+            $$('.buttonlist > button').removeClass('clickedbutton');
+            $$('.buttonlist > ' + '#' + select_id).addClass('clickedbutton');
         }
         </script>
     </body>
