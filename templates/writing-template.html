@@ -25,6 +25,7 @@
         }
         .buttonlist button {
             margin-right: .5em;
+            margin-bottom: 1em;
         }
         .buttonlist button:focus {
             outline: none;
@@ -40,6 +41,9 @@
         .article {
             margin-bottom: 1em;
         }
+        .articlename {
+            font-size: 1.5em;
+        }
         .articledate {
             font-style: italic;
         }
@@ -50,14 +54,14 @@
         }
         .keyword {
             display: inline;
-            margin-right: 1em;
             font-size: .8em;
-            background: #DDDDDD;
-            padding: .1em .4em .1em .4em;
+        }
+        .keyword:after {
+            content: ", ";
         }
         .keyword:last-child:after
         {
-            margin-right: 0;
+            content: "";
         }
 
         [data-toggle='on'] {
@@ -84,7 +88,7 @@
     </header>
     <div id="content">
         <div class="buttonlist">
-            <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
+            filter by tag: <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
             $tagbuttons
         </div>
         <ul class="articlelist">
