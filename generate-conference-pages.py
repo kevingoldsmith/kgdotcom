@@ -37,6 +37,7 @@ format_close_li = '</li>\n'
 format_a = '<a href=\"{0}\">{1}</a>'
 format_marker = '[\'{0} {1}\', {2}, {3}]'
 format_info_window = '[\'<div class=\"info_content\"><h3>{0} {1}</h3><p>{2}</p></div>\']'
+format_future_talks = '<section id=\"upcoming-talks\"><h2>Upcoming Talks</h2><ul>{0}</ul></section>'
 
 #string constants
 talk_type_keynote = 'keynote'
@@ -110,6 +111,9 @@ def is_talk(talk):
 def is_panel(talk):
 	return 'talk-type' in talk and ((talk['talk-type'] == talk_type_panel) or (talk['talk-type'] == talk_type_panel_chair))
 
+def get_talk_date(talk):
+	return date(*map(int, talk['date'].split("-")))
+
 
 #get the data
 with open('data/conferences.json', 'r') as f:
@@ -131,24 +135,28 @@ if not os.path.exists(output_directory):
 unique_talks = {}
 panels = []
 labs = []
+upcoming_talks = []
 
 #conference JSON is organized by conference for ease of editing
 #but for the purposes of creating pages, we want to store by talks
 #so we swizzle
 for conference in conference_talks:
 	for talk in conference['talks']:
-		talk_index = ""
-		talk_index = talk['root-talk'] if 'root-talk' in talk else talk['talk']
-		if is_talk(talk):
-			if len(talk_index) > 0:
-				if talk_index in unique_talks:
-					unique_talks[talk_index].append(conference)
-				else:
-					unique_talks[talk_index] = [conference]
-		elif is_panel(talk):
-			panels.append(conference)
-		elif is_workshop(talk):
-			labs.append(conference)
+		if get_talk_date(talk) < date.today():
+			talk_index = ""
+			talk_index = talk['root-talk'] if 'root-talk' in talk else talk['talk']
+			if is_talk(talk):
+				if len(talk_index) > 0:
+					if talk_index in unique_talks:
+						unique_talks[talk_index].append(conference)
+					else:
+						unique_talks[talk_index] = [conference]
+			elif is_panel(talk):
+				panels.append(conference)
+			elif is_workshop(talk):
+				labs.append(conference)
+		else:
+			upcoming_talks.append(conference)
 
 index_page = {'talks': [], 'labs': [], 'panels': []}
 
@@ -185,7 +193,7 @@ for talk_index in unique_talks:
 		if (this_talk is not None):
 			#this_talk[u'outputfilename'] = unicode(outputfilename)
 			this_talk[u'outputfilename'] = outputfilename
-			talk_date = date(*map(int, this_talk['date'].split("-")))
+			talk_date = get_talk_date(this_talk)
 
 			if ('talk-description' in this_talk) and (len(this_talk['talk-description']) > len(description)):
 				#pick the longest description (figuring it is the most imformative)
@@ -290,7 +298,7 @@ for conference in panels:
 	conference_name = conference['conference']
 	for talk in conference['talks']:
 		if is_panel(talk):
-			talk_date = date(*map(int, talk['date'].split("-")))
+			talk_date = get_talk_date(talk)
 			talk_name = talk['talk']
 			index_page['panels'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
 
@@ -298,7 +306,7 @@ for conference in labs:
 	conference_name = conference['conference']
 	for talk in conference['talks']:
 		if is_workshop(talk):
-			talk_date = date(*map(int, talk['date'].split("-")))
+			talk_date = get_talk_date(talk)
 			talk_name = talk['talk']
 			index_page['labs'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
 
@@ -366,13 +374,12 @@ with open('templates/indexpagetemplate.html') as f:
 	talkpagetemplate = string.Template(f.read())
 
 print("creating index.html")
-
 marker_list = []
 info_list = []
 for conference in conference_talks:
 	if ('location' in conference['talks'][0]) and len(conference['conference']) > 0:
 		conference_name = conference['conference'].replace("\'","&apos;")
-		year = date(*map(int, conference['talks'][0]['date'].split("-"))).year
+		year = get_talk_date(conference['talks'][0]).year
 		lat = conference['talks'][0]['location']['gps'][0]
 		log = conference['talks'][0]['location']['gps'][1]
 		marker = format_marker.format(conference_name, year, lat, log)
@@ -388,6 +395,37 @@ for conference in conference_talks:
 		info = format_info_window.format(conference_name, year, '<br />'.join(talks))
 		info_list.append(info)
 
+future_talks_string = ''
+if len(upcoming_talks) > 0:
+	future_talks_list_items = []
+	for conference in upcoming_talks:
+		this_talk = None
+		if len(conference['talks']) > 0:
+			this_talk = conference['talks'][0]
+
+			talk_date = get_talk_date(this_talk)
+			conference_name = conference['conference']
+			city = this_talk['location']['city'] if ('location' in this_talk) and ('city' in this_talk['location']) else ""
+			state = this_talk['location']['state'] if ('location' in this_talk) and ('state' in this_talk['location']) else ""
+			country = this_talk['location']['country'] if ('location' in this_talk) and ('country' in this_talk['location']) else ""
+			if len(country) == 2:
+				#country = pycountry.countries.get(alpha_2=country.encode('utf-8')).name
+				country = pycountry.countries.get(alpha_2=country).name
+			#if there is no location, it is vritual
+			conference_location = 'virtual'
+			if len(state) > 0:
+				conference_location = format_location_city_state_country.format(city, state, country)
+			elif len(city) > 0:
+				conference_location = format_location_city_country.format(city, country)
+
+			talk_list_item_format = format_presentation_list_item
+			if this_talk['talk-type'] == talk_type_keynote:
+				talk_list_item_format = format_keynote_list_item
+
+			future_talks_list_items.append(talk_list_item_format.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
+
+	future_talks_string = format_future_talks.format('\n'.join(future_talks_list_items))
+
 pagevalues = copy.deepcopy(pagevariables)
 pagevalues['currenttalklist'] = featured_talks_string
 pagevalues['othertalklist'] = other_talks_string
@@ -398,6 +436,7 @@ pagevalues['presentationlist'] = ''
 pagevalues['description'] = 'Kevin Goldsmith Talks'
 pagevalues['markerlist'] = ',\n'.join(marker_list)
 pagevalues['infolist'] = ',\n'.join(info_list)
+pagevalues['futuretalks'] = future_talks_string
 check_for_missing_values(pagevariables, pagevalues)
 with open(output_directory+'index.html', 'w') as f:
 	f.write(talkpagetemplate.substitute(pagevalues))

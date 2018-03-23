@@ -1661,7 +1661,7 @@
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-at-avvo",
 				"talk-type": "talk",
 				"date": "2018-03-06",
-				"talk-description": "",
+				"talk-description": "Avvo created tools to encourage data-driven thinking, autonomy and a spirit of continuous improvement. This talk describes those tools, their implementation and the issues and challenges encountered when doing large-scale culture change in a ten-year-old company. Continuous improvement is the goal for agile teams. We strive for it. What does it look like when we create a continuous improvement beyond our agile teams and bring it to the larger organization: the company level? Kevin Goldsmith was leaving Spotify, a company that had a built an amazing continuous improvement culture. He saw the benefits that it brought, first hand. When he joined Avvo as its new CTO, his primary goal was to help Avvo create that culture for itself. In this talk, Kevin shows what Avvo has done to build a foundation for a continuous improvement culture: frameworks, organizational and processes that support and empower individuals and groups to own and drive improvements to make themselves more efficient and the company a better place to work. The ideas presented will inspire cultural and organizational changes that you can make to bring continuous improvement to your work environment.",
 				"length": 50,
 				"location": {
 					"venue": "Queen Elizabeth II Centre",
@@ -1687,5 +1687,50 @@
 				]
 			}
 		]
+	},
+	{
+		"conference": "Better Software West",
+		"url": "https://bscwest.techwell.com/",
+		"talks": [
+			{
+				"talk": "A Case Study in Building a Culture of Continuous Improvement",
+				"root-talk": "Building a Culture of Continuous Improvement in Your Company",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-at-avvo",
+				"talk-type": "talk",
+				"date": "2018-06-06",
+				"talk-description": "Continuous improvement is the goal of agile teams. But what does it look like when we create a continuous improvement strategy beyond our agile teams and bring it to the company level? Working at Spotify, Kevin Goldsmith saw the benefits of its fantastic continuous improvement culture. When he joined Avvo as its new CTO, his primary goal was to help Avvo create that culture for itself. In this session, Kevin will show what Avvo has done to build a foundation for a continuous improvement culture. He’ll explore the frameworks used to create highly engaged teams and share the organizational and process models that support and empower individuals and groups to own and drive improvements to make themselves more efficient and the company a better place to work. You'll leave with a template to help you build a continuous improvement culture in your company.",
+				"length": 60,
+				"location": {
+					"venue": "Caesars Palace",
+					"address": "3570 S Las Vegas Blvd",
+					"city": "Las Vegas",
+					"state": "NV",
+					"country": "US",
+					"postal code": "89109",
+					"gps": [36.116428, -115.174531]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The Lead Developer",
+		"url": "https://london2018.theleaddeveloper.com/",
+		"talks": [
+			{
+				"talk": "Using Agile Techniques to Build a More Inclusive Team",
+				"talk-type": "talk",
+				"date": "2018-06-27",
+				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. \nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
+				"length": 30,
+				"location": {
+					"venue": "The Barbican Centre",
+					"address": "Silk Street",
+					"city": "London",
+					"country": "GB",
+					"postal code": "EC2Y 8DS",
+					"gps": [51.520170, -0.093274]
+				}
+			}
+		]		
 	}
 ]
