@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    Kevin Goldsmith -- Author -- @kevingoldsmith
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr
+    SimplePie (https://github.com/simplepie/simplepie)
+    Twitter-RSS-Parser (https://github.com/jdelamater99/Twitter-RSS-Parser)
+    jquery.collageplus
+    

@@ -1,0 +1,9 @@
+Options -Indexes
+ErrorDocument 403 /403page.html
+ErrorDocument 404 /404page.html
+Redirect /discography.html /music.html
+Redirect /photos.html /photography.html
+Redirect /music/index.html /music.html
+Redirect /index.php /index.html
+Redirect /labs/index.html /resume.html
+Redirect /photography/index.html /photography.html

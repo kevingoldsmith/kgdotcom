@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/kevingoldsmith
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://kevingoldsmith.com
+  * I am kevingoldsmith (https://keybase.io/kevingoldsmith) on keybase.
+  * I have a public key with fingerprint 10B9 D0EA 3AE6 420E B2D0  F4C3 BC53 7024 0523 993A
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "10b9d0ea3ae6420eb2d0f4c3bc5370240523993a",
+            "host": "keybase.io",
+            "key_id": "bc5370240523993a",
+            "uid": "608cc29b0c5a830626c7245f782edd00",
+            "username": "kevingoldsmith"
+        },
+        "service": {
+            "hostname": "kevingoldsmith.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1397383478,
+    "expire_in": 157680000,
+    "prev": "c76315de32c4bd549a69782542386b80e63ad8f43b99f95ee1d2d7f689be7e15",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.5
+Comment: https://keybase.io/crypto
+
+yMHvAnicbZFfSBRbHMd33FVbQdToofTJCSPyD7Nz5u8mPdiD3KvdNI1QlG1mzll3
+yJ1Zd8dd3cU/obcgMS9EXKSHK0RBClZbiRba1qZdbwjBLdm26A8GlqG9REileGap
+N8/L4fy+3+/n9zv8HmVbLVlE6O363eTNZZp4Ettot9T9LnERUtZhJ+mMkKdQ6nKr
+Wgvy+/yqZpBO0kHJIqSQBCTEMTSFZBpSbkYBssICnqIZiqWBKAKJLCE9esBMYIws
+BVCZquMafrhUiKvb+NtTAkcJikKLMqWwkgAojuYUnmZYNy/QCEKKMo0B5NckL0rB
+g3g8vRUGvKrhIbtKSKwFVQVrkdQA2/rKFN2LOT6/buiK3op1j2H4nGbc6PSZ/hCS
+XT9JLlnVIA7jQBD5A6qukU4HdiqGaqIdQOSBABheKCFRh0/1I5dqOlieEyh8zDYo
+iJEKzwEHCxGgFUaGLCNKnIg/xTI0EDhZoBAHJCi4GSCLoltkEXJAGvJuThBlxCMH
+i/sHUJumk06Ax5RaMDKgtmiS0e5HZNfDWJPNQmRZMtLTzC1asuy5v3Zb2pC5WZ58
+NTiyOrGuTa2tnvQdmjeUL305/56/PWfdyLwS9fR2WtfyehJzj+2DC5+z47NVnwro
+uZqiZ5mw/Fp/NHRh2HamoXK+u6+webr5/7M/7r+71d1bORWWGxtsSeKvcFttdVHc
+Wnfi4Hh9ccIg+v+zDOya7Vkds7J34hlP/6xcyR/fM7DD0XeusHakmmhb3IyFpcll
+5dKoJTazsn/iZdrCd9v7KPHP0Z7QcI3Xnr+UXjH65vDF3Ncf6wuOVM1cz/kQP7Dz
+xVAisjjdzYUjedGMusbcROnzG5PVHbarDyqGfmtt+gbDY659f+9NEqc9l/9YK07U
+omPDtt3Lx78u3bOXbgH3lhhy
+=VJm+
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kevingoldsmith
+
+==================================================================
