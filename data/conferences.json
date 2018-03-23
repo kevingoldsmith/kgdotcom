@@ -1689,6 +1689,28 @@
 		]
 	},
 	{
+		"conference": "Apprenti Forum: Creating Pathways to Economic Mobility via Registered Tech Apprenticeship",
+		"url": "https://www.eventbrite.com/e/apprenti-forum-creating-pathways-to-economic-mobility-via-registered-tech-apprenticeship-tickets-42430965159",
+		"talks": [
+			{
+				"talk": "Hiring Partner Panel",
+				"talk-type": "panel",
+				"date": "2018-03-28",
+				"talk-description": "Join us at the 2018 Apprenti Forum as we explore how state, local, business, and philanthropic leaders from across the country are partnering in their community to create pathways for underrepresented groups to access family-wage jobs in the tech sector. Listen and engage with hiring partners, apprentices, policymakers and local affiliates actively engaged in expanding access to registered tech apprenticeships.",
+				"length": 45,
+				"location": {
+					"venue": "Davis Wright Tremaine",
+					"address": "1201 3rd Avenue, #2200",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98101",
+					"gps": [47.607206, -122.335951]
+				}
+			}
+		]
+	},
+	{
 		"conference": "Better Software West",
 		"url": "https://bscwest.techwell.com/",
 		"talks": [

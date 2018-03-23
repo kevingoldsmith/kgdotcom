@@ -18,6 +18,7 @@ format_location_city_country = '<span class=\"conferencecity\">{0}</span>, <span
 format_location_city_state_country = '<span class=\"conferencecity\">{0}</span>, <span class=\"conferenceState\">{1}</span>, <span class=\"conferencecountry\">{2}</span>'
 format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_keynote_list_item = '<li><span class=\"conferencename\">{0}</span> (Keynote) - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
+format_upcoming_list_item = '<li><span class=\"conferencename\"><a class=\"outbound\" href=\"{0}\">{1}</a></span> - <span class=\"conferencedate\">{2}</span> - <span class=\"conferencelocation\">{3}</span></li>'
 format_reactions_list_item = '<li><span class=\"quote\">{0}</span> - <a href=\"{1}\">{2}</a></li>'
 format_video_div = '<div id=\"video\">\n<div class=\"subheader\">Recordings</div>\n'
 format_other_recordings_list = '<div id=\"othervideos\">\n<div class=\"othersubheader\">Other recordings</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
@@ -418,11 +419,10 @@ if len(upcoming_talks) > 0:
 			elif len(city) > 0:
 				conference_location = format_location_city_country.format(city, country)
 
-			talk_list_item_format = format_presentation_list_item
-			if this_talk['talk-type'] == talk_type_keynote:
-				talk_list_item_format = format_keynote_list_item
-
-			future_talks_list_items.append(talk_list_item_format.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
+			if 'url' in conference:
+				future_talks_list_items.append(format_upcoming_list_item.format(conference['url'], conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
+			else:
+				future_talks_list_items.append(format_presentation_list_item.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
 
 	future_talks_string = format_future_talks.format('\n'.join(future_talks_list_items))
 

@@ -64,7 +64,7 @@ header {
 }
 #content
 {
-	padding: 5em 1em 0em .5em;
+	padding: 4em 1em 0em .5em;
 }
 .myButton {
     -moz-border-radius: 5px;
@@ -130,7 +130,6 @@ footer {
 		padding: .5em .5em .2em .5em;
 	}
 	#content {
-		padding: 5em 1em 0em .5em;
 		margin-top: 1em;
 	}
 	footer {
@@ -147,7 +146,6 @@ footer {
 		padding: .5em .5em .2em .5em;
 	}
 	#content {
-		padding: 5em 1em 0em .5em;
 		margin-top: 1em;
 	}
 	footer {
@@ -162,7 +160,6 @@ footer {
 @media only screen and (min-width: 90.063em) {
 	#content {
 		width: 90em;
-		padding: 5em 1em 0em .5em;
 		margin-top: 1em;
 	}
 	header {
