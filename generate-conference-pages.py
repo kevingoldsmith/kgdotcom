@@ -12,7 +12,7 @@ import pycountry
 from common import get_output_directory
 import argparse
 import os
-from navigation import generate_nav_talk, get_href_talks, get_talk_root_for_talk
+from navigation import generate_nav_talk, get_href_talks, get_talk_root_for_talk, get_talk_url
 
 #format strings - here to simplify editing and iteration
 format_youtube_video_embed = '<iframe width="600" height="338" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'
@@ -361,6 +361,7 @@ if len(index_page['talks']) > 0:
 	other_talk_strings = []
 	sorted_talks = sorted(index_page['talks'], key=itemgetter('date'), reverse=True)
 	for talk in sorted_talks:
+		talk['file'] = get_talk_url(talk['file'], debug_mode)
 		if talk['name'] in current_talks.keys():
 			featured_talk_strings.append(format_featured_talk_list_item.format(talk['file'], talk['name'], current_talks[talk['name']]))
 		else:
@@ -400,7 +401,7 @@ for conference in conference_talks:
 		for talk in conference['talks']:
 			talk_name = talk['talk'].replace("\'","&apos;")
 			if 'outputfilename' in talk:
-				talks.append(format_a.format(talk['outputfilename'],talk_name))
+				talks.append(format_a.format(get_talk_url(talk['outputfilename'], debug_mode),talk_name))
 			else:
 				talks.append(talk_name)
 		info = format_info_window.format(conference_name, year, '<br />'.join(talks))

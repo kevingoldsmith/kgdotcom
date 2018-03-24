@@ -22,6 +22,11 @@ def get_talk_root_for_talk(debug=False):
 		return 'index.html'
 	return cannonical_root+'talks/'
 
+def get_talk_url(filename, debug=False):
+	if debug:
+		return filename
+	return cannonical_root+'talks/'+filename
+
 
 #<li><a href="resume.html">technology leader</a></li>
 #<li><a href="talks/index.html">speaker</a></li>
