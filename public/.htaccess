@@ -7,3 +7,8 @@ Redirect /music/index.html /music.html
 Redirect /index.php /index.html
 Redirect /labs/index.html /resume.html
 Redirect /photography/index.html /photography.html
+Redirect /photography/ /photography.html
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
