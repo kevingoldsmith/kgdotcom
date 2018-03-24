@@ -37,6 +37,10 @@ header {
 #name {
 	margin: 0 0 0.1em 0.05em;
 	line-height: 80%;
+	font-size: 2em;
+	font-family: 'Roboto Slab', serif;
+	font-weight: bold;
+	display: block;
 }
 #name a {
 	color: #000000;

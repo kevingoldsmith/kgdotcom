@@ -17,6 +17,12 @@ def get_href_talks(relative_url, debug=False):
 		return cannonical_root+relative_url.replace('index.html', '')
 	return '../'+relative_url
 
+def get_talk_root_for_talk(debug=False):
+	if debug:
+		return 'index.html'
+	return cannonical_root+'talks/'
+
+
 #<li><a href="resume.html">technology leader</a></li>
 #<li><a href="talks/index.html">speaker</a></li>
 #<li class="current-page">writer</li>
@@ -49,5 +55,5 @@ def generate_nav_talk(talk_root=False, debug=False):
 				nav_list.append(format_talk_nav_li_sub.format(url=get_href_talks(page[0], debug), title=page[1]))
 		else:
 			nav_list.append(format_nav_li.format(url=get_href_talks(page[0], debug), title=page[1]))
-			
+
 	return '\n'.join(nav_list)

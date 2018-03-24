@@ -12,7 +12,7 @@ import pycountry
 from common import get_output_directory
 import argparse
 import os
-from navigation import generate_nav_talk
+from navigation import generate_nav_talk, get_href_talks, get_talk_root_for_talk
 
 #format strings - here to simplify editing and iteration
 format_youtube_video_embed = '<iframe width="600" height="338" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'
@@ -22,13 +22,13 @@ format_location_city_state_country = '<span class=\"conferencecity\">{0}</span>,
 format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_keynote_list_item = '<li><span class=\"conferencename\">{0}</span> (Keynote) - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_upcoming_list_item = '<li><span class=\"conferencename\"><a class=\"outbound\" href=\"{0}\">{1}</a></span> - <span class=\"conferencedate\">{2}</span> - <span class=\"conferencelocation\">{3}</span></li>'
-format_reactions_list_item = '<li><span class=\"quote\">{0}</span> - <a href=\"{1}\">{2}</a></li>'
+format_reactions_list_item = '<li><span class=\"quote\">{0}</span> - <a class=\"outbound\" href=\"{1}\">{2}</a></li>'
 format_video_div = '<div id=\"video\">\n<div class=\"subheader\">Recordings</div>\n'
 format_other_recordings_list = '<div id=\"othervideos\">\n<div class=\"othersubheader\">Other recordings</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
-format_other_recordings_list_item = '<li class=\"inlinelistitem\"><a href=\"{0}\">{1} ({2})</a></li>\n'
+format_other_recordings_list_item = '<li class=\"inlinelistitem\"><a class=\"outbound\" href=\"{0}\">{1} ({2})</a></li>\n'
 format_slides_div = '<div id=\"slides\">\n<div class=\"subheader\">Slides</div>\n'
 format_other_slides_list = '<div id=\"otherslides\">\n<div class=\"othersubheader\">Other Versions</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
-format_other_slides_list_item = '<li class=\"inlinelistitem\"><a href=\"{0}\">{1} ({2})</a></li>\n'
+format_other_slides_list_item = '<li class=\"inlinelistitem\"><a class=\"outbound\" href=\"{0}\">{1} ({2})</a></li>\n'
 format_reactions_div = '<div id=\"reactions\">\n<div class=\"subheader\">Reactions</div>\n<ul>{0}</ul></div>'
 template_panel_list_item = '<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
 template_lab_list_item = '<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
@@ -111,20 +111,19 @@ def is_workshop(talk):
 def is_talk(talk):
 	return 'talk-type' in talk and ((talk['talk-type'] == talk_type_talk) or (talk['talk-type'] == talk_type_keynote))
 
-
 def is_panel(talk):
 	return 'talk-type' in talk and ((talk['talk-type'] == talk_type_panel) or (talk['talk-type'] == talk_type_panel_chair))
 
 def get_talk_date(talk):
 	return date(*map(int, talk['date'].split("-")))
 
-
+#parse command line
 parser = argparse.ArgumentParser(description='generate the talks pages')
 parser.add_argument('--debug', action='store_true')
 args = parser.parse_args()
 debug_mode = args.debug
 
-#get the data
+#get the conference data
 with open('data/conferences.json', 'r') as f:
 	conference_talks = json.load(f)
 
@@ -298,6 +297,8 @@ for talk_index in unique_talks:
 		pagevalues['reactions'] = ''
 
 	pagevalues['sitenav'] = generate_nav_talk(False, debug_mode)
+	pagevalues['siteroot'] = get_href_talks('index.html', debug_mode)
+	pagevalues['talkroot'] = get_talk_root_for_talk(debug_mode)
 
 	check_for_missing_values(pagevariables, pagevalues)
 
@@ -447,6 +448,7 @@ pagevalues['markerlist'] = ',\n'.join(marker_list)
 pagevalues['infolist'] = ',\n'.join(info_list)
 pagevalues['futuretalks'] = future_talks_string
 pagevalues['sitenav'] = generate_nav_talk(True, debug_mode)
+pagevalues['siteroot'] = get_href_talks('index.html', debug_mode)
 check_for_missing_values(pagevariables, pagevalues)
 with open(output_directory+'index.html', 'w') as f:
 	f.write(talkpagetemplate.substitute(pagevalues))
