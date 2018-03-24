@@ -12,3 +12,5 @@ Redirect /photography/ /photography.html
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+AddType 'application/xml; charset=UTF-8' xml

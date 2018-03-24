@@ -38,6 +38,7 @@ if ! $simple ; then
         python generate-conference-pages.py
         python generate-writing-page.py
         python generate-other-pages.py
+        python generate-sitemap.py
     fi
 fi
 
