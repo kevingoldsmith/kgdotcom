@@ -173,6 +173,7 @@ for talk_index in unique_talks:
 
 	pagevalues = copy.deepcopy(pagevariables)
 	pagevalues['title'] = talktitle
+	pagevalues['filename'] = outputfilename
 	recordings = []
 	slides = []
 	presentations = []
@@ -371,7 +372,7 @@ if len(index_page['talks']) > 0:
 	other_talks_string += format_close_ul + format_close_li
 
 #get the page template
-with open('templates/indexpagetemplate.html') as f:
+with open('templates/talkindexpagetemplate.html') as f:
 	talkpagetemplate = string.Template(f.read())
 
 print("creating index.html")
