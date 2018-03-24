@@ -12,6 +12,7 @@ import pycountry
 from common import get_output_directory
 import argparse
 import os
+from navigation import generate_nav_talk
 
 #format strings - here to simplify editing and iteration
 format_youtube_video_embed = '<iframe width="600" height="338" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'
@@ -296,6 +297,8 @@ for talk_index in unique_talks:
 	else:
 		pagevalues['reactions'] = ''
 
+	pagevalues['sitenav'] = generate_nav_talk(False, debug_mode)
+
 	check_for_missing_values(pagevariables, pagevalues)
 
 	with open(filepath, 'w') as f:
@@ -443,6 +446,7 @@ pagevalues['description'] = 'Kevin Goldsmith Talks'
 pagevalues['markerlist'] = ',\n'.join(marker_list)
 pagevalues['infolist'] = ',\n'.join(info_list)
 pagevalues['futuretalks'] = future_talks_string
+pagevalues['sitenav'] = generate_nav_talk(True, debug_mode)
 check_for_missing_values(pagevariables, pagevalues)
 with open(output_directory+'index.html', 'w') as f:
 	f.write(talkpagetemplate.substitute(pagevalues))
