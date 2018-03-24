@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 
 import os
-import argparse
 
-debug_output_directory = 'test/'
+debug_output_directory = 'testoutput/'
 output_directory = 'output/'
 
 def get_output_directory(debug=False):
@@ -16,3 +15,5 @@ def get_output_directory(debug=False):
 		os.makedirs(directory)
 
 	return directory
+
+	parser = argparse.ArgumentParser(description='Generate a file for the site')

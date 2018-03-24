@@ -6,10 +6,12 @@ from urllib.parse import urlparse
 import json
 import string
 import unicodedata
-import os
 import requests
 from bs4 import BeautifulSoup
 import pycountry
+from common import get_output_directory
+import argparse
+import os
 
 #format strings - here to simplify editing and iteration
 format_youtube_video_embed = '<iframe width="600" height="338" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'
@@ -116,6 +118,11 @@ def get_talk_date(talk):
 	return date(*map(int, talk['date'].split("-")))
 
 
+parser = argparse.ArgumentParser(description='generate the talks pages')
+parser.add_argument('--debug', action='store_true')
+args = parser.parse_args()
+debug_mode = args.debug
+
 #get the data
 with open('data/conferences.json', 'r') as f:
 	conference_talks = json.load(f)
@@ -129,9 +136,7 @@ with open('data/pagevariables.json') as f:
 	pagevariables = json.load(f)
 
 #create the output director
-output_directory = 'output/talks/'
-if not os.path.exists(output_directory):
-	os.makedirs(output_directory)
+output_directory = get_output_directory(debug_mode) + 'talks/'
 
 unique_talks = {}
 panels = []
