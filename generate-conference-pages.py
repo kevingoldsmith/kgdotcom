@@ -128,7 +128,7 @@ with open('data/conferences.json', 'r') as f:
 	conference_talks = json.load(f)
 
 #get the talk page template
-with open('templates/talkpagetemplate.html') as f:
+with open('templates/talk-page-template.html') as f:
 	talkpagetemplate = string.Template(f.read())
 
 #get the page variables (which becomes our template dictionary)
@@ -381,7 +381,7 @@ if len(index_page['talks']) > 0:
 	other_talks_string += format_close_ul + format_close_li
 
 #get the page template
-with open('templates/talkindexpagetemplate.html') as f:
+with open('templates/talk-index-template.html') as f:
 	talkpagetemplate = string.Template(f.read())
 
 print("creating index.html")
