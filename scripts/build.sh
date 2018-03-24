@@ -20,12 +20,14 @@ if $debug ; then
     fi
     mkdir testoutput
     cp -r public/* testoutput
+    cp public/.htaccess testoutput
 else
     if $clean ; then
         rm -rf output
     fi
     mkdir output
     cp -r public/* output
+    cp public/.htaccess output
 fi
 if ! $simple ; then
     if $debug ; then
