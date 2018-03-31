@@ -42,6 +42,7 @@ format_a = '<a href=\"{0}\">{1}</a>'
 format_marker = '[\'{0} {1}\', {2}, {3}]'
 format_info_window = '[\'<div class=\"info_content\"><h3>{0} {1}</h3><p>{2}</p></div>\']'
 format_future_talks = '<section id=\"upcoming-talks\"><h2>Upcoming Talks</h2><ul>{0}</ul></section>'
+format_talk_page_title = '{0}: Talks: Kevin Goldsmith'
 
 #string constants
 talk_type_keynote = 'keynote'
@@ -177,7 +178,7 @@ for talk_index in unique_talks:
 	print("creating file: {0}".format(filetitle))
 
 	pagevalues = copy.deepcopy(pagevariables)
-	pagevalues['title'] = talktitle
+	pagevalues['title'] = format_talk_page_title.format(talktitle)
 	pagevalues['filename'] = outputfilename
 	recordings = []
 	slides = []
@@ -442,7 +443,7 @@ pagevalues['currenttalklist'] = featured_talks_string
 pagevalues['othertalklist'] = other_talks_string
 pagevalues['panellist'] = panel_list_string
 pagevalues['workshoplist'] = lab_list_string
-pagevalues['title'] = 'talks: Kevin Goldsmith'
+pagevalues['title'] = 'Talks: Kevin Goldsmith'
 pagevalues['presentationlist'] = ''
 pagevalues['description'] = 'Kevin Goldsmith Talks'
 pagevalues['markerlist'] = ',\n'.join(marker_list)
