@@ -1,0 +1,148 @@
+[
+	{
+		"name": "#LegalTechLives with Kevin Goldsmith, Chief Technology Officer at Avvo",
+		"date": "2018-03-16",
+		"url": "https://rossintelligence.com/legaltechlives-kevin-goldsmith/",
+		"author": "Ava Chisling",
+		"publisher": "ROSS Intelligence",
+		"summary": "With right around 20 years of experience at Microsoft, Adobe and Spotify, Kevin explains why the “near green field” of legaltech has got him excited all over again."
+	},
+	{
+		"name": "Data-Driven Thinking for Continuous Improvement",
+		"date": "2018-03-06",
+		"url": "https://www.infoq.com/news/2018/03/data-driven-improvement",
+		"author": "Ben Linders",
+		"publisher": "InfoQ",
+		"summary": "Organizations need an objective way to measure performance and tie actions back to business outcomes to improve continuously. Avvo uses a data-driven decision framework with an autonomous team model and a practice of retrospectives to help people make better decisions and proposals for continuous improvement."
+	},
+	{
+		"name": "The cavnessHR Podcast - A talk with Kevin Goldsmith",
+		"date": "2018-01-11",
+		"url": "https://www.youtube.com/watch?v=OVvJn54NewQ&feature=youtu.be",
+		"author": "Jason Cavness",
+		"publisher": "cavnessHR",
+		"summary": "Our guest on the cavnessHR podcast is Kevin Goldsmith. Kevin is the Chief Technology Officer at Avvo in Seattle, overseeing all Development, Data, Dev Ops and IT teams. "
+	},
+	{
+		"name": "Wired to improve: A toolkit for data-driven change management",
+		"date": "2017-12-14",
+		"url": "https://blog.gitprime.com/toolkit-data-driven-change-management/",
+		"publisher": "GitPrime",
+		"summary": "The strategy & equipment necessary to build a culture where people are adaptable to change - and advocates for improvement."
+	},
+	{
+		"name": "Geek of the Week: With Microsoft, Spotify and Adobe behind him, Kevin Goldsmith finds a home again in Seattle at Avvo",
+		"date": "2017-10-20",
+		"url": "https://www.geekwire.com/2017/geek-week-microsoft-spotify-adobe-behind-kevin-goldsmith-finds-home-seattle-avvo/",
+		"author": "Kurt Schlosser",
+		"publisher": "GeekWire",
+		"summary": "Seattle’s evolving tech landscape can catch you by surprise, especially if you leave the city for a couple years and then return. That’s what happened to Kevin Goldsmith, CTO at the online legal marketplace Avvo."
+	},
+	{
+		"name": "Tech recruiting advice: How startups can compete against big companies to find the best talent",
+		"date": "2017-10-02",
+		"url": "https://www.geekwire.com/2017/tech-recruiting-advice-startups-can-compete-tech-giants-find-best-talent/",
+		"author": "Taylor Soper",
+		"publisher": "GeekWire",
+		"summary": "For startups needing to hire employees, it can be tough to compete against the likes of Amazon, Microsoft, and other tech giants that offer lucrative salaries and benefits large companies have capacity to provide."
+	},
+	{
+		"name": "Avvo CTO: Tech leaders must embrace failure to get best work from DevOps teams",
+		"date": "2017-06-09",
+		"url": "http://www.computerweekly.com/news/450420472/Avvo-CTO-Tech-leaders-must-embrace-failure-to-get-best-work-from-DevOps-teams",
+		"author": "Caroline Donnelly",
+		"publisher": "ComputerWeekly.com",
+		"summary": "Speaking at the Lead Developer conference in London, Avvo CTO Kevin Goldsmith warns tech leaders not to punish DevOps teams for project failures"
+	},
+	{
+		"name": "Kevin Goldsmith: Companies must learn to deal wisely with errors",
+		"date": "2017-06-27",
+		"url": "https://jaxenter.com/goldsmith-interview-company-culture-135167.html",
+		"author": "Sebastian Meyen",
+		"publisher": "JAX TV",
+		"summary": "A company culture built on the premise of avoiding failure hinders innovation. Sebastian Meyen, Chief Content Officer at S&S Media talked to Kevin Goldsmith about his experiences as CTO with Avvo and Spotify and the idea of a mistake-friendly culture."
+	},
+	{
+		"name": "What Your CTO Wants You to Know",
+		"date": "2017-03-23",
+		"url": "https://blog.clubhouse.io/what-matters-to-ctos-679513055a8c",
+		"author": "Michelle Nickolaisen",
+		"publisher": "The Clubhouse Blog",
+		"summary": "A few developers working hard can get a lot done, but it takes a well-rounded team with different skills and roles to build and grow a successful software product and company."
+	},
+	{
+		"name": "Drinking from the fire hose — an interview with Kevin Goldsmith",
+		"date": "2017-02-06",
+		"url": "https://agileandchange.com/drinking-from-the-fire-hose-an-interview-with-kevin-goldsmith-e49eb2aca557",
+		"author": "Marcin Konkel",
+		"publisher": "Agile & Change",
+		"summary": "I had a chance to speak with Kevin at AgileByExample 2016 conference in Warsaw. Afterwards, I invited him for this interview."
+	},
+	{
+		"name": "Interview with Kevin Goldsmith, former Vice President Engineering Spotify",
+		"date": "2016-08-07",
+		"url": "https://medium.com/@ievatreija/interview-with-kevin-goldsmith-former-vice-president-engineering-spotify-6ea52f75c2da",
+		"author": "Ieva Treija",
+		"summary": "On the one hand you are a tech guy, on the other — leaderhip proffessional. I don’t even know which one of those two is more appropriate topic.\nCertainly, since I came to Spotify, I focused a lot…"
+	},
+	{
+		"name": "Avvo names Kevin Goldsmith Chief Technology Officer",
+		"date": "2016-03-23",
+		"url": "http://stories.avvo.com/media-resources/press-releases/avvo-names-kevin-goldsmith-chief-technology-officer",
+		"author": "Laura Morarity",
+		"publisher": "Avvo",
+		"summary": "Avvo, Inc., the leading online legal marketplace connecting lawyers and consumers, today announced it has hired Kevin Goldsmith as Chief Technology Officer. He will report to Avvo Founder and CEO Mark Britton."
+	},
+	{
+		"name": "Kevin Goldsmith (Spotify) – “Organisation, Architecture, Autonomy and Accountability",
+		"date": "2016-05-25",
+		"url": "https://www.ao-jobs.com/news/kevin-goldsmith-spotify-organisation-architecture-autonomy-and-accountability/",
+		"publisher": "AO-jobs.com",
+		"summary": "Kevin Goldsmith (Spotify) – “Organisation, Architecture, Autonomy and Accountability” on AO Jobs"
+	},
+	{
+		"name": "Microservices at Spotify",
+		"date": "2015-12-14",
+		"url": "https://www.infoq.com/news/2015/12/microservices-spotify",
+		"author": "Ben Linders",
+		"publisher": "InfoQ",
+		"summary": "Spotify has been doing microservices for quite some years at large scale. Kevin Goldsmith, Vice President of Engineering at Spotify, talked about how Spotify uses microservices to break down architectures and be innovative at the GOTO Berlin 2015 conference. He argues that Microservices are easier to test, deploy and monitor than monolithic applications. Spotify also aims to have as few as possible dependencies in their product, and microservices are very helpful for that."
+	},
+	{
+		"name": "What's it like to work at Spotify?",
+		"date": "2015-11-13",
+		"url": "http://blog.honeypot.io/2015-11-13-what's-it-like-to-work-at-Spotify/",
+		"author": "Emma Tracey",
+		"publisher": "Honeypot.io",
+		"summary": "According to Kevin Goldsmith, VP of Engineering at Spotify, the Swedish music-streaming mammoth’s success all comes down to its team culture. We sat down with the Carnegie-Mellon educated, Chicago-native at MobiConf Krakow. Over a weak coffee and prior to a strong vodka, he told us all about the fine balance between autonomy and chaos, preserving start-up culture in a large organizations, his escape from Microsoft and why failure is all part and parcel of the life of a continuous improvement organization."
+	},
+	{
+		"name": "The cutting-edge firms that hire IT staff on personality over skills",
+		"date": "2014-09-22",
+		"url": "https://www.computing.co.uk/ctg/analysis/2371498/the-cutting-edge-firms-that-hire-it-staff-on-personality-over-skills",
+		"author": "Danny Palmer",
+		"publisher": "Computing.co.uk",
+		"summary": "When searching for a candidate to fill a vacancy, it's a given that the IT leader looking for a new employee will want to hire the best person possible. While many would automatically gravitate towards..."
+	},
+	{
+		"name": "Appowr in Budapest - Smartmobil 2014",
+		"date": "2014-04-07",
+		"url": "https://www.youtube.com/watch?v=KhYheU6XmAs",
+		"publisher": "Appowr",
+		"summary": "Coverage of the 2014 Smartmobil conference, featuring an interview with Kevin Goldsmith"
+	},
+	{
+		"name": "Engineering Culture",
+		"date": "2014-02-12",
+		"url": "https://www.youtube.com/watch?v=DcZDfkyP4tQ",
+		"publisher": "BBC Academy",
+		"summary": "Spotify's director of engineering, Kevin Goldsmith, examines what makes a great engineering culture and why it's important."
+	},
+	{
+		"name": "Microsoft: Enclave Of Nerds, Or Artists?",
+		"date": "1996-05-26",
+		"url": "http://www.spokesman.com/stories/1996/may/26/microsoft-enclave-of-nerds-or-artists/",
+		"publisher": "Associated Press",
+		"summary": "The northwest corner of the United States is home to an arts colony of astounding vigor. The locals paint, draw, sculpt, create sonic art and even have their own orchestra, with rehearsals every Monday and concerts every season.\nIs this cradle of creativity centered in Seattle? Portland?\nTry Microsoft."
+	}
+]

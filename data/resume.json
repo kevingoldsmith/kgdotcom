@@ -1,0 +1,371 @@
+{
+	"basics": {
+		"name": "Kevin Goldsmith",
+		"givenName": "Kevin",
+		"familyName": "Goldsmith",
+		"additionalName": "Michael",
+		"label": "Technology Leader",
+		"picture": "",
+		"email": "kevin.goldsmith@gmail.com",
+		"phone": "",
+		"website": "https://kevingoldsmith.com",
+		"headline": "Innovative, strategic, hands-on technical and people leader with a record of building high-performing teams to address new technologies, new markets, and to deliver on revenue opportunities quickly.",
+		"summary": "Am an experienced, hands-on, technical leader of high profile, high-performing product, research, and shared technology engineering organizations. Pioneered the use of new technologies and development methodologies within organizations, and evangelized them successfully to senior management and other engineering teams. Routinely receive excellent reviews for leadership and customer focus. Am often invited to speak about building strong engineering teams at conferences internationally. Technical areas of expertise include: service scalability, user experience, consumer product development, machine learning (ML) and AI-driven product features, GPGPU, multi-core, distributed computing, desktop, mobile, and connected architectures, image, audio and video processing, domain-specific languages and graphics. Have extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.",
+		"location": {
+			"address": "PO Box 822",
+			"postalCode": "WA 98040",
+			"city": "Mercer Island",
+			"countryCode": "US",
+			"region": "Washington"
+		},
+		"profiles": [
+			{
+				"network": "Twitter",
+				"username": "kevingoldsmith",
+				"url": "https://twitter.com/kevingoldsmith"
+			},
+			{
+				"network": "LinkedIn",
+				"username": "goldsmith",
+				"url": "https://www.linkedin.com/in/goldsmith/"
+			}
+		]
+	},
+	"work": [
+		{
+			"company": "Avvo",
+			"location": "Seattle, WA",
+			"position": "Chief Technology Officer",
+			"website": "https://avvo.com",
+			"startDate": "2016-06-06",
+			"endDate": "2017-04-06",
+			"summary": "Was responsible for leading the software development, test, data engineering, data science, dev-ops and IT functions. Grew the organization from 51 to 77 while significantly improving diversity,  productivity, and morale. Profit increased consistently across entire tenure at Avvo leading to a successful exit via acquisition by Internet Brands in February 2018.",
+			"highlights": [
+				"Company acquired in 2018",
+				"Created first ML-based features",
+			]
+		},
+		{
+			"company": "Dolly",
+			"location": "Seattle, WA",
+			"position": "Member, Board of Advisors",
+			"website": "https://dolly.com/",
+			"startDate": "2016-11-09",
+			"summary": "Support and advise executive team on software development, scalability, hiring, and technical decisions."
+		},
+		{
+			"company": "Godel Technologies",
+			"location": "Manchester, UK",
+			"position": "Strategic Advisor",
+			"website": "http://www.godeltech.com/",
+			"startDate": "2016-01-01",
+			"summary": "Assist Godel and their clients to build high-performing teams with a strong culture as they scale significantly.",
+		},
+		{
+			"company": "Spotify",
+			"location": "Stockholm, Sweden",
+			"position": "Vice-President of Engineering, Consumer",
+			"website": "https://spotify.com",
+			"startDate": "2013-05-20",
+			"endDate": "2016-06-03",
+			"summary": "Engineering leader for the one hundred and seventy-six person consumer engineering organization in Sweden, three tribes consisting of nineteen squads in Stockholm and Göteborg, Sweden and New York City, USA; including engineering, test, and agile coaches. The Consumer Alliance is responsible for all of the features in the Spotify product on the primary platforms, and for the media path from ingestion to storage, streaming, and playback. Each of the teams was responsible for their full stack (from services to client UI) for Spotify's mobile, desktop and web platforms. Was accountable for both significant step-change product innovation efforts and continuing high-velocity incremental innovation, helping Spotify grow several hundred percent in active and paying users.",
+			"highlights": [
+				"Launched Your Library",
+				"Launched Video",
+				"Launched Podcasts",
+				"Launched Discover Weekly",
+				"Launched Running",
+				"Created Custom CDN solution using Akamai and Fastly"
+			]
+		},
+		{
+			"company": "Adobe",
+			"location": "Seattle, WA",
+			"position": "Director of Engineering",
+			"website": "https://adobe.com",
+			"startDate": "2004-04-12",
+			"endDate": "2013-05-03",
+			"summary": "Managed a thirty-eight person organization focused on building the Adobe Revel mobile, desktop, and web clients; as well as developing a shared client, cloud and imaging architecture to be used across all of Adobe's mainstream products based on the design the team created for the Adobe Carousel (renamed Adobe Revel) product. Direct reports were senior engineering, operations, and quality engineering managers as well as product architects. Lead the effort to take the product from its initial prototypes to a full commercial version on the iOS and OS X operating systems while building out the engineering and quality engineering teams. From prototype to 1.0 launch was less than eight months. The product was downloaded over four million times in its first two months of release and remained in the top 10 photography apps during tenure on the product. From Revel’s launch until departure, the product grew from managing zero to 300 million user assets, and from zero to 4.5 million user accounts. Responsible for the 1.0 1.1, 1.6, 1.8 and 2.0 releases.\nFrom 2005 until 2011, managed the Adobe Image Foundation group: fourteen senior development and quality engineers creating the Pixel Bender image and video processing language and its CPU and GPU runtime for use in Adobe Products. One of the principal Adobe engineering representatives with ISVs, IHVs and standards bodies in areas of high-performance computing, GPUs, and Multi-core development. Additionally, was the primary developer of the Pixel Bender Toolkit IDE application that shipped with the Creative Suite. AIF technology shipped in After Effects CS3/4/5, Photoshop CS4/5, Premiere CS4/5, Flash Pro CS4/5, Flash Player 10 and all other Adobe imaging and video products. The increased performance from the GPU and multi-core acceleration was an oft-cited major selling point for Adobe’s applications in reviews and customer feedback.\nFrom 2004 to 2005, was the Project Lead and Architect in the Innovative Technologies for Emerging Markets team. Worked with Photoshop Elements team to transition nascent technology to create the Adobe Help Center, a new help system. Shipped with Photoshop Elements (version 3, 4 and 5), Premiere Elements (Version 2 and 3), Creative Suite CS2 (and all associated applications), and the Digital Video Suite 2005 (including all associated applications).",
+			"highlights": [
+				"Built and shipped three new products from initial concept through multiple versions",
+				"Lead the team that built the Pixel Bender language and runtime",
+				"Lead the team that built the Adobe Revel product and related technologies"
+			]
+		},
+		{
+			"company": "Microsoft",
+			"location": "Redmond, WA",
+			"position": "Software Design Engineer",
+			"website": "https://microsoft.com",
+			"startDate": "2002-12-09",
+			"endDate": "2004-04-09",
+			"summary": "Member of the Windows CE Core OS team; responsible for half of the Windows CE standard shell UI APIs shipped in Windows CE 4.2 and 5.0. For version 5.0, wholly re-architected and did the majority of the implementation work for the build system in the WindowsCE Platform Builder IDE tool. Overcame significant political resistance from Program Management and Quality Engineering organizations by creating a small tiger team that adopted an agile-based approach to developing the new system quickly and with high code coverage from automated unit tests. The new build system was an unqualified success with Microsoft’s embedded IHV partners.",
+			"highlights": [
+				"Lead one of the first agile projects at Microsoft"
+			]
+		},
+		{
+			"company": "Volt Technologies",
+			"location": "Redmond, WA",
+			"position": "Software Developer, Level 4",
+			"website": "http://staffing.volt.com/",
+			"startDate": "2002-06-08",
+			"endDate": "2002-12-06",
+			"summary": "Consultant to Microsoft's Windows CE.NET team. Ported the Pocket Excel application to Windows CE 4.2, and created a standard shell library to unify the API for the many versions of the Windows CE shell.",
+			"highlights": [
+				"Created aygshell.dll for WindowsCE providing Windows Mobile compatibility"
+			]
+		},
+		{
+			"company": "Agnostic Media",
+			"location": "Seattle, WA",
+			"position": "Director of Engineering",
+			"startDate": "2001-06-04",
+			"endDate": "2002-06-05",
+			"summary": "Designed the architecture and did the server-side implementation of an automated media encoding and digital asset management application directed at companies with large media libraries. Also met with potential investors, hardware and software partners.",
+			"highlights": [
+				"Co-founder, built grid computing solution for media encoding"
+			]
+		},
+		{
+			"company": "Bootleg Networks",
+			"location": "Seattle, WA",
+			"position": "Development Lead",
+			"startDate": "2000-07-24",
+			"endDate": "2001-03-16",
+			"summary": "Managed a team using Extreme Programming methodologies to develop a world-class media management, archiving, and productizing solution. Additionally, was responsible for meeting with angel investors, venture capital partners, potential customers, hardware, and software partners. Hired all members of the development organization and directly contributed to the development of the product.",
+			"highlights": [
+				"Built a development team, and created a product using Extreme Programming"
+			]
+		},
+		{
+			"company": "Microsoft",
+			"location": "Redmond, WA",
+			"position": "Software Design Engineer",
+			"website": "https://microsoft.com",
+			"startDate": "1994-09-06",
+			"endDate": "2000-07-17",
+			"summary": "Developer with the Windows Media version 7.0 Encoder application team in the Digital Media Division from August 1999 to July 2000. Designed and implemented significant pieces of the application. This release was pivotal in Microsoft taking a leadership position in streaming media.\nFrom September 1994 until August 1999, was a development lead in the Virtual Worlds Group of Microsoft Research. The goal of the project was to define the future of multi-user online virtual environments. The first shipping version of the project was called V-Chat, which shipped as part of MSN. Created initial prototypes of V-Chat; designed significant parts of the software architecture, and wrote production code for audio support and 3D graphics architecture. Lead development on the V-Chat authoring system shipped to all content developers. Following V-Chat, lead a Development group of four to create a next-generation authoring tool for virtual environments. That work shipped in the Microsoft Virtual Worlds Platform v1.0, v1.1, v1.5 and v2.0 releases.",
+			"highlights": [
+				"Built a multi-user 3D chat system and a large scale virtual worlds platform, was the primary person responsible for the authoring systems"
+			]
+		},
+		{
+			"company": "(Colossal) Pictures",
+			"location": "San Francisco, CA",
+			"position": "Research and Development Staff",
+			"startDate": "1994-04-06",
+			"endDate": "1994-09-02",
+			"summary": "Developed a Renderman interface for the Alive performance animation system used for Cartoon Network's \"Moxy's Pirate Television Show\". Developed production tools for (C)P animators using softImage and Ark. Acted as a technical consultant for the Squeezels networked VR game for the Silicon Graphics Indigo 2 workstation launch.",
+			"highlights": [
+				"Contributed to a television series and multiple commercials and feature films"
+			]
+		},
+		{
+			"company": "Silicon Graphics, Incorporated",
+			"location": "Mountain View, CA",
+			"position": "Member of Technical Staff",
+			"startDate": "1992-06-01",
+			"endDate": "1994-04-05",
+			"summary": "Initiated and executed several projects. Gallery, a virtual reality Art Gallery for the Reality Engine Computer, developed with a team of three other people; Trainer, a multimedia computer-based training station for the United Airlines maintenance base, created with consultation from the United Airlines technology groups. Lead developer on The Out Of Box Experience, a joint project between Silicon Graphics and (Colossal) Pictures shipped as part of every SGI Indy system, including developers from both companies. 3D Annotator, a prototype product that allows users to attach audio, video clips, images and text to 3D objects, later developed into the IRIS Annotator product.",
+			"highlights": [
+				"Created several projects pushing the boundaries of very advanced hardware and prototyping ways that 3D graphics and multimedia could create useful applications"
+			]
+		},
+		{
+			"company": "IBM Information Technology Center",
+			"location": "Pittsburgh, PA",
+			"position": "Programmer",
+			"startDate": "1991-05-20",
+			"endDate": "1992-05-08",
+			"summary": "Built an editing system for the TACTUS multimedia toolkit. Acknowledged in Tactus: toolkit-level support for synchronized interactive multimedia (Dannenberg, Nuendorffer, Newcomer, Rubine, Anderson), Multimedia Systems, Springer-Verlag, 1993",
+		},
+		{
+			"company": "Center For Integrated Manufacturing Decision Systems",
+			"location": "Pittsburgh, PA",
+			"position": "Programmer",
+			"startDate": "1990-01-08",
+			"endDate": "1990-10-05",
+			"summary": "Developed a graphical interface and command-language interpreter in Common Lisp for the CDART military scheduler project.",
+		}
+	],
+	"education": [
+		{
+			"institution": "Carnegie Mellon University",
+			"area": "Applied Mathematics and Computer Science",
+			"studyType": "Bachelor of Science",
+			"startDate": "1988-08-15",
+			"endDate": "1992-05-15",
+			"summary": "Course work focused on Computer Graphics, Software Engineering, Computer and Electronic Music and New Media Arts"
+		}
+	],
+	"awards": [
+		{
+			"title": "Program Committee Member and Software Engineering Track Chair",
+    		"date": "2011-05-09",
+    		"awarder": "Adobe Systems, Inc.",
+    		"summary": "Invited to take a leadership position for a company-wide internal Adobe technical conference with over 2000 attendees."
+		},
+		{
+			"title": "Featured in Computer Animation Festival / Electronic Theater",
+    		"date": "1995-08-06",
+    		"awarder": "ACM Siggraph Conference",
+    		"summary": "Excepts from \"Moxy's Pirate Television Show\"."
+		}
+	],
+	"publications": [
+		{
+			"title": "Multiple Articles",
+			"publisher": "Adobe Developer Network",
+			"summary":"Authored several articles between January 2010 and March 2011 on using the Pixel Bender image processing language."
+		},
+		{
+			"title": "Webworks: e-zines: Explore On-Line Magazine Design",
+			"publisher": "Rockport Publishers",
+			"author": "Martha Gill",
+			"releaseDate": "2000-08-01",
+			"website": "https://www.amazon.com/Webworks-zines-Exploring-Online-Magazines/dp/1564965554",
+			"summary":"Unit Circle E-Zine featured showcasing my web design",
+			"isbn-10": "1564965554",
+			"isbn-13": "9781564965554"
+		},
+		{
+			"title": "Inventor Mentor, Release 1",
+			"author": "Josie Wernecke",
+			"publisher": "Addison Wesley",
+			"releaseDate": "1994-03-01",
+			"summary":"color plates 27, 30, 37-40",
+			"isbn-10": "0201624958",
+			"isbn-13": "9780201624953"
+		},
+		{
+			"title": "1994 Catalog",
+			"publisher": "Center for Creative Imaging",
+			"releaseDate": "1994-09-01",
+			"summary":"my images used to promote the courses"
+		},
+		{
+			"title": "Open GL Programming Guide: The Official Guide to Learning Opengl, Release 1",
+			"author": "Mason Woo, Jackie Neider, Dave Shreiner",
+			"isbn-10": "0201632748",
+			"isbn-13": " 9780201632743",
+			"publisher": "Addison Wesley",
+			"releaseDate": "1993-08-01",
+			"summary":"color plate 24"
+		}
+	],
+	"languages": [
+		{
+			"name": "English",
+			"level": "Native speaker"
+		},
+		{
+			"name": "Swedish",
+			"level": "Elementary proficiency"
+		},
+		{
+			"name": "Spanish",
+			"level": "Limited working proficiency"
+		},
+		{
+			"name": "French",
+			"level": "Elementary proficiency"
+		}
+	],
+	"interests": [
+		{
+			"name": "Photography",
+			"keywords": [
+				"Landscape",
+				"Travel",
+				"Street",
+				"Portrait"
+			]
+		},
+		{
+			"name": "Music",
+			"keywords": [
+				"bass guitar",
+				"cello",
+				"piano",
+				"drums",
+				"guitar"
+			]
+		}
+	],
+	"patents": [
+		{
+			"name":"Facilitating Access to Content in a Content-aware Mesh",
+			"filingDate": "2012-08-22",
+			"grantedDate": "2014-02-27",
+			"number": "20140056530",
+			"url": "http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&co1=AND&d=PG01&s1=20140056530&OS=20140056530&RS=20140056530",
+			"authors": [
+				"Otala; Tapani (San Jose, CA)",
+				"Albright; Matthew K. (Mountain View, CA)",
+				"Smith; Alexander G. (Surry, ME)",
+				"Saraogi; Mayank (Fremont, CA)",
+				"Esakki; Venkatesan (San Jose, CA)",
+				"Hamburg; Mark C. (Woodinville, WA)",
+				"Scouten; Eric A.; (Poulsbo, WA)",
+				"Goldsmith; Kevin M. (Mercer Island, WA)",
+				"Baust; Peter J. (Sunnyvale, CA)",
+				"Paine; Sumner B. (San Francisco, CA)"
+			],
+			"abstract": "Facilitating access to content in a content-aware mesh may include a coordinating node storing information associated with each image of a plurality of images. The images may be distributed among at least two nodes of the mesh. The coordinating node may provide access to each image to a node of the mesh. Providing access may be performed without transmitting all of the images to the node. The node may be configured to display an image of the plurality of images via a uniform interface without indication as to which of the at least two nodes the image is stored on."
+		},
+		{
+			"name":"Accessing Content in a Content-aware Mesh",
+			"filingDate": "2012-08-22",
+			"grantedDate": "2014-02-27",
+			"number": "20140055474",
+			"url": "http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&co1=AND&d=PG01&s1=20140055474&OS=20140055474&RS=20140055474",
+			"authors": [
+				"Otala; Tapani J. (San Jose, CA)",
+				"Albright; Matthew K. (Mountain View, CA)",
+				"Smith; Alexander G. (Surry, ME)",
+				"Saraogi; Mayank (Fremont, CA)",
+				"Esakki; Venkatesan (San Jose, CA)",
+				"Hamburg; Mark C. (Woodinville, WA)",
+				"Scouten; Eric A. (Poulsbo, WA)",
+				"Goldsmith; Kevin M. (Mercer Island, MA)",
+				"Baust; Peter J. (Sunnyvale, CA)",
+				"Paine; Sumner B. (San Francisco, CA)"
+			],
+			"abstract": "Content in a content-aware mesh may be accessed and/or manipulated. In one embodiment, a node may receive access to each of a plurality of images that are distributed among at least two nodes of a mesh. The at least two nodes may not be part of the same service. Accessing to each of the images may be performed without the node locally storing all of the images. The node may display an image of the plurality of images via a uniform interface without indication as to which of the nodes the image is stored on."
+		},
+		{
+			"name":"System And Method For Executing Multiple Functions Execution By Generating Multiple Execution Graphs Using Determined Available Resources, Selecting One Of The Multiple Execution Graphs Based On Estimated Cost And Compiling The Selected Execution Graph",
+			"filingDate": "2009-05-29",
+			"grantedDate": "2013-10-01",
+			"number": "8549529",
+			"url": "http://patft.uspto.gov/netacgi/nph-Parser?Sect2=PTO1&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&d=PALL&RefSrch=yes&Query=PN%2F8549529",
+			"authors": [
+				"Schildan; Axel (Sunnyvale, CA)",
+				"Jargstorff; Frank (Oakland, CA)",
+				"Goldsmith; Kevin Michael (Mercer Island, WA)",
+				"Miller; Gavin (Los Altos, CA)"
+			],
+			"abstract": "Various embodiments herein provide one or more systems, methods, software, and data structures for executing multiple functions using more than one resource within a computing system. Examples of functions comprise data processing filters and effects. Resources include, for example, a central processing unit (CPU) and a graphics processing unit (GPU). Based on an input graph received from a user, one or more execution graphs may be generated to indicate the resources to be used and data conversions to be performed."
+		},
+		{
+			"name":"Hierarchical In-place Menus",
+			"filingDate": "2003-10-03",
+			"grantedDate": "2008-08-26",
+			"number": "7418670",
+			"url": "http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=%2Fnetahtml%2FPTO%2Fsrchnum.htm&r=1&f=G&l=50&s1=7,418,670.PN.&OS=PN/7,418,670&RS=PN/7,418,670",
+			"authors": [
+				"Goldsmith; Kevin (Seattle, WA)"
+			],
+			"abstract": "A hierarchical menu system displays submenus in place of parent menus, and vice versa, when appropriate menu items are selected from within parent menus and submenus. Parent menu items selected from within parent menus are displayed within submenus as links back to previous parent menus. Benefits of the disclosed hierarchical menu system include the ability to implement a hierarchical menu on devices having varying screen sizes, including small-screen devices, while maintaining a history of previously selected menu items that enable a user to navigate within the hierarchical menu to any previously displayed menu."
+		}
+	],
+	"productionCredits": [
+		{
+			"name": "Moxy's Pirate Television Show",
+			"releaseDate": "1994-1995 Season",
+			"venue": "Cartoon Network",
+			"summary": "Developed software animation tools used in the production"
+		}
+	]
+}
