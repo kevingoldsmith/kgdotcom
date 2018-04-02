@@ -9,8 +9,8 @@
 		"email": "kevin.goldsmith@gmail.com",
 		"phone": "",
 		"website": "https://kevingoldsmith.com",
-		"headline": "Innovative, strategic, hands-on technical and people leader with a record of building high-performing teams to address new technologies, new markets, and to deliver on revenue opportunities quickly.",
-		"summary": "Am an experienced, hands-on, technical leader of high profile, high-performing product, research, and shared technology engineering organizations. Pioneered the use of new technologies and development methodologies within organizations, and evangelized them successfully to senior management and other engineering teams. Routinely receive excellent reviews for leadership and customer focus. Am often invited to speak about building strong engineering teams at conferences internationally. Technical areas of expertise include: service scalability, user experience, consumer product development, machine learning (ML) and AI-driven product features, GPGPU, multi-core, distributed computing, desktop, mobile, and connected architectures, image, audio and video processing, domain-specific languages and graphics. Have extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.",
+		"headline": "An innovative, strategic, hands-on technical and people leader with a record of building high-performing teams to address new technologies, new markets, delivering on revenue opportunities quickly.",
+		"summary": "An experienced, hands-on, technical leader of high profile, high-performing product, research, and shared technology engineering organizations. Pioneered the use of new technologies and development methodologies within organizations, and evangelized them successfully to senior management and other engineering teams. Routinely receive excellent reviews for leadership and customer focus. Am often invited to speak about building strong engineering teams at conferences internationally. Technical areas of expertise include service scalability, user experience, consumer product development, machine learning (ML) and AI-driven product features, GPGPU, multi-core, distributed computing, desktop, mobile, and connected architectures, image, audio and video processing, domain-specific languages and graphics. Have extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.",
 		"location": {
 			"address": "PO Box 822",
 			"postalCode": "WA 98040",
@@ -42,7 +42,7 @@
 			"summary": "Was responsible for leading the software development, test, data engineering, data science, dev-ops and IT functions. Grew the organization from 51 to 77 while significantly improving diversity,  productivity, and morale. Profit increased consistently across entire tenure at Avvo leading to a successful exit via acquisition by Internet Brands in February 2018.",
 			"highlights": [
 				"Company acquired in 2018",
-				"Created first ML-based features",
+				"Created first ML-based features"
 			]
 		},
 		{
@@ -59,7 +59,7 @@
 			"position": "Strategic Advisor",
 			"website": "http://www.godeltech.com/",
 			"startDate": "2016-01-01",
-			"summary": "Assist Godel and their clients to build high-performing teams with a strong culture as they scale significantly.",
+			"summary": "Assist Godel and their clients to build high-performing teams with a strong culture as they scale significantly."
 		},
 		{
 			"company": "Spotify",
@@ -178,7 +178,7 @@
 			"position": "Programmer",
 			"startDate": "1991-05-20",
 			"endDate": "1992-05-08",
-			"summary": "Built an editing system for the TACTUS multimedia toolkit. Acknowledged in Tactus: toolkit-level support for synchronized interactive multimedia (Dannenberg, Nuendorffer, Newcomer, Rubine, Anderson), Multimedia Systems, Springer-Verlag, 1993",
+			"summary": "Built an editing system for the TACTUS multimedia toolkit. Acknowledged in Tactus: toolkit-level support for synchronized interactive multimedia (Dannenberg, Nuendorffer, Newcomer, Rubine, Anderson), Multimedia Systems, Springer-Verlag, 1993"
 		},
 		{
 			"company": "Center For Integrated Manufacturing Decision Systems",
@@ -186,13 +186,15 @@
 			"position": "Programmer",
 			"startDate": "1990-01-08",
 			"endDate": "1990-10-05",
-			"summary": "Developed a graphical interface and command-language interpreter in Common Lisp for the CDART military scheduler project.",
+			"summary": "Developed a graphical interface and command-language interpreter in Common Lisp for the CDART military scheduler project."
 		}
 	],
 	"education": [
 		{
 			"institution": "Carnegie Mellon University",
 			"area": "Applied Mathematics and Computer Science",
+			"location": "Pittsburgh, PA",
+			"website": "https://www.cmu.edu",
 			"studyType": "Bachelor of Science",
 			"startDate": "1988-08-15",
 			"endDate": "1992-05-15",
