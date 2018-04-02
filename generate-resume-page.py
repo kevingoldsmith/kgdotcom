@@ -110,6 +110,25 @@ def format_publication_credits_list(publications):
 	return '\n'.join(publication_list)
 
 
+def format_production_credits_list(productions):
+	format_production_li='<li><span class="production-title">{name}</span>, {releaseDate}, {venue}. {summary}</li>'
+	production_list = []
+	for production in productions:
+		production_list.append(format_production_li.format(**production))
+	return '\n'.join(production_list)
+
+
+
+#<li><span class="honor-title">Adobe Technology Summit 2011</span>, Program Committee Member and Software Engineering Track Chair. <em>Invited to take a leadership position for a company-wide internal Adobe technical conference with over 2000 attendees.</em></li>
+def format_honors_list(honors):
+	format_honor_li='<li><span class="honor-title">{title}</span>, <span class="honor-summary">{summary}</span></li>'
+
+	honors_list = []
+	for honor in honors:
+		honors_list.append(format_honor_li.format(**honor))
+	return '\n'.join(honors_list)
+
+
 # get the template
 with open('templates/resume-template.html') as f:
 	pagetemplate = Template(f.read())
@@ -138,7 +157,9 @@ page_variables = dict(
 	education=format_education(resume_data['education'][0]),
 	interview_list=format_interview_list(interview_data),
 	keynote_list=format_keynote_list(list(reversed(conference_data))),
-	publication_list=format_publication_credits_list(resume_data['publications'])
+	publication_list=format_publication_credits_list(resume_data['publications']),
+	production_list=format_production_credits_list(resume_data['productionCredits']),
+	honor_list=format_honors_list(resume_data['awards'])
 	)
 
 print('writing: '+output_page)
