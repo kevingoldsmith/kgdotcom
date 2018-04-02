@@ -8,8 +8,7 @@ import string
 import unicodedata
 import requests
 from bs4 import BeautifulSoup
-import pycountry
-from common import get_output_directory
+import common
 import argparse
 import os
 from navigation import generate_nav_talk, get_href_talks, get_talk_root_for_talk, get_talk_url
@@ -17,8 +16,6 @@ from navigation import generate_nav_talk, get_href_talks, get_talk_root_for_talk
 #format strings - here to simplify editing and iteration
 format_youtube_video_embed = '<iframe width="600" height="338" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'
 format_photo_div = '<div id=\"photo\">\n<img src=\"{0}\" class=\"aligncenter\"/>\n</div>'
-format_location_city_country = '<span class=\"conferencecity\">{0}</span>, <span class=\"conferencecountry\">{1}</span>'
-format_location_city_state_country = '<span class=\"conferencecity\">{0}</span>, <span class=\"conferenceState\">{1}</span>, <span class=\"conferencecountry\">{2}</span>'
 format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_keynote_list_item = '<li><span class=\"conferencename\">{0}</span> (Keynote) - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_upcoming_list_item = '<li><span class=\"conferencename\"><a class=\"outbound\" href=\"{0}\">{1}</a></span> - <span class=\"conferencedate\">{2}</span> - <span class=\"conferencelocation\">{3}</span></li>'
@@ -137,7 +134,7 @@ with open('data/pagevariables.json') as f:
 	pagevariables = json.load(f)
 
 #create the output director
-output_directory = get_output_directory(debug_mode) + 'talks/'
+output_directory = common.get_output_directory(debug_mode) + 'talks/'
 
 unique_talks = {}
 panels = []
@@ -214,18 +211,7 @@ for talk_index in unique_talks:
 			if ('slides-url' in this_talk) and (not any(d.get('slides-url', None) == this_talk['slides-url'] for d in slides)):
 				slides.append({'date': talk_date, 'slides-url': this_talk['slides-url'], 'talk': this_talk['talk']})
 
-			city = this_talk['location']['city'] if ('location' in this_talk) and ('city' in this_talk['location']) else ""
-			state = this_talk['location']['state'] if ('location' in this_talk) and ('state' in this_talk['location']) else ""
-			country = this_talk['location']['country'] if ('location' in this_talk) and ('country' in this_talk['location']) else ""
-			if len(country) == 2:
-				#country = pycountry.countries.get(alpha_2=country.encode('utf-8')).name
-				country = pycountry.countries.get(alpha_2=country).name
-			#if there is no location, it is vritual
-			conference_location = 'virtual'
-			if len(state) > 0:
-				conference_location = format_location_city_state_country.format(city, state, country)
-			elif len(city) > 0:
-				conference_location = format_location_city_country.format(city, country)
+			conference_location = common.format_city_state_country_from_location(this_talk['location']) if 'location' in this_talk else "virtual"
 
 			talk_list_item_format = format_presentation_list_item
 			if this_talk['talk-type'] == talk_type_keynote:
@@ -418,18 +404,7 @@ if len(upcoming_talks) > 0:
 
 			talk_date = get_talk_date(this_talk)
 			conference_name = conference['conference']
-			city = this_talk['location']['city'] if ('location' in this_talk) and ('city' in this_talk['location']) else ""
-			state = this_talk['location']['state'] if ('location' in this_talk) and ('state' in this_talk['location']) else ""
-			country = this_talk['location']['country'] if ('location' in this_talk) and ('country' in this_talk['location']) else ""
-			if len(country) == 2:
-				#country = pycountry.countries.get(alpha_2=country.encode('utf-8')).name
-				country = pycountry.countries.get(alpha_2=country).name
-			#if there is no location, it is vritual
-			conference_location = 'virtual'
-			if len(state) > 0:
-				conference_location = format_location_city_state_country.format(city, state, country)
-			elif len(city) > 0:
-				conference_location = format_location_city_country.format(city, country)
+			conference_location = common.format_city_state_country_from_location(this_talk['location']) if 'location' in this_talk else 'virtual'
 
 			if 'url' in conference:
 				future_talks_list_items.append(format_upcoming_list_item.format(conference['url'], conference_name, talk_date.strftime("%B %d, %Y"), conference_location))

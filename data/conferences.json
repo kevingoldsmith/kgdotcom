@@ -408,7 +408,7 @@
 				"talk-type": "keynote",
 				"date": "2013-11-12",
 				"talk-description": "In this talk I discuss what I believe makes a strong engineering culture. Also, how to protect it if you have it, and how to fix it if you don't.",
-				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"talk-url": "https://kevingoldsmith.com/talks/building-a-strong-engineering-culture.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
 				"length": 60,
 				"location": {
@@ -431,7 +431,7 @@
 				"talk-type": "talk",
 				"date": "2014-02-26",
 				"talk-description": "A good culture helps you go fast. This talk will give you some keys for building a culture, maintaining it and fixing a broken culture.",
-				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"talk-url": "https://kevingoldsmith.com/talks/building-a-strong-engineering-culture.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
 				"length": 60,
 				"location": {
@@ -474,6 +474,7 @@
 		"talks": [
 			{
 				"talk": "Culture Leads, Everything Else Follows (La culture précède tout le reste)",
+				"talk-url": "https://www.kevingoldsmith.com/talks/culture-leads-everything-else-follows.html",
 				"root-talk": "Culture Leads, Everything Else Follows",
 				"talk-type": "keynote",
 				"date": "2014-05-16",
@@ -500,7 +501,7 @@
 				"talk-type": "keynote",
 				"date": "2014-05-27",
 				"talk-description": "A good culture helps you go fast. This talk will give you some keys for building a culture, maintaining it and fixing a broken culture.",
-				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"talk-url": "https://kevingoldsmith.com/talks/building-a-strong-engineering-culture.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
 				"length": 60,
 				"location": {
@@ -523,7 +524,7 @@
 				"talk-type": "talk",
 				"date": "2014-08-27",
 				"talk-description": "Spotify has made a central bet that we can move faster, be happier and be more effective with autonomous, full-stack teams. We've had some great success with this approach, but it hasn't been without some tweaking and adjustments. I'll talk about what is critical to think about if you want to try this with your product.",
-				"talk-url": "https://kevingoldsmith.com/talks/#AutonomyFTW",
+				"talk-url": "https://kevingoldsmith.com/talks/autonomy-for-the-win-how-spotify-builds-product-balancing-alignment-with-autonomy.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/kevin-goldsmith-product-tank-stockholm-talk",
 				"length": 30,
 				"location": {
@@ -568,7 +569,7 @@
 				"talk-type": "keynote",
 				"date": "2014-10-16",
 				"talk-description": "主题演讲: 建设强大的工程师文化\n在工程师文化上的专注为建立一个高效的工程技术团队打下坚实的基础。如果该文化偏离正轨，那么在这上面投入时间来建设、培养、维护是值得的。在演讲中我还会分享Soptify的文化价值观念，它可以使我们公司在成长的同时，在组织上实现敏捷，并能迅速采取行动。",
-				"talk-url": "https://kevingoldsmith.com/talks/#EngineeringCulture",
+				"talk-url": "https://kevingoldsmith.com/talks/building-a-strong-engineering-culture.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-a-strong-engineering-culture-my-talk-from-bbc-develop-2013",
 				"length": 60,
 				"location": {
@@ -607,7 +608,7 @@
 				"talk-type": "talk",
 				"date": "2015-03-26",
 				"talk-description": "How breaking big things into small things can improve innovation, velocity and team happiness.",
-				"talk-url": "https://kevingoldsmith.com/talks/#apportioning-monoliths",
+				"talk-url": "https://kevingoldsmith.com/talks/apportioning-monoliths.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/apportioning-monoliths",
 				"length": 60,
 				"location": {
@@ -629,7 +630,7 @@
 				"talk-type": "talk",
 				"date": "2015-06-12",
 				"talk-description": "How breaking big things into small things can improve innovation, velocity and team happiness.",
-				"talk-url": "https://kevingoldsmith.com/talks/#apportioning-monoliths",
+				"talk-url": "https://kevingoldsmith.com/talks/apportioning-monoliths.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/apportioning-monoliths",
 				"length": 60,
 				"location": {
@@ -672,7 +673,7 @@
 				"talk-type": "talk",
 				"date": "2015-07-01",
 				"talk-description": "One of the new wave of internet disruptors, Spotify has a unique culture that seeks to promote collaboration and creativity as part of its organisational DNA. Learn about the internal groupings that keep individuals and teams aligned and cross-functional. As the culture has evolved over time, Spotify has become ever clearer about the competitive advantage their culture offers.",
-				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"talk-url": "https://kevingoldsmith.com/talks/the-spotify-tribe.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
 				"length": 45,
 				"location": {
@@ -692,10 +693,10 @@
 		"talks": [
 			{
 				"talk": "Culture Leads, Everything Else Follows",
-				"talk-type": "talk",
+				"talk-type": "keynote",
 				"date": "2015-09-29",
 				"talk-description": "Many groups let their culture grow organically as they grow. In this talk I argue that focusing on your culture early helps set you up for long-term success.",
-				"talk-url": "https://kevingoldsmith.com/talks/#culture-leads",
+				"talk-url": "https://kevingoldsmith.com/talks/culture-leads-everything-else-follows.html",
 				"length": 30,
 				"location": {
 					"venue": "Bygget",
@@ -717,7 +718,7 @@
 				"talk-type": "keynote",
 				"date": "2015-10-01",
 				"talk-description": "How breaking up monoliths in your schedule, your team and in your software architectures can increase velocity and innovation.",
-				"talk-url": "https://kevingoldsmith.com/talks/#apportioning-monoliths",
+				"talk-url": "https://kevingoldsmith.com/talks/apportioning-monoliths.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/apportioning-monoliths",
 				"length": 60,
 				"location": {
@@ -734,7 +735,7 @@
 				"talk-type": "talk",
 				"date": "2015-10-01",
 				"talk-description": "How Spotify has built an organization around autonomy, innovation and velocity.",
-				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"talk-url": "https://kevingoldsmith.com/talks/the-spotify-tribe.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
 				"length": 60,
 				"location": {
@@ -757,7 +758,7 @@
 				"talk-type": "talk",
 				"date": "2015-11-18",
 				"talk-description": "How Spotify has built an organization around autonomy, innovation and velocity.",
-				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"talk-url": "https://kevingoldsmith.com/talks/the-spotify-tribe.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
 				"length": 60
 			}
@@ -769,6 +770,7 @@
 		"talks": [
 			{
 				"talk": "Failing Up: Creating a Failsafe Environment",
+				"talk-url": "https://kevingoldsmith.com/talks/fail-fast-fail-smart-succeed.html",
 				"root-talk": "Fail Fast, Fail Smart... Succeed!",
 				"talk-type": "keynote",
 				"date": "2015-11-23",
@@ -809,7 +811,7 @@
 				"talk-type": "talk",
 				"date": "2015-11-24",
 				"talk-description": "",
-				"talk-url": "https://kevingoldsmith.com/talks/#AutonomyFTW",
+				"talk-url": "https://kevingoldsmith.com/talks/autonomy-for-the-win-how-spotify-builds-product-balancing-alignment-with-autonomy.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/kevin-goldsmith-product-tank-stockholm-talk",
 				"length": 60,
 				"location": {
@@ -853,7 +855,7 @@
 				"talk-type": "talk",
 				"date": "2015-12-02",
 				"talk-description": "An introduction to the Spotify matrix model including recent updates we've made as we have continued to grow.",
-				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"talk-url": "https://kevingoldsmith.com/talks/the-spotify-tribe.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
 				"length": 60,
 				"location": {
@@ -876,7 +878,7 @@
 				"talk-type": "talk",
 				"date": "2015-12-03",
 				"talk-description": "The software industry used to be all about building monoliths: monolithic applications and services, with bing-bang product releasees. All that has now changed and we are much better for it.\nThis talk is about how breaking up those monoliths in your schedule, your organization and your architectures can help you increase your team's innovation throughput and making you more competitive in today's fast moving markets.",
-				"talk-url": "https://kevingoldsmith.com/talks/#microservices",
+				"talk-url": "https://kevingoldsmith.com/talks/microservices-at-spotify.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/microservices-at-spotify",
 				"recording-url": "https://youtu.be/7LGPeBgNFuU",
 				"length": 45,
@@ -923,7 +925,7 @@
 				"talk-type": "talk",
 				"date": "2016-02-09",
 				"talk-description": "An introduction to the Spotify matrix model including recent updates we've made as we have continued to grow.",
-				"talk-url": "https://kevingoldsmith.com/talks/#spotify-tribe",
+				"talk-url": "https://kevingoldsmith.com/talks/the-spotify-tribe.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-spotify-tribe-my-talk-from-spark-the-change",
 				"length": 30,
 				"location": {
@@ -947,7 +949,7 @@
 				"talk-type": "keynote",
 				"date": "2016-04-26",
 				"talk-description": "",
-				"talk-url": "http://kevingoldsmith.com/talks/#failingup",
+				"talk-url": "https://www.kevingoldsmith.com/talks/fail-fast-fail-smart-succeed.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/failing-up-creating-a-failsafe-environment",
 				"length": 40,
 				"location": {
@@ -970,7 +972,7 @@
 				"talk-type": "talk",
 				"date": "2016-05-19",
 				"talk-description": "At Spotify we believe that \"We believe that you need a great company to build a great product, and we are trying to do both.\" In this talk I will show how the way we organize our teams helps us innovate and build a great product while continuing to scale our user base substantially.",
-				"talk-url": "http://www.kevingoldsmith.com/talks/#howspotifybuildsproducts",
+				"talk-url": "https://kevingoldsmith.com/talks/how-spotify-builds-products.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-spotify-builds-products-organization-architecture-autonomy-accountability",
 				"recording-url": "https://youtu.be/7B-qKT2sHDo",
 				"length": 30,
@@ -994,7 +996,7 @@
 				"talk-type": "talk",
 				"date": "2016-05-23",
 				"talk-description": "This talk is the \"mega-mix\" of all my previous Spotify talks, drawing a through-line to how Spotify uses Lean Startup principles, organization design and agile techniques to build the largest streaming music service in the world.",
-				"talk-url": "http://www.kevingoldsmith.com/talks/#howspotifybuildsproducts",
+				"talk-url": "https://kevingoldsmith.com/talks/how-spotify-builds-products.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-spotify-builds-products-organization-architecture-autonomy-accountability",
 				"length": 90,
 				"location": {
@@ -1081,7 +1083,7 @@
 				"talk-type": "talk",
 				"date": "2016-10-12",
 				"talk-description": "Avvo is a 10-year old company that is in high growth mode, having increased headcount by 100% in the past year. In June, Kevin Goldsmith joined Avvo as its CTO after three years at Spotify. He will share learnings of how the team is bringing a lean and agile culture to this rapidly growing company, which now has 400 employees. How do you scale the tools of transformation from the team to the company? In a company eager for change, how do you decide where to invest and how fast to go? Kevin will also share some of the programs that have been put into place to begin the transition from a top-down to bottom-up culture.",
-				"talk-url": "http://www.kevingoldsmith.com/talks/#avvoculture",
+				"talk-url": "https://kevingoldsmith.com/talks/building-a-culture-of-continuous-improvement-in-your-company.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-at-avvo",
 				"recording-url": "https://youtu.be/evZ0Fdv7454",
 				"length":30,

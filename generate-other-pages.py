@@ -10,7 +10,7 @@ parser.add_argument('--debug', action='store_true')
 args = parser.parse_args()
 debug_mode = args.debug
 
-other_pages = [('index.html', 'templates/site-index-template.html'), ('music.html', 'templates/music-template.html'), ('photography.html', 'templates/photography-template.html'), ('resume.html', 'templates/resume-template.html')]
+other_pages = [('index.html', 'templates/site-index-template.html'), ('music.html', 'templates/music-template.html'), ('photography.html', 'templates/photography-template.html')]
 
 for page in other_pages:
 	with open(page[1]) as f:

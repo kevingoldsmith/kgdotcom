@@ -2,10 +2,9 @@
 
 import argparse
 import json
-from datetime import date
 from string import Template
 from navigation import generate_nav_root, get_href_root
-from common import get_output_directory
+from common import *
 
 parser = argparse.ArgumentParser(description='generate the writings file')
 parser.add_argument('--debug', action='store_true')
@@ -13,48 +12,6 @@ args = parser.parse_args()
 debug_mode = args.debug
 
 output_page = 'resume.html'
-
-
-def obfusticate_email(email_address):
-	format_email_character = '<td>{0}</td><!-- blah! -->'
-	format_charref_character = '&#{0};'
-	format_email = '<a href="mailto:{0}?subject=Saw%20your%20resume"><table cellpadding="0" cellspacing="0"><tr>{1}</tr></table></a>'
-
-	obfusticated_display_email = ''
-	obfusticated_email = ''
-
-	for char in email_address:
-		new_char = format_charref_character.format(ord(char))
-		obfusticated_email += new_char
-		obfusticated_display_email += format_email_character.format(new_char)
-
-	return format_email.format(obfusticated_email, obfusticated_display_email)
-
-def format_month_year_from_string(datestring):
-	return date(*map(int, datestring.split("-"))).strftime("%B %Y")
-
-def format_month_day_year_from_string(datestring):
-	return date(*map(int, datestring.split("-"))).strftime("%B %d, %Y")
-
-def generate_paragraphs_for_lines(string_with_lines):
-	if not '\n' in string_with_lines:
-		return string_with_lines
-	
-	start=0
-	end=0
-	lines=[]
-	while end>-1:
-		end=string_with_lines.find('\n', start)
-		if end>-1:
-			lines.append(string_with_lines[start:end])
-		else:
-			lines.append(string_with_lines[start:])
-		start=end+1
-
-	paragraphs = ''
-	for line in lines:
-		paragraphs += '<p>{0}</p>\n'.format(line)
-	return paragraphs
 
 
 def format_job_list(work):
@@ -118,15 +75,39 @@ def format_interview_list(interviews):
 	return u'\n'.join(interview_list)
 
 
-#<li><span class="talk-title"><a href="http://blog.kevingoldsmith.com/2017/05/13/my-talk-and-interview-from-jax-2017-in-mainz-germany/" class="outbound">Fail Fast, Fail Safe... Succeed! (Opening Keynote)</a></span>, <a class="outbound" href="https://jax.de/">JAX 2017</a>, May 2017, Mainz, Germany</li>
 def format_keynote_list(conferences):
-	format_keynote_li = '<li><span class="talk-title"><a href="{talk_url}">{talk}</a></span>, <a class="outbound" href="{conference_url}">{conference_name}</a>, {date}, {location}</li>'
-	
-	keynote_list = []
-	for conference in confereces:
-		for talk in conference['talks']:
-			if talk['talk-type'] = 'keynote':
+	format_keynote_li = '<li><span class="talk-title">{talk}</span>, {conference}, {date}, {location}</li>'
+	format_conference_with_link='<a class="outbound" href="{conference_url}">{conference_name}</a>'
+	format_talk_with_link='<a href="{talk_url}">{talk}</a>'
 
+	keynote_list = []
+	for conference in conferences:
+		for talk in conference['talks']:
+			if talk['talk-type'] == 'keynote':
+				d = dict(
+					talk=format_talk_with_link.format(**dict(talk_url=talk['talk-url'], talk=talk['talk'])) if 'talk-url' in talk else talk['talk'],
+					conference=format_conference_with_link.format(**dict(conference_url=conference['url'],conference_name=conference['conference'])) if 'url' in conference else conference['conference'],
+					date=format_month_year_from_string(talk['date']),
+					location=format_city_state_country_from_location(talk['location']) if 'location' in talk else 'virtual'
+					)
+				keynote_list.append(format_keynote_li.format(**d))
+	return '\n'.join(keynote_list)
+
+
+def format_publication_credits_list(publications):
+	format_pulication_li='<li><span class="credit-title">{title}</span>, {credit}: {summary}</li>'
+	format_credit_author_publisher = '{0} - {1}, {2}'
+	format_credit_either = '{0}'
+
+	publication_list = []
+	for publication in publications:
+		if ('author' in publication) and ('publisher' in publication):
+			publication['credit'] = format_credit_author_publisher.format(publication['author'], publication['publisher'], format_year_from_string(publication['releaseDate']))
+		else:
+			publication['credit'] = format_credit_either.format(publication['author'] if 'author' in publication else publication['publisher'])
+
+		publication_list.append(format_pulication_li.format(**publication))
+	return '\n'.join(publication_list)
 
 
 # get the template
@@ -155,9 +136,10 @@ page_variables = dict(
 	job_list=format_job_list(resume_data['work']),
 	patent_list=format_patent_list(resume_data['patents']),
 	education=format_education(resume_data['education'][0]),
-	interview_list=format_interview_list(interview_data)
+	interview_list=format_interview_list(interview_data),
+	keynote_list=format_keynote_list(list(reversed(conference_data))),
+	publication_list=format_publication_credits_list(resume_data['publications'])
 	)
-
 
 print('writing: '+output_page)
 with open(get_output_directory(debug_mode)+output_page, 'w') as f:
