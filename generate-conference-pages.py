@@ -176,6 +176,7 @@ for talk_index in unique_talks:
 
 	pagevalues = copy.deepcopy(pagevariables)
 	pagevalues['title'] = format_talk_page_title.format(talktitle)
+	pagevalues['talktitle'] = talktitle
 	pagevalues['filename'] = outputfilename
 	recordings = []
 	slides = []
