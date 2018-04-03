@@ -15,18 +15,21 @@ output_page = 'resume.html'
 
 
 def format_job_list(work):
+	format_company_name = u'<span itemprop="name">{0}</span>'
 	format_company_url = u'<a class="outbound" href="{0}" target="_blank">{1}</a>'
-	format_job_li = u'<li><div class="job-header"><div class="job-title">{title}</div><div class="job-dates">{from_date} - {to_date}</div><div class="job-company">{company}</div><div class="job-city">{city}</div></div><div class="job-description">{description}</div></li>'
+	format_job_li = u'<li itemprop="{jobstatus}"><div itemscope itemtype="http://schema.org/Organization"><div class="job-header"><div class="job-title">{title}</div><div class="job-dates">{from_date} - {to_date}</div><div class="job-company">{company}</div><div class="job-city">{city}</div></div><div class="job-description" itemprop="description">{description}</div></div></li>'
 
 	job_list = []
 	for work_item in work:
+		company_name = format_company_name.format(work_item['company'])
 		d = dict(
 			title=work_item['position'],
 			from_date=format_month_year_from_string(work_item['startDate']),
 			to_date=format_month_year_from_string(work_item['endDate']) if 'endDate' in work_item else 'present',
-			company=format_company_url.format(work_item['website'],work_item['company']) if 'website' in work_item else work_item['company'],
+			company=format_company_url.format(work_item['website'], company_name) if 'website' in work_item else company_name,
 			city=work_item['location'],
-			description=generate_paragraphs_for_lines(work_item['summary'])
+			description=generate_paragraphs_for_lines(work_item['summary']),
+			jobstatus="alumniOf" if 'endate' in work_item else 'worksFor'
 			)
 		job_list.append(format_job_li.format(**d))
 
@@ -53,22 +56,26 @@ def format_patent_list(patents):
 
 #no point in treating this like a list, I only have the one degree :)
 def format_education(education_item):
-	format_education_text='<a class="outbound" href="{website}"><apan class="university-name">{institution}</span></a>, {location}. {studyType} Degree in {area}, graduated {grad_date}. {summary}'
+	format_education_text='<span itemprop="alumniOf" itemscope itemtype="http://schema.org/CollegeOrUniversity"><a class="outbound" itemprop="sameAs" href="{website}"><apan class="university-name" itemprop="name">{institution}</span></a>, <span itemprop="location">{location}</span>. {studyType} Degree in {area}, graduated {grad_date}. {summary}'
 	education_item['grad_date']=format_month_year_from_string(education_item['endDate'])
 	return format_education_text.format(**education_item)
 
 
 def format_interview_list(interviews):
-	format_interview_li = u'<li><a class="outbound" href="{url}">{name}</a>, {date}, {credit}</li>'
+	format_interview_li = u'<li itemscope itemtype="http://schema.org/Article"><a class="outbound" itemprop="url" href="{url}"><span itemprop="name">{name}</span></a>, {date}, {credit}</li>'
 	format_credit_author_publisher = '{0} - {1}'
 	format_credit_either = '{0}'
+	format_credit_author = '<span itemprop="author">{0}</span>'
+	format_credit_publisher = '<span itemprop="publisher"><span itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{0}</span></span></span>'
 
 	interview_list = []
 	for interview in interviews:
+		author = format_credit_author.format(interview['author']) if 'author' in interview else ''
+		publisher = format_credit_publisher.format(interview['publisher']) if 'publisher' in interview else ''
 		if ('author' in interview) and ('publisher' in interview):
-			interview['credit'] = format_credit_author_publisher.format(interview['author'], interview['publisher'])
+			interview['credit'] = format_credit_author_publisher.format(author, publisher)
 		else:
-			interview['credit'] = format_credit_either.format(interview['author'] if 'author' in interview else interview['publisher'])
+			interview['credit'] = format_credit_either.format(author if 'author' in interview else publisher)
 
 		interview['date'] = format_month_year_from_string(interview['date'])
 		interview_list.append(format_interview_li.format(**interview))
@@ -95,16 +102,19 @@ def format_keynote_list(conferences):
 
 
 def format_publication_credits_list(publications):
-	format_pulication_li='<li><span class="credit-title">{title}</span>, {credit}: {summary}</li>'
-	format_credit_author_publisher = '{0} - {1}, {2}'
-	format_credit_either = '{0}'
+	format_pulication_li='<li itemscope itemtype="http://schema.org/Article"><span class="credit-title" itemprop="name">{title}</span>, {credit}: {summary}</li>'
+	format_credit_author_publisher_year = '{0} - {1}, {2}'
+	format_credit_author = '<span itemprop="author">{0}</span>'
+	format_credit_publisher = '<span itemprop="publisher"><span itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{0}</span></span></span>'
 
 	publication_list = []
 	for publication in publications:
+		author = format_credit_author.format(publication['author']) if 'author' in publication else ''
+		publisher = format_credit_publisher.format(publication['publisher']) if 'publisher' in publication else ''
 		if ('author' in publication) and ('publisher' in publication):
-			publication['credit'] = format_credit_author_publisher.format(publication['author'], publication['publisher'], format_year_from_string(publication['releaseDate']))
+			publication['credit'] = format_credit_author_publisher_year.format(author, publisher, format_year_from_string(publication['releaseDate']))
 		else:
-			publication['credit'] = format_credit_either.format(publication['author'] if 'author' in publication else publication['publisher'])
+			publication['credit'] = author if 'author' in publication else publisher
 
 		publication_list.append(format_pulication_li.format(**publication))
 	return '\n'.join(publication_list)

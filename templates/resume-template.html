@@ -226,7 +226,7 @@
 } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
 	</style>
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/Person">
 <!-- thanks to https://codepen.io/eksch/pen/xwdOeK for the page navigation code example (I had to tweak some)  -->
 	<header id="header">
         <div id="name"><a href="$siteroot">Kevin Goldsmith</a></div>
@@ -260,8 +260,8 @@
 			<section class="page-section" id="contact">
 				<h2 class="section-title">contact</h2>
 				<div class="section-content">
-					<div id="resume-email" class="center">$email</div>
-					<div id="resume-weblink"><a href="$website">$website</a></div>
+					<div id="resume-email" class="center" itemprop="email">$email</div>
+					<div id="resume-weblink"><a href="$website" itemprop="url">$website</a></div>
 				</div>
 			</section>
 			<section class="page-section" id="summary">
