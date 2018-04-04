@@ -74,13 +74,13 @@
 <body>
     <header id="header">
         <div id="name"><a href="$siteroot">Kevin Goldsmith</a></div>
-        <div id="site-nav">
+        <nav id="site-nav">
             <ul>
                 $sitenav
             </ul>
-        </div>
+        </nav>
     </header>
-    <div id="content">
+    <main id="content">
         <div class="buttonlist">
             filter by tag: <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
             $tagbuttons
@@ -88,7 +88,7 @@
         <ul class="articlelist">
             $writinglist
         </ul>
-    </div>
+    </main>
     <footer>
         kevingoldsmith.com
     </footer>
