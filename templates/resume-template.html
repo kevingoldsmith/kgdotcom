@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
 
     <link rel="stylesheet" href="css/main.css" />
-	<style type="text/css">
+	<style>
 		/* Common header elements, move to separate file? */
 		body {
 			margin: 0;
@@ -74,8 +74,8 @@
 
 		.headline {
 			font-style: italic;
-			padding-left: auto;
-			padding-right: auto;
+			margin-left: auto;
+			margin-right: auto;
 			text-align: center
 		}
 
@@ -140,10 +140,18 @@
 			font-size: 1.2em;
 		}
 
+		td {
+			padding: 0;
+		}
+		table {
+			border-spacing: 0;
+		}
+
 // Small screens
 @media only screen {
 	body { background-color: #FF0000; }
-} /* Define mobile styles */
+} 
+// Define mobile styles
 
 @media only screen and (max-width: 40em) {
 	header {
@@ -182,12 +190,14 @@
 	footer {
 		padding: .5em .5em .5em .5em;
 	}
-} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+}
+// max-width 640px, mobile-only styles, use when QAing mobile issues
 
 // Medium screens
 @media only screen and (min-width: 40.063em) {
 	body { background-color: #0000FF; }
-} /* min-width 641px, medium screens */
+}
+// min-width 641px, medium screens
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
 	header {
@@ -199,12 +209,14 @@
 	footer {
 		padding: 0em 0em 0em .5em;
 	}
-} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+}
+// min-width 641px and max-width 1024px, use when QAing tablet-only issues
 
 // Large screens
 @media only screen and (min-width: 64.063em) {
 	body { background-color: #00AA00; }
-} /* min-width 1025px, large screens */
+}
+// min-width 1025px, large screens
 
 @media only screen and (min-width: 64.063em) and (max-width: 90em) {
 	header {
@@ -216,12 +228,14 @@
 	footer {
 		padding: 0em 0em 0em .5em;
 	}
-} /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+} 
+// min-width 1025px and max-width 1440px, use when QAing large screen-only issues
 
 // XLarge screens
 @media only screen and (min-width: 90.063em) {
 	body { background-color: #CC0000; }
-} /* min-width 1441px, xlarge screens */
+}
+// min-width 1441px, xlarge screens
 
 @media only screen and (min-width: 90.063em) {
 	#content {
@@ -231,7 +245,9 @@
 	header {
 		padding: .5em .5em .2em .5em;
 	}
-} /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+} 
+// min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues
+
 	</style>
 </head>
 <body itemscope itemtype="http://schema.org/Person">
@@ -260,11 +276,11 @@
 			</ul>
 		</nav>
 		<main id="scrolled-content">
-			<section class="page-section" id="headline">
+			<div class="page-section" id="headline">
 				<div class="section-content">
 					<div id="resume-mini-summary" class="headline">$headline</div>
 				</div>
-			</section>
+			</div>
 			<section class="page-section" id="contact">
 				<h2 class="section-title">contact</h2>
 				<div class="section-content">
@@ -341,8 +357,8 @@
 					</ul>
 				</div>
 			</section>
-		</div>
-	</main>
+		</main>
+	</div>
 	<footer>
 		kevingoldsmith.com
 	</footer>

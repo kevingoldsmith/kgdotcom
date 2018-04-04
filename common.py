@@ -22,9 +22,9 @@ def get_output_directory(debug=False):
 
 
 def obfusticate_email(email_address):
-	format_email_character = '<td>{0}</td><!-- blah! -->'
+	format_email_character = '<td style="padding: 0px;">{0}</td><!-- blah! -->'
 	format_charref_character = '&#{0};'
-	format_email = '<a href="mailto:{0}?subject=Saw%20your%20resume"><table cellpadding="0" cellspacing="0"><tr>{1}</tr></table></a>'
+	format_email = '<a href="mailto:{0}?subject=Saw%20your%20resume"><table style="border-spacing: 0px;"><tr>{1}</tr></table></a>'
 
 	obfusticated_display_email = ''
 	obfusticated_email = ''
