@@ -54,6 +54,6 @@ for tag in sorted(tag_set):
 output_directory = get_output_directory(debug_mode)
 
 d = dict(writinglist = article_list, tagbuttons = button_list, sitenav = generate_nav_root(output_file, debug_mode), siteroot = get_href_root('index.html', debug_mode))
-print('writing ' + output_file)
+print('writing: ' + output_file)
 with open(output_directory+output_file, 'w') as f:
 	f.write(writingpagetemplate.substitute(d))
