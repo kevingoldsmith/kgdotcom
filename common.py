@@ -18,8 +18,6 @@ def get_output_directory(debug=False):
 
 	return directory
 
-	parser = argparse.ArgumentParser(description='Generate a file for the site')
-
 
 def obfusticate_email(email_address):
 	format_email_character = '<td style="padding: 0px;">{0}</td><!-- blah! -->'
