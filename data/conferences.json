@@ -1756,5 +1756,23 @@
 				}
 			}
 		]		
+	},
+	{
+		"conference": "Agile Leader Day",
+		"url": "http://peoplegeeks.net/agile-leader-day/",
+		"talks": [
+			{
+				"talk": "Building a Culture of Continuous Improvement in Your Company",
+				"talk-type": "talk",
+				"date": "2018-10-11",
+				"talk-description": "Continuous improvement is the goal of agile teams. But what does it look like when we create a continuous improvement strategy beyond our agile teams and bring it to the company level? Working at Spotify, Kevin Goldsmith saw the benefits of its fantastic continuous improvement culture. When he joined Avvo as its new CTO, his primary goal was to help Avvo create that culture for itself. In this session, Kevin will show what Avvo has done to build a foundation for a continuous improvement culture. He’ll explore the frameworks used to create highly engaged teams and share the organizational and process models that support and empower individuals and groups to own and drive improvements to make themselves more efficient and the company a better place to work. You'll leave with a template to help you build a continuous improvement culture in your company.",
+				"length": 35,
+				"location": {
+					"city": "Helsinki",
+					"country": "FI",
+					"gps": [60.169928, 24.938365]
+				}
+			}
+		]		
 	}
 ]
