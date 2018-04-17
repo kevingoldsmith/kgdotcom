@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python -m unittest tests/test_common.py
+python -m unittest discover -s tests

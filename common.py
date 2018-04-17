@@ -58,7 +58,7 @@ def generate_paragraphs_for_lines(string_with_lines):
 		end=string_with_lines.find('\n', start)
 		if end>-1:
 			lines.append(string_with_lines[start:end])
-		else:
+		elif start != len(string_with_lines):
 			lines.append(string_with_lines[start:])
 		start=end+1
 
@@ -86,3 +86,4 @@ def format_city_state_country_from_location(location):
 		conference_location = format_location_city_country.format(city, country)
 
 	return conference_location
+

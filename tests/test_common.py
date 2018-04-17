@@ -49,5 +49,49 @@ class TestCommon(unittest.TestCase):
 		self.assertEqual(common.format_month_day_year_from_string("2004-03-01"), 'March 01, 2004')
 
 
+	def test_generate_paragraphs_for_lines(self):
+		"""test the generate_paragraphs_for_lines function"""
+
+		self.assertEqual(common.generate_paragraphs_for_lines('i like cheese'), 'i like cheese')
+		self.assertEqual(common.generate_paragraphs_for_lines(''), '')
+		self.assertEqual(common.generate_paragraphs_for_lines(""), "")
+		self.assertEqual(common.generate_paragraphs_for_lines('i like cheese\nand i cannot lie'), '<p>i like cheese</p>\n<p>and i cannot lie</p>\n')
+		self.assertEqual(common.generate_paragraphs_for_lines('\n'), '<p></p>\n')
+		self.assertEqual(common.generate_paragraphs_for_lines('foo\nbar\nbaz'), '<p>foo</p>\n<p>bar</p>\n<p>baz</p>\n')
+
+
+	def test_format_city_state_country_from_location(self):
+		"""test the format_city_state_country_from_location function"""
+
+		self.assertEqual(common.format_city_state_country_from_location({}), 'virtual')
+		self.assertEqual(common.format_city_state_country_from_location({
+					"venue": "McCormick Place",
+					"address": "2301 S King Dr",
+					"city": "Chicago",
+					"state": "IL",
+					"country": "US",
+					"postal code":"60616",
+					"gps": [41.853306, -87.616059]
+				}), '<span class=\"conferencecity\">Chicago</span>, <span class=\"conferenceState\">IL</span>, <span class=\"conferencecountry\">United States</span>')
+		self.assertEqual(common.format_city_state_country_from_location({
+					"venue": "MIC - Milano Convention Centre",
+					"address":"Piazzale Carlo Magno, 1",
+					"city": "Milano",
+					"state": "MI",
+					"country": "IT",
+					"postal code":"20149",
+					"gps": [45.480890, 9.153661]
+				}), '<span class=\"conferencecity\">Milano</span>, <span class=\"conferenceState\">MI</span>, <span class=\"conferencecountry\">Italy</span>')
+		self.assertEqual(common.format_city_state_country_from_location({
+					"venue": "Valtech Stockholm",
+					"address":"Hantverkargatan 5",
+					"city": "Stockholm",
+					"country": "SE",
+					"postal code": "112 21",
+					"gps": [59.327917, 18.050547]
+				}), '<span class=\"conferencecity\">Stockholm</span>, <span class=\"conferencecountry\">Sweden</span>')
+		
+
+
 if __name__ == '__main__':
     unittest.main()
