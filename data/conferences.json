@@ -1713,6 +1713,19 @@
 		]
 	},
 	{
+		"conference": "Compare the Market, Leadership Offsite",
+		"talks": [
+			{
+				"talk": "Distributed Teams",
+				"talk-type": "talk",
+				"date": "2018-04-26",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/distributed-teams-95295288",
+				"talk-description": "What makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective?\nIn this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years. ",
+				"length": 60				
+			}
+		]
+	},
+	{
 		"conference": "Better Software West",
 		"url": "https://bscwest.techwell.com/",
 		"talks": [
