@@ -20,6 +20,7 @@ format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> -
 format_keynote_list_item = '<li><span class=\"conferencename\">{0}</span> (Keynote) - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_upcoming_list_item = '<li><span class=\"conferencename\"><a class=\"outbound\" href=\"{0}\">{1}</a></span> - <span class=\"conferencedate\">{2}</span> - <span class=\"conferencelocation\">{3}</span></li>'
 format_reactions_list_item = '<li><span class=\"quote\">{0}</span> - <a class=\"outbound\" href=\"{1}\">{2}</a></li>'
+format_reactions_list_item_no_link = '<li><span class=\"quote\">{0}</span> - {1}</li>'
 format_video_div = '<div id=\"video\">\n<div class=\"subheader\">Recordings</div>\n'
 format_other_recordings_list = '<div id=\"othervideos\">\n<div class=\"othersubheader\">Other recordings</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
 format_other_recordings_list_item = '<li class=\"inlinelistitem\"><a class=\"outbound\" href=\"{0}\">{1} ({2})</a></li>\n'
@@ -224,8 +225,10 @@ for talk_index in unique_talks:
 				for reaction in this_talk['reactions']:
 					quote = reaction['quote']
 					credit = reaction['credit']
-					ref = reaction['reference-url']
-					reactions.append(format_reactions_list_item.format(quote, ref, credit))
+					if 'reference-url' in reaction:
+						reactions.append(format_reactions_list_item.format(quote, reaction['reference-url'], credit))
+					else:
+						reactions.append(format_reactions_list_item_no_link.format(quote, credit))
 			try:
 				index = next(index for (index, d) in enumerate(index_page['talks']) if d["name"] == talk_index)
 				if talk_date > index_page['talks'][index]['date']:
