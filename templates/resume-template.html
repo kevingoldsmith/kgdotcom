@@ -148,6 +148,31 @@
 			border-spacing: 0;
 		}
 
+@media print {
+	#page-nav {
+		visibility: hidden;
+	}
+	#site-nav {
+		visibility: hidden;
+	}
+	header {
+		position: relative;
+		padding: 0em;
+		border-bottom-width: 0;
+		border-bottom-style: none;
+	}
+	#name {
+		font-size: 3em;
+		text-align: center;
+	}
+	#scrolled-content {
+		padding-left: 0em;
+	}
+	#content {
+		padding: .2em .5em 0em .5em;
+	}
+}
+
 /* Small screens */
 @media only screen {
 } 
