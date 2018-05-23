@@ -409,11 +409,15 @@ if len(upcoming_talks) > 0:
 			talk_date = get_talk_date(this_talk)
 			conference_name = conference['conference']
 			conference_location = common.format_city_state_country_from_location(this_talk['location']) if 'location' in this_talk else 'virtual'
+			item = ''
 
 			if 'url' in conference:
-				future_talks_list_items.append(format_upcoming_list_item.format(conference['url'], conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
+				item = format_upcoming_list_item.format(conference['url'], conference_name, talk_date.strftime("%B %d, %Y"), conference_location)
 			else:
-				future_talks_list_items.append(format_presentation_list_item.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
+				item = format_presentation_list_item.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location)
+
+			if item not in future_talks_list_items:
+				future_talks_list_items.append(item)
 
 	future_talks_string = format_future_talks.format('\n'.join(future_talks_list_items))
 

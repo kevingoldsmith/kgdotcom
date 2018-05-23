@@ -1797,7 +1797,45 @@
 					"gps": [51.520170, -0.093274]
 				}
 			}
-		]		
+		]
+	},
+	{
+		"conference": "OPEX Week Summer 2018",
+		"url": "https://opexweeksummer.iqpc.com/",
+		"talks": [
+			{
+				"talk": "Build a fail-safe autonomous team culture to drive innovation and agility",
+				"talk-type": "talk",
+				"date": "2018-08-27",
+				"talk-description": "A new way to increase innovation through the company culture, Improve organizational agility without losing accountability, Develop data-driven decision making processes",
+				"length": 10,
+				"location": {
+					"venue": "Hilton San Diego Resort & Spa",
+					"address": "1775 East Mission Bay Drive",
+					"city": "San Diego",
+					"state": "CA",
+					"country": "US",
+					"postal code": "92109",
+					"gps": [32.779320, -117.210852]
+				}
+			},
+			{
+				"talk": "A Transformation leaders panel: Spearhead your transformation from people, technology and process perspectives",
+				"talk-type": "panel",
+				"date": "2018-08-27",
+				"talk-description": "Transformation is not a business advantage: It is a business imperative in 2018. Join this keynote panel session and hear transformation chiefs from leading organisations dissecting key strategies, tactics and potentially pitfalls to avoid along the transformation journey.\nTying strategic planning, enterprise PMO, Process excellence, digital innovations together for an end to end strategic transformation blueprint\nWhere do you allocate your resources with so many competing priorities?\nBuilding the transformation backbone with the people:  what’s the right approach to lead your transformation and get your people on board?\nHow to move quicker and become more agile in decision making throughout your transformation? ",
+				"length": 40,
+				"location": {
+					"venue": "Hilton San Diego Resort & Spa",
+					"address": "1775 East Mission Bay Drive",
+					"city": "San Diego",
+					"state": "CA",
+					"country": "US",
+					"postal code": "92109",
+					"gps": [32.779320, -117.210852]
+				}
+			}
+		]
 	},
 	{
 		"conference": "Agile Leader Day",
