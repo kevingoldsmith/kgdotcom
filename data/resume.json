@@ -33,17 +33,12 @@
 	},
 	"work": [
 		{
-			"company": "Avvo",
-			"location": "Seattle, WA",
-			"position": "Chief Technology Officer",
-			"website": "https://avvo.com",
-			"startDate": "2016-06-06",
-			"endDate": "2018-04-06",
-			"summary": "Was responsible for leading the software development, test, data engineering, data science, dev-ops and IT functions. Grew the organization from 51 to 77 while significantly improving diversity,  productivity, and morale. Profit increased consistently across entire tenure at Avvo leading to a successful exit via acquisition by Internet Brands in February 2018.",
-			"highlights": [
-				"Company acquired in 2018",
-				"Created first ML-based features"
-			]
+			"company": "AstrumU",
+			"location": "Kirkland, WA",
+			"position": "VP Engineering",
+			"website": "http://AstrumU.com",
+			"startDate": "2018-06-01",
+			"summary": "Building a world-class engineering and design organization."
 		},
 		{
 			"company": "Dolly",
@@ -60,6 +55,19 @@
 			"website": "http://www.godeltech.com/",
 			"startDate": "2016-01-01",
 			"summary": "Assist Godel and their clients to build high-performing teams with a strong culture as they scale significantly."
+		},
+		{
+			"company": "Avvo",
+			"location": "Seattle, WA",
+			"position": "Chief Technology Officer",
+			"website": "https://avvo.com",
+			"startDate": "2016-06-06",
+			"endDate": "2018-04-06",
+			"summary": "Responsible for leading the software development, test, data engineering, data science, dev-ops and IT functions. Grew the organization from 51 to 77 while significantly improving diversity,  productivity, and morale. Profit increased consistently across entire tenure at Avvo leading to a successful exit via acquisition by Internet Brands in February 2018.",
+			"highlights": [
+				"Company acquired in 2018",
+				"Created first ML-based features"
+			]
 		},
 		{
 			"company": "Spotify",
