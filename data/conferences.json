@@ -1089,10 +1089,11 @@
 				"length":30,
 				"location": {
 					"venue": "Multikino, Ursynów",
-					"address": "Al. KEN 60",
+					"address": "Aleja Komisji Edukacji Narodowej 60",
 					"city": "Warszawa",
+					"postal code": "02-777",
 					"country": "PL",
-					"gps": [52.149844,21.046852]
+					"gps": [52.149850, 21.046841]
 				}
 			}
 		]
@@ -1887,6 +1888,27 @@
 				}
 			}
 		]		
+	},
+	{
+		"conference": "Agile by Example",
+		"url": "https://agilebyexample.com/",
+		"talks": [
+			{
+				"talk": "untitled",
+				"talk-type": "talk",
+				"date": "2018-10-22",
+				"talk-description": "to be decided",
+				"length": 30,
+				"location": {
+					"venue": "Multikino, Ursynów",
+					"address": "Aleja Komisji Edukacji Narodowej 60",
+					"city": "Warszawa",
+					"postal code": "02-777",
+					"country": "PL",
+					"gps": [52.149850, 21.046841]
+				}
+			}
+		]
 	},
 	{
 		"conference": "Full Stack Toronto",
