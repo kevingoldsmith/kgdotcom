@@ -27,6 +27,8 @@ def tagifyTag(tag):
 with open('data/writing.json') as f:
 	writings = json.load(f)
 
+writings = sorted(writings, key=lambda k: k['date'], reverse=True)
+
 #get the page template
 with open('templates/writing-template.html') as f:
 	writingpagetemplate = Template(f.read())
