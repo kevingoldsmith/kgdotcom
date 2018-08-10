@@ -1,5 +1,13 @@
 [
 	{
+		"name": "Kevin Goldsmith on Architecture and Organizational Design",
+		"date": "2018-07-24",
+		"url": "http://www.se-radio.net/2018/07/se-radio-episode-331-kevin-goldsmith-on-architecture-and-organizational-design/",
+		"author": "Travis Kimmel",
+		"publisher": "Software Engineering Radio",
+		"summary": "Travis Kimmel talks with Kevin Goldsmith about the correspondence between organizational design and software architecture. Their conversation covers: what Conway’s Law is; Kevin’s experiences in different organizational structures (e.g., Avvo, Spotify, Adobe, and Microsoft) and how those structures influenced the software architecture; what the “Reverse Conway Maneuver” is and how organizations can leverage it; how organizations can evolve existing architectures."
+	},
+	{
 		"name": "Tech Leaders Q&A: Kevin Goldsmith, former VP of Engineering at Spotify and former Director of Engineering at Adobe, discusses the future of technology and engineering…",
 		"date": "2018-05-23",
 		"url": "https://www.thirdrepublic.com/blog/tech-leaders-qa-kevin-goldsmith",
