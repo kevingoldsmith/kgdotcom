@@ -1891,6 +1891,27 @@
 		]		
 	},
 	{
+		"conference": "The Hive Conference",
+		"url": "https://www.honeypot.io/hive-conference-2018/",
+		"talks": [
+			{
+				"talk": "to be decided",
+				"talk-type": "talk",
+				"date": "2018-10-18",
+				"talk-description": "to be decided",
+				"length": 30,
+				"location": {
+					"venue": "Festsaal Kreuzberg",
+					"address": "Am Flutgraben 2",
+					"city": "Berlin",
+					"postal code": "12435",
+					"country": "DE",
+					"gps": [52.496991, 13.451584]
+				}
+			}
+		]
+	},
+	{
 		"conference": "Agile by Example",
 		"url": "https://agilebyexample.com/",
 		"talks": [
