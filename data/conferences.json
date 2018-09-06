@@ -1347,7 +1347,8 @@
 				"talk": "Building a Culture of Continuous Improvement in Your Company",
 				"talk-type": "talk",
 				"date": "2017-09-06",
-				"talk-description": "Continuous improvement is the goal for agile teams. We strive for it.\nWhat does it look like when we create a continuous improvement beyond our agile teams and bring it to the larger organization: the company level?\nKevin Goldsmith was leaving Spotify, a company that had a built an amazing continuous improvement culture. He saw the benefits that it brought, first hand. When he joined Avvo as its new CTO, his primary goal was to help Avvo create that culture for itself.\nIn this talk, Kevin shows what Avvo has done to build a foundation for a continuous improvement culture: frameworks, organizational and processes that support and empower individuals and groups to own and drive improvements to make themselves more efficient and the company a better place to work.\nThe ideas presented will inspire cultural and organizational changes that you can make to bring continuous improvement to your institutions.",
+				"original-talk-description": "Continuous improvement is the goal for agile teams. We strive for it.\nWhat does it look like when we create a continuous improvement beyond our agile teams and bring it to the larger organization: the company level?\nKevin Goldsmith was leaving Spotify, a company that had a built an amazing continuous improvement culture. He saw the benefits that it brought, first hand. When he joined Avvo as its new CTO, his primary goal was to help Avvo create that culture for itself.\nIn this talk, Kevin shows what Avvo has done to build a foundation for a continuous improvement culture: frameworks, organizational and processes that support and empower individuals and groups to own and drive improvements to make themselves more efficient and the company a better place to work.\nThe ideas presented will inspire cultural and organizational changes that you can make to bring continuous improvement to your institutions.",
+				"talk-description": "<p>A culture of continuous improvement is a culture where you are always open to improving how you build and deliver. You don't accept the status quo; you choose how to work and feel empowered to change it if it no longer makes sense. It is a people-first culture.</p><p>Having had the benefit of a culture like this at the last place I worked, when I started at my current company, I wanted to see if I could create a continuous improvement culture there, too. It took some effort, and we learned some painful lessons along the way, but we did make significant improvements to how our teams operated and how the engineering organization functioned.</p><p>As a result of these changes, our teams are able to execute at a much higher level, and the morale of the organization improved significantly. In short, we get a lot more stuff done, and we are happier doing it.</p><p>To get there, we had to change some of our frameworks, structures, and processes, or adopt new ones.</p><p>Here are some of the frameworks we created that could be helpful for any company:</p><ul><li><b>WIGs and sWIGs:</b> A way to align the company around a common mid-term strategy and shorter-term tactical deliveries in a way that preserves team autonomy and agile delivery. WIG stands for “wildly important goal,” and sWIG means “sub-wildly important goal.” Our WIGs clarify the midterm strategy for the company, and the sWIGs clarify the shorter-term tactics we are using to achieve that strategy</li><li><b>DUHBs:</b> A data-driven decision-making framework that allows individuals in the company to craft a clear, data-based argument for a making a change. DUHB stands for data, understanding, hypotheses, and bets, which describes the linear process of solving a problem</li><li><b>Journey teams:</b> An autonomous team model that gives teams more direct control over how they work, aligned with customer journeys</li><li><b>RFCs:</b> A mechanism that allows anyone in the organization to drive large-scale change inclusively. It is a document and a process that uses the “request for comment” structure from standards groups as a basis</li><li><b>Retrospectives everywhere:</b> A cultural shift in how we think about examining our organizational strengths and weaknesses when it comes to executing projects</li></ul><p>Each framework builds upon the others. By making the priorities and goals of the company clear, people have the context to make good decisions. With a common data-driven process for vetting ideas, people have a good, structured way to propose changes. With autonomous teams, we can test new ideas locally and let the best practices emerge organically. With an inclusive mechanism for proposing larger-scale changes, the organization can participate in the process instead of having it pushed down from leadership. Finally, with a practice of retrospectives at all levels, the organization can learn from successes and mistakes made in any of the other components.</p><p>These frameworks created an environment that was not only adaptable and nimble but also one where the members of the organization were empowered to make changes and were given tools to make advocating for change easier.</p><p>The organization was ready for change and wanted to improve. People initially embraced the changes, but as they had to adapt to multiple changes happening in series the \"troughs of sorrow\" deepened and deepened. We overspent our change budget and had to adapt how we proceeded. It was a valuable lesson for experienced change agents.</p><p>In this talk, I share the approach we used to create a larger change building on incremental smaller changes, the changes themselves and the lessons learned from our rollout.</p>",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/creating-a-culture-of-continuous-improvement-in-your-company",
 				"recording-url": "https://youtu.be/WOMdaU0Rn1k",
 				"length": 60,
@@ -1785,10 +1786,11 @@
 		"talks": [
 			{
 				"talk": "Using Agile Techniques to Build a More Inclusive Team",
-				"talk-type": "talk",
+				"talk-type": "keynote",
 				"date": "2018-06-28",
 				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. \nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/agile-techniques-for-lead-developers",
+				"talk-url": "https://www.kevingoldsmith.com/talks/using-agile-techniques-to-build-a-more-inclusive-team.html",
 				"recording-url": "https://youtu.be/Atfxtk2Q90k",
 				"length": 30,
 				"location": {
@@ -1873,33 +1875,16 @@
 		]
 	},
 	{
-		"conference": "Agile Leader Day",
-		"url": "http://peoplegeeks.net/agile-leader-day/",
-		"talks": [
-			{
-				"talk": "Building a Culture of Continuous Improvement in Your Company",
-				"talk-type": "talk",
-				"date": "2018-10-11",
-				"talk-description": "Continuous improvement is the goal of agile teams. But what does it look like when we create a continuous improvement strategy beyond our agile teams and bring it to the company level? Working at Spotify, Kevin Goldsmith saw the benefits of its fantastic continuous improvement culture. When he joined Avvo as its new CTO, his primary goal was to help Avvo create that culture for itself. In this session, Kevin will show what Avvo has done to build a foundation for a continuous improvement culture. He’ll explore the frameworks used to create highly engaged teams and share the organizational and process models that support and empower individuals and groups to own and drive improvements to make themselves more efficient and the company a better place to work. You'll leave with a template to help you build a continuous improvement culture in your company.",
-				"length": 35,
-				"location": {
-					"city": "Helsinki",
-					"country": "FI",
-					"gps": [60.169928, 24.938365]
-				}
-			}
-		]		
-	},
-	{
 		"conference": "The Hive Conference",
 		"url": "https://www.honeypot.io/hive-conference-2018/",
 		"talks": [
 			{
-				"talk": "to be decided",
-				"talk-type": "talk",
+				"talk": "Using Agile Techniques to Build a More Inclusive Team",
+				"talk-type": "keynote",
 				"date": "2018-10-18",
-				"talk-description": "to be decided",
-				"length": 30,
+				"talk-url": "https://www.kevingoldsmith.com/talks/using-agile-techniques-to-build-a-more-inclusive-team.html",
+				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard.\nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable.\nI will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
+				"length": 45,
 				"location": {
 					"venue": "Festsaal Kreuzberg",
 					"address": "Am Flutgraben 2",
