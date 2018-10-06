@@ -73,6 +73,14 @@
 		.resource-list {
 			padding-left: 1em;
 		}
+		.resource-toggle {
+			cursor: pointer;
+		}
+		.resource-text {
+			display: none;
+			padding-top: .5em;
+			padding-bottom: .5em;
+		}
 		#map_wrapper {
 			height: 400px;
 			margin-top: 1em;
@@ -134,10 +142,10 @@
 		<section id="resources">
 			<h2>Resources</h2>
 			<ul class="resource-list">
-				<li><a href="KevinGoldsmithSpeakerPhoto.jpg">Photo</a></li>
-				<li><a href="KevinGoldsmithSpeakerBioLong.txt">Speaker Bio (889 characters)</a></li>
-				<li><a href="KevinGoldsmithSpeakerBioMedium.txt">Speaker Bio (453 characters)</a></li>
-				<li><a href="KevinGoldsmithSpeakerBioShort.txt">Speaker Bio (259 characters)</a></li>
+				<li><div onclick="toggleVisible('speakerphoto')" class="resource-toggle">Speaker Photo</div><div id="speakerphoto" style="display:none"><a href="KevinGoldsmithSpeakerPhoto.jpg"><img src="KevinGoldsmithSpeakerPhoto.jpg" /></a></div></li>
+				<li><div onclick="toggleVisible('biolong')" class="resource-toggle">Speaker Bio (889 characters)</div><div id="biolong" class="resource-text">Kevin Goldsmith has been a developer, software architect, technology manager, and senior technology executive for over 26 years. He is currently the Vice-President of Engineering at AstrumU, a startup whose purpose is to help students find meaningful careers. Formerly, Kevin was the Chief Technology Officer at legal marketplace Avvo from 2016 through their acquisition in 2018, overseeing all Product Development, Data, Dev Ops and IT teams. For three years, he was the Vice President of Engineering, Consumer at Spotify in Stockholm, Sweden, leading the development of the multi-platform product and streaming services for three years. Kevin spent nine years at Adobe Systems as a Director of Engineering, leading the Adobe Revel product group and the Adobe Image Foundation group. He spent eight years as a developer and development lead at Microsoft in the Windows and Research teams.</div></li>
+				<li><div onclick="toggleVisible('biomid')" class="resource-toggle">Speaker Bio (453 characters)</div><div id="biomid" class="resource-text">Kevin Goldsmith has been a developer, software architect, technology manager, and senior technology executive for over 26 years. He is currently the Vice-President of Engineering at AstrumU, a startup whose purpose is to help students find meaningful careers. Formerly, Kevin was the Chief Technology Officer at Avvo; the Vice President of Engineering, Consumer at Spotify; a Director of Engineering at Adobe Systems; and, development lead at Microsoft.</div></li>
+				<li><div onclick="toggleVisible('bioshort')" class="resource-toggle">Speaker Bio (259 characters)</div><div id="bioshort" class="resource-text">Kevin Goldsmith has been a developer, software architect, technology manager, and senior technology executive for over 26 years. He is currently the Vice-President of Engineering at AstrumU, a startup whose purpose is to help students find meaningful careers.</div></li>
 			</ul>
 		</section>
 	<!-- end #mainContent -->
@@ -164,6 +172,16 @@
 	    for(var i = 0; i < markers.length; i++) {
 	    	var marker = new L.marker([markers[i][1], markers[i][2]]).bindPopup(infoWindowContent[i][0]).addTo(map);
 	    };
+	</script>
+	<script type="text/javascript">
+		function toggleVisible(idtotoggle) {
+			var x = document.getElementById(idtotoggle);
+			if ((x.style.display === "none") || (x.style.display === ""))  {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		}
 	</script>
 </body>
 </html>
