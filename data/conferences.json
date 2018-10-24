@@ -1879,11 +1879,11 @@
 		"url": "https://www.honeypot.io/hive-conference-2018/",
 		"talks": [
 			{
-				"talk": "Using Agile Techniques to Build a More Inclusive Team",
+				"talk": "Scaling Up",
 				"talk-type": "keynote",
 				"date": "2018-10-18",
-				"talk-url": "https://www.kevingoldsmith.com/talks/using-agile-techniques-to-build-a-more-inclusive-team.html",
-				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard.\nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable.\nI will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/scaling-up-120552717",
+				"talk-description": "Thoughts about hiring developers, increasing diversity in your teams, and employer branding through the lens of my experience at Avvo and how I'm applying these lessons today at AstrumU",
 				"length": 45,
 				"location": {
 					"venue": "Festsaal Kreuzberg",
@@ -1892,7 +1892,21 @@
 					"postal code": "12435",
 					"country": "DE",
 					"gps": [52.496991, 13.451584]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "@KevinGoldsmith your speech kicked a**! Man, you gotta go around the world and preach this to every - single - recruiter and manager - out there! 🙌 #HiveConf18",
+						"credit": "Teddy",
+						"credit-url": "https://twitter.com/tedstertje",
+						"reference-url": "https://twitter.com/tedstertje/status/1053193687944126464"
+					},
+					{
+						"quote": "Hire to the culture you want, not the one you have! Thank you @KevinGoldsmith #HiveConf18",
+						"credit": "Aleksandra",
+						"credit-url": "https://twitter.com/alexsandra84",
+						"reference-url": "https://twitter.com/alexsandra84/status/1052945267832569858"
+					}
+				]
 			}
 		]
 	},
@@ -1901,10 +1915,64 @@
 		"url": "https://agilebyexample.com/",
 		"talks": [
 			{
-				"talk": "What Does Good Agile Look Like",
+				"talk": "What Does Good Agile Look Like?",
 				"talk-type": "keynote",
 				"date": "2018-10-23",
 				"talk-description": "We attend Agile By Example because we believe in Agile and we want to develop our skills and improve how our teams work. We work Agile because we have had great experiences and success working this way.\nOur experience is not common!\nMost \"Agile Transformations\" fail. Many (if not most) Agile teams have poor Agile practices. People new to Agile struggle through these failed transformations or poor practices and get a wrong impression of Agile, because they have never seen it done well! Poor experience with Agile leads to the many myths and fallacies that developers repeat to each other or post on social media.\nWhat can a dedicated Agilist do to inspire their teams to embrace Agile or work on improving their Agile processes?\nTwo years ago, I came to ABE to talk about the culture of continuous improvement that we were building at Avvo. It turns out that one of the biggest challenges we faced was explaining what our vision was, where we were going.\nI will return for this years' ABE to talk about what a high-performing Agile company looks like, how to create and explain a vision for your teams and I will share the painful lessons we learned at Avvo as we worked on our evolution. I will also share the model I use to help with an Agile cultural transformation.",
+				"length": 50,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/what-does-good-agile-look-like-agile-by-example-2018",
+				"location": {
+					"venue": "Multikino, Ursynów",
+					"address": "Aleja Komisji Edukacji Narodowej 60",
+					"city": "Warszawa",
+					"postal code": "02-777",
+					"country": "PL",
+					"gps": [52.149850, 21.046841]
+				},
+				"reactions": [
+					{
+						"quote": "Hello @agilebyexample! Can't wait for @KevinGoldsmith opening keynote on what Good Agile is or isn't 🤩🤩🤩",
+						"credit": "Dominika Rogala",
+						"credit-url": "https://twitter.com/RogalaDominika",
+						"reference-url": "https://twitter.com/RogalaDominika/status/1054643984629489664"
+					},
+					{
+						"quote": "@KevinGoldsmith opowiada o tym, czym jest dobry agile. Dużo smutnych przemyśleń o aktualnej kondycji branży #abe18",
+						"credit": "Agile247.pl",
+						"credit-url": "https://twitter.com/Agile247pl",
+						"reference-url": "https://twitter.com/Agile247pl/status/1054649471819231232"
+					},
+					{
+						"quote": "Sign of times: the word #agile is so smelly you have to avoid it and sneak Agile practices in without  calling them Agile. What does it tell us about the industry? #ABE18  @KevinGoldsmith",
+						"credit": "Andy Brandt",
+						"credit-url": "https://twitter.com/agileroshi",
+						"reference-url": "https://twitter.com/agileroshi/status/1054653219408879616"
+					},
+					{
+						"quote": "\"If you want to iterate you have to ship\" @KevinGoldsmith #abe18 - soo true. How #agile you are if it takes 2 years from the idea to release to prod. Isn't this a great metric of agile quality?",
+						"credit": "Arkadiusz Benedykt",
+						"credit-url": "https://twitter.com/abenedykt",
+						"reference-url": "https://twitter.com/abenedykt/status/1054654994119561216"
+					},
+					{
+						"quote": "Glad someone said this out loud. Thx @KevinGoldsmith #ABE18 #ABE2018",
+						"credit": "Jakub Bażela",
+						"credit-url": "https://twitter.com/jbazela",
+						"reference-url": "https://twitter.com/jbazela/status/1054655032518475776"
+					},
+					{
+						"quote": "\"If you want to iterate, you have to ship\".  @KevinGoldsmith at #ABE18. Now think if your organization possesses the right culture, tools and processes to do so.",
+						"credit": "Laimonas Lileika",
+						"credit-url": "https://twitter.com/laimonasl",
+						"reference-url": "https://twitter.com/laimonasl/status/1054665900895453184"
+					}
+				]
+			},
+			{
+				"talk": "Speaker's Panel",
+				"talk-type": "panel",
+				"date": "2018-10-24",
+				"talk-description": "A panel consisting of speakers from the conference answering the questions",
 				"length": 50,
 				"location": {
 					"venue": "Multikino, Ursynów",
