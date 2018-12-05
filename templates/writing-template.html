@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,6 +27,10 @@
     <style>
         .buttonlist {
             margin-bottom: 1em;
+        }
+        .no-js .buttonlist {
+            visibility: hidden;
+            margin-bottom: 0em;
         }
         .buttonlist button {
             margin-right: .5em;
@@ -99,7 +103,7 @@
     <footer>
         kevingoldsmith.com
     </footer>
-
+	<script src="js/modernizr.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/googleevents.js"></script>
 

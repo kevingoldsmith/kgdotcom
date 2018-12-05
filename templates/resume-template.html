@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +29,9 @@
 		body {
 			margin: 0;
 		}
+		.no-js #page-nav {
+			visibility: hidden;
+		}
 		#page-nav {
 			position: fixed;
 		}
@@ -44,6 +47,9 @@
 		}
 		#page-nav a:visited {
 			color: #000000;
+		}
+		.no-js #scrolled-content {
+			padding-left: 1em;
 		}
 		#scrolled-content {
 			padding-left: 10em;
@@ -384,6 +390,7 @@
 	<footer>
 		kevingoldsmith.com
 	</footer>
+	<script src="js/modernizr.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/googleevents.js"></script>
 
