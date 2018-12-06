@@ -1,7 +1,10 @@
 @import url('normalize.css');
 
-body {
+.fonts-loaded body {
 	font-family: 'Didact Gothic', sans-serif;
+}
+body {
+	font-family: sans-serif;
 }
 a {
 	text-decoration: none;
@@ -10,18 +13,31 @@ a {
 a:visited {
 	color: #888888;
 }
+.fonts-loaded h1 {
+	font-family: 'Roboto Slab', serif;
+}
 h1 {
+	font-family: serif;
+}
+.fonts-loaded h2 {
 	font-family: 'Roboto Slab', serif;
 }
 h2 {
+	font-family: serif;
+}
+.fonts-loaded h3 {
 	font-family: 'Roboto Slab', serif;
 }
 h3 {
+	font-family: serif;
+}
+.fonts-loaded h4 {
 	font-family: 'Roboto Slab', serif;
 }
 h4 {
-	font-family: 'Roboto Slab', serif;
+	font-family: serif;
 }
+
 header {
 	top: 0;
 	padding-top: .5em;
@@ -35,9 +51,12 @@ header {
 	margin: 0 0 0.1em 0.05em;
 	line-height: 80%;
 	font-size: 2em;
-	font-family: 'Roboto Slab', serif;
+	font-family: serif;
 	font-weight: bold;
 	display: block;
+}
+.fonts-loaded #name {
+	font-family: 'Roboto Slab', serif;
 }
 #name a {
 	color: #000000;
