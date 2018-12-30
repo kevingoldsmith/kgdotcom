@@ -2006,6 +2006,44 @@
 					"country": "CA",
 					"postal code":"M5J 2V5",
 					"gps": [43.643436, -79.380928]
+				},
+				"reactions": [
+					{
+						"quote": "Attended great talks today at #fstoco including topics on: bootcamp developers with @hilarysk, male allies with @rabergman, 1:1 tools with @g_the_engineer and organizations and architecture with @KevinGoldsmith.",
+						"credit": "Chris Seifert",
+						"credit-url": "https://twitter.com/comicbookdb",
+						"reference-url": "https://twitter.com/comicbookdb/status/1067892450612715524"
+					},
+					{
+						"quote": "Last talk by @kevingoldsmith was fantastic. All about organizations and their architectures. His talk last year was also great. You should search it out!",
+						"credit": "ரமணன் சிவரஞ்சன்",
+						"credit-url": "https://twitter.com/funkaoshi",
+						"reference-url": "https://twitter.com/funkaoshi/status/1067894448879751170"
+					}
+				]
+			}
+		]
+	},
+	{
+		"conference": "DrupalCon",
+		"url": "https://events.drupal.org/seattle2019",
+		"talks": [
+			{
+				"talk": "Using Agile Techniques to Build a More Inclusive Team",
+				"talk-type": "talk",
+				"date": "2019-04-11",
+				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. \nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/agile-techniques-for-lead-developers",
+				"talk-url": "https://www.kevingoldsmith.com/talks/using-agile-techniques-to-build-a-more-inclusive-team.html",
+				"length": 30,
+				"location": {
+					"venue": "Washington State Convention Center",
+					"address":"705 Pike St",
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98101",
+					"gps": [47.611704, -122.332909]
 				}
 			}
 		]
