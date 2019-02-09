@@ -1,5 +1,15 @@
 [
 {
+	"name": "Agile at AstrumU: A Case Study",
+	"url": "https://blog.kevingoldsmith.com/2019/02/04/agile-at-astrumu-a-case-study/",
+	"description": "This article describes how we organize our work at AstrumU using a Scrumban process.",
+	"tags": [
+		"Agile",
+		"AstrumU"
+	],
+	"date": "2019-02-04"
+},
+{
 	"name": "Using Self-Selection to Create Journey Teams at Avvo",
 	"url": "http://blog.kevingoldsmith.com/2018/12/09/using-self-selection-to-create-journey-teams-at-avvo/http://blog.kevingoldsmith.com/2018/12/09/using-self-selection-to-create-journey-teams-at-avvo/",
 	"description": "Many companies are interested in experimenting with self-selection as a way of organizing their teams. I see questions about the process often in online forums. While there are some excellent books and blog posts on the topic, I thought that I would share a self-selection exercise that we did at my last company, Avvo. It worked reasonably well and with relatively little drama. If you are considering a similar exercise, you might consider this approach.",
@@ -58,6 +68,7 @@
 	"url": "http://blog.kevingoldsmith.com/2015/03/23/the-spotify-model-how-to-create-dissolve-and-remix-teams-to-be-more-dynamic-and-more-innovative/",
 	"description": "One of the most challenging parts of managing a traditional, hierarchical, organization is being responsive to new opportunities; especially those that require leveraging skillsets outside your own team. At Spotify, our organizational model allows us to create, dissolve, and remix teams with a minimal disruption to individuals or managers. This gives us tremendous abilities to address both temporary and long term opportunities.",
 	"tags": [
+		"Agile",
 		"Spotify",
 		"Organizational Design",
 		"Leadership",
@@ -150,6 +161,7 @@
 	"description": "A culture of continuous improvement is a culture where you are always open to improving how you build and deliver. You don't accept the status quo; you choose how to work and feel empowered to change it if it no longer makes sense. It is a people-first culture.",
 	"tags": [
 		"Avvo",
+		"Agile",
 		"Leadership",
 		"Organizational Design"
 	],

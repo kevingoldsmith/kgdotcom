@@ -1,5 +1,25 @@
 [
 	{
+		"conference": "Microsoft V-Chat Product Launch",
+		"talks": [
+			{
+				"talk": "Building V-Chat environments",
+				"talk-type": "talk",
+				"date": "1995-11-30",
+				"talk-description": "An introduction into the authoring tools to build compelling virtual environments for V-Chat in MSN",
+				"length": 30,
+				"location": {
+					"venue": "The Great Hall at Cooper Union",
+					"address": "7 E 7th St",
+					"city": "New York",
+					"state": "NY",
+					"postal code": "10003",
+					"gps": [40.729470, -73.990399]
+				}
+			}
+		]
+	},
+	{
 		"conference": "Adobe Technology Summit",
 		"talks": [
 			{
