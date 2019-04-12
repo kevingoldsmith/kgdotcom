@@ -118,7 +118,6 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 				this_talk = talk
 
 		if (this_talk is not None):
-			#this_talk[u'outputfilename'] = unicode(outputfilename)
 			this_talk[u'outputfilename'] = outputfilename
 			talk_date = common.get_talk_date(this_talk)
 

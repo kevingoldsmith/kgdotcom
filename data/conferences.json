@@ -2110,5 +2110,26 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "Turing Fest",
+		"url": "https://www.turingfest.com/",
+		"talks": [
+			{
+				"talk": "TBD",
+				"talk-type": "talk",
+				"date": "2019-08-28",
+				"talk-description": "TBD",
+				"length": 30,
+				"location": {
+					"venue": "Edinburgh International Conference Centre",
+					"address": "150 Morrison St",
+					"city": "Edinburgh",
+					"postal code": "EH3 8EE",
+					"country": "GB",
+					"gps": [55.946293, -3.209991]
+				}
+			}
+		]
 	}
 ]
