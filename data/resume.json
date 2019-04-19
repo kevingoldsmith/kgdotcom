@@ -38,7 +38,7 @@
 			"position": "VP Engineering",
 			"website": "http://AstrumU.com",
 			"startDate": "2018-06-01",
-			"summary": "Building a world-class engineering and design organization."
+			"summary": "Hired initial development team in US and remote. Responsible for initial microservice software architecture using Kubernetes and Istio. Released iniital B2B and B2C application MVPs to the market."
 		},
 		{
 			"company": "CavnessHR",
@@ -62,7 +62,8 @@
 			"position": "Strategic Advisor",
 			"website": "http://www.godeltech.com/",
 			"startDate": "2016-01-01",
-			"summary": "Assist Godel and their clients to build high-performing teams with a strong culture as they scale significantly."
+			"endDate": "2019-01-01",
+			"summary": "Assisted Godel's CEO and it's clients to build high-performing teams with a strong culture as they scale significantly."
 		},
 		{
 			"company": "Avvo",
@@ -71,7 +72,7 @@
 			"website": "https://avvo.com",
 			"startDate": "2016-06-06",
 			"endDate": "2018-04-06",
-			"summary": "Responsible for leading the software development, test, data engineering, data science, dev-ops and IT functions. Grew the organization from 51 to 77 while significantly improving diversity,  productivity, and morale. Profit increased consistently across entire tenure at Avvo leading to a successful exit via acquisition by Internet Brands in February 2018.",
+			"summary": "Responsible for leading the software development, test, data engineering, data science, dev-ops and IT functions. Grew the organization from 51 to 77 while significantly improving diversity,  productivity, development processes and morale. Evolved software and data architecture. Profit increased consistently across entire tenure at Avvo leading to a successful exit via acquisition by Internet Brands in February 2018.",
 			"highlights": [
 				"Company acquired in 2018",
 				"Created first ML-based features"

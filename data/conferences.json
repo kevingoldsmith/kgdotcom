@@ -2131,5 +2131,26 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "Hive Conference",
+		"url": "https://www.eventbrite.ie/e/hiveconf19-where-tech-meets-hr-tickets-60047828672",
+		"talks": [
+			{
+				"talk": "TBD",
+				"talk-type": "talk",
+				"date": "2019-09-19",
+				"talk-description": "TBD",
+				"length": 30,
+				"location": {
+					"venue": "Festsaal Kreuzberg",
+					"address": "Am Flutgraben 2",
+					"city": "Berlin",
+					"postal code": "12435",
+					"country": "DE",
+					"gps": [52.496991, 13.451584]
+				}
+			}
+		]
 	}
 ]
