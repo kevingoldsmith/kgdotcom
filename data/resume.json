@@ -33,12 +33,20 @@
 	},
 	"work": [
 		{
+			"company": "Onfido",
+			"location": "London, UK",
+			"position": "Chief Technology Officer",
+			"website": "https://onfido.com/",
+			"startDate": "2019-04-02",
+			"summary": "Responsible for leading and growing engineering, research, security and IT for this flourishing multi-national software company using machine learning and computer vision to help people own their identities on the internet and help companies and consumers avoid identity fraud."
+		},
+		{
 			"company": "AstrumU",
 			"location": "Kirkland, WA",
-			"position": "VP Engineering",
+			"position": "Advisor",
 			"website": "http://AstrumU.com",
-			"startDate": "2018-06-01",
-			"summary": "Hired initial development team in US and remote. Responsible for initial microservice software architecture using Kubernetes and Istio. Released iniital B2B and B2C application MVPs to the market."
+			"startDate": "2019-04-01",
+			"summary": "Moved to an advisor role after leaving the company as a full-time employee. Still working to support the great team as they build their products and business."
 		},
 		{
 			"company": "CavnessHR",
@@ -55,6 +63,15 @@
 			"website": "https://dolly.com/",
 			"startDate": "2016-11-09",
 			"summary": "Support and advise executive team on software development, scalability, hiring, and technical decisions."
+		},
+		{
+			"company": "AstrumU",
+			"location": "Kirkland, WA",
+			"position": "VP Engineering",
+			"website": "http://AstrumU.com",
+			"startDate": "2018-06-01",
+			"endDate": "2019-03-30",
+			"summary": "Hired initial development team in US and remote. Responsible for initial microservice software architecture using Kubernetes and Istio. Released iniital B2B and B2C application MVPs to the market."
 		},
 		{
 			"company": "Godel Technologies",
