@@ -87,3 +87,10 @@ def format_city_state_country_from_location(location):
 
 	return conference_location
 
+def get_talk_date(talk):
+	return date(*map(int, talk['date'].split("-")))
+
+def check_for_missing_values(original, new):
+	for key in original.keys():
+		if (key in ['description', 'title', 'presentationlist']) and (original[key] == new[key]):
+			print("\tWARNING: {0} has default value".format(key))

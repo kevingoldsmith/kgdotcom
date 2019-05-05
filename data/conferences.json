@@ -2072,30 +2072,6 @@
 		]
 	},
 	{
-		"conference": "DrupalCon",
-		"url": "https://events.drupal.org/seattle2019",
-		"talks": [
-			{
-				"talk": "Using Agile Techniques to Build a More Inclusive Team",
-				"talk-type": "talk",
-				"date": "2019-04-11",
-				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. \nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
-				"slides-url": "https://www.slideshare.net/kevingoldsmith/agile-techniques-for-lead-developers",
-				"talk-url": "https://www.kevingoldsmith.com/talks/using-agile-techniques-to-build-a-more-inclusive-team.html",
-				"length": 30,
-				"location": {
-					"venue": "Washington State Convention Center",
-					"address":"705 Pike St",
-					"city": "Seattle",
-					"state": "WA",
-					"country": "US",
-					"postal code": "98101",
-					"gps": [47.611704, -122.332909]
-				}
-			}
-		]
-	},
-	{
 		"conference": "Agile Israel",
 		"url": "https://www.agileisrael.co/",
 		"talks": [
@@ -2113,27 +2089,84 @@
 					"country": "IL",
 					"gps": [31.979415, 34.748706]
 				}
+			},
+			{
+				"talk": "Distributed Teams",
+				"talk-type": "talk",
+				"date": "2019-05-21",
+				"talk-description": "What makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective? In this talk, Kevin Goldsmith discusses four main challenges: Conway’s Law, Amdahl’s Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years.",
+				"length": 30,
+				"location": {
+					"venue": "Lago Events",
+					"address": "6, HaMea VeEsrim St",
+					"alternate-address": "6, המאה ועשרים, ראשון לציון",
+					"city": "Rishon LeTsiyon",
+					"country": "IL",
+					"gps": [31.979415, 34.748706]
+				}
+			}		]
+	},
+	{
+		"conference": "Abstractions",
+		"url": "https://abstractions.io/",
+		"talks": [
+			{
+				"talk": "Architecture and Organization",
+				"talk-type": "talk",
+				"date": "2019-08-22",
+				"talk-description": "In 1968 Melvin Conway published an article in Datamation magazine. That article discussed the inherent and consistent correlation between the structure of an organization and the software architecture that it produces. This correlation later became known as Conway's Law. In this talk, Kevin Goldsmith explains why Conway's Law still is true after 50 years of innovation in the computer industry. He draws on his experiences at Avvo, Spotify, Adobe and Microsoft to explain how organizations can take advantage of this natural correlation to improve their software architecture, their practices and their organizational health.",
+				"length": 40,
+				"location": {
+					"venue": "David L. Lawrence Convention Center",
+					"address": "1000 Fort Duquesne Blvd",
+					"city": "Pittsburgh",
+					"state": "PA",
+					"postal code": "15222",
+					"country": "US",
+					"gps": [40.446011, -79.996173],
+					"url": "http://www.pittsburghcc.com/"
+				}
 			}
 		]
 	},
 	{
-		"conference": "Vancouver Interface Conference",
-		"url": "https://www.interfaceconf.ca/",
+		"conference": "Turing Fest",
+		"url": "https://www.turingfest.com/",
 		"talks": [
 			{
-				"talk": "Fail Safe, Fail Fast, Succeed",
+				"talk": "TBD",
 				"talk-type": "talk",
-				"date": "2019-05-29",
-				"talk-description": "",
+				"date": "2019-08-28",
+				"talk-description": "TBD",
 				"length": 30,
 				"location": {
-					"venue": "Vancouver Public Library Central Branch",
-					"address": "350 W Georgia St",
-					"city": "Vancouver",
-					"state": "BC",
-					"postal code": "V6B 6B1",
-					"country": "CA",
-					"gps": [49.279949, -123.115550]
+					"venue": "Edinburgh International Conference Centre",
+					"address": "150 Morrison St",
+					"city": "Edinburgh",
+					"postal code": "EH3 8EE",
+					"country": "GB",
+					"gps": [55.946293, -3.209991]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Hive Conference",
+		"url": "https://www.eventbrite.ie/e/hiveconf19-where-tech-meets-hr-tickets-60047828672",
+		"talks": [
+			{
+				"talk": "TBD",
+				"talk-type": "talk",
+				"date": "2019-09-19",
+				"talk-description": "TBD",
+				"length": 30,
+				"location": {
+					"venue": "Festsaal Kreuzberg",
+					"address": "Am Flutgraben 2",
+					"city": "Berlin",
+					"postal code": "12435",
+					"country": "DE",
+					"gps": [52.496991, 13.451584]
 				}
 			}
 		]
