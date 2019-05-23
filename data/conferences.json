@@ -1417,6 +1417,7 @@
 				"date": "2017-09-09",
 				"talk-description": "Drawing on real-life examples from Avvo, Spotify, Adobe, and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures.\nKevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed. Kevin relates his own journey to a more experimental organizational style.\nAs a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance.\nWhen Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and Agile architecture for its products, but the company struggled to realize these goals because it was it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled.\nKevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome.",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-and-architecture",
+				"talk-url": "https://www.kevingoldsmith.com/talks/architecture-and-organization.html",
 				"length": 60,
 				"location": {
 					"venue": "Pigott Building, Seattle University",
@@ -1433,7 +1434,7 @@
 				"talk-type": "talk",
 				"date": "2017-09-09",
 				"talk-description": "Do you love agile? Do you hate agile? Have you ever seen what a good agile project works like? Companies claim to do agile, but just use the words without understanding what they mean. Developers join companies and find out that their previous experience doing agile development was way better or way worse than their current company.\nIn this talk, I go through my 17+ years of agile development, using XP, Scrum, Kanban, Rational, and other techniques with large organizations, small startups, co-located teams and distributed teams to talk about why companies aspire to agile and why they often come nowhere close.",
-				"talk-url": "",
+				"talk-url": "https://www.kevingoldsmith.com/talks/what-does-good-agile-look-like.html",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/what-does-good-agile-look-like",
 				"length": 60,
 				"location": {
@@ -2019,6 +2020,7 @@
 				"talk-description": "Drawing on real-life examples from Avvo, Spotify, Adobe and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures. Kevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed. Kevin relates his own journey to a more experimental organizational style. As a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance. When Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and agile architecture for its products, but the company struggled to realize these goals because it was it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled. Kevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome. Today, Kevin is the CTO at Avvo. When he joined, the company had the same organization and architectural challenges as many other startups, but rather than attack them only from an architectural angle, Avvo is experimenting with architecture and organization together to improve its legacy systems and help build new ones faster and with higher quality.",
 				"recording-url": "https://youtu.be/PD_OaSWxCTY",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-and-architecture",
+				"talk-url": "https://www.kevingoldsmith.com/talks/architecture-and-organization.html",
 				"length": 30,
 				"location": {
 					"venue": "Tellus Digital",
@@ -2056,6 +2058,7 @@
 				"date": "2019-03-27",
 				"slides-url": "http://www.slideshare.net/kevingoldsmith/organization-and-architecture",
 				"talk-description": "In 1968 Melvin Conway published an article in Datamation magazine. That article discussed the inherent and consistent correlation between the structure of an organization and the software architecture that it produces. This correlation later became known as Conway's Law. In this talk, Kevin Goldsmith explains why Conway's Law still is true after 50 years of innovation in the computer industry. He draws on his experiences at Avvo, Spotify, Adobe and Microsoft to explain how organizations can take advantage of this natural correlation to improve their software architecture, their practices and their organizational health.",
+				"talk-url": "https://www.kevingoldsmith.com/talks/architecture-and-organization.html",
 				"length": 60,
 				"location": {
 					"venue": "Zonar Systems, Inc",
@@ -2088,8 +2091,22 @@
 					"country": "IL",
 					"gps": [31.979415, 34.748706]
 				}
-			}
-		]
+			},
+			{
+				"talk": "Distributed Teams",
+				"talk-type": "talk",
+				"date": "2019-05-21",
+				"talk-description": "What makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective? In this talk, Kevin Goldsmith discusses four main challenges: Conway’s Law, Amdahl’s Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years.",
+				"length": 30,
+				"location": {
+					"venue": "Lago Events",
+					"address": "6, HaMea VeEsrim St",
+					"alternate-address": "6, המאה ועשרים, ראשון לציון",
+					"city": "Rishon LeTsiyon",
+					"country": "IL",
+					"gps": [31.979415, 34.748706]
+				}
+			}		]
 	},
 	{
 		"conference": "Abstractions",
