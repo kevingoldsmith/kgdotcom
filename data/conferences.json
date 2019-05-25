@@ -2109,29 +2109,6 @@
 			}		]
 	},
 	{
-		"conference": "Abstractions",
-		"url": "https://abstractions.io/",
-		"talks": [
-			{
-				"talk": "Architecture and Organization",
-				"talk-type": "talk",
-				"date": "2019-08-22",
-				"talk-description": "In 1968 Melvin Conway published an article in Datamation magazine. That article discussed the inherent and consistent correlation between the structure of an organization and the software architecture that it produces. This correlation later became known as Conway's Law. In this talk, Kevin Goldsmith explains why Conway's Law still is true after 50 years of innovation in the computer industry. He draws on his experiences at Avvo, Spotify, Adobe and Microsoft to explain how organizations can take advantage of this natural correlation to improve their software architecture, their practices and their organizational health.",
-				"length": 40,
-				"location": {
-					"venue": "David L. Lawrence Convention Center",
-					"address": "1000 Fort Duquesne Blvd",
-					"city": "Pittsburgh",
-					"state": "PA",
-					"postal code": "15222",
-					"country": "US",
-					"gps": [40.446011, -79.996173],
-					"url": "http://www.pittsburghcc.com/"
-				}
-			}
-		]
-	},
-	{
 		"conference": "Turing Fest",
 		"url": "https://www.turingfest.com/",
 		"talks": [
