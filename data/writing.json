@@ -1,5 +1,15 @@
 [
 {
+	"name": "The Next Step",
+	"url": "https://blog.kevingoldsmith.com/2019/05/11/the-next-step/",
+	"description": "If you have a good job, a job that pays you well, a team you like working with, and a mission you believe in, deciding to move on from that role is challenging.",
+	"tags": [
+		"Onfido",
+		"AstrumU"
+	],
+	"date": "2019-05-11"
+},
+{
 	"name": "Agile at AstrumU: A Case Study",
 	"url": "https://blog.kevingoldsmith.com/2019/02/04/agile-at-astrumu-a-case-study/",
 	"description": "This article describes how we organize our work at AstrumU using a Scrumban process.",

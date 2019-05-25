@@ -2079,6 +2079,7 @@
 			{
 				"talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "keynote",
+				"talk-url": "https://www.kevingoldsmith.com/talks/organization-architecture-autonomy-and-accountability.html",
 				"date": "2019-05-21",
 				"slides-url":"https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability",
 				"talk-description": "<p>Many consider agile a process to implement within an existing organization. A set of rules to follow that will produce some useful outcomes. This approach can provide improvements in many different structures of organizations. As agile maturity improves, however, the benefits can become limited by the structure and culture of the organization itself.</p><p>Agile is more than a framework for organizing tasks for a team. Agile is a culture, a mindset and a structure for improving the velocity of innovation and providing real business value to customers. To gain the most benefit from Agile it must be considered as part of a more extensive system that incorporates organizational structure, software architecture, and company culture.</p><p>This talk considers the interactions between how the work, the software, and the people are organized in high performing agile organizations. Using my own experiences at companies large and small, I will share what I have learned and some best practices I use. These lessons will help you as you improve and scale your Agile teams.</p><p>I will discuss:</p><ul><li>How to structure your organization to remove the bottlenecks in coordination and decision-making that can slow velocity to a crawl</li><li>How to take advantage of modern systems architectures to allow teams to move faster</li><li>Using data to provide accountability for autonomous teams without creating more process</li></ul><p>By the end, you will have concrete examples and ideas that you can bring back to your team to help you improve and scale agile within your organization.</p>",
@@ -2095,6 +2096,7 @@
 			{
 				"talk": "Distributed Teams",
 				"talk-type": "talk",
+				"talk-url": "https://www.kevingoldsmith.com/talks/distributed-teams.html",
 				"date": "2019-05-21",
 				"talk-description": "What makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective? In this talk, Kevin Goldsmith discusses four main challenges: Conway’s Law, Amdahl’s Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years.",
 				"length": 30,
