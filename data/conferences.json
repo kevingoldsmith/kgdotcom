@@ -2151,5 +2151,26 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "The Lead Developer",
+		"url": "https://berlin2019.theleaddeveloper.com/",
+		"talks": [
+			{
+				"talk": "How Does Salary Work?",
+				"talk-type": "talk",
+				"date": "2019-12-06",
+				"talk-description": "<p>You make a hire for your team. The person wants 20% more than anyone else. Should you give it to them?</p><p>Your manager gives you a 5% raise budget for your team. Do you give them all 5% or give one person 15% and the rest 1%?</p><p>You think you are giving a great raise to one of your top performers, but they let you know that they expected much more.</p><p>A person on your team approaches you because they got a job offer for 10% more than their current salary. Should you try to match it?</p><p>The management debt that gets accrued by poor decisions around salary is extremely painful to fix. In this talk, I will give you the tools and ideas that you can use to be well prepared for the next salary review. I will help you avoid accruing management debt around pay in your team.</p><p>How is the salary budget calculated? How you can argue for the extra budget to adjust someone that is not being paid well. Where you can find extra money to make a meaningful difference for someone. Why sometimes it is better to do no raise at all, then do a small one. How you handle the conversation when someone isn't happy with their increase. How do you decide what salary to offer a candidate? How can you make sure that you are not increasing pay disparity between different groups?</p><p>These are problems that Dev Leads face all the time. The impact of making a wrong decision is massive to an individual. The mistake of paying someone too little or too much can affect them for years.</p><p>Understanding how salary works helps you create a happier and healthier team.</p>",
+				"length":30,
+				"location": {
+					"venue": "Radisson Blu Hotel",
+					"address": "Karl-Liebknecht-Strasse 3",
+					"city": "Berlin",
+					"postal code": "D-10178",
+					"country": "DE",
+					"gps": [52.519763, 13.402881]
+				}
+			}
+		]
 	}
 ]
