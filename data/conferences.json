@@ -2080,6 +2080,7 @@
 				"talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "keynote",
 				"talk-url": "https://www.kevingoldsmith.com/talks/organization-architecture-autonomy-and-accountability.html",
+				"recording-url": "https://youtu.be/2XIXudSQymQ",
 				"date": "2019-05-21",
 				"slides-url":"https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability",
 				"talk-description": "<p>Many consider agile a process to implement within an existing organization. A set of rules to follow that will produce some useful outcomes. This approach can provide improvements in many different structures of organizations. As agile maturity improves, however, the benefits can become limited by the structure and culture of the organization itself.</p><p>Agile is more than a framework for organizing tasks for a team. Agile is a culture, a mindset and a structure for improving the velocity of innovation and providing real business value to customers. To gain the most benefit from Agile it must be considered as part of a more extensive system that incorporates organizational structure, software architecture, and company culture.</p><p>This talk considers the interactions between how the work, the software, and the people are organized in high performing agile organizations. Using my own experiences at companies large and small, I will share what I have learned and some best practices I use. These lessons will help you as you improve and scale your Agile teams.</p><p>I will discuss:</p><ul><li>How to structure your organization to remove the bottlenecks in coordination and decision-making that can slow velocity to a crawl</li><li>How to take advantage of modern systems architectures to allow teams to move faster</li><li>Using data to provide accountability for autonomous teams without creating more process</li></ul><p>By the end, you will have concrete examples and ideas that you can bring back to your team to help you improve and scale agile within your organization.</p>",
@@ -2091,7 +2092,15 @@
 					"city": "Rishon LeTsiyon",
 					"country": "IL",
 					"gps": [31.979415, 34.748706]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "Why strive for autonomous teams? Good point among many others by @KevinGoldsmith #AgileIsrael",
+						"credit": "Tal Lipits",
+						"credit-url": "https://twitter.com/TalLipits",
+						"reference-url": "https://twitter.com/TalLipits/status/1130819568946089985"
+					}
+				]
 			},
 			{
 				"talk": "Distributed Teams",
@@ -2107,8 +2116,41 @@
 					"city": "Rishon LeTsiyon",
 					"country": "IL",
 					"gps": [31.979415, 34.748706]
+				},
+				"reactions": [
+					{
+						"quote": "Social restart - a great tip by @KevinGoldsmith #AgileIsrael",
+						"credit": "YonatanKra",
+						"credit-url": "https://twitter.com/YonatanKra",
+						"reference-url": "https://twitter.com/YonatanKra/status/1130795448061579265"
+					}
+				]
+			}
+		]
+	},
+	{
+		"conference": "Abstractions II",
+		"url": "https://abstractions.io/",
+		"talks": [
+			{
+				"talk": "Architecture and Organization",
+				"talk-type": "talk",
+				"date": "2019-08-22",
+				"talk-description": "Drawing on real-life examples from Avvo, Spotify, Adobe and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures. Kevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed. Kevin relates his own journey to a more experimental organizational style. As a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance. When Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and agile architecture for its products, but the company struggled to realize these goals because it was it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled. Kevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome. When Kevin joined Avvo as its CTO, the company had the same organization and architectural challenges as many other startups, but rather than attack them only from an architectural angle, Avvo experimented with architecture and organization together to improve its legacy systems and help build new ones faster and with higher quality.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-and-architecture",
+				"talk-url": "https://www.kevingoldsmith.com/talks/architecture-and-organization.html",
+				"length": 30,
+				"location": {
+					"venue": "David L. Lawrence Convention Center",
+					"address":"1000 Fort Duquesne Blvd",
+					"city": "Pittsburgh",
+					"state": "PA",
+					"country": "US",
+					"postal code":"15222",
+					"gps": [40.445878, -79.996179]
 				}
-			}		]
+			}
+		]
 	},
 	{
 		"conference": "Turing Fest",
