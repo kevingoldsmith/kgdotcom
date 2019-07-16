@@ -2157,10 +2157,10 @@
 		"url": "https://www.turingfest.com/",
 		"talks": [
 			{
-				"talk": "TBD",
+				"talk": "Do I know you? Identity on the Internet and the Question of Trust",
 				"talk-type": "talk",
 				"date": "2019-08-28",
-				"talk-description": "TBD",
+				"talk-description": "<p>We continue to build products allowing our customers to do more things online. While bringing convenience, it also raises the stakes of fraud, for our customers and our companies. The democratization of technology means that those intending to commit fraud can take advantage of some amazingly sophisticated tools. Consumers and governments have little trust in technology due to the questionable ethics of some of the biggest players in the industry.</p><p>Identity online continues to evolve; governments, businesses, the open source community, and grassroots organizations are all evolving how we validate, protect, and secure our identity. Whether your software is targeted towards businesses or consumers, if you are in a regulated vertical or a non-regulated one, or if you have customers in multiple countries or just one, how you ethically manage customer identity will be crucial to your product’s success (or existence).</p><p>In this talk, I cover the evolution of identity of the internet, from a product development perspective. I talk about the things you should be aware of when building software today, and the things you should pay attention to for the future.</p>",
 				"length": 30,
 				"location": {
 					"venue": "Edinburgh International Conference Centre",
@@ -2178,10 +2178,10 @@
 		"url": "https://www.eventbrite.ie/e/hiveconf19-where-tech-meets-hr-tickets-60047828672",
 		"talks": [
 			{
-				"talk": "TBD",
+				"talk": "Developing Your Developers: Constructing Career Paths For Your Technologists",
 				"talk-type": "talk",
 				"date": "2019-09-19",
-				"talk-description": "TBD",
+				"talk-description": "<p>Everyone knows that career development is a critical part of employee retention. Many companies put little effort into how they build their career development frameworks. Startups especially are moving so fast and don’t want to exert effort on things that don’t meaningfully push the business forward. Companies will often borrow liberally from other companies with little thought to the impact on their organization.</p><p>How you construct development paths in your company can support and deepen your company values. It can be a competitive differentiator for attracting talent and retaining your best employees.</p><p>Where and how do you start? What pitfalls do you need to avoid? How do you roll out your framework, and how do you update it over time? How can technology and people team leaders cooperate in the creation of a career pathing plan?</p><p>This talk answers those questions using the real experience and lessons learned from building career frameworks at Spotify, Avvo, and Onfido. Three very different companies with different cultures, but a shared understanding of the importance of career development for their employees.</p>",
 				"length": 30,
 				"location": {
 					"venue": "Festsaal Kreuzberg",
