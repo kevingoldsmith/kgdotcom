@@ -2174,6 +2174,7 @@
 				"talk": "Do I know you? Identity on the Internet and the Question of Trust",
 				"talk-type": "talk",
 				"date": "2019-08-28",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/do-i-know-you-identity-on-the-internet-and-the-question-of-trust",
 				"talk-description": "<p>We continue to build products allowing our customers to do more things online. While bringing convenience, it also raises the stakes of fraud, for our customers and our companies. The democratization of technology means that those intending to commit fraud can take advantage of some amazingly sophisticated tools. Consumers and governments have little trust in technology due to the questionable ethics of some of the biggest players in the industry.</p><p>Identity online continues to evolve; governments, businesses, the open source community, and grassroots organizations are all evolving how we validate, protect, and secure our identity. Whether your software is targeted towards businesses or consumers, if you are in a regulated vertical or a non-regulated one, or if you have customers in multiple countries or just one, how you ethically manage customer identity will be crucial to your product’s success (or existence).</p><p>In this talk, I cover the evolution of identity of the internet, from a product development perspective. I talk about the things you should be aware of when building software today, and the things you should pay attention to for the future.</p>",
 				"length": 30,
 				"location": {
@@ -2183,7 +2184,15 @@
 					"postal code": "EH3 8EE",
 					"country": "GB",
 					"gps": [55.946293, -3.209991]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "At the #TuringFest in #Edinburgh. Next talk on the subject of identity @turingfest looking forward to it",
+						"credit": "Maribel Ayala",
+						"credit-url": "https://twitter.com/maribel_ayala/status/1166998777808478208",
+						"reference-url": "https://twitter.com/maribel_ayala"
+					}
+				]		
 			}
 		]
 	},
