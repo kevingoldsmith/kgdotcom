@@ -4,15 +4,15 @@
 		"description": "The internet has an identity crisis. How do you know that the person interaction with your product is who they claim to be. How can you be sure that they are a person at all? This is a talk about the evolution of identity of the internet, from a product development perspective. An overview of the things you should be aware of around digital identity when building software today, and the things you should pay attention to for the future."
 	},
 	{
+		"talk": "Developing Your Developers: Constructing Career Paths For Your Technologists",
+		"description": "How you construct development paths in your company can support and deepen your company values. Doing it well means heightening employee engagement and improving retention. This talk gives technology and people team leaders a place to start their conversations."
+	},
+	{
 		"talk":"Using Agile Techniques to Build a More Inclusive Team",
 		"description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. \nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued."
 	},
 	{
 		"talk": "Architecture and Organization",
 		"description": "Over 50 years ago Melvin Conway wrote an article identifying a correspondence between the structure of our organizations and the structure of the software we produce. We still talk about Conway's Law today because of the fundamental truth of that observation. This talk goes beyond that article to examine why this happens, and how you can take adbantage of it to make better software."
-	},
-	{
-		"talk": "Fail Fast, Fail Smart... Succeed!",
-		"description": "A talk on why failure is important in innovation and tips on how to create en environment where the effects of failure are minimized while maximizing the learning."
 	}
 ]
