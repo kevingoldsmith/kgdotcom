@@ -8,7 +8,9 @@ from navigation import generate_nav_talk, get_href_root, get_talk_root_for_talk,
 import os
 import common
 import requests
+import requests_cache
 import copy
+from datetime import timedelta
 from operator import itemgetter
 
 #format strings - here to simplify editing and iteration
@@ -32,6 +34,12 @@ format_talk_page_title = '{0}: Talks: Kevin Goldsmith'
 #duplicated. meh.
 format_close_div = '</div>\n'
 talk_type_keynote = 'keynote'
+
+
+#requests cache
+requests_cache.install_cache(expire_after=timedelta(days=1))
+requests_cache.remove_expired_responses()
+
 
 def get_embed_code_from_videoURL(video_url):
 	#https://youtu.be/_67NPdn6ygY

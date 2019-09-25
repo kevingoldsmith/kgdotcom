@@ -4,3 +4,4 @@ __pycache__/
 output/
 testoutput/
 .DS_Store
+cache.sqlite
