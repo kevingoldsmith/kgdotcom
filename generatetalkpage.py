@@ -23,6 +23,7 @@ format_reactions_list_item = '<li><span class=\"quote\">{0}</span> - <a class=\"
 format_reactions_list_item_no_link = '<li><span class=\"quote\">{0}</span> - {1}</li>'
 format_video_div = '<div id=\"video\">\n<div class=\"subheader\">Recordings</div>\n'
 format_other_recordings_list = '<div id=\"othervideos\">\n<div class=\"othersubheader\">Other recordings</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
+format_other_recordings_list_no_embeddable = '<ul class=\"inlinelist\">{0}\n</ul>'
 format_other_recordings_list_item = '<li class=\"inlinelistitem\"><a class=\"outbound\" href=\"{0}\">{1} ({2})</a></li>\n'
 format_slides_div = '<div id=\"slides\">\n<div class=\"subheader\">Slides</div>\n'
 format_other_slides_list = '<div id=\"otherslides\">\n<div class=\"othersubheader\">Other Versions</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
@@ -47,6 +48,7 @@ def get_embed_code_from_videoURL(video_url):
 	#https://vimeo.com/102774091
 	#<iframe width="560" height="315" src="https://www.youtube.com/embed/_67NPdn6ygY?rel=0" frameborder="0" allowfullscreen></iframe>
 	#https://developer.vimeo.com/apis/oembed
+	#https://www.turingfest.com/2019/speakers/kevin-goldsmith?wvideo=46th18adn3
 	parsed = urllib.parse.urlparse(video_url)
 	youtube_id = ''
 	if parsed.netloc == 'youtu.be':
@@ -62,6 +64,8 @@ def get_embed_code_from_videoURL(video_url):
 			return response.json()['html']
 	if len(youtube_id) > 0:
 		return format_youtube_video_embed.format(youtube_id)
+	
+	return ''
 
 
 def get_embed_code_from_slides_URL(slides_url):
@@ -169,16 +173,28 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 	if len(recordings) > 0:
 		# get the embed code for the first recording, since it is the most recent
 		sorted_recordings = sorted(recordings, key=itemgetter('date'), reverse=True)
-		embed_url = sorted_recordings[0]['recording-url']
-		video_string = format_video_div + get_embed_code_from_videoURL(embed_url)
+		other_recordings = []
+		video_string = ''
+		for recording in sorted_recordings:
+			if len(video_string) == 0:
+				embed_url = recording['recording-url']
+				embed_code = get_embed_code_from_videoURL(embed_url)
+				if len(embed_code) > 0:
+					video_string = format_video_div + embed_code
+				else:
+					other_recordings.append(recording)
+			else:
+				other_recordings.append(recording)
 
 		other_recordings_string = ''
-		if len(sorted_recordings) > 1:
-			other_recordings_string = format_other_recordings_list
-			iterrecordings = iter(sorted_recordings)
-			next(iterrecordings)
+		if len(other_recordings) > 0:
+			if len(video_string) < 1:
+				video_string = format_video_div
+				other_recordings_string = format_other_recordings_list_no_embeddable
+			else:
+				other_recordings_string = format_other_recordings_list
 			other_recordings_list = ''
-			for recording in iterrecordings:
+			for recording in other_recordings:
 				other_recordings_list += format_other_recordings_list_item.format(recording['recording-url'], recording['conference'], recording['date'].year)
 			other_recordings_string = other_recordings_string.format(other_recordings_list)
 			video_string += other_recordings_string
