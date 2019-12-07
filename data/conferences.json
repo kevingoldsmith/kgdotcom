@@ -2220,6 +2220,27 @@
 		]
 	},
 	{
+		"conference": "The Financial Times Banking Summit: Disruptech - Strategies for intelligent growth in a Big Tech world",
+		"url": "https://live.ft.com/Events/2019/FT-Disruptech",
+		"talks": [
+			{
+				"talk": "Tech Carousel: the new technologies revolutionising the financial ecosystem",
+				"talk-type": "panel",
+				"date": "2019-12-04",
+				"talk-description": "<p>What does the financial landscape of tomorrow look like? Can financial services firms and big tech companies co-exist peacefully in the technology-optimised ecosystem of the future – or will one ultimately buy out the other?</p><p>In this session, technology experts will give snapshot case studies illustrating a range of disruptive technologies, all of which look set to transform the financial industry forever. All experts will then join a panel discussion moderated by Joy Macknight.</p>",
+				"length": 35,
+				"location":{
+					"venue": "Intercontinental Park Lane",
+					"address": "One Hamilton Place",
+					"city": "London",
+					"postal code": "W1J 7QY",
+					"country": "GB",
+					"gps": [51.503930, -0.150137]
+				}
+			}
+		]
+	},
+	{
 		"conference": "The Lead Developer",
 		"url": "https://berlin2019.theleaddeveloper.com/",
 		"talks": [
@@ -2228,7 +2249,8 @@
 				"talk-type": "talk",
 				"date": "2019-12-06",
 				"talk-description": "<p>You make a hire for your team. The person wants 20% more than anyone else. Should you give it to them?</p><p>Your manager gives you a 5% raise budget for your team. Do you give them all 5% or give one person 15% and the rest 1%?</p><p>You think you are giving a great raise to one of your top performers, but they let you know that they expected much more.</p><p>A person on your team approaches you because they got a job offer for 10% more than their current salary. Should you try to match it?</p><p>The management debt that gets accrued by poor decisions around salary is extremely painful to fix. In this talk, I will give you the tools and ideas that you can use to be well prepared for the next salary review. I will help you avoid accruing management debt around pay in your team.</p><p>How is the salary budget calculated? How you can argue for the extra budget to adjust someone that is not being paid well. Where you can find extra money to make a meaningful difference for someone. Why sometimes it is better to do no raise at all, then do a small one. How you handle the conversation when someone isn't happy with their increase. How do you decide what salary to offer a candidate? How can you make sure that you are not increasing pay disparity between different groups?</p><p>These are problems that Dev Leads face all the time. The impact of making a wrong decision is massive to an individual. The mistake of paying someone too little or too much can affect them for years.</p><p>Understanding how salary works helps you create a happier and healthier team.</p>",
-				"length":30,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-does-salary-work-the-lead-developer-berlin-2019-extended-remix",
+				"length": 30,
 				"location": {
 					"venue": "Radisson Blu Hotel",
 					"address": "Karl-Liebknecht-Strasse 3",
@@ -2236,7 +2258,51 @@
 					"postal code": "D-10178",
 					"country": "DE",
 					"gps": [52.519763, 13.402881]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "Had a great day at the first The Lead Dev conference in Berlin https://berlin2019.theleaddeveloper.com/schedule #LeadDevBerlin <br />My favorite talks:<br />...<br />1. How does salary work? by @KevinGoldsmith<br />– hard-to-get information on a difficult subject #LeadDevBerlin",
+						"credit": "Claus Höfele",
+						"credit-url": "https://twitter.com/claushoefele",
+						"reference-url": "https://twitter.com/claushoefele/status/1203015776124489738"
+					},
+					{
+						"quote": "This 👇The #LeadDevBerlin Talk @KevinGoldsmith is giving about how salary works is excellent. Money is complicated, and he’s giving a great breakdown of pitfalls and better ways to approach it",
+						"credit": "Lena Reinhard",
+						"credit-url": "https://twitter.com/lrnrd",
+						"reference-url": "https://twitter.com/lrnrd/status/1202976963281014790"
+					},
+					{
+						"quote": "Awesome talk! Salary is a difficult topic indeed. Thanks for reminding us leaders of our responsibility for the salaries we set for people of underrepresented groups @KevinGoldsmith and @Geek_Manager ❤️",
+						"reference-url": "https://twitter.com/raphaelawrede/status/1202979947352117249",
+						"credit": "Raphaela Wrede",
+						"credit-url": "https://twitter.com/raphaelawrede"
+					},
+					{
+						"quote": "Yes -- I'm so here for @KevinGoldsmith dumping on performance management by stack ranking 😅 This idea of being forced to rank employees against each other in a zero-sum game way has always made zero sense to me 🚮 #LeadDevBerlin",
+						"reference-url": "https://twitter.com/scott_triglia/status/1202976777607536640",
+						"credit": "Scott Triglia",
+						"credit-url": "https://twitter.com/scott_triglia"
+					},
+					{
+						"quote": "'Everybody has an interesting company culture!' Don't we all agree! :D, the conference participants totally joined in with smiles and laughter on this point :) - @KevinGoldsmith @TheLeadDev #LeadDevBerlin",
+						"reference-url": "https://twitter.com/mohnishgj/status/1202975696185962498",
+						"credit": "Mohnish Jadwani",
+						"credit-url": "https://twitter.com/mohnishgj"
+					},
+					{
+						"quote": "This talk on salaries by @KevinGoldsmith is interesting, especially the dos/ donts on deciding salaries. Also talking about the value you can offer in place of salary, really cool. #LeadDevBerlin",
+						"reference-url": "https://twitter.com/ffsmonty/status/1202975642733760512",
+						"credit": "Christopher Ridgers",
+						"credit-url": "https://twitter.com/ffsmonty"
+					},
+					{
+						"quote": "Such an interesting talk going on by @KevinGoldsmith that I can’t be distracted by tweeting often. Highly recommend checking out the video when it’s live. #LeadDevBerlin",
+						"reference-url": "https://twitter.com/BenjaminJPrice/status/1202972256751800321",
+						"credit": "Benjamin Price",
+						"credit-url": "https://twitter.com/BenjaminJPrice"
+					}
+				]
 			}
 		]
 	}
