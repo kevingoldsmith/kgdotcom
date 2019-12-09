@@ -2261,6 +2261,12 @@
 				},
 				"reactions": [
 					{
+						"quote": "@KevinGoldsmith gave a brave talk about salary, a topic which is discussed not often, like when teacher talks about sex at school. It is something we need to teach more. Great insights. #LeadDevBerlin",
+						"reference-url": "https://twitter.com/reclaro/status/1203303594440691713",
+						"credit": "Andrea Rosa",
+						"credit-url": "https://twitter.com/reclaro"
+					},
+					{
 						"quote": "Had a great day at the first The Lead Dev conference in Berlin https://berlin2019.theleaddeveloper.com/schedule #LeadDevBerlin <br />My favorite talks:<br />...<br />1. How does salary work? by @KevinGoldsmith<br />– hard-to-get information on a difficult subject #LeadDevBerlin",
 						"credit": "Claus Höfele",
 						"credit-url": "https://twitter.com/claushoefele",
@@ -2303,6 +2309,27 @@
 						"credit-url": "https://twitter.com/BenjaminJPrice"
 					}
 				]
+			}
+		]
+	},
+	{
+		"conference": "Stretch: Leadership and Management Conference",
+		"url": "https://www.stretchcon.com/2020/",
+		"talks":[
+			{
+				"talk": "Distributed Teams",
+				"talk-type": "talk",
+				"date": "2020-02-13",
+				"talk-description": "Distributed teams are becoming more common in companies today. Distributed teams can help find the best talent wherever it is and bring opportunities to developers away from the tech centers. However, leading a distributed team presents unique challenges, interpersonal and technical.\nWhat makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective?\nIn this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years.",
+				"length": 30,				
+				"location": {
+					"venue": "Uránia Film Theatre",
+					"address": "Rákóczi út 21",
+					"city": "Budapest",
+					"postal code": "1088",
+					"country": "HU",
+					"gps": [47.495608, 19.065481]
+				}
 			}
 		]
 	}
