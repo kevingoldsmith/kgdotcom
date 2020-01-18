@@ -2339,5 +2339,67 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "Pixels Camp",
+		"url": "https://pixels.camp/",
+		"talks":[
+			{
+				"talk": "TBD",
+				"talk-type": "talk",
+				"talk-description": "",
+				"date": "2020-03-26",
+				"length": 45,
+				"location":{
+					"venue": "Pavilhä0 Carlos Lopes",
+					"address": "Av. Sidónio Pais 16",
+					"city": "Lisboa",
+					"country": "PT",
+					"postal code": "1070-051",
+					"gps":[38.729142, -9.151797]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Xpand Conference",
+		"url": "http://www.xpandconf.com/",
+		"talks": [
+			{
+				"talk": "TBD",
+				"talk-type": "keynote",
+				"talk-description": "",
+				"date": "2020-03-28",
+				"length": 30,
+				"location": {
+					"venue": "Kempinski Hotel Amman Convention Center",
+					"address": "Abdul Hamid, ش. خالد شومان",
+					"city": "Amman",
+					"country": "JO",
+					"gps": [31.968659, 35.896990]
+				}
+			}
+		]
+	},
+	{
+		"conference": "JAX",
+		"url": "https://jax.de/",
+		"talks":[
+			{
+				"talk": "Using Agile Techniques to Build a More Inclusive Team",
+				"talk-type": "keynote",
+				"date": "2020-05-14",
+				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. The agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
+				"length": 30,
+				"location": {
+					"venue": "Mainz Congress: Rheingoldhalle",
+					"address": "Rheinstraße 66",
+					"city": "Mainz",
+					"country": "Germany",
+					"postal code": "55116",
+					"gps": [50.001891, 8.275618]
+				}
+			}
+		]
 	}
 ]
