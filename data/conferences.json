@@ -2341,13 +2341,35 @@
 		]
 	},
 	{
+		"conference": "Annual FinTech and InsurTech Summit",
+		"url": "https://events.economedia.bg/en/event/152",
+		"talks": [
+			{
+				"talk": "TBD",
+				"talk-type": "talk",
+				"talk-description": "TBD",
+				"date": "2020-02-27",
+				"length": 30,
+				"location":{
+					"venue": "Sofia Event Center",
+					"address": "100 Cherni Vrah Blvd",
+					"city": "Sofia",
+					"country": "Bulgaria",
+					"postal code": "1407",
+					"gps":[42.657117, 23.315870]
+				}
+			}
+		]
+	},
+	{
 		"conference": "Pixels Camp",
 		"url": "https://pixels.camp/",
 		"talks":[
 			{
-				"talk": "TBD",
+				"talk": "Do I know you? Identity on the Internet and the Question of Trust",
 				"talk-type": "talk",
-				"talk-description": "",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/do-i-know-you-identity-on-the-internet-and-the-question-of-trust",
+				"talk-description": "<p>We continue to build products allowing our customers to do more things online. While bringing convenience, it also raises the stakes of fraud, for our customers and our companies. The democratization of technology means that those intending to commit fraud can take advantage of some amazingly sophisticated tools. Consumers and governments have little trust in technology due to the questionable ethics of some of the biggest players in the industry.</p><p>Identity online continues to evolve; governments, businesses, the open source community, and grassroots organizations are all evolving how we validate, protect, and secure our identity. Whether your software is targeted towards businesses or consumers, if you are in a regulated vertical or a non-regulated one, or if you have customers in multiple countries or just one, how you ethically manage customer identity will be crucial to your product’s success (or existence).</p><p>In this talk, I cover the evolution of identity of the internet, from a product development perspective. I talk about the things you should be aware of when building software today, and the things you should pay attention to for the future.</p>",
 				"date": "2020-03-26",
 				"length": 45,
 				"location":{
@@ -2366,9 +2388,10 @@
 		"url": "http://www.xpandconf.com/",
 		"talks": [
 			{
-				"talk": "TBD",
+				"talk": "How Does Salary Work?",
 				"talk-type": "keynote",
-				"talk-description": "",
+				"talk-description": "<p>You make a hire for your team. The person wants 20% more than anyone else. Should you give it to them?</p><p>Your manager gives you a 5% raise budget for your team. Do you give them all 5% or give one person 15% and the rest 1%?</p><p>You think you are giving a great raise to one of your top performers, but they let you know that they expected much more.</p><p>A person on your team approaches you because they got a job offer for 10% more than their current salary. Should you try to match it?</p><p>The management debt that gets accrued by poor decisions around salary is extremely painful to fix. In this talk, I will give you the tools and ideas that you can use to be well prepared for the next salary review. I will help you avoid accruing management debt around pay in your team.</p><p>How is the salary budget calculated? How you can argue for the extra budget to adjust someone that is not being paid well. Where you can find extra money to make a meaningful difference for someone. Why sometimes it is better to do no raise at all, then do a small one. How you handle the conversation when someone isn't happy with their increase. How do you decide what salary to offer a candidate? How can you make sure that you are not increasing pay disparity between different groups?</p><p>These are problems that Dev Leads face all the time. The impact of making a wrong decision is massive to an individual. The mistake of paying someone too little or too much can affect them for years.</p><p>Understanding how salary works helps you create a happier and healthier team.</p>",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-does-salary-work-the-lead-developer-berlin-2019-extended-remix",
 				"date": "2020-03-28",
 				"length": 30,
 				"location": {
@@ -2388,6 +2411,21 @@
 			{
 				"talk": "Using Agile Techniques to Build a More Inclusive Team",
 				"talk-type": "keynote",
+				"date": "2020-05-14",
+				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. The agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
+				"length": 30,
+				"location": {
+					"venue": "Mainz Congress: Rheingoldhalle",
+					"address": "Rheinstraße 66",
+					"city": "Mainz",
+					"country": "Germany",
+					"postal code": "55116",
+					"gps": [50.001891, 8.275618]
+				}
+			},
+			{
+				"talk": "Architecture and Organization",
+				"talk-type": "talk",
 				"date": "2020-05-14",
 				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. The agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
 				"length": 30,
