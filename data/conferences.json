@@ -2326,9 +2326,10 @@
 			{
 				"talk": "Distributed Teams",
 				"talk-type": "talk",
-				"date": "2020-02-13",
+				"date": "2020-02-14",
 				"talk-description": "Distributed teams are becoming more common in companies today. Distributed teams can help find the best talent wherever it is and bring opportunities to developers away from the tech centers. However, leading a distributed team presents unique challenges, interpersonal and technical.\nWhat makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective?\nIn this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years.",
-				"length": 30,				
+				"length": 45,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/leading-distributed-teams-stretch-conference-2020",
 				"location": {
 					"venue": "Uránia Film Theatre",
 					"address": "Rákóczi út 21",
@@ -2336,7 +2337,15 @@
 					"postal code": "1088",
 					"country": "HU",
 					"gps": [47.495608, 19.065481]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "Feeling seen in @KevinGoldsmith's @stretchcon talk on leading distributed teams as a remote worker for 12.5 years at @acquia (and even before that a remote contributor to @drupal in general). I live in Zoom, Slack and Google docs (from my home office). 🧐🙌",
+						"reference-url": "https://twitter.com/gaborhojtsy/status/1228329865780383749",
+						"credit": "Gábor Hojtsy",
+						"credit-url": "https://twitter.com/gaborhojtsy"
+					}
+				]
 			}
 		]
 	},
@@ -2345,11 +2354,11 @@
 		"url": "https://events.economedia.bg/en/event/152",
 		"talks": [
 			{
-				"talk": "TBD",
-				"talk-type": "talk",
-				"talk-description": "TBD",
+				"talk": "FinTech Discussion Panel",
+				"talk-type": "panel",
+				"talk-description": "Recent trends that are shaping the market in 2020, Next generation payment solutions, KYC and AML compliance, The mobile money revolution",
 				"date": "2020-02-27",
-				"length": 30,
+				"length": 60,
 				"location":{
 					"venue": "Sofia Event Center",
 					"address": "100 Cherni Vrah Blvd",
