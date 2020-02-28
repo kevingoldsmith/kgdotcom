@@ -2329,6 +2329,7 @@
 				"date": "2020-02-14",
 				"talk-description": "Distributed teams are becoming more common in companies today. Distributed teams can help find the best talent wherever it is and bring opportunities to developers away from the tech centers. However, leading a distributed team presents unique challenges, interpersonal and technical.\nWhat makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective?\nIn this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years.",
 				"length": 45,
+				"recording-url": "https://youtu.be/H3X8uQFV7xM",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/leading-distributed-teams-stretch-conference-2020",
 				"location": {
 					"venue": "Uránia Film Theatre",
@@ -2344,6 +2345,18 @@
 						"reference-url": "https://twitter.com/gaborhojtsy/status/1228329865780383749",
 						"credit": "Gábor Hojtsy",
 						"credit-url": "https://twitter.com/gaborhojtsy"
+					},
+					{
+						"quote": "Yay. I find the topic quite important and your ideas also fit/match my experience and mindset. Also I liked the way it was presented.",
+						"reference-url": "https://www.stretchcon.com/2020/",
+						"credit": "Anonymous comment via feedback form",
+						"credit-url": "https://www.stretchcon.com/2020/"
+					},
+					{
+						"quote": "Brilliant speaker, very practical presentation. Thank you for that, Kevin!",
+						"reference-url": "https://www.stretchcon.com/2020/",
+						"credit": "Anonymous comment via feedback form",
+						"credit-url": "https://www.stretchcon.com/2020/"
 					}
 				]
 			}
