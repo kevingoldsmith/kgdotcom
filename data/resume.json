@@ -10,7 +10,7 @@
 		"phone": "",
 		"website": "https://kevingoldsmith.com",
 		"headline": "An innovative, strategic, hands-on technical and people leader with a record of building high-performing teams to address new technologies, new markets, delivering on revenue opportunities quickly.",
-		"summary": "An experienced, hands-on, technical leader of high profile, high-performing product, research, and shared technology engineering organizations. Pioneered the use of new technologies and development methodologies within organizations, and evangelized them successfully to senior management and other engineering teams. Routinely receive excellent reviews for leadership and customer focus. Am often invited to speak about building strong engineering teams at conferences internationally. Technical areas of expertise include service scalability, user experience, consumer product development, machine learning (ML) and AI-driven product features, GPGPU, multi-core, distributed computing, desktop, mobile, and connected architectures, image, audio and video processing, domain-specific languages and graphics. Have extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.",
+		"summary": "An experienced, technical leader of high profile, high-performing product, research, and shared technology engineering organizations. Have lead product engineering on global consumer and professional software brands as well as B2B, B2B2C, and marketplace companies. Pioneered the use of new technologies and development methodologies within organizations, and evangelized them successfully to senior management and other engineering teams. Routinely receive excellent reviews for leadership and customer focus. Am often invited to speak about building strong engineering teams at conferences internationally. Technical areas of expertise include service scalability, user experience, consumer product development, streaming media, machine learning (ML) and AI-driven product features, microservices, desktop, mobile, web, and connected architectures, image, audio, and video processing, domain-specific languages and graphics. Have extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.",
 		"location": {
 			"address": "PO Box 822",
 			"postalCode": "WA 98040",
@@ -38,15 +38,7 @@
 			"position": "Chief Technology Officer",
 			"website": "https://onfido.com/",
 			"startDate": "2019-04-02",
-			"summary": "Responsible for leading and growing engineering, research, security and IT for this flourishing multi-national software company using machine learning and computer vision to help people own their identities on the internet and help companies and consumers avoid identity fraud."
-		},
-		{
-			"company": "AstrumU",
-			"location": "Kirkland, WA",
-			"position": "Advisor",
-			"website": "http://AstrumU.com",
-			"startDate": "2019-04-01",
-			"summary": "Moved to an advisor role after leaving the company as a full-time employee. Still working to support the great team as they build their products and business."
+			"summary": "Onfido uses machine learning and computer vision to help people own their identities on the internet and help companies and consumers avoid identity fraud. Leading and growing engineering, research, analytics, security and IT for this flourishing multi-national software company. The technology team is more than 120 scientists, analysts and engineers in London, Lisbon, and New Mexico. Helped grow revenue 130% in first year."
 		},
 		{
 			"company": "CavnessHR",
@@ -57,13 +49,22 @@
 			"summary": "Support and advise executive team on software development, scalability, hiring, and technical decisions."
 		},
 		{
+			"company": "AstrumU",
+			"location": "Kirkland, WA",
+			"position": "Advisor",
+			"website": "http://AstrumU.com",
+			"startDate": "2019-04-01",
+			"endDate": "2019-12-01",
+			"summary": "Moved to an advisor role after leaving the company as a full-time employee."
+		},
+		{
 			"company": "Dolly",
 			"location": "Seattle, WA",
 			"position": "Member, Board of Advisors",
 			"website": "https://dolly.com/",
 			"startDate": "2016-11-09",
 			"endDate": "2019-04-01",
-			"summary": "Support and advise executive team on software development, scalability, hiring, and technical decisions."
+			"summary": "Supported and advised executive team on software development, scalability, hiring, and technical decisions."
 		},
 		{
 			"company": "AstrumU",
