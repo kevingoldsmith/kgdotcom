@@ -2392,7 +2392,39 @@
 				"talk": "Building and Conveying Vision",
 				"talk-type":"panel",
 				"date": "2020-04-08",
-				"length": 45
+				"length": 45,
+				"reactions": [
+					{
+						"quote": "Vision: this is what good looks like - what does awesome look like in our day-to-day? @KevinGoldsmith on setting context for vision. #LeadDevLive",
+						"reference-url": "https://twitter.com/AngelaRiggs_/status/1247964725490532352",
+						"credit": "Angela Riggs",
+						"credit-url": "https://twitter.com/AngelaRiggs_"
+					},
+					{
+						"quote": "Currently tuning into #LeadDevLive to catch an awesome panel on Building & Conveying Vision featuring @KevinGoldsmith, @nerdneha, @Optimizely CTO Lawrence Bruhmuller, & @mariagutierrez! https://live.theleaddev.com/talks/building-and-conveying-vision/",
+						"reference-url": "https://twitter.com/JustinaEats/status/1247964875189452800",
+						"credit": "Justina Nguyen",
+						"credit-url": "https://twitter.com/JustinaEats"
+					},
+					{
+						"quote": ".@KevinGoldsmith, @nerdneha and @mariagutierrez on building and conveying vision as leaders on different levels at their companies #LeadDevLive  #sketchnote <img src=\"https://pbs.twimg.com/media/EVGzaBrVAAAZuYy?format=jpg&name=medium\">",
+						"reference-url": "https://twitter.com/miphoni/status/1247975841172250636",
+						"credit": "Miriam Busch",
+						"credit-url": "https://twitter.com/miphoni"
+					},
+					{
+						"quote": "This was such a great panel!",
+						"reference-url": "https://twitter.com/anjuan/status/1247988254793781248",
+						"credit": "Anjuan Simmons",
+						"credit-url": "https://anjuansimmons.com/"
+					},
+					{
+						"quote": "The session on Building and Conveying Vision is so important. What are we shooting for, while keeping people, products, and profits in mind? Why do we exists? Key to have a clear mission, vision, and strategy. @KevinGoldsmith @nerdneha @mariaguti @TheLeadDev #LeadDevLive",
+						"reference-url": "https://twitter.com/aneika/status/1247989624372428800",
+						"credit": "Aneika Simmons, PhD",
+						"credit-url": "https://aneikasimmons.com/"
+					}
+				]
 			}
 		]
 	},
@@ -2439,7 +2471,7 @@
 			{
 				"talk": "Architecture and Organization",
 				"talk-type": "talk",
-				"date": "2020-05-14",
+				"date": "2020-09-09",
 				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. The agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
 				"length": 30,
 				"location": {
