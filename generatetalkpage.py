@@ -70,7 +70,7 @@ def get_embed_code_from_videoURL(video_url):
 
 def get_embed_code_from_slides_URL(slides_url):
 	#https://www.slideshare.net/developers/oembed
-	response = requests.get('http://www.slideshare.net/api/oembed/2', params={'url': slides_url, 'format': 'json', 'maxwidth': 600})
+	response = requests.get('https://www.slideshare.net/api/oembed/2', params={'url': slides_url, 'format': 'json', 'maxwidth': 600})
 	if response.status_code == 200:
 		bs = BeautifulSoup(response.json()['html'], 'html.parser')
 		aspect_ratio = float(bs.iframe['height']) / float(bs.iframe['width'])
