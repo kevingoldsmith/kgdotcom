@@ -28,6 +28,11 @@
 				"network": "LinkedIn",
 				"username": "goldsmith",
 				"url": "https://www.linkedin.com/in/goldsmith/"
+			},
+			{
+				"network": "Github",
+				"username": "kevingoldsmith",
+				"url": "https://github.com/kevingoldsmith"
 			}
 		]
 	},
@@ -38,7 +43,14 @@
 			"position": "Chief Technology Officer",
 			"website": "https://onfido.com/",
 			"startDate": "2019-04-02",
-			"summary": "Onfido uses machine learning and computer vision to help people own their identities on the internet and help companies and consumers avoid identity fraud. Leading and growing engineering, research, analytics, security and IT for this flourishing multi-national software company. The technology team is more than 120 scientists, analysts and engineers in London, Lisbon, and New Mexico. Helped grow revenue 130% in first year."
+			"endDate": "2020-06-26",
+			"summary": "Responsible for the 160-plus person Technology Organization, including Engineering, Research, Security, Business Intelligence, IT, and Product Support. The team was in London, Lisbon, Albuquerque, and remote. During my time at Onfido, I drove the company's first acquisition, we achieved our first SOC2 certification and recertified on ISO 27001. We completed a $100M raise with a process of extensive technical due diligence. Our revenue grew by over %130 during this time. I grew the technology organization by over 50% during my tenure while significantly improving the percentage of underrepresented groups in the organization. We signed our first significant global enterprise customers and signed partnerships with the worlds-largest IAM providers. We launched new production environments in the US and Canada to support data-locality for our customers. While we continued to improve our core product offering, I helped to shepherd several innovation projects, including partnering with the UK ICO's sandbox project on next-generation identity and privacy solutions. Onfido won multiple awards for our algorithm bias mitigation and accesibility work during my tenure.",
+			"highlights": [
+				"Grew team by over 60%",
+				"Achieved first SOC2 certification",
+				"Completed a $100M raise from TPG",
+				"Grew revenue by over 130%"
+			]
 		},
 		{
 			"company": "CavnessHR",
@@ -46,7 +58,7 @@
 			"position": "Member, Board of Advisors",
 			"website": "https://www.cavnesshr.com/",
 			"startDate": "2018-06-01",
-			"summary": "Support and advise executive team on software development, scalability, hiring, and technical decisions."
+			"summary": "Support and advise the founder on technical execution and business development."
 		},
 		{
 			"company": "AstrumU",

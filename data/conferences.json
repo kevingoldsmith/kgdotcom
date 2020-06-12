@@ -2443,6 +2443,19 @@
 		]
 	},
 	{
+		"conference": "Managing Software Teams in Seattle",
+		"url": "https://www.eventbrite.com/e/managing-software-teams-in-seattle-topic-autonomous-teams-tickets-99318640728",
+		"talks": [
+			{
+				"talk": "Organizing your Team for Autonomy",
+				"talk-type": "talk",
+				"talk-description": "During this session, Kevin will discuss the importance of building autonomous engineering teams and how to effectively lead autonomous teams to drive user value in your organization.",
+				"date": "2020-06-30",
+				"length": 90
+			}
+		]
+	},
+	{
 		"conference": "Xpand Conference",
 		"url": "http://www.xpandconf.com/",
 		"talks": [

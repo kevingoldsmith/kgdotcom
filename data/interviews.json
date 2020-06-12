@@ -1,5 +1,13 @@
 [
 	{
+		"name": "The Tech Leaders Podcast",
+		"date": "2020-06-10",
+		"url": "https://www.bedigitaluk.com/podcast/episode/4891b346/kevin-goldsmith-cto-of-onfido-ex-spotify-adobe",
+		"author": "Gareth Davies",
+		"publisher": "bedigital",
+		"summary": "Gareth Interviews Kevin Goldsmith, CTO of London based, identity verification provider Onfido. An engineer by trade, Kevin cut his teeth at Microsoft in the 1990's, and was a member of the Windows Media, Windows CE, and Microsoft Research teams at a time when they were scaling into the global behemoth they are today. He was also the Director of Engineering at Adobe Systems for nine years through a similar growth trajectory and also the VP of Engineering, at Spotify where he led, both product development and streaming delivery during a crucial time. We cover the above along with his thoughts on quantum computing, technology innovation and keeping engineering teams motivated during a lockdown."
+	},
+	{
 		"name": "From Zero to CTO – Kevin Goldsmith",
 		"date": "2020-05-20",
 		"url": "https://ctocraft.com/blog/from-zero-to-cto-kevin-goldsmith/",
