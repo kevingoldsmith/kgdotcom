@@ -2567,5 +2567,23 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "Lead Dev: Manager of Managers",
+		"url": "https://managerofmanagerslondon2020.theleaddeveloper.com/",
+		"talks":[
+			{
+				"talk": "Improving as a senior leader",
+				"talk-type": "talk",
+				"date": "2021-06-10",
+				"talk-description": "<p>The higher you go in technology management, the less direct feedback you get. You go from working for a manager who has much insight into your daily work to one who primarily delegates some work and relies on your ability to self-manage and self-organize. You may also work for someone who comes from a non-technical background who cannot give you good feedback on your decisions.</p><p>To continue to grow and improve as senior leaders, we must rely on ourselves to objectively understand our performance, find areas for improvement, and then create growth plans.</p><p>I have found and developed several self-reflection and planning techniques over the years. These techniques let me self-identify my areas of improvement and create plans and goals around my development.</p><p>In this talk, I will discuss how you can create a personalized system for yourself, a system that can use for your continued development as a senior leader.</p>",
+				"length": 30,
+				"location": {
+					"city": "London",
+					"country": "GB",
+					"gps":[51.507458, -0.127759]
+				}
+			}
+		]
 	}
 ]
