@@ -175,7 +175,6 @@
 				"talk-type": "panel",
 				"date": "2009-11-20",
 				"talk-description": "",
-				"recording-url": "https://www.youtube.com/watch?v=7U3cO3h8Pao",
 				"length": 90,
 				"location": {
 					"venue": "Oregon Convention Center",
@@ -2081,7 +2080,7 @@
 				"talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "keynote",
 				"talk-url": "https://www.kevingoldsmith.com/talks/organization-architecture-autonomy-and-accountability.html",
-				"recording-url": "https://youtu.be/2XIXudSQymQ",
+				"recording-url": "https://youtu.be/cIOqAIY8erA",
 				"date": "2019-05-21",
 				"slides-url":"https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability",
 				"talk-description": "<p>Many consider agile a process to implement within an existing organization. A set of rules to follow that will produce some useful outcomes. This approach can provide improvements in many different structures of organizations. As agile maturity improves, however, the benefits can become limited by the structure and culture of the organization itself.</p><p>Agile is more than a framework for organizing tasks for a team. Agile is a culture, a mindset and a structure for improving the velocity of innovation and providing real business value to customers. To gain the most benefit from Agile it must be considered as part of a more extensive system that incorporates organizational structure, software architecture, and company culture.</p><p>This talk considers the interactions between how the work, the software, and the people are organized in high performing agile organizations. Using my own experiences at companies large and small, I will share what I have learned and some best practices I use. These lessons will help you as you improve and scale your Agile teams.</p><p>I will discuss:</p><ul><li>How to structure your organization to remove the bottlenecks in coordination and decision-making that can slow velocity to a crawl</li><li>How to take advantage of modern systems architectures to allow teams to move faster</li><li>Using data to provide accountability for autonomous teams without creating more process</li></ul><p>By the end, you will have concrete examples and ideas that you can bring back to your team to help you improve and scale agile within your organization.</p>",
@@ -2447,11 +2446,20 @@
 		"url": "https://community.codemotion.com/codemotion-eu/meetups/codemotion-meetup-the-spotify-model-is-dead-long-live-the-spotify-model",
 		"talks": [
 			{
-				"talk": "Codemotion Meetup - Building performing team The Spotify model is dead - long live the Spotify model",
+				"talk": "Codemotion Meetup - Building performing teams: The Spotify model is dead - long live the Spotify model",
 				"talk-type": "panel",
 				"talk-description": "<p>The technology industry is broad and varied, and different teams need to be arranged in different ways to perform at their best. But what team structures work best? And when do they stop working? And how do we notice?</p><p>In this session we will expand on those questions, and we’ll hear about the challenges our panelists encountered in their experiences building performing teams. We’ll discuss pros and cons of the different approaches, and we’ll discover what makes a team structure the best option for our teams.</p>",
 				"date": "2020-06-25",
-				"length": 90
+				"length": 90,
+				"recording-url": "https://youtu.be/F3HDPyAsN8o",
+				"reactions":[
+					{
+						"quote": "Had a great time listening to @CodemotionWorld's presentation starring @pigiuz, @stalesya, @KevinGoldsmith and @daniel_gebler. They discussed the importance of team management and finding the right structures to maximize performance.",
+						"reference-url": "https://twitter.com/meetupfeed/status/1278715552773607425",
+						"credit": "Meetup Feed",
+						"credit-url": "https://twitter.com/meetupfeed"
+					}
+				]
 			}
 		]
 	},
@@ -2461,7 +2469,9 @@
 		"talks": [
 			{
 				"talk": "Organizing your Team for Autonomy",
+				"root-talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "talk",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability-2020/kevingoldsmith/organization-architecture-autonomy-and-accountability-2020",
 				"talk-description": "During this session, Kevin will discuss the importance of building autonomous engineering teams and how to effectively lead autonomous teams to drive user value in your organization.",
 				"date": "2020-06-30",
 				"length": 90
