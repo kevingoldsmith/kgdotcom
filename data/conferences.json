@@ -2472,9 +2472,22 @@
 				"root-talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "talk",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability-2020/kevingoldsmith/organization-architecture-autonomy-and-accountability-2020",
+				"recording-url": "https://youtu.be/gbMK8ijTCZs",
 				"talk-description": "During this session, Kevin will discuss the importance of building autonomous engineering teams and how to effectively lead autonomous teams to drive user value in your organization.",
 				"date": "2020-06-30",
 				"length": 90
+			}
+		]
+	},
+	{
+		"conference": "Carnegie Mellon University Tech & Entrepeneurship Seattle Group: Speaker Series",
+		"talks": [
+			{
+				"talk": "CMU Alumni Journey: Kevin Goldsmith",
+				"talk-type": "talk",
+				"talk-description": "Kevin Goldsmith shares his career journey from his graduation from Carnegie Mellon to today.",
+				"date": "2020-08-25",
+				"length": 60
 			}
 		]
 	},
