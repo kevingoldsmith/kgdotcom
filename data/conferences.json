@@ -2480,6 +2480,19 @@
 		]
 	},
 	{
+		"conference": "The Live Series Round Table",
+		"talks": [
+			{
+				"talk": "Your Development Process is a Lie",
+				"talk-type": "panel",
+				"talk-description": "<p>Specifying or changing development processes can be like forcing a snake into a bottle: possible, but incredibly challenging. The business needs, culture, company structure and even customer expectations all feed into a complex dance. The result is more organically formed than planned. In this talk we aim to cover some of the challenges you might face, as well as the approaches that can allow for the best results to emerge.</p><p>Key topics of discussion:</p><ul><li>What if I said that \"process\" is a 4-letter word?</li><li>Who decides on the \"process\"?  What about workflow?</li><li>Where does your culture come in? How does it manifest?</li><li>What if you need to change the culture?</li><li>Things you would like to try out but haven't gotten around to</li></ul>",
+				"date": "2020-07-22",
+				"recording-url": "https://youtu.be/uGhPyMlAEJ8",
+				"length": 60
+			}
+		]
+	},
+	{
 		"conference": "Carnegie Mellon University Tech & Entrepeneurship Seattle Group: Speaker Series",
 		"talks": [
 			{
