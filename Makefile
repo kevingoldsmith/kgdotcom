@@ -13,8 +13,6 @@ test: venv
 	. venv/bin/activate; nosetests project/test
 
 clean:
-	rm -rf venv
-	find -iname "*.pyc" -delete
 	scripts/build.sh -c
 
 test:
@@ -23,7 +21,10 @@ test:
 debug:
 	scripts/build.sh -cd
 
+build:
+	scripts/build.sh
+
 publish:
 	scripts/publish.sh
 
-.PHONY: setup clean test debug publish
+.PHONY: setup clean test debug publish build

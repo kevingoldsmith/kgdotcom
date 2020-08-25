@@ -1,5 +1,16 @@
 [
 	{
+		"name": "Hiring Agile Coaches",
+		"url": "https://blog.kevingoldsmith.com/2020/06/22/hiring-agile-coaches/",
+		"description": "Understanding the value of the Agile Coach role in an organization and considerations when introducing that as a new role to an existing team.",
+		"tags": [
+			"Agile",
+			"Hiring",
+			"Organizational Design"
+		],
+		"date": "2020-06-22"
+	},
+	{
 		"name": "Changing Hiring Practices to Build a More Diverse Technology Organization, A Case Study from Avvo",
 		"url": "https://blog.kevingoldsmith.com/2020/06/12/changing-hiring-practices-to-build-a-more-diverse-technology-organization-a-case-study-from-avvo/",
 		"description": "Given current events, I hear from friends at tech companies that they are re-evaluating their lack of diversity. They want to improve. While companies have tried different tactics for years, we haven’t made much progress as an industry. If you are trying to address diversity for the first time, it is a daunting task. It is easy to try some things, make no progress, and then give up.",
