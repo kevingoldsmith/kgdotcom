@@ -2553,6 +2553,19 @@
 		]
 	},
 	{
+		"conference": "LeadDev Together",
+		"url": "https://together.leaddev.com/programme/building-motivation",
+		"talks": [
+			{
+				"talk": "Crafting a mission and vision for your team",
+				"talk-type": "talk",
+				"length": 15,
+				"talk-description": "<p>As you progress in seniority as a leader, the time horizon of your work progressively gets longer. Rather than aligning around week-to-week or month-to-month deliverables, the work changes to gaining alignment and maintaining focus for goals that sit further in the future. Well-crafted team mission and vision statements help create that alignment.</p><p>This talk will discuss the value of a clear mission and vision, creating mission and vision artifacts in an inclusive way for teams of different sizes, socializing them to the broader organization, and knowing when it is time to update them.</p>",
+				"date": "2020-09-15"
+			}
+		]
+	},
+	{
 		"conference": "Agile by Example",
 		"url": "https://agilebyexample.com/",
 		"talks": [
