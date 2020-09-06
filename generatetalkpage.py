@@ -14,7 +14,7 @@ from datetime import timedelta
 from operator import itemgetter
 
 #format strings - here to simplify editing and iteration
-format_youtube_video_embed = '<iframe width="600" height="338" src="https://www.youtube.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'
+format_youtube_video_embed = '<iframe width="600" height="338" src="https://www.youtube-nocookie.com/embed/{0}?rel=0" frameborder="0" allowfullscreen></iframe>'
 format_photo_div = '<div id=\"photo\">\n<img src=\"{0}\" class=\"aligncenter\"/>\n</div>'
 format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_keynote_list_item = '<li><span class=\"conferencename\">{0}</span> (Keynote) - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'

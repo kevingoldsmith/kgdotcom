@@ -1,5 +1,21 @@
 [
 	{
+		"name": "The World After COVID-19",
+		"date": "2020-07-14",
+		"url": "https://www.linkedin.com/pulse/intro-marcin-kulawik/?trackingId=cAsegCdZT2ylL9NYpYSdyg%3D%3D",
+		"author": "Marcin Kulawik",
+		"publisher": "SolveQ",
+		"summary": "Are you looking for advices how to survive #pandemiccovid19 and prepare for #newnormal2020? Are you ready to get them from #leadershiptalk?"
+	},
+	{
+		"name": "Making Distributed Organizations More Effective",
+		"date": "2020-06-25",
+		"url": "https://www.infoq.com/news/2020/06/distributed-organizations/",
+		"author": "Ben Linders",
+		"publisher": "InfoQ",
+		"summary": "An autonomous team model with teams organized around geographical or time-zone proximity can make a distributed organization more effective. With the Reverse Conway Maneuver you can deliberately add or remove bottlenecks to better support the designs you are trying to build."
+	},
+	{
 		"name": "The Tech Leaders Podcast",
 		"date": "2020-06-10",
 		"url": "https://www.bedigitaluk.com/podcast/episode/4891b346/kevin-goldsmith-cto-of-onfido-ex-spotify-adobe",

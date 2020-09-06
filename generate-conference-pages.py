@@ -14,6 +14,7 @@ from generatetalkpage import generate_talk_page
 format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_upcoming_list_item = '<li><span class=\"conferencename\"><a class=\"outbound\" href=\"{0}\">{1}</a></span> - <span class=\"conferencedate\">{2}</span> - <span class=\"conferencelocation\">{3}</span></li>'
 template_panel_list_item = '<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
+template_panel_with_recording_list_item = '<li><span class=\"talk-title\"><a class=\"outbound\" href=\"$url\">$name</a></span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
 template_lab_list_item = '<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
 template_talk_list_item = '<li><a href="$file"><span class=\"talk-title\">$name</span></a></li>'
 format_featured_talk_list_item = '<li><a href="{0}"><span class=\"talk-title\">{1}</span></a><div class="talk-description">{2}</div></li>'
@@ -96,7 +97,10 @@ for conference in panels:
 		if is_panel(talk):
 			talk_date = common.get_talk_date(talk)
 			talk_name = talk['talk']
-			index_page['panels'].append({'date': talk_date, 'name': talk_name, 'conference': conference_name})
+			panel_info = {'date': talk_date, 'name': talk_name, 'conference': conference_name}
+			if 'recording-url' in talk:
+				panel_info['url'] = talk['recording-url']
+			index_page['panels'].append(panel_info)
 
 for conference in labs:
 	conference_name = conference['conference']
@@ -121,9 +125,13 @@ if len(index_page['panels']) > 0:
 	panel_strings = []
 	#add city and conference URL?
 	listring = string.Template(template_panel_list_item)
+	linklistring = string.Template(template_panel_with_recording_list_item)	
 	for panel in sorted_panels:
 		panel['datestring'] = panel['date'].strftime("%B %d, %Y")
-		panel_strings.append(listring.substitute(panel))
+		if 'url' not in panel:
+			panel_strings.append(listring.substitute(panel))
+		else:
+			panel_strings.append(linklistring.substitute(panel))
 	panel_list_string = '\n'.join(panel_strings)
 
 #generate lis for the labs

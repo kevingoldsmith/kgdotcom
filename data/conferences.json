@@ -175,7 +175,6 @@
 				"talk-type": "panel",
 				"date": "2009-11-20",
 				"talk-description": "",
-				"recording-url": "https://www.youtube.com/watch?v=7U3cO3h8Pao",
 				"length": 90,
 				"location": {
 					"venue": "Oregon Convention Center",
@@ -2082,7 +2081,7 @@
 				"talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "keynote",
 				"talk-url": "https://www.kevingoldsmith.com/talks/organization-architecture-autonomy-and-accountability.html",
-				"recording-url": "https://youtu.be/2XIXudSQymQ",
+				"recording-url": "https://youtu.be/cIOqAIY8erA",
 				"date": "2019-05-21",
 				"slides-url":"https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability",
 				"talk-description": "<p>Many consider agile a process to implement within an existing organization. A set of rules to follow that will produce some useful outcomes. This approach can provide improvements in many different structures of organizations. As agile maturity improves, however, the benefits can become limited by the structure and culture of the organization itself.</p><p>Agile is more than a framework for organizing tasks for a team. Agile is a culture, a mindset and a structure for improving the velocity of innovation and providing real business value to customers. To gain the most benefit from Agile it must be considered as part of a more extensive system that incorporates organizational structure, software architecture, and company culture.</p><p>This talk considers the interactions between how the work, the software, and the people are organized in high performing agile organizations. Using my own experiences at companies large and small, I will share what I have learned and some best practices I use. These lessons will help you as you improve and scale your Agile teams.</p><p>I will discuss:</p><ul><li>How to structure your organization to remove the bottlenecks in coordination and decision-making that can slow velocity to a crawl</li><li>How to take advantage of modern systems architectures to allow teams to move faster</li><li>Using data to provide accountability for autonomous teams without creating more process</li></ul><p>By the end, you will have concrete examples and ideas that you can bring back to your team to help you improve and scale agile within your organization.</p>",
@@ -2448,11 +2447,28 @@
 		"url": "https://community.codemotion.com/codemotion-eu/meetups/codemotion-meetup-the-spotify-model-is-dead-long-live-the-spotify-model",
 		"talks": [
 			{
+<<<<<<< HEAD
 				"talk": "Codemotion Meetup - Building performing team The Spotify model is dead - long live the Spotify model",
 				"talk-type": "panel",
 				"talk-description": "<p>The technology industry is broad and varied, and different teams need to be arranged in different ways to perform at their best. But what team structures work best? And when do they stop working? And how do we notice?</p><p>In this session we will expand on those questions, and we’ll hear about the challenges our panelists encountered in their experiences building performing teams. We’ll discuss pros and cons of the different approaches, and we’ll discover what makes a team structure the best option for our teams.</p>",
 				"date": "2020-06-25",
 				"length": 90
+=======
+				"talk": "Codemotion Meetup - Building performing teams: The Spotify model is dead - long live the Spotify model",
+				"talk-type": "panel",
+				"talk-description": "<p>The technology industry is broad and varied, and different teams need to be arranged in different ways to perform at their best. But what team structures work best? And when do they stop working? And how do we notice?</p><p>In this session we will expand on those questions, and we’ll hear about the challenges our panelists encountered in their experiences building performing teams. We’ll discuss pros and cons of the different approaches, and we’ll discover what makes a team structure the best option for our teams.</p>",
+				"date": "2020-06-25",
+				"length": 90,
+				"recording-url": "https://youtu.be/F3HDPyAsN8o",
+				"reactions":[
+					{
+						"quote": "Had a great time listening to @CodemotionWorld's presentation starring @pigiuz, @stalesya, @KevinGoldsmith and @daniel_gebler. They discussed the importance of team management and finding the right structures to maximize performance.",
+						"reference-url": "https://twitter.com/meetupfeed/status/1278715552773607425",
+						"credit": "Meetup Feed",
+						"credit-url": "https://twitter.com/meetupfeed"
+					}
+				]
+>>>>>>> 931fa8b412454a50ad11361011670cbdaf230943
 			}
 		]
 	},
@@ -2462,7 +2478,10 @@
 		"talks": [
 			{
 				"talk": "Organizing your Team for Autonomy",
+				"root-talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "talk",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability-2020/kevingoldsmith/organization-architecture-autonomy-and-accountability-2020",
+				"recording-url": "https://youtu.be/gbMK8ijTCZs",
 				"talk-description": "During this session, Kevin will discuss the importance of building autonomous engineering teams and how to effectively lead autonomous teams to drive user value in your organization.",
 				"date": "2020-06-30",
 				"length": 90
@@ -2470,23 +2489,27 @@
 		]
 	},
 	{
-		"conference": "Xpand Conference",
-		"url": "http://www.xpandconf.com/",
+		"conference": "The Live Series Round Table",
 		"talks": [
 			{
-				"talk": "How Does Salary Work?",
-				"talk-type": "keynote",
-				"talk-description": "<p>You make a hire for your team. The person wants 20% more than anyone else. Should you give it to them?</p><p>Your manager gives you a 5% raise budget for your team. Do you give them all 5% or give one person 15% and the rest 1%?</p><p>You think you are giving a great raise to one of your top performers, but they let you know that they expected much more.</p><p>A person on your team approaches you because they got a job offer for 10% more than their current salary. Should you try to match it?</p><p>The management debt that gets accrued by poor decisions around salary is extremely painful to fix. In this talk, I will give you the tools and ideas that you can use to be well prepared for the next salary review. I will help you avoid accruing management debt around pay in your team.</p><p>How is the salary budget calculated? How you can argue for the extra budget to adjust someone that is not being paid well. Where you can find extra money to make a meaningful difference for someone. Why sometimes it is better to do no raise at all, then do a small one. How you handle the conversation when someone isn't happy with their increase. How do you decide what salary to offer a candidate? How can you make sure that you are not increasing pay disparity between different groups?</p><p>These are problems that Dev Leads face all the time. The impact of making a wrong decision is massive to an individual. The mistake of paying someone too little or too much can affect them for years.</p><p>Understanding how salary works helps you create a happier and healthier team.</p>",
-				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-does-salary-work-the-lead-developer-berlin-2019-extended-remix",
-				"date": "2020-09-05",
-				"length": 30,
-				"location": {
-					"venue": "Kempinski Hotel Amman Convention Center",
-					"address": "Abdul Hamid, ش. خالد شومان",
-					"city": "Amman",
-					"country": "JO",
-					"gps": [31.968659, 35.896990]
-				}
+				"talk": "Your Development Process is a Lie",
+				"talk-type": "panel",
+				"talk-description": "<p>Specifying or changing development processes can be like forcing a snake into a bottle: possible, but incredibly challenging. The business needs, culture, company structure and even customer expectations all feed into a complex dance. The result is more organically formed than planned. In this talk we aim to cover some of the challenges you might face, as well as the approaches that can allow for the best results to emerge.</p><p>Key topics of discussion:</p><ul><li>What if I said that \"process\" is a 4-letter word?</li><li>Who decides on the \"process\"?  What about workflow?</li><li>Where does your culture come in? How does it manifest?</li><li>What if you need to change the culture?</li><li>Things you would like to try out but haven't gotten around to</li></ul>",
+				"date": "2020-07-22",
+				"recording-url": "https://youtu.be/uGhPyMlAEJ8",
+				"length": 60
+			}
+		]
+	},
+	{
+		"conference": "Carnegie Mellon University Tech & Entrepeneurship Seattle Group: Speaker Series",
+		"talks": [
+			{
+				"talk": "CMU Alumni Journey: Kevin Goldsmith",
+				"talk-type": "talk",
+				"talk-description": "Kevin Goldsmith shares his career journey from his graduation from Carnegie Mellon to today.",
+				"date": "2020-08-12",
+				"length": 60
 			}
 		]
 	},
@@ -2497,7 +2520,7 @@
 			{
 				"talk": "Using Agile Techniques to Build a More Inclusive Team",
 				"talk-type": "keynote",
-				"date": "2020-09-07",
+				"date": "2020-09-08",
 				"talk-description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. The agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued.",
 				"length": 30,
 				"location": {
@@ -2512,7 +2535,7 @@
 			{
 				"talk": "Architecture and Organization",
 				"talk-type": "talk",
-				"date": "2020-09-09",
+				"date": "2020-09-08",
 				"talk-description": "Drawing on real-life examples from Avvo, Spotify, Adobe and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures. Kevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed. Kevin relates his own journey to a more experimental organizational style. As a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance. When Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and agile architecture for its products, but the company struggled to realize these goals because it was it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled. Kevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome. When Kevin joined Avvo as its CTO, the company had the same organization and architectural challenges as many other startups, but rather than attack them only from an architectural angle, Avvo experimented with architecture and organization together to improve its legacy systems and help build new ones faster and with higher quality.",
 				"length": 30,
 				"location": {
@@ -2535,6 +2558,31 @@
 				"talk-type": "talk",
 				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high. Over the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster. In this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Onfido, Adobe, Spotify, and Avvo; and I give real architectural, cultural, and organizational tools you can use to make your projects and company more failure safe.",
 				"date": "2020-09-12"
+			}
+		]
+	},
+	{
+		"conference": "LeadDev Together",
+		"url": "https://together.leaddev.com/programme/building-motivation",
+		"talks": [
+			{
+				"talk": "Crafting a mission and vision for your team",
+				"talk-type": "talk",
+				"length": 15,
+				"talk-description": "<p>As you progress in seniority as a leader, the time horizon of your work progressively gets longer. Rather than aligning around week-to-week or month-to-month deliverables, the work changes to gaining alignment and maintaining focus for goals that sit further in the future. Well-crafted team mission and vision statements help create that alignment.</p><p>This talk will discuss the value of a clear mission and vision, creating mission and vision artifacts in an inclusive way for teams of different sizes, socializing them to the broader organization, and knowing when it is time to update them.</p>",
+				"date": "2020-09-15"
+			}
+		]
+	},
+	{
+		"conference": "Agile by Example",
+		"url": "https://agilebyexample.com/",
+		"talks": [
+			{
+				"talk": "You Are Doing Autonomy Wrong",
+				"talk-type": "talk",
+				"talk-description": "<p>The idea of creating autonomous teams has been trending for a few years now. It is now considered one of the tenets of mature agile organizations.</p><p>In theory, autonomous teams move faster because they don't have to synchronize with other groups as much or wait to get approval for their decisions. They don't have to wait for direction. Autonomous teams should also be happier; autonomy being one of the three pillars of driving motivation in individuals.</p><p>In practice, many leads and their managers confuse autonomy with being completely \"hands-off.\" Failed projects, buggy releases, or other issues are often the result of not understanding how team autonomy should work.</p>",
+				"date": "2020-10-05"
 			}
 		]
 	},
@@ -2578,6 +2626,27 @@
 					"country": "PT",
 					"postal code": "1070-051",
 					"gps":[38.729142, -9.151797]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Xpand Conference",
+		"url": "http://www.xpandconf.com/",
+		"talks": [
+			{
+				"talk": "How Does Salary Work?",
+				"talk-type": "keynote",
+				"talk-description": "<p>You make a hire for your team. The person wants 20% more than anyone else. Should you give it to them?</p><p>Your manager gives you a 5% raise budget for your team. Do you give them all 5% or give one person 15% and the rest 1%?</p><p>You think you are giving a great raise to one of your top performers, but they let you know that they expected much more.</p><p>A person on your team approaches you because they got a job offer for 10% more than their current salary. Should you try to match it?</p><p>The management debt that gets accrued by poor decisions around salary is extremely painful to fix. In this talk, I will give you the tools and ideas that you can use to be well prepared for the next salary review. I will help you avoid accruing management debt around pay in your team.</p><p>How is the salary budget calculated? How you can argue for the extra budget to adjust someone that is not being paid well. Where you can find extra money to make a meaningful difference for someone. Why sometimes it is better to do no raise at all, then do a small one. How you handle the conversation when someone isn't happy with their increase. How do you decide what salary to offer a candidate? How can you make sure that you are not increasing pay disparity between different groups?</p><p>These are problems that Dev Leads face all the time. The impact of making a wrong decision is massive to an individual. The mistake of paying someone too little or too much can affect them for years.</p><p>Understanding how salary works helps you create a happier and healthier team.</p>",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-does-salary-work-the-lead-developer-berlin-2019-extended-remix",
+				"date": "2021-06-01",
+				"length": 30,
+				"location": {
+					"venue": "Kempinski Hotel Amman Convention Center",
+					"address": "Abdul Hamid, ش. خالد شومان",
+					"city": "Amman",
+					"country": "JO",
+					"gps": [31.968659, 35.896990]
 				}
 			}
 		]
