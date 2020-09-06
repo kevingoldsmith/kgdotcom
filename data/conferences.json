@@ -2444,6 +2444,19 @@
 		]
 	},
 	{
+		"conference": "{Codemotion} Online meetup",
+		"url": "https://community.codemotion.com/codemotion-eu/meetups/codemotion-meetup-the-spotify-model-is-dead-long-live-the-spotify-model",
+		"talks": [
+			{
+				"talk": "Codemotion Meetup - Building performing team The Spotify model is dead - long live the Spotify model",
+				"talk-type": "panel",
+				"talk-description": "<p>The technology industry is broad and varied, and different teams need to be arranged in different ways to perform at their best. But what team structures work best? And when do they stop working? And how do we notice?</p><p>In this session we will expand on those questions, and we’ll hear about the challenges our panelists encountered in their experiences building performing teams. We’ll discuss pros and cons of the different approaches, and we’ll discover what makes a team structure the best option for our teams.</p>",
+				"date": "2020-06-25",
+				"length": 90
+			}
+		]
+	},
+	{
 		"conference": "Managing Software Teams in Seattle",
 		"url": "https://www.eventbrite.com/e/managing-software-teams-in-seattle-topic-autonomous-teams-tickets-99318640728",
 		"talks": [
