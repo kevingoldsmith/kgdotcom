@@ -2558,7 +2558,7 @@
 		"url": "https://together.leaddev.com/programme/building-motivation",
 		"talks": [
 			{
-				"talk": "Crafting a mission and vision for your team",
+				"talk": "Crafting a Mission and Vision for Your Team",
 				"talk-type": "talk",
 				"length": 15,
 				"talk-description": "<p>As you progress in seniority as a leader, the time horizon of your work progressively gets longer. Rather than aligning around week-to-week or month-to-month deliverables, the work changes to gaining alignment and maintaining focus for goals that sit further in the future. Well-crafted team mission and vision statements help create that alignment.</p><p>This talk will discuss the value of a clear mission and vision, creating mission and vision artifacts in an inclusive way for teams of different sizes, socializing them to the broader organization, and knowing when it is time to update them.</p>",
@@ -2601,28 +2601,6 @@
 		]
 	},
 	{
-		"conference": "Pixels Camp",
-		"url": "https://pixels.camp/",
-		"talks":[
-			{
-				"talk": "Do I know you? Identity on the Internet and the Question of Trust",
-				"talk-type": "talk",
-				"slides-url": "https://www.slideshare.net/kevingoldsmith/do-i-know-you-identity-on-the-internet-and-the-question-of-trust",
-				"talk-description": "<p>We continue to build products allowing our customers to do more things online. While bringing convenience, it also raises the stakes of fraud, for our customers and our companies. The democratization of technology means that those intending to commit fraud can take advantage of some amazingly sophisticated tools. Consumers and governments have little trust in technology due to the questionable ethics of some of the biggest players in the industry.</p><p>Identity online continues to evolve; governments, businesses, the open source community, and grassroots organizations are all evolving how we validate, protect, and secure our identity. Whether your software is targeted towards businesses or consumers, if you are in a regulated vertical or a non-regulated one, or if you have customers in multiple countries or just one, how you ethically manage customer identity will be crucial to your product’s success (or existence).</p><p>In this talk, I cover the evolution of identity of the internet, from a product development perspective. I talk about the things you should be aware of when building software today, and the things you should pay attention to for the future.</p>",
-				"date": "2020-11-26",
-				"length": 45,
-				"location":{
-					"venue": "Pavilhä0 Carlos Lopes",
-					"address": "Av. Sidónio Pais 16",
-					"city": "Lisboa",
-					"country": "PT",
-					"postal code": "1070-051",
-					"gps":[38.729142, -9.151797]
-				}
-			}
-		]
-	},
-	{
 		"conference": "2021 tech leadership conference",
 		"url": "https://www.developer-first.com/conference",
 		"talks": [
@@ -2630,6 +2608,22 @@
 				"talk": "Developing Your Developers: Constructing Career Paths for your Technologists",
 				"talk-type": "talk",
 				"talk-description": "<p>Everyone knows that career development is a critical part of employee retention. Many companies put little effort into how they build their career development frameworks for their software engineering teams. Startups especially are moving so fast and don’t want to exert effort on things that don’t meaningfully push the business forward. Companies will often borrow liberally from other companies with little thought to the impact on their organization.</p><p>How you construct development paths in your company can support and deepen your company values. It can be a competitive differentiator for attracting talent and retaining your best employees.</p><p>Where and how do you start? What pitfalls do you need to avoid? How do you roll out your framework, and how do you update it over time? How can technology and people team leaders cooperate in the creation of a career pathing plan?</p><p>This talk answers those questions using the real experience and lessons learned from building career frameworks at Spotify, Avvo, and Onfido. Three very different companies with different cultures, but a shared understanding of the importance of career development for their employees.</p>",
+				"date": "2021-05-07",
+				"length": 45,
+				"location": {
+					"venue": "Minneapolis Marriott Southwest",
+					"address": "5801 Opus Pkwy",
+					"city": "Minnetonka",
+					"state": "MN",
+					"country": "US",
+					"postal code": "55343",
+					"gps":[44.897625, -93.406018]
+				}
+			},
+			{
+				"talk": "When/Why/How to Stop Coding as your Day Job",
+				"talk-type": "talk",
+				"talk-description": "<p>Many, if not most of us, started as developers. We learned and perfected our craft and were proud of our coding accomplishments. It was what defined us.</p><p>Moving into the Lead role means taking on new responsibilities. Some are technical. Many are not.</p><p>As you progress in leadership, more and more of your responsibilities have less and less to do with coding. Many of us, including me, struggle with giving up coding when it is no longer our primary responsibility. Adapting to this new reality is one of the biggest challenges that I have seen leads face as they move into managing larger teams.</p><p>When is it time to make coding your hobby instead of your job? How do you do it? Where do you find that quick hit of dopamine that is gone when you can't mark a bug as fixed or get rid of that compilation error?</p><p>This talk is all about embracing the joys and challenges of people leadership while staying credible as a technical professional, and what it means to be a leader in a technical organization. The talk discusses how you can remain a technical resource for your team, even when you aren't deep in the code.</p><p>This talk will give you a potential path to follow in your development. It will make you more confident about your new technical leadership career, even if you are still a coding lead.</p>",
 				"date": "2021-05-07",
 				"length": 45,
 				"location": {
