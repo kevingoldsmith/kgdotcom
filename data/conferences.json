@@ -2567,6 +2567,17 @@
 		]
 	},
 	{
+		"conference": "BP Launchpad Guest Speaker Series",
+		"talks": [
+			{
+				"talk": "Fireside Chat with Kevin Goldsmith",
+				"talk-type": "panel",
+				"length": 60,
+				"date": "2020-09-17"
+			}
+		]
+	},
+	{
 		"conference": "Agile by Example",
 		"url": "https://agilebyexample.com/",
 		"talks": [
