@@ -238,6 +238,16 @@
 	"date": "2018-05-29"
 },
 {
+	"name": "Articles for the Pixel Bender Developer Center",
+	"url": "https://www.adobe.com/devnet/archive/pixelbender.html",
+	"description": "A collection of articles for developers to help them understand and learn the Pixel Bender language created by my team at Adobe.",
+	"tags": [
+		"Adobe",
+		"Software Development"
+	],
+	"date": "2010-01-11"
+},
+{
 	"name": "",
 	"url": "",
 	"description": "",

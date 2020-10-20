@@ -2562,7 +2562,8 @@
 				"talk-type": "talk",
 				"length": 15,
 				"talk-description": "<p>As you progress in seniority as a leader, the time horizon of your work progressively gets longer. Rather than aligning around week-to-week or month-to-month deliverables, the work changes to gaining alignment and maintaining focus for goals that sit further in the future. Well-crafted team mission and vision statements help create that alignment.</p><p>This talk will discuss the value of a clear mission and vision, creating mission and vision artifacts in an inclusive way for teams of different sizes, socializing them to the broader organization, and knowing when it is time to update them.</p>",
-				"date": "2020-09-15"
+				"date": "2020-09-15",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/crafting-a-mission-and-vision-for-your-team/"
 			}
 		]
 	},
@@ -2584,8 +2585,10 @@
 			{
 				"talk": "You Are Doing Autonomy Wrong",
 				"talk-type": "talk",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/you-are-doing-autonomy-wrong/",
 				"talk-description": "<p>The idea of creating autonomous teams has been trending for a few years now. It is now considered one of the tenets of mature agile organizations.</p><p>In theory, autonomous teams move faster because they don't have to synchronize with other groups as much or wait to get approval for their decisions. They don't have to wait for direction. Autonomous teams should also be happier; autonomy being one of the three pillars of driving motivation in individuals.</p><p>In practice, many leads and their managers confuse autonomy with being completely \"hands-off.\" Failed projects, buggy releases, or other issues are often the result of not understanding how team autonomy should work.</p>",
-				"date": "2020-10-05"
+				"date": "2020-10-06",
+				"length": 45
 			}
 		]
 	},
@@ -2598,7 +2601,7 @@
 				"talk-type": "talk",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/do-i-know-you-identity-on-the-internet-and-the-question-of-trust",
 				"talk-description": "<p>We continue to build products allowing our customers to do more things online. While bringing convenience, it also raises the stakes of fraud, for our customers and our companies. The democratization of technology means that those intending to commit fraud can take advantage of some amazingly sophisticated tools. Consumers and governments have little trust in technology due to the questionable ethics of some of the biggest players in the industry.</p><p>Identity online continues to evolve; governments, businesses, the open source community, and grassroots organizations are all evolving how we validate, protect, and secure our identity. Whether your software is targeted towards businesses or consumers, if you are in a regulated vertical or a non-regulated one, or if you have customers in multiple countries or just one, how you ethically manage customer identity will be crucial to your product’s success (or existence).</p><p>In this talk, I cover the evolution of identity of the internet, from a product development perspective. I talk about the things you should be aware of when building software today, and the things you should pay attention to for the future.</p>",
-				"date": "2020-10-15",
+				"date": "2020-10-16",
 				"length": 45,
 				"location":{
 					"venue": "NH Hotel Munich",
@@ -2608,6 +2611,19 @@
 					"postal code": "85609",
 					"gps":[48.147141, 11.687352]
 				}
+			}
+		]
+	},
+	{
+		"conference": "Rio de Janeiro Cloud Conference Day",
+		"url": "https://cloudconferenceday.com/",
+		"talks": [
+			{
+				"talk": "Architecture and Organization",
+				"talk-type": "talk",
+				"talk-description": "<p>Drawing on real-life examples from Avvo, Spotify, Adobe, and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures.</p><p>Kevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed.</p><p>Kevin relates his own journey to a more experimental organizational style. As a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance.</p><p>When Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and agile architecture for its products, but the company struggled to realize these goals because it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled.</p><p>Kevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome.</p><p>When Kevin joined Avvo as its CTO, the company had the same organization and architectural challenges as many other startups, but rather than attack them only from an architectural angle, Avvo experimented with architecture and organization together to improve its legacy systems and help build new ones faster and with higher quality.</p>",
+				"date": "2020-10-17",
+				"length": 60
 			}
 		]
 	},
