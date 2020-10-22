@@ -38,6 +38,14 @@
 	},
 	"work": [
 		{
+			"company": "Anaconda",
+			"location": "Austin, TX (remote)",
+			"position": "Chief Technology Officer",
+			"website": "https://www.anaconda.com/",
+			"startDate": "2020-10-05",
+			"summary": "Oversee innovation for Anaconda’s current open-source and commercial offerings, as well as develop new solutions to bring data science practitioners together with innovators, vendors, and thought leaders in the industry."
+		},
+		{
 			"company": "Nimble Autonomy, LLC",
 			"location": "Mercer Island, WA",
 			"position": "Founder/Principal",

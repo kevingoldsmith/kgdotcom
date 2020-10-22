@@ -2628,6 +2628,32 @@
 		]
 	},
 	{
+		"conference": "DeveloperWeek Global Enterprise",
+		"url": "https://www.developerweek.com/global/conference/enterprise/",
+		"talks": [
+			{
+				"talk": "Organization, Architecture, Autonomy and Accountability",
+				"talk-type": "talk",
+				"talk-description": "<p>Many consider agile a process to implement within an existing organization. A set of rules to follow that will produce some useful outcomes. This approach can provide improvements in many different structures of organizations. As agile maturity improves, however, the benefits can become limited by the structure and culture of the organization itself.</p><p>Agile is more than a framework for organizing tasks for a team. Agile is a culture, a mindset, and a structure for improving the velocity of innovation and providing real business value to customers. To gain the most benefit from Agile it must be considered as part of a more extensive system that incorporates organizational structure, software architecture, and company culture.</p><p>This talk considers the interactions between how the work, the software, and the people are organized in high performing agile organizations. Using my own experiences at companies large and small, I will share what I have learned and some best practices I use. These lessons will help you as you improve and scale your Agile teams.</p><p>I will discuss:</p><ul><li>How to structure your organization to remove the bottlenecks in coordination and decision-making that can slow velocity to a crawl</li><li>How to take advantage of modern systems architectures to allow teams to move faster</li><li>Using data to provide accountability for autonomous teams without creating more process</li></ul><p>By the end, you will have concrete examples and ideas that you can bring back to your team to help you improve and scale agile within your organization.</p>",
+				"date": "2020-11-10",
+				"length": 25
+			}
+		]
+	},
+	{
+		"conference": "LeadDev: Strategies for creating cultures of innovation in engineering teams",
+		"url": "https://leaddev.com/events/strategies-creating-cultures-innovation-engineering-teams",
+		"talks": [
+			{
+				"talk": "Strategies for creating cultures of innovation in engineering teams",
+				"talk-type":"panel (chair)",
+				"talk-description": "<p>How can exploration, research, and experimentation help your team lead the way?</p><p>With competition increasing at a more rapid rate than ever, companies need to innovate to remain viable. But innovation isn’t just a technical problem, it’s also a human one. And if a safe environment hasn’t been established, engineers are less likely to do the inherently risky work that innovation requires.</p><p>In this panel, we’ll take a look at the requirements of building a culture of innovation. We’ll consider the effects of exploration, research, and experimentation; how to ensure that all voices are listened to regardless of seniority or experience; and how to create spaces that allow failure without critique.</p>",
+				"date": "2020-11-11",
+				"length": 60
+			}
+		]
+	},
+	{
 		"conference": "2021 tech leadership conference",
 		"url": "https://www.developer-first.com/conference",
 		"talks": [
