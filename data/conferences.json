@@ -2585,6 +2585,7 @@
 			{
 				"talk": "You Are Doing Autonomy Wrong",
 				"talk-type": "talk",
+				"recording-url": "https://youtu.be/-s8bYtZxkhA",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/you-are-doing-autonomy-wrong/",
 				"talk-description": "<p>The idea of creating autonomous teams has been trending for a few years now. It is now considered one of the tenets of mature agile organizations.</p><p>In theory, autonomous teams move faster because they don't have to synchronize with other groups as much or wait to get approval for their decisions. They don't have to wait for direction. Autonomous teams should also be happier; autonomy being one of the three pillars of driving motivation in individuals.</p><p>In practice, many leads and their managers confuse autonomy with being completely \"hands-off.\" Failed projects, buggy releases, or other issues are often the result of not understanding how team autonomy should work.</p>",
 				"date": "2020-10-06",
