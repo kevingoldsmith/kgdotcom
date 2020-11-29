@@ -87,6 +87,11 @@ def format_keynote_list(conferences):
 	for conference in conferences:
 		for talk in conference['talks']:
 			if talk['talk-type'] == 'keynote':
+				if not 'talk-url' in talk:
+					talk_path = os.path.join('talks', generate_filename(talk['root-talk'] if 'root-talk' in talk else talk['talk'])) + '.html'
+					print(talk_path)
+					if os.path.exists(os.path.join(get_output_directory(debug_mode),talk_path)):
+						talk['talk-url'] = talk_path
 				d = dict(
 					talk=format_talk_with_link.format(**dict(talk_url=talk['talk-url'], talk=talk['talk'])) if 'talk-url' in talk else talk['talk'],
 					conference=format_conference_with_link.format(**dict(conference_url=conference['url'],conference_name=conference['conference'])) if 'url' in conference else conference['conference'],

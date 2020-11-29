@@ -3,6 +3,7 @@
 import os
 import pycountry
 from datetime import date
+import string
 
 def get_output_directory(debug=False):
 	debug_output_directory = 'testoutput/'
@@ -94,3 +95,16 @@ def check_for_missing_values(original, new):
 	for key in original.keys():
 		if (key in ['description', 'title', 'presentationlist']) and (original[key] == new[key]):
 			print("\tWARNING: {0} has default value".format(key))
+
+
+# thanks lazyweb
+# https://stackoverflow.com/questions/295135/turn-a-string-into-a-valid-filename
+def generate_filename(filename):
+	filename = filename.replace(' ', '-')
+	filename = filename.replace('@', 'at')
+	#cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
+	cleanedFilename = filename
+	valid_filename_chars = "-_%s%s" % (string.ascii_letters, string.digits)
+	newFilename = ''.join(c for c in cleanedFilename if c in valid_filename_chars)
+	newFilename = newFilename.replace('--', '-')
+	return newFilename.lower()

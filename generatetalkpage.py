@@ -79,19 +79,6 @@ def get_embed_code_from_slides_URL(slides_url):
 		return bs.iframe.prettify()
 
 
-# thanks lazyweb
-# https://stackoverflow.com/questions/295135/turn-a-string-into-a-valid-filename
-def generate_filename(filename):
-	filename = filename.replace(' ', '-')
-	filename = filename.replace('@', 'at')
-	#cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
-	cleanedFilename = filename
-	valid_filename_chars = "-_%s%s" % (string.ascii_letters, string.digits)
-	newFilename = ''.join(c for c in cleanedFilename if c in valid_filename_chars)
-	newFilename = newFilename.replace('--', '-')
-	return newFilename.lower()
-
-
 #get the talk page template
 with open('templates/talk-page-template.html') as f:
 	talkpagetemplate = string.Template(f.read())
@@ -102,7 +89,7 @@ with open('data/pagevariables.json') as f:
 
 def generate_talk_page(talk_index, conferences, output_directory, index_page, debug_mode):
 	talktitle = talk_index
-	filetitle = generate_filename(talktitle)
+	filetitle = common.generate_filename(talktitle)
 	outputfilename = filetitle + '.html'
 	filepath = output_directory + filetitle + '.html'
 
