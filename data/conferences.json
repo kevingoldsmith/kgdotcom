@@ -2655,6 +2655,19 @@
 		]
 	},
 	{
+		"conference": "LeadDev Live",
+		"url": "https://leaddev.com/course/leaddev-live",
+		"talks": [
+			{
+				"talk": "Presenting to executives",
+				"talk-type": "talk",
+				"talk-description": "<p>Presenting to executives at your company is different than giving a presentation to your team, other teams, at a meetup, a conference, or customers.</p><p>When asked to present to a group of senior leaders from your company, you need to structure your presentation differently, prepare differently, and communicate differently than when speaking to other audiences. </p><p>Positive exposure with senior leaders in an organization is valuable for career advancement. It is an excellent opportunity.</p><p>This talk presents some concrete strategies for planning your presentation, preparing the attendees, handling unexpected questions, going down rabbit holes, driving the attendees to a decision (if that is your goal), and following up afterward.</p>",
+				"date": "2021-01-21",
+				"length": 20
+			}
+		]
+	},
+	{
 		"conference": "2021 tech leadership conference",
 		"url": "https://www.developer-first.com/conference",
 		"talks": [
