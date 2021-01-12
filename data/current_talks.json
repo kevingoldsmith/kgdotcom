@@ -1,5 +1,9 @@
 [
 	{
+		"talk": "When/Why/How to Stop Coding as your Day Job",
+		"description": "<p>Many, if not most of us, started as developers. We learned and perfected our craft and were proud of our coding accomplishments. It was what defined us.</p><p>Moving into the Lead role means taking on new responsibilities. Some are technical. Many are not.</p><p>As you progress in leadership, more and more of your responsibilities have less and less to do with coding. Many of us, including me, struggle with giving up coding when it is no longer our primary responsibility. Adapting to this new reality is one of the biggest challenges that I have seen leads face as they move into managing larger teams.</p><p>When is it time to make coding your hobby instead of your job? How do you do it? Where do you find that quick hit of dopamine that is gone when you can't mark a bug as fixed or get rid of that compilation error?</p><p>This talk is all about embracing the joys and challenges of people leadership while staying credible as a technical professional, and what it means to be a leader in a technical organization. The talk discusses how you can remain a technical resource for your team, even when you aren't deep in the code.</p><p>This talk will give you a potential path to follow in your development. It will make you more confident about your new technical leadership career, even if you are still a coding lead.</p>"
+	},
+	{
 		"talk": "Do I know you? Identity on the Internet and the Question of Trust",
 		"description": "The internet has an identity crisis. How do you know that the person interacting with your product is who they claim to be? How can you be sure that they are a person at all? This is a talk about the evolution of identity on the internet, from a product development perspective. An overview of the things you should be aware of around digital identity when building software today, and the things you should pay attention to for the future."
 	},

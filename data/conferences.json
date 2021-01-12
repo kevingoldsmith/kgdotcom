@@ -2668,6 +2668,26 @@
 		]
 	},
 	{
+		"conference": "ConFoo Montreal",
+		"url": "https://confoo.ca/",
+		"talks": [
+			{
+				"talk": "When, Why and How to Stop Coding as Your Day Job",
+				"talk-type": "talk",
+				"talk-description": "<p>Many, if not most of us, started as developers. We learned and perfected our craft and were proud of our coding accomplishments. It was what defined us.</p><p>As you progress in leadership, more and more of your responsibilities have less and less to do with coding. When is it time to make coding your hobby instead of your job? How do you do it?</p><p>This talk is all about embracing the challenges of leading people while staying technically credible.</p>",
+				"date": "2021-02-24",
+				"length": 45
+			},
+			{
+				"talk": "Do I know you? Identity on the Internet and the Question of Trust",
+				"talk-type": "talk",
+				"talk-description": "The internet has an identity crisis. How do you know that the person interacting with your product is who they claim to be? How can you be sure that they are a person at all? This is a talk about the evolution of identity on the internet, from a product development perspective. An overview of the things you should be aware of around digital identity when building software today, and the things you should pay attention to for the future.",
+				"date": "2021-02-25",
+				"length": 45
+			}
+		]
+	},
+	{
 		"conference": "2021 tech leadership conference",
 		"url": "https://www.developer-first.com/conference",
 		"talks": [

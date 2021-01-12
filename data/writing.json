@@ -1,5 +1,28 @@
 [
 	{
+		"name": "Building a vernacular with your engineering team",
+		"url": "https://leaddev.com/communication-relationships/building-vernacular-your-engineering-team",
+		"description": "<p>Whether written or spoken, words are essential – both the general terms we use and those specific to our work.</p><p>The terms and phrases that are specific to our jobs or our companies create a vernacular.</p>",
+		"date": "2021-01-08",
+		"tags": [
+			"Leadership",
+			"Engineering Culture"
+		]
+	},
+	{
+		"name": "Fail Safe, Fail Smart, Succeed!",
+		"url": "https://medium.com/nimble-autonomy/fail-safe-fail-smart-succeed-abda7fda13b6",
+		"description": "This article is about failure and everything I’ve learned from 28 years of failing (and succeeding) in the technology industry. Its basis is my talk of the same name that I first gave in 2015.",
+		"date": "2020-12-30",
+		"tags": [
+			"Agile",
+			"Leadership",
+			"Organizational Design",
+			"Spotify",
+			"Engineering Culture"
+		]
+	},
+	{
 		"name": "Succession for Scale",
 		"url": "https://nimbleautonomy.com/articles/succession-for-scale.html",
 		"description": "Build a culture that recognizes succession planning is critical not just for people leaving for other companies, but to help scale the company. Succession planning for scale requires looking outside the company as opposed to growing from within.",
@@ -37,7 +60,8 @@
 		"tags": [
 			"Agile",
 			"Hiring",
-			"Organizational Design"
+			"Organizational Design",
+			"Engineering Culture"
 		],
 		"date": "2020-06-22"
 	},
@@ -50,7 +74,8 @@
 			"Management",
 			"Avvo",
 			"Hiring",
-			"Diversity"
+			"Diversity",
+			"Engineering Culture"
 		],
 		"date": "2020-06-12"
 	},
@@ -103,7 +128,8 @@
 	"tags": [
 		"Leadership",
 		"Organizational Design",
-		"Avvo"
+		"Avvo",
+		"Engineering Culture"
 	],
 	"date": "2018-12-09"
 },
@@ -135,7 +161,8 @@
 	"tags": [
 		"Management",
 		"Leadership",
-		"Avvo"
+		"Avvo",
+		"Engineering Culture"
 	],
 	"date": "2017-10-05"
 },
@@ -147,7 +174,8 @@
 		"Management",
 		"Leadership",
 		"Spotify",
-		"Organizational Design"
+		"Organizational Design",
+		"Engineering Culture"
 	],
 	"date": "2014-03-14"
 },
@@ -160,7 +188,8 @@
 		"Spotify",
 		"Organizational Design",
 		"Leadership",
-		"Management"
+		"Management",
+		"Engineering Culture"
 	],
 	"date": "2015-03-23"
 },
@@ -253,7 +282,8 @@
 		"Agile",
 		"Leadership",
 		"Organizational Design",
-		"Strategy"
+		"Strategy",
+		"Engineering Culture"
 	],
 	"date": "2018-05-29"
 },
