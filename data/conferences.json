@@ -2636,6 +2636,7 @@
 				"talk": "Organization, Architecture, Autonomy and Accountability",
 				"talk-type": "talk",
 				"talk-description": "<p>Many consider agile a process to implement within an existing organization. A set of rules to follow that will produce some useful outcomes. This approach can provide improvements in many different structures of organizations. As agile maturity improves, however, the benefits can become limited by the structure and culture of the organization itself.</p><p>Agile is more than a framework for organizing tasks for a team. Agile is a culture, a mindset, and a structure for improving the velocity of innovation and providing real business value to customers. To gain the most benefit from Agile it must be considered as part of a more extensive system that incorporates organizational structure, software architecture, and company culture.</p><p>This talk considers the interactions between how the work, the software, and the people are organized in high performing agile organizations. Using my own experiences at companies large and small, I will share what I have learned and some best practices I use. These lessons will help you as you improve and scale your Agile teams.</p><p>I will discuss:</p><ul><li>How to structure your organization to remove the bottlenecks in coordination and decision-making that can slow velocity to a crawl</li><li>How to take advantage of modern systems architectures to allow teams to move faster</li><li>Using data to provide accountability for autonomous teams without creating more process</li></ul><p>By the end, you will have concrete examples and ideas that you can bring back to your team to help you improve and scale agile within your organization.</p>",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/organization-architecture-autonomy-and-accountability-2020",
 				"date": "2020-11-10",
 				"length": 25
 			}
@@ -2663,6 +2664,7 @@
 				"talk-type": "talk",
 				"talk-description": "<p>Presenting to executives at your company is different than giving a presentation to your team, other teams, at a meetup, a conference, or customers.</p><p>When asked to present to a group of senior leaders from your company, you need to structure your presentation differently, prepare differently, and communicate differently than when speaking to other audiences. </p><p>Positive exposure with senior leaders in an organization is valuable for career advancement. It is an excellent opportunity.</p><p>This talk presents some concrete strategies for planning your presentation, preparing the attendees, handling unexpected questions, going down rabbit holes, driving the attendees to a decision (if that is your goal), and following up afterward.</p>",
 				"date": "2021-01-21",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/presenting-to-executives-243551142",
 				"length": 20
 			}
 		]
@@ -2675,14 +2677,16 @@
 				"talk": "When, Why and How to Stop Coding as Your Day Job",
 				"talk-type": "talk",
 				"talk-description": "<p>Many, if not most of us, started as developers. We learned and perfected our craft and were proud of our coding accomplishments. It was what defined us.</p><p>As you progress in leadership, more and more of your responsibilities have less and less to do with coding. When is it time to make coding your hobby instead of your job? How do you do it?</p><p>This talk is all about embracing the challenges of leading people while staying technically credible.</p>",
-				"date": "2021-02-24",
+				"date": "2021-02-25",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/when-why-and-how-to-stop-coding-as-your-day-job",
 				"length": 45
 			},
 			{
 				"talk": "Do I know you? Identity on the Internet and the Question of Trust",
 				"talk-type": "talk",
 				"talk-description": "The internet has an identity crisis. How do you know that the person interacting with your product is who they claim to be? How can you be sure that they are a person at all? This is a talk about the evolution of identity on the internet, from a product development perspective. An overview of the things you should be aware of around digital identity when building software today, and the things you should pay attention to for the future.",
-				"date": "2021-02-25",
+				"date": "2021-02-26",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/do-i-know-you-identity-on-the-internet-and-the-question-of-trust",
 				"length": 45
 			}
 		]
@@ -2695,30 +2699,23 @@
 				"talk": "Fail Fast, Fail Smart... Succeed!",
 				"talk-description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high. Over the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster. In this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Onfido, Adobe, Spotify, and Avvo; and I give real architectural, cultural, and organizational tools you can use to make your projects and company more failure safe.",
 				"talk-type": "keynote",
-				"date": "2021-02-25"
+				"date": "2021-02-25",
+				"location": {
+					"venue": "IIT Kharagpur",
+					"address": "Science and Technology Entrepreneur's Park",
+					"city": "IIT Kharagpur",
+					"postal code": "721 302",
+					"state": "West Bengal",
+					"country": "IN",
+					"gps": [22.32230230683403, 87.30946409263234]
+				}
 			}
 		]
 	},
 	{
-		"conference": "2021 tech leadership conference",
+		"conference": "2021 Tech Leadership Conference",
 		"url": "https://www.developer-first.com/conference",
 		"talks": [
-			{
-				"talk": "Developing Your Developers: Constructing Career Paths for your Technologists",
-				"talk-type": "talk",
-				"talk-description": "<p>Everyone knows that career development is a critical part of employee retention. Many companies put little effort into how they build their career development frameworks for their software engineering teams. Startups especially are moving so fast and don’t want to exert effort on things that don’t meaningfully push the business forward. Companies will often borrow liberally from other companies with little thought to the impact on their organization.</p><p>How you construct development paths in your company can support and deepen your company values. It can be a competitive differentiator for attracting talent and retaining your best employees.</p><p>Where and how do you start? What pitfalls do you need to avoid? How do you roll out your framework, and how do you update it over time? How can technology and people team leaders cooperate in the creation of a career pathing plan?</p><p>This talk answers those questions using the real experience and lessons learned from building career frameworks at Spotify, Avvo, and Onfido. Three very different companies with different cultures, but a shared understanding of the importance of career development for their employees.</p>",
-				"date": "2021-05-07",
-				"length": 45,
-				"location": {
-					"venue": "Minneapolis Marriott Southwest",
-					"address": "5801 Opus Pkwy",
-					"city": "Minnetonka",
-					"state": "MN",
-					"country": "US",
-					"postal code": "55343",
-					"gps":[44.897625, -93.406018]
-				}
-			},
 			{
 				"talk": "When/Why/How to Stop Coding as your Day Job",
 				"talk-type": "talk",
@@ -2759,19 +2756,22 @@
 		]
 	},
 	{
-		"conference": "Lead Dev: Manager of Managers",
-		"url": "https://managerofmanagerslondon2020.theleaddeveloper.com/",
-		"talks":[
+		"conference": "Dev Days Europe",
+		"url": "https://devdays.lt/",
+		"talks": [
 			{
-				"talk": "Improving as a senior leader",
+				"talk": "Fail Fast, Fail Smart... Succeed!",
 				"talk-type": "talk",
-				"date": "2021-06-10",
-				"talk-description": "<p>The higher you go in technology management, the less direct feedback you get. You go from working for a manager who has much insight into your daily work to one who primarily delegates some work and relies on your ability to self-manage and self-organize. You may also work for someone who comes from a non-technical background who cannot give you good feedback on your decisions.</p><p>To continue to grow and improve as senior leaders, we must rely on ourselves to objectively understand our performance, find areas for improvement, and then create growth plans.</p><p>I have found and developed several self-reflection and planning techniques over the years. These techniques let me self-identify my areas of improvement and create plans and goals around my development.</p><p>In this talk, I will discuss how you can create a personalized system for yourself, a system that can use for your continued development as a senior leader.</p>",
-				"length": 30,
+				"talk-description": "A talk on why failure is important in innovation and tips on how to create en environment where the effects of failure are minimized while maximizing the learning.",
+				"date": "2021-06-08",
+				"length": 45,
 				"location": {
-					"city": "London",
-					"country": "GB",
-					"gps":[51.507458, -0.127759]
+					"venue": "Litexpo",
+					"address": "Laisvės pr. 5",
+					"city": "Vilnius",
+					"postal code": "04215",
+					"country": "LT",
+					"gps": [54.67891989509771, 25.224198884697557]
 				}
 			}
 		]

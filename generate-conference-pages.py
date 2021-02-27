@@ -18,7 +18,8 @@ template_panel_with_recording_list_item = '<li><span class=\"talk-title\"><a cla
 template_lab_list_item = '<li><span class=\"talk-title\">$name</span>, <span class=\"conference\">$conference</span>, <span class=\"date\">$datestring</span></li>'
 template_talk_list_item = '<li><a href="$file"><span class=\"talk-title\">$name</span></a></li>'
 format_featured_talk_list_item = '<li><a href="{0}"><span class=\"talk-title\">{1}</span></a><div class="talk-description">{2}</div></li>'
-format_other_talks_list_item = '<li class=\"year-item\">\n<div class=\"year\">{0}</div>\n<ul>\n'
+format_other_talks_list_item_one_year = '<li><a href="{0}"><span class=\"talk-title\">{1}</span></a> ({2})</li>'
+format_other_talks_list_item_multiple_years = '<li><a href="{0}"><span class=\"talk-title\">{1}</span></a> ({2} - {3})</li>'
 format_close_div = '</div>\n'
 format_close_ul = '</ul>\n'
 format_close_li = '</li>\n'
@@ -118,7 +119,7 @@ with open('data/current_talks.json') as f:
 	for talk in current_talk_list:
 		current_talks[talk['talk']] = talk['description']
 
-#generate lis for the panels
+#generate list for the panels
 panel_list_string = ''
 if len(index_page['panels']) > 0:
 	sorted_panels = sorted(index_page['panels'], key=itemgetter('date'), reverse=True)
@@ -134,7 +135,7 @@ if len(index_page['panels']) > 0:
 			panel_strings.append(linklistring.substitute(panel))
 	panel_list_string = '\n'.join(panel_strings)
 
-#generate lis for the labs
+#generate list for the labs
 lab_list_string = ''
 if len(index_page['labs']) > 0:
 	sorted_labs = sorted(index_page['labs'], key=itemgetter('date'), reverse=True)
@@ -151,28 +152,25 @@ other_talks_string = ''
 featured_talks_string = ''
 if len(index_page['talks']) > 0:
 	featured_talk_strings = []
-	other_talk_strings = []
+	other_talks = dict()
 	sorted_talks = sorted(index_page['talks'], key=itemgetter('date'), reverse=True)
 	for talk in sorted_talks:
 		talk['file'] = get_talk_url(talk['file'], debug_mode)
 		if talk['name'] in current_talks.keys():
 			featured_talk_strings.append(format_featured_talk_list_item.format(talk['file'], talk['name'], current_talks[talk['name']]))
 		else:
-			other_talk_strings.append({'year': talk['date'].year, 'li': string.Template(template_talk_list_item).substitute(talk)})
+			other_talks[talk['name']] = {'file': talk['file'], 'years': talk['years']}
 	featured_talks_string = '\n'.join(featured_talk_strings)
 
-	current_year = 0
-	first_year = True
-	for other_talk_string in other_talk_strings:
-		if current_year != other_talk_string['year']:
-			current_year = other_talk_string['year']
-			if not first_year:
-				other_talks_string += format_close_ul + format_close_li
-			else:
-				first_year = False
-			other_talks_string += format_other_talks_list_item.format(other_talk_string['year'])
-		other_talks_string += '{0}\n'.format(other_talk_string['li'])
-	other_talks_string += format_close_ul + format_close_li
+	sorted_other_talks = sorted(other_talks.keys())
+	for other_talk_key in sorted_other_talks:
+		other_talk = other_talks[other_talk_key]
+		first_year = other_talk['years'][0]
+		last_year = other_talk['years'][-1]
+		if last_year != first_year:
+			other_talks_string += format_other_talks_list_item_multiple_years.format(other_talk['file'], other_talk_key, first_year, last_year)
+		else:
+			other_talks_string += format_other_talks_list_item_one_year.format(other_talk['file'], other_talk_key, first_year)
 
 #get the page template
 with open('templates/talk-index-template.html') as f:

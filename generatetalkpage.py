@@ -151,8 +151,9 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 				index = next(index for (index, d) in enumerate(index_page['talks']) if d["name"] == talk_index)
 				if talk_date > index_page['talks'][index]['date']:
 					index_page['talks'][index]['date'] = talk_date
+				index_page['talks'][index]['years'].append(talk_date.year)
 			except StopIteration:
-				index_page['talks'].append({'name': talk_index, 'file': outputfilename, 'date': talk_date})
+				index_page['talks'].append({'name': talk_index, 'file': outputfilename, 'date': talk_date, 'years': [talk_date.year]})
 
 	if len(description) > 0:
 		pagevalues['description'] = description

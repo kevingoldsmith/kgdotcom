@@ -9,9 +9,6 @@ venv/bin/activate: requirements.txt
 	. venv/bin/activate; pip install -Ur requirements.txt
 	touch venv/bin/activate
 
-test: venv
-	. venv/bin/activate; nosetests project/test
-
 clean:
 	scripts/build.sh -c
 

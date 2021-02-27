@@ -18,5 +18,17 @@
 	{
 		"talk": "Architecture and Organization",
 		"description": "Over 50 years ago Melvin Conway wrote an article identifying a correspondence between the structure of our organizations and the structure of the software we produce. We still talk about Conway's Law today because of the fundamental truth of that observation. This talk goes beyond that article to examine why this happens, and how you can take advantage of it to make better software."
+	},
+	{
+		"talk": "Fail Fast, Fail Smart... Succeed!",
+		"description": "Software development has been evolving. When I started in the industry, working at companies like Microsoft, we would bet many person-years of development and many millions of dollars into the development of products that would sometimes be hits and sometimes be total duds. We were building blind. This blindness was partly due to our waterfall processes, but also to how software distribution and marketing worked then. A flop for a smaller company could mean the end of the line. The cost of failure was incredibly high. Over the years, we learned how to take some of that risk out by switching to agile software development and now Lean. Working this way we can learn quicker, and take smaller risks. However, there are other things we can do in how we architect our software or roll it out that can also reduce the technical and product risk and help us fail smarter and learn faster. In this keynote, I speak about my experiences building waterfall products at Microsoft, building agile and lean at Onfido, Adobe, Spotify, and Avvo; and I give real architectural, cultural, and organizational tools you can use to make your projects and company more failure safe."
+	},
+	{
+		"talk": "When, Why and How to Stop Coding as Your Day Job",
+		"description": "As you progress in leadership, more and more of your responsibilities have less and less to do with coding. When is it time to make coding your hobby instead of your job? How do you do it?"
+	},
+	{
+		"talk": "Presenting to executives",
+		"description": "<p>Presenting to executives at your company is different than giving a presentation to your team, other teams, at a meetup, a conference, or customers.</p><p>This talk presents some concrete strategies for planning your presentation, preparing the attendees, handling unexpected questions, going down rabbit holes, driving the attendees to a decision (if that is your goal), and following up afterward.</p>"
 	}
 ]
