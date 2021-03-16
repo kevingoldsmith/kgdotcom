@@ -1,5 +1,16 @@
 [
 	{
+		"name": "When, why, and how to stop coding as your day job",
+		"url": "https://leaddev.com/skills-new-managers/when-why-and-how-stop-coding-your-day-job",
+		"description": "By letting go of writing code, you open yourself up to excelling as a manager.",
+		"tags": [
+			"Management",
+			"Career",
+			"Software Development"
+		],
+		"date": "2021-03-12"
+	},	
+	{
 		"name": "Building a vernacular with your engineering team",
 		"url": "https://leaddev.com/communication-relationships/building-vernacular-your-engineering-team",
 		"description": "<p>Whether written or spoken, words are essential – both the general terms we use and those specific to our work.</p><p>The terms and phrases that are specific to our jobs or our companies create a vernacular.</p>",

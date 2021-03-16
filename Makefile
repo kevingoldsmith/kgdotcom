@@ -24,4 +24,7 @@ build:
 publish:
 	scripts/publish.sh
 
-.PHONY: setup clean test debug publish build
+list:
+	@grep '^[^#[:space:]].*:' Makefile
+
+.PHONY: setup clean test debug publish build list
