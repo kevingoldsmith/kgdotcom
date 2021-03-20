@@ -50,6 +50,7 @@
 				"date": "2007-10-03",
 				"talk-description": "An introduction to the Adobe Pixel Bender language",
 				"talk-url": "http://adobemax2007.com/na/sessions/locator/session/DP210W",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/image-and-video-processing-using-adobe-image-foundations-toolkit-for-flash-max-2007",
 				"length": 60,
 				"location": {
 					"venue": "McCormick Place",
@@ -72,6 +73,7 @@
 				"date": "2008-02-06",
 				"talk-description": "How multi-cores and GPUs are transforming what is possible in computing.",
 				"length": 30,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/the-near-future-of-personal-computers",
 				"location": {
 					"venue": "San Jose McEnery Convention Center",
 					"address":"150 W San Carlos St",
@@ -286,6 +288,7 @@
 				"talk-type": "talk",
 				"date": "2011-06-14",
 				"talk-description": "Pixel Bender is a domain-specific image processing language created by the Adobe Image Foundation, and includes a runtime designed to work well across heterogeneous hardware, scaling efficiently for multiple cores. This runtime currently ships in a number of Adobe’s flagship products. Bob Archer, Technical Lead, and Kevin Goldsmith, Engineering Manager, will talk about the design of the language, compilers, and runtime. They will also discuss how the Adobe system can incorporate complimentary technologies like OpenCL and can scale to accommodate new hardware paradigms like the AMD Fusion processors.",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/pixel-bender-2011-amd-fusion-conference",
 				"length": 60,
 				"location": {
 					"venue": "Maydenbauer Center",
@@ -331,6 +334,7 @@
 				"date": "2011-11-16",
 				"talk-description": "Industry, academia and research communities face increasing workforce preparedness challenges in parallel (and distributed) computing, due to the onslaught of multi-/many-core and cloud computing platforms. What initiatives have begun to address those challenges? What changes to hardware platforms, languages and tools will be necessary? How will we train the next generation of engineers for ubiquitous parallel and distributed computing? Following on from the successful model used at SC10, the session will be highly interactive, combining aspects of BOF, workshop, and Panel discussions. An initial panel will lay out some of the core issues in this topic with experts from multiple areas in education and industry. Following this will be moderated breakouts, much like collective mini-BOFS, for further discussion and to gather ideas from participants about industry and research needs.",
 				"talk-url": "http://sc11.supercomputing.org/schedule/event_detail.php-evid=wfpan102.html",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/parallelism-the-cloud-and-the-tools-of-the-future-for-the-next-generation-of-practitioners",
 				"length": 90,
 				"location": {
 					"venue": "Washington State Convention Center",
@@ -385,6 +389,7 @@
 				"talk-description": "Being able to spin up a GPU cluster on AWS is very attractive, but we need to do it in a cost-effective manner. This talk delves into the real world costs Adobe faces as we move more of our processing into the cloud. It also covers some techniques to achieve the performance our customers demand while maintaining reasonable costs.",
 				"date": "2013-02-07",
 				"length": 60,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/it-is-all-about-the-benjamins-the-real-world-economics-of-hpc",
 				"location": {
 					"venue": "Adobe Corporate Headquarters",
 					"address":"345 Park Ave",
@@ -606,6 +611,7 @@
 				"date": "2014-10-17",
 				"talk-description": "演讲主题: 精益建造\n所属专题:\n大中型团队中的精益创新\n分享的经验包括通过利用精益创业技术来构建Adobe新产品，和Spotify如何利用精益创业技术来在我们的产品中增加新性能。",
 				"length": 60,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/building-lean",
 				"location": {
 					"venue": "Shanghai Everbright Convention & Exhibition Center (上海光大会展中心)",
 					"address":"66 Caobao Rd, TianLin, Xuhui Qu",
@@ -672,6 +678,7 @@
 				"talk-type": "talk",
 				"date": "2015-06-24",
 				"length": 60,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/innovation-and-organization",
 				"location": {
 					"venue": "De Haven van Zandvoort",
 					"address":"Strandafgang Paulus Loot 9",
@@ -853,6 +860,7 @@
 				"date": "2015-11-24",
 				"talk-description": "In introduction to how organizational structure can support and enhance innovation within the enterprise.",
 				"talk-url": "",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/innovation-and-organization",
 				"length": 60,
 				"location": {
 					"venue": "de Bijenkorf",
@@ -1346,6 +1354,7 @@
 				"date": "2017-08-19",
 				"talk-description": "You are working to become a professional software developer. It's a field that is constantly changing and evolving. Many of the things you'll be using as part of your job in ten years haven't been invented yet. How do you build a career in this environment? How can you stay relevant and successful in the industry? We'll cover some of the core traits of successful software developers. We'll discuss what a multi-year career can look like in the field. I'll share the things that software development managers look for in candidates. And I will answer your questions.",
 				"talk-url": "",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/a-software-career-2017",
 				"length": 60,
 				"location": {
 					"venue": "Code Fellows",
@@ -1394,6 +1403,7 @@
 				"date": "2017-09-08",
 				"talk-description": "An introduction to Agile thinking and Agile frameworks",
 				"talk-url": "",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/what-is-agile-244834409",
 				"length": 45,
 				"location": {
 					"venue": "Code Fellows",
@@ -2498,6 +2508,7 @@
 		"talks": [
 			{
 				"talk": "CMU Alumni Journey: Kevin Goldsmith",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/my-cmu-alumni-journey",
 				"talk-type": "talk",
 				"talk-description": "Kevin Goldsmith shares his career journey from his graduation from Carnegie Mellon to today.",
 				"date": "2020-08-12",
