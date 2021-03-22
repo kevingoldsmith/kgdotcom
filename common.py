@@ -4,6 +4,7 @@ import os
 import pycountry
 from datetime import date
 import string
+import requests
 
 def get_output_directory(debug=False):
 	debug_output_directory = 'testoutput/'
@@ -108,3 +109,7 @@ def generate_filename(filename):
 	newFilename = ''.join(c for c in cleanedFilename if c in valid_filename_chars)
 	newFilename = newFilename.replace('--', '-')
 	return newFilename.lower()
+
+def validate_url(address):
+	resp = requests.get(address)
+	return resp.status_code not in [400,404,403,408,409,501,502,503]
