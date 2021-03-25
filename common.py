@@ -89,8 +89,10 @@ def format_city_state_country_from_location(location):
 
 	return conference_location
 
+
 def get_talk_date(talk):
 	return date(*map(int, talk['date'].split("-")))
+
 
 def check_for_missing_values(original, new):
 	for key in original.keys():
@@ -110,6 +112,31 @@ def generate_filename(filename):
 	newFilename = newFilename.replace('--', '-')
 	return newFilename.lower()
 
+
 def validate_url(address):
-	resp = requests.get(address)
-	return resp.status_code not in [400,404,403,408,409,501,502,503]
+	response = True
+	
+	if address in [ 'https://devdays.lt/',
+					'https://avvo.com',
+					'http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&co1=AND&d=PG01&s1=20140056530&OS=20140056530&RS=20140056530',
+					'http://appft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&co1=AND&d=PG01&s1=20140055474&OS=20140055474&RS=20140055474',
+					'http://patft.uspto.gov/netacgi/nph-Parser?Sect2=PTO1&Sect2=HITOFF&p=1&u=%2Fnetahtml%2FPTO%2Fsearch-bool.html&r=1&f=G&l=50&d=PALL&RefSrch=yes&Query=PN%2F8549529',
+					'http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=%2Fnetahtml%2FPTO%2Fsrchnum.htm&r=1&f=G&l=50&s1=7,418,670.PN.&OS=PN/7,418,670&RS=PN/7,418,670',
+					'https://ctocraft.com/blog/from-zero-to-cto-kevin-goldsmith/',
+					'https://www.ao-jobs.com/news/kevin-goldsmith-spotify-organisation-architecture-autonomy-and-accountability/' ]:
+		return True
+	
+	try:
+		resp = requests.get(address)
+		response = resp.status_code not in [400,404,403,408,409,501,502,503]
+	except:
+		response = False
+
+	if not response:
+		try:
+			print(f"URL failed to validate: {address}, status code: {resp.status_code}")
+		except NameError:
+			print(f"URL failed to validate: {address}")
+
+	return response
+

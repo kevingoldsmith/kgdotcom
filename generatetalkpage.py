@@ -49,6 +49,7 @@ def get_embed_code_from_videoURL(video_url):
 	#<iframe width="560" height="315" src="https://www.youtube.com/embed/_67NPdn6ygY?rel=0" frameborder="0" allowfullscreen></iframe>
 	#https://developer.vimeo.com/apis/oembed
 	#https://www.turingfest.com/2019/speakers/kevin-goldsmith?wvideo=46th18adn3
+	common.validate_url(video_url)
 	parsed = urllib.parse.urlparse(video_url)
 	youtube_id = ''
 	if parsed.netloc == 'youtu.be':
@@ -70,6 +71,7 @@ def get_embed_code_from_videoURL(video_url):
 
 def get_embed_code_from_slides_URL(slides_url):
 	#https://www.slideshare.net/developers/oembed
+	common.validate_url(slides_url)
 	response = requests.get('https://www.slideshare.net/api/oembed/2', params={'url': slides_url, 'format': 'json', 'maxwidth': 600})
 	if response.status_code == 200:
 		bs = BeautifulSoup(response.json()['html'], 'html.parser')
@@ -126,9 +128,11 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 
 			conference_name = conference['conference']
 			if 'recording-url' in this_talk:
+				common.validate_url(this_talk['recording-url'])
 				recordings.append({'date': talk_date, 'recording-url': this_talk['recording-url'], 'conference': conference_name})
 
 			if ('slides-url' in this_talk) and (not any(d.get('slides-url', None) == this_talk['slides-url'] for d in slides)):
+				common.validate_url(this_talk['slides-url'])
 				slides.append({'date': talk_date, 'slides-url': this_talk['slides-url'], 'talk': this_talk['talk']})
 
 			conference_location = common.format_city_state_country_from_location(this_talk['location']) if 'location' in this_talk else "virtual"
@@ -144,6 +148,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 					quote = reaction['quote']
 					credit = reaction['credit']
 					if 'reference-url' in reaction:
+						common.validate_url(reaction['reference-url'])
 						reactions.append(format_reactions_list_item.format(quote, reaction['reference-url'], credit))
 					else:
 						reactions.append(format_reactions_list_item_no_link.format(quote, credit))
@@ -166,6 +171,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 		for recording in sorted_recordings:
 			if len(video_string) == 0:
 				embed_url = recording['recording-url']
+				common.validate_url(embed_url)
 				embed_code = get_embed_code_from_videoURL(embed_url)
 				if len(embed_code) > 0:
 					video_string = format_video_div + embed_code
@@ -192,6 +198,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 	if len(slides) > 0:
 		sorted_slides = sorted(slides, key=itemgetter('date'), reverse=True)
 		embed_url = sorted_slides[0]['slides-url']
+		common.validate_url(embed_url)
 		slides_string = format_slides_div + get_embed_code_from_slides_URL(embed_url)
 
 		other_slides_string = ''

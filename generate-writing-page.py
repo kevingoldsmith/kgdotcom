@@ -6,7 +6,7 @@ import argparse
 from string import Template
 from datetime import date
 from navigation import generate_nav_root, get_href_root
-from common import get_output_directory
+from common import get_output_directory, validate_url
 
 format_article_template = Template('<li class=\"article\" data-tags=\"$datatags\"><div class=\"articlename\"><a href="$url">$name</a></div><div class=\"articledate\">$formatteddate</div><div class=\"articledescription\">$description</div><ul class="keywordlist">$keywords</ul></li>')
 format_article_keyword_template = Template('<li class=\"keyword\">$tag</li>')
@@ -47,6 +47,7 @@ for writing in writings:
 			data_tag_list.append(tagifyTag(tag))
 		writing['keywords'] = tag_list
 		writing['datatags'] = ' '.join(data_tag_list)
+		validate_url(writing['url'])
 		article_list += format_article_template.substitute(writing)
 
 button_list = ""

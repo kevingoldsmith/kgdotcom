@@ -100,6 +100,7 @@ for conference in panels:
 			talk_name = talk['talk']
 			panel_info = {'date': talk_date, 'name': talk_name, 'conference': conference_name}
 			if 'recording-url' in talk:
+				common.validate_url(talk['recording-url'])
 				panel_info['url'] = talk['recording-url']
 			index_page['panels'].append(panel_info)
 
@@ -132,6 +133,7 @@ if len(index_page['panels']) > 0:
 		if 'url' not in panel:
 			panel_strings.append(listring.substitute(panel))
 		else:
+			common.validate_url(panel['url'])
 			panel_strings.append(linklistring.substitute(panel))
 	panel_list_string = '\n'.join(panel_strings)
 
@@ -212,6 +214,7 @@ if len(upcoming_talks) > 0:
 			item = ''
 
 			if 'url' in conference:
+				common.validate_url(conference['url'])
 				item = format_upcoming_list_item.format(conference['url'], conference_name, talk_date.strftime("%B %d, %Y"), conference_location)
 			else:
 				item = format_presentation_list_item.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location)

@@ -22,6 +22,8 @@ def format_job_list(work):
 	job_list = []
 	for work_item in work:
 		company_name = format_company_name.format(work_item['company'])
+		if 'website' in work_item:
+			validate_url(work_item['website'])
 		d = dict(
 			title=work_item['position'],
 			from_date=format_month_year_from_string(work_item['startDate']),
@@ -40,6 +42,7 @@ def format_patent_list(patents):
 	format_patent_li = '<li><div class="patent-header"><div class="patent-title"><a class="outbound" href="{url}" target="_blank">{title}</a></div><div class="patent-number">#{number}</div><div class="patent-authorship">{author}</div><div class="patent-filing-date">filed: {filing_date}</div><div class="patent-granted-date">granted: {granted_date}</div></div><div class="patent-abstract">{abstract}</div></li>'
 	patent_list = []
 	for patent in patents:
+		validate_url(patent['url'])
 		d = dict(
 			title=patent['name'],
 			url=patent['url'],
@@ -68,6 +71,7 @@ def format_interview_list(interviews):
 
 	interview_list = []
 	for interview in interviews:
+		validate_url(interview['url'])
 		if ('author' in interview) and ('publisher' in interview):
 			interview['credit'] = format_credit_author_publisher.format(interview['author'], interview['publisher'])
 		else:
@@ -91,6 +95,8 @@ def format_keynote_list(conferences):
 					talk_path = os.path.join('talks', generate_filename(talk['root-talk'] if 'root-talk' in talk else talk['talk'])) + '.html'
 					if os.path.exists(os.path.join(get_output_directory(debug_mode),talk_path)):
 						talk['talk-url'] = talk_path
+				else:
+					validate_url(talk['talk-url'])
 				d = dict(
 					talk=format_talk_with_link.format(**dict(talk_url=talk['talk-url'], talk=talk['talk'])) if 'talk-url' in talk else talk['talk'],
 					conference=format_conference_with_link.format(**dict(conference_url=conference['url'],conference_name=conference['conference'])) if 'url' in conference else conference['conference'],

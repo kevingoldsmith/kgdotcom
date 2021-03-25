@@ -90,7 +90,15 @@ class TestCommon(unittest.TestCase):
 					"postal code": "112 21",
 					"gps": [59.327917, 18.050547]
 				}), '<span class=\"conferencecity\">Stockholm</span>, <span class=\"conferencecountry\">Sweden</span>')
-		
+	
+	def test_validate_url(self):
+		"""test URL validation"""
+		self.assertFalse(common.validate_url("https://bla"))
+		self.assertFalse(common.validate_url("https://qweqweqweqweqweq.qweqweqw.com"))
+		self.assertTrue(common.validate_url("http://kevingoldsmith.com"))
+		self.assertTrue(common.validate_url("https://cnn.com"))
+		# test ignore list
+		self.assertTrue(common.validate_url('https://devdays.lt/'))
 
 
 if __name__ == '__main__':
