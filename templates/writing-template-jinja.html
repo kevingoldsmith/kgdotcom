@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=contain">
+    <title>Writing: Kevin Goldsmith</title>
+    <meta name="description" content="A list of articles written by Kevin Goldsmith">
+    <meta name="author" content="Kevin Goldsmith">
+    <meta name="google-site-verification" content="6-e5GrTPsmDpSGk6vICFdLGxj9buwsS1qiaxZKKj3Qw" />
+    <link rel="canonical" href="https://kevingoldsmith.com/writing.html" />
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://google-analytics.com" />
+
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- Google ownership links -->
+    <link rel="author" href="https://plus.google.com/+KevinGoldsmith"/>
+    <link rel="publisher" href="https://plus.google.com/111904464094073716491" />
+
+    <style>
+        .buttonlist {
+            margin-bottom: 1em;
+        }
+        .no-js .buttonlist {
+            visibility: hidden;
+            margin-bottom: 0em;
+        }
+        .buttonlist button {
+            margin-right: .5em;
+            margin-bottom: 1em;
+        }
+        .buttonlist button:focus {
+            outline: none;
+        }
+        .clickedbutton {
+            background: #AAAAAA;
+        }
+        .articlelist {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .article {
+            margin-bottom: 1em;
+        }
+        .articlename {
+            font-size: 1.5em;
+        }
+        .articledate {
+            font-style: italic;
+        }
+        .keywordlist {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .keyword {
+            display: inline;
+            font-size: .8em;
+        }
+        .keyword:after {
+            content: ", ";
+        }
+        .keyword:last-child:after
+        {
+            content: "";
+        }
+
+        [data-toggle='on'] {
+          display:block;
+        }
+
+        [data-toggle='off'] {
+          display:none;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div id="name"><a href="{{siteroot}}">Kevin Goldsmith</a></div>
+        <nav id="site-nav">
+            <ul>
+                {{sitenav}}
+            </ul>
+        </nav>
+    </header>
+    <main id="content">
+        <div class="buttonlist">
+            filter by tag: <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
+            {{tagbuttons}}
+        </div>
+        <ul class="articlelist">
+            {{writinglist}}
+        </ul>
+    </main>
+    <footer>
+        kevingoldsmith.com
+    </footer>
+	<script src="js/modernizr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/googleevents.js"></script>
+	<script src="js/fontfaceobserver.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+        // Filter tag
+        function filterTag (filter, tag) {
+            resetFilter(filter);
+            var items = $('.' + filter + ' > li');
+
+            for (var i = 0; i < items.length; i++) {
+                var itemTags = items[i].getAttribute('data-tags');
+
+                // Catch case with no tags
+                if (itemTags != null) {
+                    if (itemTags.indexOf(tag) < 0) {
+                        items[i].setAttribute('data-toggle', 'off');
+                    }
+                }
+            }
+            selectbutton(tag);
+        }
+
+        // Reset filters
+        function resetFilter (filter) {
+            $('.' + filter + ' > li').attr('data-toggle', 'on')
+        }
+
+        // Reset select
+        function selectbutton(select_id) {
+            $('.buttonlist > button').removeClass('clickedbutton');
+            $('.buttonlist > ' + '#' + select_id).addClass('clickedbutton');
+        }
+        </script>
+    </body>
+</html>
