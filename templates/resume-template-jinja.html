@@ -277,10 +277,10 @@
 <body itemscope itemtype="http://schema.org/Person">
 <!-- thanks to https://codepen.io/eksch/pen/xwdOeK for the page navigation code example (I had to tweak some)  -->
 	<header id="header">
-        <div id="name"><a href="$siteroot">Kevin Goldsmith</a></div>
+        <div id="name"><a href="{{siteroot}}">Kevin Goldsmith</a></div>
 		<div id="site-nav">
 			<ul>
-				$sitenav
+				{{sitenav}}
 			</ul>
 		</div>
 	</header>
@@ -302,27 +302,27 @@
 		<main id="scrolled-content">
 			<div class="page-section" id="headline">
 				<div class="section-content">
-					<div id="resume-mini-summary" class="headline">$headline</div>
+					<div id="resume-mini-summary" class="headline">{{headline}}</div>
 				</div>
 			</div>
 			<section class="page-section" id="contact">
 				<h2 class="section-title">Contact</h2>
 				<div class="section-content">
-					<div id="resume-email" class="center" itemprop="email">$email</div>
-					<div id="resume-weblink"><a href="$website" itemprop="url">$website</a></div>
+					<div id="resume-email" class="center" itemprop="email">{{email}}</div>
+					<div id="resume-weblink"><a href="{{website}}" itemprop="url">{{website}}</a></div>
 				</div>
 			</section>
 			<section class="page-section" id="summary">
 				<h2 class="section-title">Summary</h2>
 				<div class="section-content">
-					<div id="resume-summary">$summary</div>
+					<div id="resume-summary">{{summary}}</div>
 				</div>
 			</section>
 			<section class="page-section" id="experience">
 				<h2 class="section-title">Experience</h2>
 				<div class="section-content">
 					<ul class="job-list">
-						$job_list
+						{{job_list}}
 					</ul>
 				</div>
 			</section>
@@ -330,21 +330,21 @@
 				<h2 class="section-title">Patents</h2>
 				<div class="section-content">
 					<ul class="patent-list">
-						$patent_list
+						{{patent_list}}
                     </ul>
 				</div>
 			</section>
 			<section class="page-section" id="education">
 				<h2 class="section-title">Education</h2>
 				<div class="section-content">
-					$education
+					{{education}}
 				</div>
 			</section>
 			<section class="page-section" id="interviews">
 				<h2 class="section-title">Interviews</h2>
 				<div class="section-content">
                     <ul class="simple-list">
-                    	$interview_list
+                    	{{interview_list}}
                     </ul>
 				</div>
 			</section>
@@ -353,7 +353,7 @@
 				<div class="section-content">
 					<p class="biggertext">Complete list of talks is at <a href="https://kevingoldsmith.com/talks">https://kevingoldsmith.com/talks</a></p>
 					<ul class="simple-list">
-						$keynote_list
+						{{keynote_list}}
 					</ul>
 				</div>
 			</section>
@@ -361,7 +361,7 @@
 				<h2 class="section-title">Publishing Credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						$publication_list
+						{{publication_list}}
 					</ul>
 				</div>
 			</section>
@@ -369,7 +369,7 @@
 				<h2 class="section-title">Production Credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						$production_list
+						{{production_list}}
 					</ul>
 				</div>
 			</section>
@@ -377,7 +377,7 @@
 				<h2 class="section-title">Honors</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						$honor_list
+						{{honor_list}}
 					</ul>
 				</div>
 			</section>
@@ -392,38 +392,36 @@
 	<script src="js/fontfaceobserver.js"></script>
 
     <script>
-	$$(document).ready(function() {
-		$$('a[href*=\\#]').bind('click', function(e) {
+	$(document).ready(function() {
+		$('a[href*=\\#]').bind('click', function(e) {
 				e.preventDefault(); // prevent hard jump, the default behavior
 
-				var target = $$(this).attr("href"); // Set the target as variable
+				var target = $(this).attr("href"); // Set the target as variable
 
 				// perform animated scrolling by getting top-position of target-element and set it as scroll target
-				$$('html, body').stop().animate({
-						scrollTop: $$(target).offset().top - $$('#header').height() - 20
+				$('html, body').stop().animate({
+						scrollTop: $(target).offset().top - $('#header').height() - 20
 				}, 600);
 
 				return false;
 		});
 	});
 
-	$$(window).scroll(function() {
-		var content = $$('#scrolled-content');
-		var scrollDistance = $$(window).scrollTop() + content.position().top;
-		//console.log('scroll distance: '+scrollDistance)
-		//console.log('scrollTop: '+$$(window).scrollTop()+' content.position().top:' + content.position().top)
+	$(window).scroll(function() {
+		var content = $('#scrolled-content');
+		var scrollDistance = $(window).scrollTop() + content.position().top;
 
 		// Assign active class to nav links while scolling
-		$$('.section-title').each(function(i) {
-				if ($$(this).position().top <= scrollDistance) {
-						$$('.navigation, .active').removeClass('active');
-						$$('.navigation').eq(i).addClass('active');
+		$('.section-title').each(function(i) {
+				if ($(this).position().top <= scrollDistance) {
+						$('.navigation, .active').removeClass('active');
+						$('.navigation').eq(i).addClass('active');
 				}
 		});
 		//console.log($$(window).scrollTop() + ', ' + window.innerHeight + ', ' + $$(document).height());
-		if($$(window).scrollTop() + window.innerHeight == $$(document).height()) {
-			$$('.navigation, .active').removeClass('active');
-			$$('.navigation').last().addClass('active');
+		if($(window).scrollTop() + window.innerHeight == $(document).height()) {
+			$('.navigation, .active').removeClass('active');
+			$('.navigation').last().addClass('active');
 		}
 	}).scroll();
     </script>
