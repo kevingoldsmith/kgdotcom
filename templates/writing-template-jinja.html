@@ -97,7 +97,8 @@
             {{tagbuttons}}
         </div>
         <ul class="articlelist">
-            {{writinglist}}
+            {% for writing in writinglist %}<li class="article" data-tags="{{writing['datatags']|join(' ')}}"><div class="articlename"><a href="{{writing['url']}}">{{writing['name']}}</a></div><div class="articledate">{{writing['formatteddate']}}</div><div class="articledescription">{{writing['description']}}</div><ul class="keywordlist">{% for keyword in writing['keywords'] %}<li class="keyword">{{keyword}}</li>{% endfor %}</ul></li>
+            {% endfor %}
         </ul>
     </main>
     <footer>

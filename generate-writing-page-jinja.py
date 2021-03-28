@@ -9,8 +9,6 @@ from navigation import generate_nav_root, get_href_root
 from common import get_output_directory, validate_url
 import jinja2
 
-format_article_template = Template('<li class=\"article\" data-tags=\"$datatags\"><div class=\"articlename\"><a href="$url">$name</a></div><div class=\"articledate\">$formatteddate</div><div class=\"articledescription\">$description</div><ul class="keywordlist">$keywords</ul></li>')
-format_article_keyword_template = Template('<li class=\"keyword\">$tag</li>')
 format_filter_button_template = Template('<button id=\'$tag\' onclick=\"filterTag(\'articlelist\',\'$tag\')\">$name</button>')
 
 output_file = 'writing-jinja.html'
@@ -34,22 +32,22 @@ writings = sorted(writings, key=lambda k: k['date'], reverse=True)
 with open('templates/writing-template-jinja.html') as f:
 	writingpagetemplate = jinja2.Template(f.read())
 
-article_list = ""
+article_list = []
 tag_set = set()
 for writing in writings:
 	if len(writing['name']) > 0:
 		writing['formatteddate'] = date(*map(int, writing['date'].split("-"))).strftime("%B %d, %Y")
-		tag_list = ""
+		tag_list = []
 		data_tag_list = []
 		writing['tags'].sort()
 		for tag in writing['tags']:
 			tag_set.add(tag)
-			tag_list += format_article_keyword_template.substitute({'tag': tag})
+			tag_list.append(tag)
 			data_tag_list.append(tagifyTag(tag))
 		writing['keywords'] = tag_list
-		writing['datatags'] = ' '.join(data_tag_list)
+		writing['datatags'] = data_tag_list
 		validate_url(writing['url'])
-		article_list += format_article_template.substitute(writing)
+		article_list.append(writing)
 
 button_list = ""
 for tag in sorted(tag_set):
