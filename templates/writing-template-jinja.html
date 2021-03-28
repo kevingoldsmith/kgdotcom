@@ -20,10 +20,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
     <link rel="stylesheet" href="css/main.css" />
 
-    <!-- Google ownership links -->
-    <link rel="author" href="https://plus.google.com/+KevinGoldsmith"/>
-    <link rel="publisher" href="https://plus.google.com/111904464094073716491" />
-
     <style>
         .buttonlist {
             margin-bottom: 1em;
@@ -49,6 +45,12 @@
         }
         .article {
             margin-bottom: 1em;
+        }
+        .article p:first-of-type {
+            margin-top: 0em;
+        }
+        .article p:last-of-type {
+            margin-bottom: 0em;
         }
         .articlename {
             font-size: 1.5em;
@@ -94,7 +96,7 @@
     <main id="content">
         <div class="buttonlist">
             filter by tag: <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
-            {{tagbuttons}}
+            {% for button in tagbuttons %}<button id="{{button.tag}}" onclick="filterTag('articlelist','{{button.tag}}')">{{button.name}}</button>{% endfor %}
         </div>
         <ul class="articlelist">
             {% for writing in writinglist %}<li class="article" data-tags="{{writing['datatags']|join(' ')}}"><div class="articlename"><a href="{{writing['url']}}">{{writing['name']}}</a></div><div class="articledate">{{writing['formatteddate']}}</div><div class="articledescription">{{writing['description']}}</div><ul class="keywordlist">{% for keyword in writing['keywords'] %}<li class="keyword">{{keyword}}</li>{% endfor %}</ul></li>

@@ -9,8 +9,6 @@ from navigation import generate_nav_root, get_href_root
 from common import get_output_directory, validate_url
 import jinja2
 
-format_filter_button_template = Template('<button id=\'$tag\' onclick=\"filterTag(\'articlelist\',\'$tag\')\">$name</button>')
-
 output_file = 'writing-jinja.html'
 
 parser = argparse.ArgumentParser(description='generate the writings file')
@@ -49,9 +47,9 @@ for writing in writings:
 		validate_url(writing['url'])
 		article_list.append(writing)
 
-button_list = ""
+button_list = []
 for tag in sorted(tag_set):
-	button_list += format_filter_button_template.substitute({'name': tag, 'tag': tagifyTag(tag)})
+	button_list.append({'name': tag, 'tag': tagifyTag(tag)})
 
 output_directory = get_output_directory(debug_mode)
 
