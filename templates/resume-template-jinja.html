@@ -361,7 +361,13 @@
 				<h2 class="section-title">Publishing Credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						{{publication_list}}
+						{% for publication in publication_list %}
+							{% if ('author' in publication) and ('publisher' in publication) %}
+								<li><span class="credit-title">{{publication.title}}</span>, {{publication.author}} - {{publication.publisher}}, {{publication.year}}: {{publication.summary}}</li>
+							{% else %}
+								<li><span class="credit-title">{{publication.title}}</span>, {% if 'author' in publication %}{{publication.author}}{% else %}{{publication.publisher}}{% endif %}: {{publication.summary}}</li>
+							{% endif %}
+						{% endfor %}
 					</ul>
 				</div>
 			</section>
@@ -369,7 +375,9 @@
 				<h2 class="section-title">Production Credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						{{production_list}}
+						{% for production in production_list %}
+						<li><span class="production-title">{{production.name}}</span>, {{production.releaseDate}}, {{production.venue}}. {{production.summary}}</li>
+						{% endfor %}
 					</ul>
 				</div>
 			</section>
@@ -377,7 +385,9 @@
 				<h2 class="section-title">Honors</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						{{honor_list}}
+						{% for honor in honor_list %}
+						<li><span class="honor-title">{{honor.title}}</span>, <span class="honor-summary">{{honor.summary}}</span></li>
+						{% endfor %}
 					</ul>
 				</div>
 			</section>

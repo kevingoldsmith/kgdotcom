@@ -108,40 +108,6 @@ def format_keynote_list(conferences):
 	return '\n'.join(keynote_list)
 
 
-def format_publication_credits_list(publications):
-	format_pulication_li='<li><span class="credit-title">{title}</span>, {credit}: {summary}</li>'
-	format_credit_author_publisher_year = '{0} - {1}, {2}'
-
-	publication_list = []
-	for publication in publications:
-		if ('author' in publication) and ('publisher' in publication):
-			publication['credit'] = format_credit_author_publisher_year.format(publication['author'], publication['publisher'], format_year_from_string(publication['releaseDate']))
-		else:
-			publication['credit'] = publication['author'] if 'author' in publication else publication['publisher']
-
-		publication_list.append(format_pulication_li.format(**publication))
-	return '\n'.join(publication_list)
-
-
-def format_production_credits_list(productions):
-	format_production_li='<li><span class="production-title">{name}</span>, {releaseDate}, {venue}. {summary}</li>'
-	production_list = []
-	for production in productions:
-		production_list.append(format_production_li.format(**production))
-	return '\n'.join(production_list)
-
-
-
-#<li><span class="honor-title">Adobe Technology Summit 2011</span>, Program Committee Member and Software Engineering Track Chair. <em>Invited to take a leadership position for a company-wide internal Adobe technical conference with over 2000 attendees.</em></li>
-def format_honors_list(honors):
-	format_honor_li='<li><span class="honor-title">{title}</span>, <span class="honor-summary">{summary}</span></li>'
-
-	honors_list = []
-	for honor in honors:
-		honors_list.append(format_honor_li.format(**honor))
-	return '\n'.join(honors_list)
-
-
 # get the template
 with open('templates/resume-template-jinja.html') as f:
 	pagetemplate = jinja2.Template(f.read())
@@ -158,6 +124,12 @@ with open('data/resume.json', 'r') as f:
 with open('data/interviews.json', 'r') as f:
 	interview_data = json.load(f)
 
+publications = list()
+for publication in resume_data['publications']:
+	if 'releaseDate' in publication:
+		publication['year'] = format_year_from_string(publication['releaseDate'])
+	publications.append(publication)
+
 page_variables = dict(
 	sitenav=generate_nav_root(output_page, debug_mode),
 	siteroot=get_href_root('index.html', debug_mode),
@@ -170,9 +142,9 @@ page_variables = dict(
 	education=format_education(resume_data['education'][0]),
 	interview_list=format_interview_list(interview_data),
 	keynote_list=format_keynote_list(list(reversed(conference_data))),
-	publication_list=format_publication_credits_list(resume_data['publications']),
-	production_list=format_production_credits_list(resume_data['productionCredits']),
-	honor_list=format_honors_list(resume_data['awards'])
+	publication_list=publications,
+	production_list=resume_data['productionCredits'],
+	honor_list=resume_data['awards']
 	)
 
 print('writing: '+output_page)
