@@ -285,15 +285,8 @@
 	</style>
 </head>
 <body itemscope itemtype="http://schema.org/Person">
-<!-- thanks to https://codepen.io/eksch/pen/xwdOeK for the page navigation code example (I had to tweak some)  -->
-	<header id="header">
-        <div id="name"><a href="{{siteroot}}">Kevin Goldsmith</a></div>
-		<div id="site-nav">
-			<ul>
-				{{sitenav}}
-			</ul>
-		</div>
-	</header>
+{% set active_page = 'technology leader' %}
+{% include 'header.html' %}
 	<div id="content">
 		<nav id="page-nav">
 			<ul>

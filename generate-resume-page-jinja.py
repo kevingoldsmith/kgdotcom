@@ -3,7 +3,6 @@
 import argparse
 import json
 from string import Template
-from navigation import generate_nav_root, get_href_root
 from common import *
 import jinja2
 
@@ -109,8 +108,8 @@ def format_keynote_list(conferences):
 
 
 # get the template
-with open('templates/resume-template-jinja.html') as f:
-	pagetemplate = jinja2.Template(f.read())
+env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+pagetemplate = env.get_template('resume-template-jinja.html')
 
 #get the conference data
 with open('data/conferences.json', 'r') as f:
@@ -131,8 +130,7 @@ for publication in resume_data['publications']:
 	publications.append(publication)
 
 page_variables = dict(
-	sitenav=generate_nav_root(output_page, debug_mode),
-	siteroot=get_href_root('index.html', debug_mode),
+	debug_mode=debug_mode,
 	email=obfusticate_email(resume_data['basics']['email']),
 	website=resume_data['basics']['website'],
 	headline=resume_data['basics']['headline'],
