@@ -326,8 +326,7 @@
 				<div class="section-content">
 					<ul class="job-list">
 						{% for job in job_list %}<li itemprop="{{job.jobstatus}}" itemscope itemtype="http://schema.org/Organization"><div class="job-header"><div class="job-title">{{job.title}}</div><div class="job-dates">{{job.from_date}} - {{job.to_date}}</div><div class="job-company">{% if job.website %}<a class="outbound" href="{{job.website}}" target="_blank">{{job.company}}</a>{% else %}<span itemprop="name">{{job.company}}</span>{% endif %}</div><div class="job-city">{{job.city}}</div></div><div class="job-description" itemprop="description">{{job.description}}</div></li>
-						{% endfor %}
-					</ul>
+					{% endfor %}</ul>
 				</div>
 			</section>
 			<section class="page-section" id="patents">
@@ -335,8 +334,7 @@
 				<div class="section-content">
 					<ul class="patent-list">
 						{% for patent in patent_list %}<li><div class="patent-header"><div class="patent-title"><a class="outbound" href="{{patent.url}}" target="_blank">{{patent.title}}</a></div><div class="patent-number">#{{patent.number}}</div><div class="patent-authorship">{{patent.author}}</div><div class="patent-filing-date">filed: {{patent.filing_date}}</div><div class="patent-granted-date">granted: {{patent.granted_date}}</div></div><div class="patent-abstract">{{patent.abstract}}</div></li>
-						{% endfor %}
-                    </ul>
+					{% endfor %}</ul>
 				</div>
 			</section>
 			<section class="page-section" id="education">
@@ -350,8 +348,7 @@
 				<div class="section-content">
                     <ul class="simple-list">
 						{% for interview in interview_list %}<li><a class="outbound" href="{{interview.url}}">{{interview.name}}</a>, {{interview.date}}, {% if interview.author and interview.publisher %}{{interview.author}} - {{interview.publisher}}{% elif interview.author %}{{interview.author}}{% else %}{{interview.publisher}}{% endif %}</li>
-						{% endfor %}
-                    </ul>
+					{% endfor %}</ul>
 				</div>
 			</section>
 			<section class="page-section" id="invited">
@@ -360,42 +357,31 @@
 					<p class="biggertext">Complete list of talks is at <a href="https://kevingoldsmith.com/talks">https://kevingoldsmith.com/talks</a></p>
 					<ul class="simple-list">
 						{% for keynote in keynote_list %}<li><span class="talk-title">{% if keynote.talk_url %}<a href="{{keynote.talk_url}}">{{keynote.talk}}</a>{% else %}{{keynote.talk}}{% endif %}</span>, {% if keynote.conference_url %}<a class="outbound" href="{{keynote.conference_url}}">{{keynote.conference}}</a>{% else %}{{keynote.conference}}{% endif %}, {{keynote.date}}, {{keynote.location}}</li>
-						{% endfor %}
-					</ul>
+						{% endfor %}</ul>
 				</div>
 			</section>
 			<section class="page-section" id="publishing">
 				<h2 class="section-title">Publishing Credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						{% for publication in publication_list %}
-							{% if ('author' in publication) and ('publisher' in publication) %}
-								<li><span class="credit-title">{{publication.title}}</span>, {{publication.author}} - {{publication.publisher}}, {{publication.year}}: {{publication.summary}}</li>
-							{% else %}
-								<li><span class="credit-title">{{publication.title}}</span>, {% if 'author' in publication %}{{publication.author}}{% else %}{{publication.publisher}}{% endif %}: {{publication.summary}}</li>
-							{% endif %}
-						{% endfor %}
-					</ul>
+						{% for publication in publication_list %}{% if ('author' in publication) and ('publisher' in publication) %}<li><span class="credit-title">{{publication.title}}</span>, {{publication.author}} - {{publication.publisher}}, {{publication.year}}: {{publication.summary}}</li>{% else %}<li><span class="credit-title">{{publication.title}}</span>, {% if 'author' in publication %}{{publication.author}}{% else %}{{publication.publisher}}{% endif %}: {{publication.summary}}</li>{% endif %}
+					{% endfor %}</ul>
 				</div>
 			</section>
 			<section class="page-section" id="production">
 				<h2 class="section-title">Production Credits</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						{% for production in production_list %}
-						<li><span class="production-title">{{production.name}}</span>, {{production.releaseDate}}, {{production.venue}}. {{production.summary}}</li>
-						{% endfor %}
-					</ul>
+						{% for production in production_list %}<li><span class="production-title">{{production.name}}</span>, {{production.releaseDate}}, {{production.venue}}. {{production.summary}}</li>
+					{% endfor %}</ul>
 				</div>
 			</section>
 			<section class="page-section" id="honors">
 				<h2 class="section-title">Honors</h2>
 				<div class="section-content">
 					<ul class="simple-list">
-						{% for honor in honor_list %}
-						<li><span class="honor-title">{{honor.title}}</span>, <span class="honor-summary">{{honor.summary}}</span></li>
-						{% endfor %}
-					</ul>
+						{% for honor in honor_list %}<li><span class="honor-title">{{honor.title}}</span>, <span class="honor-summary">{{honor.summary}}</span></li>
+					{% endfor %}</ul>
 				</div>
 			</section>
 		</main>

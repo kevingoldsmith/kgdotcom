@@ -9,9 +9,8 @@
 <header id="header">
     <div id="name"><a href="{% if not debug_mode %}https://kevingoldsmith.com/{% else %}index.html{% endif %}">Kevin Goldsmith</a></div>
     <div id="site-nav">
-        <ul>
-            {% for href, caption in pages %}
-            {% if caption == active_page %}<li class="current-page">{{ caption }}</li>{% else %}<li><a href="{% if not debug_mode %}https://kevingoldsmith.com/{% endif %}{{ href }}">{{ caption }}</a></li>{% endif %}{% endfor %}
-        </ul>
+        <ul>{% for href, caption in pages %}{% if caption == active_page %}
+            <li class="current-page">{{ caption }}</li>{% else %}<li><a href="{% if not debug_mode %}https://kevingoldsmith.com/{% endif %}{{ href }}">{{ caption }}</a></li>{% endif %}
+        {% endfor %}</ul>
     </div>
 </header>
