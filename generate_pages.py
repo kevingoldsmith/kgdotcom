@@ -39,10 +39,10 @@ def generate_other_pages(debug_mode=False):
 
 def main(debug_mode=False):
     """call the methods in the other modules"""
-    #generate_writing_page_jinja.generate_writing_page(debug_mode=debug_mode,
-    #    output_file='writing-jinja.html')
-    #generate_resume_page_jinja.generate_resume_page(debug_mode=debug_mode,
-    #    output_file='resume-jinja.html')
+    generate_writing_page_jinja.generate_writing_page(debug_mode=debug_mode,
+        output_file='writing-jinja.html')
+    generate_resume_page_jinja.generate_resume_page(debug_mode=debug_mode,
+        output_file='resume-jinja.html')
     generate_other_pages(debug_mode)
 
 
