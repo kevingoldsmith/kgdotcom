@@ -14,6 +14,7 @@ __status__ = "Production"                               # Prototype, Development
 import json
 import argparse
 import jinja2
+import os
 from common import get_output_directory, validate_url, format_month_day_year_from_string
 
 
@@ -60,8 +61,9 @@ def generate_writing_page(debug_mode=True, output_file="writing.html"):
     writings = dict(
         writinglist = article_list,
         tagbuttons = button_list)
-    print('writing: ' + output_file)
-    with open(output_directory+output_file, 'w') as file:
+    output_path = os.path.join(output_directory, output_file)
+    print('writing: ' + output_path)
+    with open(output_path, 'w') as file:
         file.write(writingpagetemplate.render(writings))
 
 if __name__ == "__main__":
@@ -69,4 +71,4 @@ if __name__ == "__main__":
     parser.add_argument('--debug', action='store_true')
     args = parser.parse_args()
 
-    generate_writing_page(debug_mode=args.debug, output_file = 'writing-jinja.html')
+    generate_writing_page(debug_mode=args.debug, output_file='writing-jinja.html')

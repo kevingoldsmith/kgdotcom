@@ -103,7 +103,7 @@ def format_keynote_list(conferences, debug_mode):
                 keynote_list.append(keynote)
     return keynote_list
 
-def generate_resume_page(debug_mode=True, output_page='resume.html'):
+def generate_resume_page(debug_mode=True, output_file='resume.html'):
     """generate the resume page for the website from the structured data"""
     # get the template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
@@ -143,8 +143,9 @@ def generate_resume_page(debug_mode=True, output_page='resume.html'):
         honor_list=resume_data['awards']
         )
 
-    print(f'writing: {output_page}')
-    with open(common.get_output_directory(debug_mode)+output_page, 'w') as file:
+    output_path = os.path.join(common.get_output_directory(debug_mode),output_file)
+    print(f'writing: {output_path}')
+    with open(output_path, 'w') as file:
         file.write(pagetemplate.render(page_variables))
 
 if __name__ == "__main__":
@@ -152,4 +153,4 @@ if __name__ == "__main__":
     parser.add_argument('--debug', action='store_true')
     args = parser.parse_args()
 
-    generate_resume_page(debug_mode = args.debug, output_page='resume-jinja.html')
+    generate_resume_page(debug_mode = args.debug, output_file='resume-jinja.html')
