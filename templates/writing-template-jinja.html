@@ -95,14 +95,8 @@
     </style>
 </head>
 <body>
-    <header id="header">
-        <div id="name"><a href="{{siteroot}}">Kevin Goldsmith</a></div>
-        <nav id="site-nav">
-            <ul>
-                {{sitenav}}
-            </ul>
-        </nav>
-    </header>
+    {% set active_page = 'writer' %}
+    {% include 'header.html' %}
     <main id="content">
         <div class="buttonlist">
             filter by tag: <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>

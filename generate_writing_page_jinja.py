@@ -14,7 +14,6 @@ __status__ = "Production"                               # Prototype, Development
 import json
 import argparse
 import jinja2
-from navigation import generate_nav_root, get_href_root
 from common import get_output_directory, validate_url, format_month_day_year_from_string
 
 
@@ -32,8 +31,8 @@ def generate_writing_page(debug_mode=True, output_file="writing.html"):
     writings = sorted(writings, key=lambda k: k['date'], reverse=True)
 
     #get the page template
-    with open('templates/writing-template-jinja.html') as file:
-        writingpagetemplate = jinja2.Template(file.read())
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+    writingpagetemplate = env.get_template('writing-template-jinja.html')
 
     article_list = []
     tag_set = set()
@@ -60,9 +59,7 @@ def generate_writing_page(debug_mode=True, output_file="writing.html"):
 
     writings = dict(
         writinglist = article_list,
-        tagbuttons = button_list,
-        sitenav = generate_nav_root(output_file, debug_mode),
-        siteroot = get_href_root('index.html', debug_mode))
+        tagbuttons = button_list)
     print('writing: ' + output_file)
     with open(output_directory+output_file, 'w') as file:
         file.write(writingpagetemplate.render(writings))
