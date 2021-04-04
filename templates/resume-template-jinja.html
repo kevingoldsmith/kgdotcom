@@ -325,7 +325,8 @@
 				<h2 class="section-title">Experience</h2>
 				<div class="section-content">
 					<ul class="job-list">
-						{{job_list}}
+						{% for job in job_list %}<li itemprop="{{job.jobstatus}}" itemscope itemtype="http://schema.org/Organization"><div class="job-header"><div class="job-title">{{job.title}}</div><div class="job-dates">{{job.from_date}} - {{job.to_date}}</div><div class="job-company">{% if job.website %}<a class="outbound" href="{{job.website}}" target="_blank">{{job.company}}</a>{% else %}<span itemprop="name">{{job.company}}</span>{% endif %}</div><div class="job-city">{{job.city}}</div></div><div class="job-description" itemprop="description">{{job.description}}</div></li>
+						{% endfor %}
 					</ul>
 				</div>
 			</section>
@@ -333,21 +334,23 @@
 				<h2 class="section-title">Patents</h2>
 				<div class="section-content">
 					<ul class="patent-list">
-						{{patent_list}}
+						{% for patent in patent_list %}<li><div class="patent-header"><div class="patent-title"><a class="outbound" href="{{patent.url}}" target="_blank">{{patent.title}}</a></div><div class="patent-number">#{{patent.number}}</div><div class="patent-authorship">{{patent.author}}</div><div class="patent-filing-date">filed: {{patent.filing_date}}</div><div class="patent-granted-date">granted: {{patent.granted_date}}</div></div><div class="patent-abstract">{{patent.abstract}}</div></li>
+						{% endfor %}
                     </ul>
 				</div>
 			</section>
 			<section class="page-section" id="education">
 				<h2 class="section-title">Education</h2>
 				<div class="section-content">
-					{{education}}
+					<span itemprop="alumniOf" itemscope itemtype="http://schema.org/CollegeOrUniversity"><a class="outbound" itemprop="sameAs" href="{{education.website}}"><span class="university-name" itemprop="name">{{education.institution}}</span></a>, {{education.location}}. {{education.studyType}} Degree in {{education.area}}, graduated {{education.grad_date}}. {{education.summary}}</span>
 				</div>
 			</section>
 			<section class="page-section" id="interviews">
 				<h2 class="section-title">Interviews</h2>
 				<div class="section-content">
                     <ul class="simple-list">
-                    	{{interview_list}}
+						{% for interview in interview_list %}<li><a class="outbound" href="{{interview.url}}">{{interview.name}}</a>, {{interview.date}}, {% if interview.author and interview.publisher %}{{interview.author}} - {{interview.publisher}}{% elif interview.author %}{{interview.author}}{% else %}{{interview.publisher}}{% endif %}</li>
+						{% endfor %}
                     </ul>
 				</div>
 			</section>
@@ -356,7 +359,8 @@
 				<div class="section-content">
 					<p class="biggertext">Complete list of talks is at <a href="https://kevingoldsmith.com/talks">https://kevingoldsmith.com/talks</a></p>
 					<ul class="simple-list">
-						{{keynote_list}}
+						{% for keynote in keynote_list %}<li><span class="talk-title">{% if keynote.talk_url %}<a href="{{keynote.talk_url}}">{{keynote.talk}}</a>{% else %}{{keynote.talk}}{% endif %}</span>, {% if keynote.conference_url %}<a class="outbound" href="{{keynote.conference_url}}">{{keynote.conference}}</a>{% else %}{{keynote.conference}}{% endif %}, {{keynote.date}}, {{keynote.location}}</li>
+						{% endfor %}
 					</ul>
 				</div>
 			</section>
