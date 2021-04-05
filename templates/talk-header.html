@@ -1,0 +1,12 @@
+<header id="header">
+    <div id="name"><a href="{% if not debug_mode %}https://kevingoldsmith.com/{% else %}../index.html{% endif %}">Kevin Goldsmith</a></div>
+    <div id="site-nav">
+        <ul>
+            <li><a href="{% if debug_mode %}../resume.html{% else %}https://kevingoldsmith.com/resume.html{% endif %}">technology leader</a></li>
+            <li class="current-page">{% if not talk_index %}<a href="{% if debug_mode %}index.html{% else %}https://kevingoldsmith.com/talks/{% endif %}">{% endif %}speaker{% if not talk_index %}</a>{% endif %}</li>
+            <li><a href="{% if debug_mode %}../writing.html{% else %}https://kevingoldsmith.com/writing.html{% endif %}">writer</a></li>
+            <li><a href="{% if debug_mode %}../music.html{% else %}https://kevingoldsmith.com/music.html{% endif %}">musician</a></li>
+            <li><a href="{% if debug_mode %}../photography.html{% else %}https://kevingoldsmith.com/photography.html{% endif %}">photographer</a></li>
+        </ul>
+    </div>
+</header>

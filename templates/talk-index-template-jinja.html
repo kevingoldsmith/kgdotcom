@@ -103,32 +103,37 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
 </head>
 <body>
-	<header id="header">
-        <div id="name"><a href="{{siteroot}}">Kevin Goldsmith</a></div>
-		<nav id="site-nav">
-			<ul>
-                {{sitenav}}
-			</ul>
-		</nav>
-	</header>
+	{% set talk_index=true %}
+	{% include 'talk-header.html' %}
 	<main id="content">
 		<div id="map_wrapper">
 	    	<div id="map_canvas" class="mapping"></div>
 		</div>
-		{{futuretalks}}
+		{% if futuretalks %}
+		<section id="upcoming-talks">
+			<h2>Upcoming Talks</h2>
+			<ul>
+				{% for talk in futuretalks %}<li><span class="conferencename">{% if talk.url %}<a class="outbound" href="{{talk.url}}">{% endif %}{{talk.name}}{% if talk.url %}</a>{% endif %}</span> - <span class="conferencedate">{{talk.date}}</span> - <span class="conferencelocation">{{talk.location}}</span></li>
+				{% endfor %}
+			</ul>
+		</section>
+		{% endif %}
 		<section id="featured-talks">
 			<h2>Book Me</h2>
 			<p class="p-indent">For information about having me speak at your event, please see <a href="bookme.html">this</a>.</p>
 			
 			<h2>Current Talks</h2>
 			<ul>
-				{{currenttalklist}}
+				{% for talk in currenttalklist %}<li><a href="{{talk.file}}"><span class="talk-title">{{talk.name}}</span></a><div class="talk-description">{{talk.description}}</div></li>
+				{% endfor %}
 			</ul>
 		</section>
 		<section id="other-talks">
 			<h2>Older Talks</h2>
 			<ul class="year-list">
-				{{othertalklist}}
+				{% for talk in othertalklist %}
+					<li><a href="{{talk.file}}"><span class="talk-title">{{talk.name}}</span></a> {{talk.years}}</li>
+				{% endfor %}
 			</ul>
 		</section>
 		<section id="panels">

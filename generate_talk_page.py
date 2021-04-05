@@ -235,6 +235,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 	pagevalues['sitenav'] = generate_nav_talk(False, debug_mode)
 	pagevalues['siteroot'] = get_href_root('index.html', debug_mode, True)
 	pagevalues['talkroot'] = get_talk_root_for_talk(debug_mode)
+	pagevalues['debug_mode'] = debug_mode
 
 	common.check_for_missing_values(pagevariables, pagevalues)
 
