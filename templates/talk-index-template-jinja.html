@@ -131,21 +131,23 @@
 		<section id="other-talks">
 			<h2>Older Talks</h2>
 			<ul class="year-list">
-				{% for talk in othertalklist %}
-					<li><a href="{{talk.file}}"><span class="talk-title">{{talk.name}}</span></a> {{talk.years}}</li>
+				{% for talk in othertalklist %}<li><a href="{{talk.file}}"><span class="talk-title">{{talk.name}}</span></a> ({{talk.years}})</li>
 				{% endfor %}
 			</ul>
 		</section>
 		<section id="panels">
 			<h2>Panels</h2>
 			<ul class="panel-list">
-				{{panellist}}
+				{% for panel in panellist %}
+				<li><span class="talk-title">{% if panel.url %}<a class="outbound" href="{{panel.url}}">{% endif %}{{panel.name}}{% if panel.url %}</a>{% endif %}</span>, <span class="conference">{{panel.conference}}</span>, <span class="date">{{panel.date}}</span></li>
+				{% endfor %}
 			</ul>
 		</section>
 		<section id="workshops">
 			<h2>Workshops</h2>
 			<ul class="workshop-list">
-				{{workshoplist}}
+				{% for lab in workshoplist %}<li><span class="talk-title">{{lab.name}}</span>, <span class="conference">{{lab.conference}}</span>, <span class="date">{{lab.date}}</span></li>
+				{% endfor %}
 			</ul>
 		</section>
 	<!-- end #mainContent -->
@@ -162,11 +164,13 @@
 
 	    // Multiple Markers
 	    var markers = [
-	        {{markerlist}}
+			{% for marker in markerlist %}['{{marker.name}} {{marker.year}}', {{marker.lat}}, {{marker.lon}}],
+	        {% endfor %}
 	    ];
 	    // Info Window Content
 	    var infoWindowContent = [
-	        {{infolist}}
+			{% for info in infolist %}['<div class="info_content"><h3>{{info.conference_name}} {{info.year}}</h3><p>{% for talk in info.talks %}{{talk}}<br />{% endfor %}</p></div>'],
+			{% endfor %}
 	    ];
 
 	    for(var i = 0; i < markers.length; i++) {
