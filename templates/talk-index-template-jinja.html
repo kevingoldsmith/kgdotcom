@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2753331-2"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-2753331-2');
+	</script>
+
+	<meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Talks: Kevin Goldsmith</title>
+    <meta name="description" content="a list of talks, panels and workshops by Kevin Goldsmith">
+    <meta name="author" content="Kevin Goldsmith">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="{{googsiteverification}}" />
+	<link rel="canonical" href="https://kevingoldsmith.com/talks/" />
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+	<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+	<link rel="dns-prefetch" href="https://google-analytics.com" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
+    <link rel="stylesheet" href="../css/main.css" />
+	<link rel="stylesheet" href="talkpages.css" />
+	<style>
+		body {
+			margin: 0;
+		}
+		.talk-description {
+			font-weight: 300;
+			font-size: .9em;
+			margin-bottom: 1em;
+		}
+		#featured-talks ul {
+			list-style: none;
+			padding-left: 1em;
+		}
+		#featured-talks .talk-title {
+			font-weight: 800;
+		}
+		#upcoming-talks ul {
+			list-style: none;
+			padding-left: 1em;
+		}
+		.year-list {
+			list-style: none;
+			padding-left: 1em;
+		}
+		.year {
+			font-size: 1.2em;
+		}
+		.year-item {
+			padding-bottom: 1em;
+		}
+		.year-item ul {
+			list-style: none;
+			padding-left: 0em;
+		}
+		.panel-list {
+			padding-left: 1em;
+		}
+		.panel-list .talk-title {
+			font-weight: 600;
+		}
+		.workshop-list {
+			padding-left: 1em;
+		}
+		.workshop-list .talk-title {
+			font-weight: 600;
+		}
+		.no-js #map_wrapper {
+			height: 0px;
+			margin-top: 0em;
+    		margin-bottom: 0em;
+			visibility: hidden;
+		}
+		#map_wrapper {
+			height: 400px;
+			margin-top: 1em;
+    		margin-bottom: 1em;
+		}
+		#map_canvas {
+		    width: 100%;
+		    height: 100%;
+		}
+
+       /* iPhone portrait */
+        @media (max-device-width: 640px) {
+			#map_wrapper {
+				height: 300px;
+			}
+        }
+
+	</style>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+</head>
+<body>
+	<header id="header">
+        <div id="name"><a href="{{siteroot}}">Kevin Goldsmith</a></div>
+		<nav id="site-nav">
+			<ul>
+                {{sitenav}}
+			</ul>
+		</nav>
+	</header>
+	<main id="content">
+		<div id="map_wrapper">
+	    	<div id="map_canvas" class="mapping"></div>
+		</div>
+		{{futuretalks}}
+		<section id="featured-talks">
+			<h2>Book Me</h2>
+			<p class="p-indent">For information about having me speak at your event, please see <a href="bookme.html">this</a>.</p>
+			
+			<h2>Current Talks</h2>
+			<ul>
+				{{currenttalklist}}
+			</ul>
+		</section>
+		<section id="other-talks">
+			<h2>Older Talks</h2>
+			<ul class="year-list">
+				{{othertalklist}}
+			</ul>
+		</section>
+		<section id="panels">
+			<h2>Panels</h2>
+			<ul class="panel-list">
+				{{panellist}}
+			</ul>
+		</section>
+		<section id="workshops">
+			<h2>Workshops</h2>
+			<ul class="workshop-list">
+				{{workshoplist}}
+			</ul>
+		</section>
+	<!-- end #mainContent -->
+	</main>
+	{% include 'footer.html' %}
+	<script src="../js/modernizr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/googleevents.js"></script>
+	<script src="../js/fontfaceobserver.js"></script>
+	<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+	<script type="text/javascript">
+	    var map = L.map('map_canvas').setView([51.505, -0.09], 2);
+	    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+
+	    // Multiple Markers
+	    var markers = [
+	        {{markerlist}}
+	    ];
+	    // Info Window Content
+	    var infoWindowContent = [
+	        {{infolist}}
+	    ];
+
+	    for(var i = 0; i < markers.length; i++) {
+	    	var marker = new L.marker([markers[i][1], markers[i][2]]).bindPopup(infoWindowContent[i][0]).addTo(map);
+	    };
+	</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2753331-2"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-2753331-2');
+	</script>
+
+	<meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{title}}</title>
+    <meta name="description" content="information about the talk {{talktitle}} by {{author}}" />
+    <meta name="author" content="{{author}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="{{googsiteverification}}" />
+    <link rel="canonical" href="https://kevingoldsmith.com/talks/{{filename}}" />
+    
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+	<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+	<link rel="dns-prefetch" href="https://google-analytics.com" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="talkpages.css" />
+</head>
+<body>
+	<header id="header">
+        <div id="name"><a href="{{siteroot}}">Kevin Goldsmith</a></div>
+		<nav id="site-nav">
+			<ul>
+                {{sitenav}}
+			</ul>
+		</nav>
+	</header>
+	<main id="content">
+		<div><a href="{{talkroot}}">< talks</a></div>
+		<h1 id="talktitle">{{talktitle}}</h1>
+		{{photo}}
+		<div id="description">
+			<div class="subheader">Description</div>
+			<div id="talkdescription">{{description}}</div>
+		</div>
+		{{video}}
+		{{slides}}
+		<div id="presentations">
+			<div class="subheader">Presented at</div>
+			<ul>
+				{{presentationlist}}
+			</ul>
+		</div>
+		{{reactions}}
+		<!-- end #mainContent -->
+	</main>
+	{% include 'footer.html' %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../js/googleevents.js"></script>
+	<script src="../js/fontfaceobserver.js"></script>
+</body>
+</html>
