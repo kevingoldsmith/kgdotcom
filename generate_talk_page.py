@@ -1,7 +1,17 @@
 #!/usr/bin/env python
+# *_* coding: utf-8 *_*
+
+"""
+create the page for a talk
+"""
+
+__version__ = "2.0.0"
+__author__ = "Kevin Goldsmith"
+__copyright__ = "Copyright 2021, Kevin Goldsmith"
+__license__ = "MIT"
+__status__ = "Production"                               # Prototype, Development or Production
 
 import urllib
-import string
 import json
 import os
 import common
@@ -13,29 +23,22 @@ from operator import itemgetter
 from bs4 import BeautifulSoup
 import jinja2
 from navigation import generate_nav_talk, get_href_root, get_talk_root_for_talk
+import conference_talk_types
 
 #format strings - here to simplify editing and iteration
-format_photo_div = '<div id=\"photo\">\n<img src=\"{0}\" class=\"aligncenter\"/>\n</div>'
 format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_keynote_list_item = '<li><span class=\"conferencename\">{0}</span> (Keynote) - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
 format_upcoming_list_item = '<li><span class=\"conferencename\"><a class=\"outbound\" href=\"{0}\">{1}</a></span> - <span class=\"conferencedate\">{2}</span> - <span class=\"conferencelocation\">{3}</span></li>'
 format_reactions_list_item = '<li><span class=\"quote\">{0}</span> - <a class=\"outbound\" href=\"{1}\">{2}</a></li>'
 format_reactions_list_item_no_link = '<li><span class=\"quote\">{0}</span> - {1}</li>'
-format_video_div = '<div id=\"video\">\n<div class=\"subheader\">Recordings</div>\n'
-format_other_recordings_list = '<div id=\"othervideos\">\n<div class=\"othersubheader\">Other recordings</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
-format_other_recordings_list_no_embeddable = '<ul class=\"inlinelist\">{0}\n</ul>'
-format_other_recordings_list_item = '<li class=\"inlinelistitem\"><a class=\"outbound\" href=\"{0}\">{1} ({2})</a></li>\n'
 format_slides_div = '<div id=\"slides\">\n<div class=\"subheader\">Slides</div>\n'
 format_other_slides_list = '<div id=\"otherslides\">\n<div class=\"othersubheader\">Other Versions</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
 format_other_slides_list_item = '<li class=\"inlinelistitem\"><a class=\"outbound\" href=\"{0}\">{1} ({2})</a></li>\n'
 format_reactions_div = '<div id=\"reactions\">\n<div class=\"subheader\">Reactions</div>\n<ul>{0}</ul></div>'
 format_talk_page_title = '{0}: Talks: Kevin Goldsmith'
 
-
 #duplicated. meh.
 format_close_div = '</div>\n'
-talk_type_keynote = 'keynote'
-
 
 #requests cache
 requests_cache.install_cache(expire_after=timedelta(days=1))
@@ -74,6 +77,26 @@ def get_embed_code_from_videoURL(video_url):
 	return ''
 
 
+def generate_video_embed(recordings):
+	# get the embed code for the first recording, since it is the most recent
+	sorted_recordings = sorted(recordings, key=itemgetter('date'), reverse=True)
+	other_recordings = []
+	embed_video_string = ''
+	for recording in sorted_recordings:
+		if len(embed_video_string) == 0:
+			embed_url = recording['recording-url']
+			common.validate_url(embed_url)
+			embed_code = get_embed_code_from_videoURL(embed_url)
+			if len(embed_code) > 0:
+				embed_video_string = embed_code
+			else:
+				other_recordings.append(recording)
+		else:
+			other_recordings.append(recording)
+
+	return embed_video_string, other_recordings
+
+
 def get_embed_code_from_slides_URL(slides_url):
 	"""get the embed code from slideshare given a slideshare URL"""
 	#https://www.slideshare.net/developers/oembed
@@ -102,7 +125,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 	outputfilename = filetitle + '-jinja.html'
 	filepath = output_directory + filetitle + '-jinja.html'
 
-	print("creating file: {0}".format(filetitle))
+	print(f"creating file: {filetitle}")
 
 	pagevalues = copy.deepcopy(pagevariables)
 	pagevalues['title'] = format_talk_page_title.format(talktitle)
@@ -114,10 +137,8 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 	reactions = []
 	description = ''
 
-	if os.path.isfile('public/talks/'+filetitle+'.jpg'):
-		photofile = filetitle + '.jpg'
-		photo = format_photo_div.format(photofile)
-		pagevalues['photo'] = photo
+	if os.path.isfile(f'public/talks/{filetitle}.jpg'):
+		pagevalues['photo'] = filetitle + '.jpg'
 
 	for conference in conferences:
 		this_talk = None
@@ -145,7 +166,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 			conference_location = common.format_city_state_country_from_location(this_talk['location']) if 'location' in this_talk else "virtual"
 
 			talk_list_item_format = format_presentation_list_item
-			if this_talk['talk-type'] == talk_type_keynote:
+			if this_talk['talk-type'] == conference_talk_types.TALK_TYPE_KEYNOTE:
 				talk_list_item_format = format_keynote_list_item
 
 			presentations.append(talk_list_item_format.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
@@ -171,36 +192,9 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 		pagevalues['description'] = description
 
 	if len(recordings) > 0:
-		# get the embed code for the first recording, since it is the most recent
-		sorted_recordings = sorted(recordings, key=itemgetter('date'), reverse=True)
-		other_recordings = []
-		video_string = ''
-		for recording in sorted_recordings:
-			if len(video_string) == 0:
-				embed_url = recording['recording-url']
-				common.validate_url(embed_url)
-				embed_code = get_embed_code_from_videoURL(embed_url)
-				if len(embed_code) > 0:
-					video_string = format_video_div + embed_code
-				else:
-					other_recordings.append(recording)
-			else:
-				other_recordings.append(recording)
-
-		other_recordings_string = ''
-		if len(other_recordings) > 0:
-			if len(video_string) < 1:
-				video_string = format_video_div
-				other_recordings_string = format_other_recordings_list_no_embeddable
-			else:
-				other_recordings_string = format_other_recordings_list
-			other_recordings_list = ''
-			for recording in other_recordings:
-				other_recordings_list += format_other_recordings_list_item.format(recording['recording-url'], recording['conference'], recording['date'].year)
-			other_recordings_string = other_recordings_string.format(other_recordings_list)
-			video_string += other_recordings_string
-		video_string += format_close_div
-		pagevalues['video'] = video_string
+		video_embed, other_videos = generate_video_embed(recordings)
+		pagevalues['video_embed'] = video_embed if len(video_embed) > 0 else None
+		pagevalues['other_videos'] = other_videos if len(other_videos) > 0 else None
 
 	if len(slides) > 0:
 		sorted_slides = sorted(slides, key=itemgetter('date'), reverse=True)

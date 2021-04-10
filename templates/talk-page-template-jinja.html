@@ -36,12 +36,29 @@
 	<main id="content">
 		<div><a href="{{talkroot}}">< talks</a></div>
 		<h1 id="talktitle">{{talktitle}}</h1>
-		{{photo}}
+		{% if photo %}<div id="photo"><img src="{{photo}}" class="aligncenter"/></div>{% endif %}
 		<div id="description">
 			<div class="subheader">Description</div>
 			<div id="talkdescription">{{description}}</div>
 		</div>
-		{{video}}
+
+		{% if video_embed or other_videos %}
+			<div id="video"><div class="subheader">Recordings</div>
+			{% if video_embed %}{{video_embed}}
+				{% if other_videos %}
+				<div id="othervideos"><div class="othersubheader">Other recordings</div>
+				{% endif %}
+			{% endif %}
+			{% if other_videos %}
+				<ul class="inlinelist">
+					{% for recording in other_videos %}
+					<li class="inlinelistitem"><a class="outbound" href="{{recording['recording-url']}}">{{recording.conference}} ({{recording.date.year}})</a></li>
+					{% endfor %}
+				</ul>
+				{% if video_embed %}</div>{% endif %}
+			{% endif %}
+			</div>
+		{% endif %}
 		{{slides}}
 		<div id="presentations">
 			<div class="subheader">Presented at</div>
