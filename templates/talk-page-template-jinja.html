@@ -51,22 +51,52 @@
 			{% endif %}
 			{% if other_videos %}
 				<ul class="inlinelist">
-					{% for recording in other_videos %}
-					<li class="inlinelistitem"><a class="outbound" href="{{recording['recording-url']}}">{{recording.conference}} ({{recording.date.year}})</a></li>
+					{% for recording in other_videos %}<li class="inlinelistitem"><a class="outbound" href="{{recording['recording-url']}}">{{recording.conference}} ({{recording.date.year}})</a></li>
 					{% endfor %}
 				</ul>
 				{% if video_embed %}</div>{% endif %}
 			{% endif %}
 			</div>
 		{% endif %}
-		{{slides}}
+		{% if slide_embed or other_slides %}
+		<div id="slides">
+			<div class="subheader">Slides</div>
+			{{slide_embed}}
+			{% if other_slides %}
+			<div id="otherslides">
+				<div class="othersubheader">Other Versions</div>
+				<ul class="inlinelist">
+					{% for slide in other_slides %}<li class="inlinelistitem"><a class="outbound" href="{{slide['slides-url']}}">{{slide.talk}} ({{slide.date.year}})</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+		</div>
+		{% endif %}
+		{% if presentationlist %}
 		<div id="presentations">
 			<div class="subheader">Presented at</div>
 			<ul>
-				{{presentationlist}}
+				{% for presentation in presentationlist %}
+				<li><span class="conferencename">{{ presentation.conference_name }}</span> {% if presentation.type == 'keynote' %}(Keynote){% endif %} - <span class="conferencedate">{{ presentation.date }}</span> - <span class="conferencelocation">{{ presentation.location }}</span></li>
+				{% endfor %}
 			</ul>
 		</div>
-		{{reactions}}
+		{% endif %}
+		{% if reactions %}
+		<div id="reactions">
+			<div class="subheader">Reactions</div>
+			<ul>
+		{% for reaction in reactions %}
+		{% if reaction['reference-url'] %}
+		<li><span class="quote">{{ reaction.quote }}</span> - <a class="outbound" href="{{ reaction['reference-url'] }}">{{ reaction.credit }}</a></li>
+		{% else %}
+		<li><span class="quote">{{ reaction.quote }}</span> - {{ reaction.credit }}</li>
+		{% endif %}
+		{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
 		<!-- end #mainContent -->
 	</main>
 	{% include 'footer.html' %}

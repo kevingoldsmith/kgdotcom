@@ -25,21 +25,6 @@ import jinja2
 from navigation import generate_nav_talk, get_href_root, get_talk_root_for_talk
 import conference_talk_types
 
-#format strings - here to simplify editing and iteration
-format_presentation_list_item = '<li><span class=\"conferencename\">{0}</span> - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
-format_keynote_list_item = '<li><span class=\"conferencename\">{0}</span> (Keynote) - <span class=\"conferencedate\">{1}</span> - <span class=\"conferencelocation\">{2}</span></li>'
-format_upcoming_list_item = '<li><span class=\"conferencename\"><a class=\"outbound\" href=\"{0}\">{1}</a></span> - <span class=\"conferencedate\">{2}</span> - <span class=\"conferencelocation\">{3}</span></li>'
-format_reactions_list_item = '<li><span class=\"quote\">{0}</span> - <a class=\"outbound\" href=\"{1}\">{2}</a></li>'
-format_reactions_list_item_no_link = '<li><span class=\"quote\">{0}</span> - {1}</li>'
-format_slides_div = '<div id=\"slides\">\n<div class=\"subheader\">Slides</div>\n'
-format_other_slides_list = '<div id=\"otherslides\">\n<div class=\"othersubheader\">Other Versions</div>\n<ul class=\"inlinelist\">{0}\n</ul>\n</div>'
-format_other_slides_list_item = '<li class=\"inlinelistitem\"><a class=\"outbound\" href=\"{0}\">{1} ({2})</a></li>\n'
-format_reactions_div = '<div id=\"reactions\">\n<div class=\"subheader\">Reactions</div>\n<ul>{0}</ul></div>'
-format_talk_page_title = '{0}: Talks: Kevin Goldsmith'
-
-#duplicated. meh.
-format_close_div = '</div>\n'
-
 #requests cache
 requests_cache.install_cache(expire_after=timedelta(days=1))
 requests_cache.remove_expired_responses()
@@ -128,7 +113,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 	print(f"creating file: {filetitle}")
 
 	pagevalues = copy.deepcopy(pagevariables)
-	pagevalues['title'] = format_talk_page_title.format(talktitle)
+	pagevalues['title'] = f'{talktitle}: a talk by Kevin Goldsmith'
 	pagevalues['talktitle'] = talktitle
 	pagevalues['filename'] = outputfilename
 	recordings = []
@@ -165,21 +150,19 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 
 			conference_location = common.format_city_state_country_from_location(this_talk['location']) if 'location' in this_talk else "virtual"
 
-			talk_list_item_format = format_presentation_list_item
-			if this_talk['talk-type'] == conference_talk_types.TALK_TYPE_KEYNOTE:
-				talk_list_item_format = format_keynote_list_item
-
-			presentations.append(talk_list_item_format.format(conference_name, talk_date.strftime("%B %d, %Y"), conference_location))
+			presentations.append(dict(
+				type=this_talk['talk-type'],
+				conference_name=conference_name,
+				date=talk_date.strftime("%B %d, %Y"),
+				location=conference_location
+			))
 
 			if 'reactions' in this_talk:
 				for reaction in this_talk['reactions']:
-					quote = reaction['quote']
-					credit = reaction['credit']
 					if 'reference-url' in reaction:
 						common.validate_url(reaction['reference-url'])
-						reactions.append(format_reactions_list_item.format(quote, reaction['reference-url'], credit))
-					else:
-						reactions.append(format_reactions_list_item_no_link.format(quote, credit))
+				reactions.extend(this_talk['reactions'])
+
 			try:
 				index = next(index for (index, d) in enumerate(index_page['talks']) if d["name"] == talk_index)
 				if talk_date > index_page['talks'][index]['date']:
@@ -200,31 +183,16 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 		sorted_slides = sorted(slides, key=itemgetter('date'), reverse=True)
 		embed_url = sorted_slides[0]['slides-url']
 		common.validate_url(embed_url)
-		slides_string = format_slides_div + get_embed_code_from_slides_URL(embed_url)
+		pagevalues['slide_embed'] = get_embed_code_from_slides_URL(embed_url)
 
-		other_slides_string = ''
 		if len(sorted_slides) > 1:
-			other_slides_string = format_other_slides_list
-			iterslides = iter(sorted_slides)
-			next(iterslides)
-			other_slides_list = ''
-			for slide in iterslides:
-				other_slides_list += format_other_slides_list_item.format(slide['slides-url'], slide['talk'], slide['date'].year)
-			other_slides_string = other_slides_string.format(other_slides_list)
-			slides_string += other_slides_string
-		slides_string += format_close_div
-		pagevalues['slides'] = slides_string
+			pagevalues['other_slides'] = sorted_slides[1:]
 
 	if len(presentations) > 0:
-		pagevalues['presentationlist'] = '\n'.join(presentations)
-	else:
-		pagevalues['presentationlist'] = ''
-
+		pagevalues['presentationlist'] = presentations
+	
 	if len(reactions) > 0:
-		reactionstring = format_reactions_div.format('\n'.join(reactions))
-		pagevalues['reactions'] = reactionstring
-	else:
-		pagevalues['reactions'] = ''
+		pagevalues['reactions'] = reactions
 
 	pagevalues['sitenav'] = generate_nav_talk(False, debug_mode)
 	pagevalues['siteroot'] = get_href_root('index.html', debug_mode, True)
