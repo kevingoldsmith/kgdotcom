@@ -61,16 +61,8 @@
 	</style>
 </head>
 <body>
-<!-- thanks to https://codepen.io/eksch/pen/xwdOeK for the page navigation code example (I had to tweak some)  -->
-	<header id="header">
-        <div id="name"><a href="{% if debug_mode %}index.html{% else %}https://kevingoldsmith.com{% endif %}">Kevin Goldsmith</a></div>
-		<nav id="site-nav">
-			<ul>
-				{% set active_page = 'photographer' %}
-                {% include 'header.html' %}
-			</ul>
-		</nav>
-	</header>
+	{% set active_page = 'photographer' %}
+	{% include 'header.html' %}
 	<main id="content">
 	<iframe id="ifrm" src="https://photo.kevingoldsmith.com" style="border:none; width:100%"></iframe>
 	</main>

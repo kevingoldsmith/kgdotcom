@@ -86,9 +86,12 @@ def format_keynote_list(conferences, debug_mode):
                     talk_path = os.path.join('talks',
                         common.generate_filename(talk['root-talk'] if 'root-talk' in talk else
                         talk['talk'])) + '.html'
+                    print(f"talk-url not in {talk['talk']}, talk-path: {talk_path}")
                     if os.path.exists(
                         os.path.join(common.get_output_directory(debug_mode),talk_path)):
                         talk['talk-url'] = talk_path
+                    else:
+                        print("talk-path does not exist!")
                 else:
                     common.validate_url(talk['talk-url'])
                 keynote = dict(

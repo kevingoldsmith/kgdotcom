@@ -81,15 +81,8 @@
     </style>
 </head>
 <body>
-    <header id="header">
-        <div id="name"><a href="{% if debug_mode %}index.html{% else %}https://kevingoldsmith.com{% endif %}">Kevin Goldsmith</a></div>
-        <hav id="site-nav">
-            <ul>
-                {% set active_page = 'musician' %}
-                {% include 'header.html' %}
-            </ul>
-        </hav>
-    </header>
+    {% set active_page = 'musician' %}
+    {% include 'header.html' %}
     <main id="content">
         <div class="ut"><iframe class="ut youtube" src="//www.youtube.com/embed/Qw3YQL2Z_ZE?rel=0" frameborder="0" allowfullscreen></iframe></div>
         <h2>Solo Recordings (<a href="https://answerstoapril.com/">Answers to April</a>)</h2>

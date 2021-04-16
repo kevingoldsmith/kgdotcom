@@ -59,6 +59,7 @@ def generate_writing_page(debug_mode=True, output_file="writing.html"):
     output_directory = get_output_directory(debug_mode)
 
     writings = dict(
+        debug_mode=debug_mode,
         writinglist = article_list,
         tagbuttons = button_list)
     output_path = os.path.join(output_directory, output_file)

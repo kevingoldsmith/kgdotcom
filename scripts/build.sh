@@ -31,16 +31,10 @@ else
 fi
 if ! $simple ; then
     if $debug ; then
-        python generate-conference-pages.py --debug
-        python generate-writing-page.py --debug
-        python generate-resume-page.py --debug
-        python generate-other-pages.py --debug
+        python generate_site.py --debug
     else        
-        python generate-conference-pages.py
-        python generate-writing-page.py
-        python generate-resume-page.py
-        python generate-other-pages.py
-        python generate-sitemap.py
+        python generate_site.py
+        python generate_sitemap.py
     fi
 fi
 

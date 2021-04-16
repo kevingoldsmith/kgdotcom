@@ -16,6 +16,7 @@ import argparse
 import jinja2
 import generate_resume_page
 import generate_writing_page
+import generate_conference_pages
 from common import get_output_directory
 
 
@@ -41,6 +42,7 @@ def main(debug_mode=False):
     """call the methods in the other modules"""
     generate_writing_page.generate_writing_page(debug_mode=debug_mode,
         output_file='writing.html')
+    generate_conference_pages.generate_conference_pages(debug_mode=debug_mode)
     generate_resume_page.generate_resume_page(debug_mode=debug_mode,
         output_file='resume.html')
     generate_other_pages(debug_mode)
