@@ -1,179 +1,156 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+# *_* coding: utf-8 *_*
 
+"""
+create the resume.html page for my website
+"""
+
+__version__ = "2.0.0"
+__author__ = "Kevin Goldsmith"
+__copyright__ = "Copyright 2021, Kevin Goldsmith"
+__license__ = "MIT"
+__status__ = "Production"                               # Prototype, Development or Production
+
+import os
 import argparse
 import json
-from string import Template
-from navigation import generate_nav_root, get_href_root
-from common import *
-
-parser = argparse.ArgumentParser(description='generate the writings file')
-parser.add_argument('--debug', action='store_true')
-args = parser.parse_args()
-debug_mode = args.debug
-
-output_page = 'resume.html'
-
+import jinja2
+import common
 
 def format_job_list(work):
-	format_company_name = u'<span itemprop="name">{0}</span>'
-	format_company_url = u'<a class="outbound" href="{0}" target="_blank">{1}</a>'
-	format_job_li = u'<li itemprop="{jobstatus}" itemscope itemtype="http://schema.org/Organization"><div class="job-header"><div class="job-title">{title}</div><div class="job-dates">{from_date} - {to_date}</div><div class="job-company">{company}</div><div class="job-city">{city}</div></div><div class="job-description" itemprop="description">{description}</div></li>'
+    """cleanup the job data from the resume.json for output"""
+    job_list = []
+    for work_item in work:
+        if 'website' in work_item:
+            common.validate_url(work_item['website'])
+        job = dict(
+            title=work_item['position'],
+            from_date=common.format_month_year_from_string(work_item['startDate']),
+            to_date=common.format_month_year_from_string(
+                work_item['endDate']) if 'endDate' in work_item else 'present',
+                company=work_item['company'],
+                website=work_item.get('website'),
+                city=work_item['location'],
+                description=common.generate_paragraphs_for_lines(work_item['summary']),
+                jobstatus='alumniOf' if 'endDate' in work_item else 'worksFor'
+            )
+        job_list.append(job)
 
-	job_list = []
-	for work_item in work:
-		company_name = format_company_name.format(work_item['company'])
-		if 'website' in work_item:
-			validate_url(work_item['website'])
-		d = dict(
-			title=work_item['position'],
-			from_date=format_month_year_from_string(work_item['startDate']),
-			to_date=format_month_year_from_string(work_item['endDate']) if 'endDate' in work_item else 'present',
-			company=format_company_url.format(work_item['website'], company_name) if 'website' in work_item else company_name,
-			city=work_item['location'],
-			description=generate_paragraphs_for_lines(work_item['summary']),
-			jobstatus='alumniOf' if 'endDate' in work_item else 'worksFor'
-			)
-		job_list.append(format_job_li.format(**d))
-
-	return u'\n'.join(job_list)
+    return job_list
 
 
 def format_patent_list(patents):
-	format_patent_li = '<li><div class="patent-header"><div class="patent-title"><a class="outbound" href="{url}" target="_blank">{title}</a></div><div class="patent-number">#{number}</div><div class="patent-authorship">{author}</div><div class="patent-filing-date">filed: {filing_date}</div><div class="patent-granted-date">granted: {granted_date}</div></div><div class="patent-abstract">{abstract}</div></li>'
-	patent_list = []
-	for patent in patents:
-		validate_url(patent['url'])
-		d = dict(
-			title=patent['name'],
-			url=patent['url'],
-			number=patent['number'],
-			author='co-author' if len(patent['authors']) > 0 else 'sole author',
-			filing_date=format_month_day_year_from_string(patent['filingDate']),
-			granted_date=format_month_day_year_from_string(patent['grantedDate']),
-			abstract=patent['abstract']
-			)
-		patent_list.append(format_patent_li.format(**d))
+    """cleanup the patent data from the resume.json for output"""
+    patent_list = []
+    for patent in patents:
+        common.validate_url(patent['url'])
+        patent = dict(
+            title=patent['name'],
+            url=patent['url'],
+            number=patent['number'],
+            author='co-author' if len(patent['authors']) > 0 else 'sole author',
+            filing_date=common.format_month_day_year_from_string(patent['filingDate']),
+            granted_date=common.format_month_day_year_from_string(patent['grantedDate']),
+            abstract=patent['abstract']
+            )
+        patent_list.append(patent)
 
-	return u'\n'.join(patent_list)
+    return patent_list
 
 
 #no point in treating this like a list, I only have the one degree :)
 def format_education(education_item):
-	format_education_text='<span itemprop="alumniOf" itemscope itemtype="http://schema.org/CollegeOrUniversity"><a class="outbound" itemprop="sameAs" href="{website}"><span class="university-name" itemprop="name">{institution}</span></a>, {location}. {studyType} Degree in {area}, graduated {grad_date}. {summary}</span>'
-	education_item['grad_date']=format_month_year_from_string(education_item['endDate'])
-	return format_education_text.format(**education_item)
+    """cleanup the education data from the resume.json for output"""
+    college = education_item.copy()
+    college['grad_date'] = common.format_month_year_from_string(education_item['endDate'])
+    return college
 
 
 def format_interview_list(interviews):
-	format_interview_li = u'<li><a class="outbound" href="{url}">{name}</a>, {date}, {credit}</li>'
-	format_credit_author_publisher = '{0} - {1}'
-	format_credit_either = '{0}'
-
-	interview_list = []
-	for interview in interviews:
-		validate_url(interview['url'])
-		if ('author' in interview) and ('publisher' in interview):
-			interview['credit'] = format_credit_author_publisher.format(interview['author'], interview['publisher'])
-		else:
-			interview['credit'] = format_credit_either.format(interview['author'] if 'author' in interview else interview['publisher'])
-
-		interview['date'] = format_month_year_from_string(interview['date'])
-		interview_list.append(format_interview_li.format(**interview))
-	return u'\n'.join(interview_list)
+    """cleanup the interview list data from the resume.json for output"""
+    interview_list = []
+    for interview in interviews:
+        common.validate_url(interview['url'])
+        interview['date'] = common.format_month_year_from_string(interview['date'])
+        interview_list.append(interview)
+    return interview_list
 
 
-def format_keynote_list(conferences):
-	format_keynote_li = '<li><span class="talk-title">{talk}</span>, {conference}, {date}, {location}</li>'
-	format_conference_with_link='<a class="outbound" href="{conference_url}">{conference_name}</a>'
-	format_talk_with_link='<a href="{talk_url}">{talk}</a>'
+def format_keynote_list(conferences, debug_mode):
+    """create a list of conference keynotes from the conferences.json"""
+    keynote_list = []
+    for conference in conferences:
+        for talk in conference['talks']:
+            if talk['talk-type'] == 'keynote':
+                if not 'talk-url' in talk:
+                    talk_path = os.path.join('talks',
+                        common.generate_filename(talk['root-talk'] if 'root-talk' in talk else
+                        talk['talk'])) + '.html'
+                    if os.path.exists(
+                        os.path.join(common.get_output_directory(debug_mode),talk_path)):
+                        talk['talk-url'] = talk_path
+                else:
+                    common.validate_url(talk['talk-url'])
+                keynote = dict(
+                    talk=talk['talk'],
+                    talk_url=talk.get('talk-url'),
+                    conference=conference['conference'],
+                    conference_url=conference.get('url'),
+                    date=common.format_month_year_from_string(talk['date']),
+                    location=common.format_city_state_country_from_location(talk['location'])
+                        if 'location' in talk else 'virtual'
+                    )
+                keynote_list.append(keynote)
+    return keynote_list
 
-	keynote_list = []
-	for conference in conferences:
-		for talk in conference['talks']:
-			if talk['talk-type'] == 'keynote':
-				if not 'talk-url' in talk:
-					talk_path = os.path.join('talks', generate_filename(talk['root-talk'] if 'root-talk' in talk else talk['talk'])) + '.html'
-					if os.path.exists(os.path.join(get_output_directory(debug_mode),talk_path)):
-						talk['talk-url'] = talk_path
-				else:
-					validate_url(talk['talk-url'])
-				d = dict(
-					talk=format_talk_with_link.format(**dict(talk_url=talk['talk-url'], talk=talk['talk'])) if 'talk-url' in talk else talk['talk'],
-					conference=format_conference_with_link.format(**dict(conference_url=conference['url'],conference_name=conference['conference'])) if 'url' in conference else conference['conference'],
-					date=format_month_year_from_string(talk['date']),
-					location=format_city_state_country_from_location(talk['location']) if 'location' in talk else 'virtual'
-					)
-				keynote_list.append(format_keynote_li.format(**d))
-	return '\n'.join(keynote_list)
+def generate_resume_page(debug_mode=True, output_file='resume.html'):
+    """generate the resume page for the website from the structured data"""
+    # get the template
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+    pagetemplate = env.get_template('resume-template-jinja.html')
 
+    #get the conference data
+    with open('data/conferences.json', 'r') as file:
+        conference_data = json.load(file)
 
-def format_publication_credits_list(publications):
-	format_pulication_li='<li><span class="credit-title">{title}</span>, {credit}: {summary}</li>'
-	format_credit_author_publisher_year = '{0} - {1}, {2}'
+    #get the resume data
+    with open('data/resume.json', 'r') as file:
+        resume_data = json.load(file)
 
-	publication_list = []
-	for publication in publications:
-		if ('author' in publication) and ('publisher' in publication):
-			publication['credit'] = format_credit_author_publisher_year.format(publication['author'], publication['publisher'], format_year_from_string(publication['releaseDate']))
-		else:
-			publication['credit'] = publication['author'] if 'author' in publication else publication['publisher']
+    #get the interview data
+    with open('data/interviews.json', 'r') as file:
+        interview_data = json.load(file)
 
-		publication_list.append(format_pulication_li.format(**publication))
-	return '\n'.join(publication_list)
+    publications = list()
+    for publication in resume_data['publications']:
+        if 'releaseDate' in publication:
+            publication['year'] = common.format_year_from_string(publication['releaseDate'])
+        publications.append(publication)
 
+    page_variables = dict(
+        debug_mode=debug_mode,
+        email=common.obfusticate_email(resume_data['basics']['email']),
+        website=resume_data['basics']['website'],
+        headline=resume_data['basics']['headline'],
+        summary=resume_data['basics']['summary'],
+        job_list=format_job_list(resume_data['work']),
+        patent_list=format_patent_list(resume_data['patents']),
+        education=format_education(resume_data['education'][0]),
+        interview_list=format_interview_list(interview_data),
+        keynote_list=format_keynote_list(list(reversed(conference_data)), debug_mode),
+        publication_list=publications,
+        production_list=resume_data['productionCredits'],
+        honor_list=resume_data['awards']
+        )
 
-def format_production_credits_list(productions):
-	format_production_li='<li><span class="production-title">{name}</span>, {releaseDate}, {venue}. {summary}</li>'
-	production_list = []
-	for production in productions:
-		production_list.append(format_production_li.format(**production))
-	return '\n'.join(production_list)
+    output_path = os.path.join(common.get_output_directory(debug_mode),output_file)
+    print(f'writing: {output_path}')
+    with open(output_path, 'w') as file:
+        file.write(pagetemplate.render(page_variables))
 
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='generate the writings file')
+    parser.add_argument('--debug', action='store_true')
+    args = parser.parse_args()
 
-
-#<li><span class="honor-title">Adobe Technology Summit 2011</span>, Program Committee Member and Software Engineering Track Chair. <em>Invited to take a leadership position for a company-wide internal Adobe technical conference with over 2000 attendees.</em></li>
-def format_honors_list(honors):
-	format_honor_li='<li><span class="honor-title">{title}</span>, <span class="honor-summary">{summary}</span></li>'
-
-	honors_list = []
-	for honor in honors:
-		honors_list.append(format_honor_li.format(**honor))
-	return '\n'.join(honors_list)
-
-
-# get the template
-with open('templates/resume-template.html') as f:
-	pagetemplate = Template(f.read())
-
-#get the conference data
-with open('data/conferences.json', 'r') as f:
-	conference_data = json.load(f)
-
-#get the resume data
-with open('data/resume.json', 'r') as f:
-	resume_data = json.load(f)
-
-#get the interview data
-with open('data/interviews.json', 'r') as f:
-	interview_data = json.load(f)
-
-page_variables = dict(
-	sitenav=generate_nav_root(output_page, debug_mode),
-	siteroot=get_href_root('index.html', debug_mode),
-	email=obfusticate_email(resume_data['basics']['email']),
-	website=resume_data['basics']['website'],
-	headline=resume_data['basics']['headline'],
-	summary=resume_data['basics']['summary'],
-	job_list=format_job_list(resume_data['work']),
-	patent_list=format_patent_list(resume_data['patents']),
-	education=format_education(resume_data['education'][0]),
-	interview_list=format_interview_list(interview_data),
-	keynote_list=format_keynote_list(list(reversed(conference_data))),
-	publication_list=format_publication_credits_list(resume_data['publications']),
-	production_list=format_production_credits_list(resume_data['productionCredits']),
-	honor_list=format_honors_list(resume_data['awards'])
-	)
-
-print('writing: '+output_page)
-with open(get_output_directory(debug_mode)+output_page, 'w') as f:
-	f.write(pagetemplate.substitute(page_variables))
+    generate_resume_page(debug_mode = args.debug, output_file='resume-jinja.html')

@@ -1,22 +1,54 @@
 #!/usr/bin/env python
+# *_* coding: utf-8 *_*
 
+"""
+generate the pages for kevingoldsmith.com
+"""
+
+__version__ = "2.0.0"
+__author__ = "Kevin Goldsmith"
+__copyright__ = "Copyright 2021, Kevin Goldsmith"
+__license__ = "MIT"
+__status__ = "Production"                               # Prototype, Development or Production
+
+import os
 import argparse
-from string import Template
-from navigation import generate_nav_root, get_href_root
+import jinja2
+import generate_resume_page_jinja
+import generate_writing_page_jinja
 from common import get_output_directory
 
-parser = argparse.ArgumentParser(description='generate the writings file')
-parser.add_argument('--debug', action='store_true')
-args = parser.parse_args()
-debug_mode = args.debug
 
-other_pages = [('index.html', 'templates/site-index-template.html'), ('music.html', 'templates/music-template.html'), ('photography.html', 'templates/photography-template.html')]
+def generate_other_pages(debug_mode=False):
+    """generate the simpler pages"""
+    other_pages = [
+        ('index-jinja.html', 'site-index-template-jinja.html'),
+        ('music-jinja.html', 'music-template-jinja.html'),
+        ('photography-jinja.html', 'photography-template-jinja.html')
+    ]
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 
-for page in other_pages:
-	with open(page[1]) as f:
-		pagetemplate = Template(f.read())
+    for page in other_pages:
+        template = env.get_template(page[1])
+        page_data = dict(debug_mode=debug_mode)
+        output_path = os.path.join(get_output_directory(debug_mode), page[0])
+        print('writing: ' + output_path)
+        with open(output_path, 'w') as file:
+            file.write(template.render(page_data))
 
-	d = dict(sitenav=generate_nav_root(page[0], debug_mode), siteroot=get_href_root('index.html', debug_mode))
-	print('writing: ' + page[0])
-	with open(get_output_directory(debug_mode)+page[0], 'w') as f:
-		f.write(pagetemplate.substitute(d))
+
+def main(debug_mode=False):
+    """call the methods in the other modules"""
+    generate_writing_page_jinja.generate_writing_page(debug_mode=debug_mode,
+        output_file='writing-jinja.html')
+    generate_resume_page_jinja.generate_resume_page(debug_mode=debug_mode,
+        output_file='resume-jinja.html')
+    generate_other_pages(debug_mode)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='generate the writings file')
+    parser.add_argument('--debug', action='store_true')
+    args = parser.parse_args()
+
+    main(debug_mode=args.debug)

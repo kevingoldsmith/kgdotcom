@@ -1,62 +1,74 @@
 #!/usr/bin/env python
+# *_* coding: utf-8 *_*
+
+"""
+create the writing.html page for my website with a list of articles to read
+"""
+
+__version__ = "2.0.0"
+__author__ = "Kevin Goldsmith"
+__copyright__ = "Copyright 2021, Kevin Goldsmith"
+__license__ = "MIT"
+__status__ = "Production"                               # Prototype, Development or Production
 
 import json
-import os
 import argparse
-from string import Template
-from datetime import date
-from navigation import generate_nav_root, get_href_root
-from common import get_output_directory, validate_url
-
-format_article_template = Template('<li class=\"article\" data-tags=\"$datatags\"><div class=\"articlename\"><a href="$url">$name</a></div><div class=\"articledate\">$formatteddate</div><div class=\"articledescription\">$description</div><ul class="keywordlist">$keywords</ul></li>')
-format_article_keyword_template = Template('<li class=\"keyword\">$tag</li>')
-format_filter_button_template = Template('<button id=\'$tag\' onclick=\"filterTag(\'articlelist\',\'$tag\')\">$name</button>')
-
-output_file = 'writing.html'
-
-parser = argparse.ArgumentParser(description='generate the writings file')
-parser.add_argument('--debug', action='store_true')
-args = parser.parse_args()
-debug_mode = args.debug
-
-def tagifyTag(tag):
-	tag = tag.replace(' ', '-')
-	return tag.lower()
+import jinja2
+import os
+from common import get_output_directory, validate_url, format_month_day_year_from_string
 
 
-with open('data/writing.json') as f:
-	writings = json.load(f)
+def tagify_tag(tag):
+    """make tags work for selection"""
+    tag = tag.replace(' ', '-')
+    return tag.lower()
 
-writings = sorted(writings, key=lambda k: k['date'], reverse=True)
 
-#get the page template
-with open('templates/writing-template.html') as f:
-	writingpagetemplate = Template(f.read())
+def generate_writing_page(debug_mode=True, output_file="writing.html"):
+    """from the writing.json file, create the writing.html file"""
+    with open('data/writing.json') as file:
+        writings = json.load(file)
 
-article_list = ""
-tag_set = set()
-for writing in writings:
-	if len(writing['name']) > 0:
-		writing['formatteddate'] = date(*map(int, writing['date'].split("-"))).strftime("%B %d, %Y")
-		tag_list = ""
-		data_tag_list = []
-		writing['tags'].sort()
-		for tag in writing['tags']:
-			tag_set.add(tag)
-			tag_list += format_article_keyword_template.substitute({'tag': tag})
-			data_tag_list.append(tagifyTag(tag))
-		writing['keywords'] = tag_list
-		writing['datatags'] = ' '.join(data_tag_list)
-		validate_url(writing['url'])
-		article_list += format_article_template.substitute(writing)
+    writings = sorted(writings, key=lambda k: k['date'], reverse=True)
 
-button_list = ""
-for tag in sorted(tag_set):
-	button_list += format_filter_button_template.substitute({'name': tag, 'tag': tagifyTag(tag)})
+    #get the page template
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+    writingpagetemplate = env.get_template('writing-template-jinja.html')
 
-output_directory = get_output_directory(debug_mode)
+    article_list = []
+    tag_set = set()
+    for writing in writings:
+        if len(writing['name']) > 0:
+            writing['formatteddate'] = format_month_day_year_from_string(writing['date'])
+            tag_list = []
+            data_tag_list = []
+            writing['tags'].sort()
+            for tag in writing['tags']:
+                tag_set.add(tag)
+                tag_list.append(tag)
+                data_tag_list.append(tagify_tag(tag))
+            writing['keywords'] = tag_list
+            writing['datatags'] = data_tag_list
+            validate_url(writing['url'])
+            article_list.append(writing)
 
-d = dict(writinglist = article_list, tagbuttons = button_list, sitenav = generate_nav_root(output_file, debug_mode), siteroot = get_href_root('index.html', debug_mode))
-print('writing: ' + output_file)
-with open(output_directory+output_file, 'w') as f:
-	f.write(writingpagetemplate.substitute(d))
+    button_list = []
+    for tag in sorted(tag_set):
+        button_list.append({'name': tag, 'tag': tagify_tag(tag)})
+
+    output_directory = get_output_directory(debug_mode)
+
+    writings = dict(
+        writinglist = article_list,
+        tagbuttons = button_list)
+    output_path = os.path.join(output_directory, output_file)
+    print('writing: ' + output_path)
+    with open(output_path, 'w') as file:
+        file.write(writingpagetemplate.render(writings))
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='generate the writings file')
+    parser.add_argument('--debug', action='store_true')
+    args = parser.parse_args()
+
+    generate_writing_page(debug_mode=args.debug, output_file='writing-jinja.html')
