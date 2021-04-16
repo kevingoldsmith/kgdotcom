@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2753331-2"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-2753331-2');
+	</script>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=contain">
@@ -10,10 +20,6 @@
     <meta name="google-site-verification" content="6-e5GrTPsmDpSGk6vICFdLGxj9buwsS1qiaxZKKj3Qw" />
 	<title>Photography: Kevin Goldsmith</title>
 	<link rel="canonical" href="https://kevingoldsmith.com/photography.html" />
-
-    <!-- Google ownership links -->
-    <link rel="author" href="https://plus.google.com/+KevinGoldsmith"/>
-    <link rel="publisher" href="https://plus.google.com/111904464094073716491" />
 
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 	<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
@@ -55,21 +61,12 @@
 	</style>
 </head>
 <body>
-<!-- thanks to https://codepen.io/eksch/pen/xwdOeK for the page navigation code example (I had to tweak some)  -->
-	<header id="header">
-        <div id="name"><a href="$siteroot">Kevin Goldsmith</a></div>
-		<nav id="site-nav">
-			<ul>
-				$sitenav
-			</ul>
-		</nav>
-	</header>
+	{% set active_page = 'photographer' %}
+	{% include 'header.html' %}
 	<main id="content">
 	<iframe id="ifrm" src="https://photo.kevingoldsmith.com" style="border:none; width:100%"></iframe>
 	</main>
-	<footer id="footer">
-		kevingoldsmith.com
-	</footer>
+    {% include 'footer.html' %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/googleevents.js"></script>
 	<script src="js/fontfaceobserver.js"></script>
@@ -77,13 +74,13 @@
     <script type="text/javascript">
     function resizeIframe()
     {
-        $$("#ifrm").css("height", $$(window).height() - $$("#header").position().top - $$("#header").height() - $$("#footer").height() - 60);
+        $("#ifrm").css("height", $(window).height() - $("#header").position().top - $("#header").height() - $("#footer").height() - 60);
     }
 
-    $$(document).ready(function()
+    $(document).ready(function()
     {
     	resizeIframe()             
-        $$(window).resize(function(event) {
+        $(window).resize(function(event) {
             /* Act on the event */
             resizeIframe();
         });

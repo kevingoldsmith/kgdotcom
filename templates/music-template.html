@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2753331-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-2753331-2');
+    </script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=contain">
@@ -18,10 +28,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
     <link rel="stylesheet" href="css/main.css" />
-
-    <!-- Google ownership links -->
-    <link rel="author" href="https://plus.google.com/+KevinGoldsmith"/>
-    <link rel="publisher" href="https://plus.google.com/111904464094073716491" />
 
     <style type="text/css">
         section {
@@ -75,14 +81,8 @@
     </style>
 </head>
 <body>
-    <header id="header">
-        <div id="name"><a href="$siteroot">Kevin Goldsmith</a></div>
-        <hav id="site-nav">
-            <ul>
-                $sitenav
-            </ul>
-        </hav>
-    </header>
+    {% set active_page = 'musician' %}
+    {% include 'header.html' %}
     <main id="content">
         <div class="ut"><iframe class="ut youtube" src="//www.youtube.com/embed/Qw3YQL2Z_ZE?rel=0" frameborder="0" allowfullscreen></iframe></div>
         <h2>Solo Recordings (<a href="https://answerstoapril.com/">Answers to April</a>)</h2>
@@ -193,9 +193,7 @@
             </ul>
         </section>
     </main>
-    <footer>
-        kevingoldsmith.com
-    </footer>
+    {% include 'footer.html' %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/googleevents.js"></script>
     <script src="js/fontfaceobserver.js"></script>

@@ -1,0 +1,12 @@
+{% set pages = [
+    ('resume.html', 'technology leader'),
+    ('talks/index.html', 'speaker'),
+    ('writing.html', 'writer'),
+    ('music.html', 'musician'),
+    ('photography.html', 'photographer')
+] -%}
+{% set active_page = active_page|default('technology leader') -%}
+<div {% if not vertical %}id="site-nav"{% endif %}>
+    <ul>{% for href, caption in pages %}{% if caption == active_page %}<li class="current-page">{{ caption }}</li>{% else %}<li><a href="{% if not debug_mode %}https://kevingoldsmith.com/{% endif %}{{ href }}">{{ caption }}</a></li>{% endif %}
+    {% endfor %}</ul>
+</div>

@@ -24,7 +24,10 @@ build:
 publish:
 	scripts/publish.sh
 
+lint:
+	pylint *.py
+
 list:
 	@grep '^[^#[:space:]].*:' Makefile
 
-.PHONY: setup clean test debug publish build list
+.PHONY: setup clean test debug publish build list lint
