@@ -6,3 +6,4 @@ testoutput/
 .DS_Store
 venv
 cache.sqlite
+http_cache.sqlite
