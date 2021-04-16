@@ -101,7 +101,7 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
     """Generate the page for a talk"""
     #get the talk page template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
-    talkpagetemplate = env.get_template('talk-page-template-jinja.html')
+    talkpagetemplate = env.get_template('talk-page-template.html')
 
     #get the page variables (which becomes our template dictionary)
     with open('data/pagevariables.json') as file:
@@ -109,8 +109,8 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
 
     talktitle = talk_index
     filetitle = common.generate_filename(talktitle)
-    outputfilename = filetitle + '-jinja.html'
-    filepath = output_directory + filetitle + '-jinja.html'
+    outputfilename = filetitle + '.html'
+    filepath = output_directory + filetitle + '.html'
 
     print(f"creating file: {filetitle}")
 

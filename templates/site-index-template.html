@@ -166,7 +166,9 @@
 	<div id="menu">
 		<nav>
 			<ul>
-				$sitenav
+				{% set active_page = 'index' %}
+				{% set vertical = true %}
+				{% include 'sitenav.html' %}
 			</ul>
 		</nav>
 		<div id="links">

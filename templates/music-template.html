@@ -82,10 +82,11 @@
 </head>
 <body>
     <header id="header">
-        <div id="name"><a href="$siteroot">Kevin Goldsmith</a></div>
+        <div id="name"><a href="{% if debug_mode %}index.html{% else %}https://kevingoldsmith.com{% endif %}">Kevin Goldsmith</a></div>
         <hav id="site-nav">
             <ul>
-                $sitenav
+                {% set active_page = 'musician' %}
+                {% include 'header.html' %}
             </ul>
         </hav>
     </header>
@@ -199,9 +200,7 @@
             </ul>
         </section>
     </main>
-    <footer>
-        kevingoldsmith.com
-    </footer>
+    {% include 'footer.html' %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/googleevents.js"></script>
     <script src="js/fontfaceobserver.js"></script>
