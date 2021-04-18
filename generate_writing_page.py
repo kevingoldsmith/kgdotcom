@@ -11,10 +11,12 @@ __copyright__ = "Copyright 2021, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Production"                               # Prototype, Development or Production
 
+# --------------------------------------------------------------------------------
+
 import json
 import argparse
-import jinja2
 import os
+import jinja2
 from common import get_output_directory, validate_url, format_month_day_year_from_string
 
 

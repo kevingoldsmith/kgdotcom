@@ -25,6 +25,7 @@ import conference_talk_types
 
 
 def generate_conference_pages(debug_mode=False):
+    # pylint: disable=R0914, R0912, R0915, R1702
     """Generate the index page and the individual talk pages"""
     #get the conference data
     with open('data/conferences.json', 'r') as file:

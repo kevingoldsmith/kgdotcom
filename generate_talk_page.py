@@ -22,7 +22,7 @@ import requests_cache
 from bs4 import BeautifulSoup
 import jinja2
 import common
-from navigation import generate_nav_talk, get_href_root, get_talk_root_for_talk
+from navigation import get_href_root, get_talk_root_for_talk
 
 #requests cache
 requests_cache.install_cache(expire_after=timedelta(days=1))
@@ -98,6 +98,7 @@ def get_embed_code_from_slides_url(slides_url):
 
 
 def generate_talk_page(talk_index, conferences, output_directory, index_page, debug_mode):
+    # pylint: disable=R0914, R0912, R0915
     """Generate the page for a talk"""
     #get the talk page template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
@@ -211,7 +212,6 @@ def generate_talk_page(talk_index, conferences, output_directory, index_page, de
     if len(reactions) > 0:
         pagevalues['reactions'] = reactions
 
-    pagevalues['sitenav'] = generate_nav_talk(False, debug_mode)
     pagevalues['siteroot'] = get_href_root('index.html', debug_mode, True)
     pagevalues['talkroot'] = get_talk_root_for_talk(debug_mode)
     pagevalues['debug_mode'] = debug_mode
