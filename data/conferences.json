@@ -2728,10 +2728,10 @@
 		"url": "https://www.developer-first.com/conference",
 		"talks": [
 			{
-				"talk": "When/Why/How to Stop Coding as your Day Job",
+				"talk": "When, Why and How to Stop Coding as Your Day Job",
 				"talk-type": "talk",
 				"talk-description": "<p>Many, if not most of us, started as developers. We learned and perfected our craft and were proud of our coding accomplishments. It was what defined us.</p><p>Moving into the Lead role means taking on new responsibilities. Some are technical. Many are not.</p><p>As you progress in leadership, more and more of your responsibilities have less and less to do with coding. Many of us, including me, struggle with giving up coding when it is no longer our primary responsibility. Adapting to this new reality is one of the biggest challenges that I have seen leads face as they move into managing larger teams.</p><p>When is it time to make coding your hobby instead of your job? How do you do it? Where do you find that quick hit of dopamine that is gone when you can't mark a bug as fixed or get rid of that compilation error?</p><p>This talk is all about embracing the joys and challenges of people leadership while staying credible as a technical professional, and what it means to be a leader in a technical organization. The talk discusses how you can remain a technical resource for your team, even when you aren't deep in the code.</p><p>This talk will give you a potential path to follow in your development. It will make you more confident about your new technical leadership career, even if you are still a coding lead.</p>",
-				"date": "2021-05-07",
+				"date": "2021-05-06",
 				"length": 45,
 				"location": {
 					"venue": "Minneapolis Marriott Southwest",
@@ -2746,27 +2746,6 @@
 		]
 	},
 	{
-		"conference": "Xpand Conference",
-		"url": "http://www.xpandconf.com/",
-		"talks": [
-			{
-				"talk": "How Does Salary Work?",
-				"talk-type": "keynote",
-				"talk-description": "<p>You make a hire for your team. The person wants 20% more than anyone else. Should you give it to them?</p><p>Your manager gives you a 5% raise budget for your team. Do you give them all 5% or give one person 15% and the rest 1%?</p><p>You think you are giving a great raise to one of your top performers, but they let you know that they expected much more.</p><p>A person on your team approaches you because they got a job offer for 10% more than their current salary. Should you try to match it?</p><p>The management debt that gets accrued by poor decisions around salary is extremely painful to fix. In this talk, I will give you the tools and ideas that you can use to be well prepared for the next salary review. I will help you avoid accruing management debt around pay in your team.</p><p>How is the salary budget calculated? How you can argue for the extra budget to adjust someone that is not being paid well. Where you can find extra money to make a meaningful difference for someone. Why sometimes it is better to do no raise at all, then do a small one. How you handle the conversation when someone isn't happy with their increase. How do you decide what salary to offer a candidate? How can you make sure that you are not increasing pay disparity between different groups?</p><p>These are problems that Dev Leads face all the time. The impact of making a wrong decision is massive to an individual. The mistake of paying someone too little or too much can affect them for years.</p><p>Understanding how salary works helps you create a happier and healthier team.</p>",
-				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-does-salary-work-the-lead-developer-berlin-2019-extended-remix",
-				"date": "2021-06-01",
-				"length": 30,
-				"location": {
-					"venue": "Kempinski Hotel Amman Convention Center",
-					"address": "Abdul Hamid, ش. خالد شومان",
-					"city": "Amman",
-					"country": "JO",
-					"gps": [31.968659, 35.896990]
-				}
-			}
-		]
-	},
-	{
 		"conference": "Dev Days Europe",
 		"url": "https://devdays.lt/",
 		"talks": [
@@ -2774,7 +2753,7 @@
 				"talk": "Fail Fast, Fail Smart... Succeed!",
 				"talk-type": "talk",
 				"talk-description": "A talk on why failure is important in innovation and tips on how to create en environment where the effects of failure are minimized while maximizing the learning.",
-				"date": "2021-06-08",
+				"date": "2021-06-09",
 				"length": 45,
 				"location": {
 					"venue": "Litexpo",
@@ -2784,6 +2763,31 @@
 					"country": "LT",
 					"gps": [54.67891989509771, 25.224198884697557]
 				}
+			}
+		]
+	},
+	{
+		"conference": "AnacondaCon",
+		"url": "https://anacondacon.io/",
+		"talks": [
+			{
+				"talk": "Data Science in 2021 - Deepfakes, AI Impact, Ethics",
+				"talk-type": "panel (chair)",
+				"length": 30,
+				"date": "2021-06-09"
+			}
+		]
+	},
+	{
+		"conference": "Enterprise Agile San Francisco",
+		"url": "https://www.meetup.com/SF-Enterprise-Agile/",
+		"talks": [
+			{
+				"talk": "Stealing from the best, lessons from three years at Spotify",
+				"talk-type": "talk",
+				"talk-description":"<p>I was privileged to be a senior leader in the product development team at Spotify from 2013 until 2016. I joined the company right after the adoption of the now well-known \"Spotify Model.\" As a Tribe Lead and then Alliance Lead, I helped in the models' evolution as the company grew to over 800 developers across five offices on two continents.</p><p>My time at Spotify was instructive in many ways, and since leaving, I have adopted the lessons I learned as a CTO in multiple companies.</p><p>While the squads/chapters/tribes/guilds model as a method for scaling agile development is what people focus on, the ideas and values that inspired that model are valuable and applicable across a wide range of organizations.</p><p>I will share those ideas and values in this talk—their application at Spotify and how I have applied them in different organizations since.</p>",
+				"date": "2021-06-21",
+				"length": 60				
 			}
 		]
 	}

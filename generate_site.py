@@ -49,7 +49,7 @@ def main(debug_mode=False):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='generate the writings file')
+    parser = argparse.ArgumentParser(description='generate the files for the site')
     parser.add_argument('--debug', action='store_true')
     args = parser.parse_args()
 
