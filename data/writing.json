@@ -1,5 +1,16 @@
 [
 	{
+		"name": "Addressing the challenges of partially distributed engineering teams",
+		"url": "https://leaddev.com/managing-distributed-teams/addressing-challenges-partially-distributed-engineering-teams",
+		"description": "The tech industry has consistently demonstrated creativity and innovation in how work is structured. Companies like Automattic, GitLab, and others have long shared lessons on how fully distributed teams can be effective; decades of business books have addressed the challenges of leadership in co-located teams, but there isn’t as much published wisdom on leading partially distributed teams beyond the suggestion of treating them as fully distributed.",
+		"date": "2021-05-17",
+		"tags": [
+			"Management",
+			"Engineering Culture",
+			"Leadership"
+		]
+	},
+	{
 		"name": "When, why, and how to stop coding as your day job",
 		"url": "https://leaddev.com/skills-new-managers/when-why-and-how-stop-coding-your-day-job",
 		"description": "By letting go of writing code, you open yourself up to excelling as a manager.",
