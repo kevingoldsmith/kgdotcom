@@ -2746,6 +2746,19 @@
 		]
 	},
 	{
+		"conference": "IBM Digital Developer Conference: Data & AI 2021",
+		"url": "https://developer.ibm.com/conferences/digital-developer-conference-data-ai/",
+		"talks": [
+			{
+				"talk": "Chat with Kevin Goldsmith, Anaconda CTO",
+				"talk-type": "talk",
+				"talk-description": "John Walicki speaks with Anaconda's CTO, Kevin Goldsmith, about the state of data science",
+				"date": "2021-06-08",
+				"length": 30
+			}
+		]
+	},
+	{
 		"conference": "Dev Days Europe",
 		"url": "https://devdays.lt/",
 		"talks": [
