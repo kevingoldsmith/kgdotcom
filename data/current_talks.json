@@ -1,5 +1,9 @@
 [
 	{
+		"talk": "Steal from the best, lessons from three years at Spotify",
+		"description": "I was privileged to be a senior leader in the product development team at Spotify from 2013 until 2016. Since leaving, I have adopted the lessons I learned as a CTO in multiple companies. I will share the ideas and values that inspired the \"Spotify Model\" in this talk—their application at Spotify and how I have applied them in different organizations since."
+	},
+	{
 		"talk": "Do I know you? Identity on the Internet and the Question of Trust",
 		"description": "The internet has an identity crisis. How do you know that the person interacting with your product is who they claim to be? How can you be sure that they are a person at all? This is a talk about the evolution of identity on the internet, from a product development perspective. An overview of the things you should be aware of around digital identity when building software today, and the things you should pay attention to for the future."
 	},

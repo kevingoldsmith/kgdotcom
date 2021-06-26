@@ -2785,6 +2785,7 @@
 		"talks": [
 			{
 				"talk": "Data Science in 2021 - Deepfakes, AI Impact, Ethics",
+				"talk-description": "Join Anaconda CTO, Kevin Goldsmith, and guest panelists Lex Beattie from Spotify, Andrew Glassner from Weta Digital, and Brian Kent from Crosstab Kite, as they dive into what's happening right now in data science. They'll discuss what's trending in 2021, ethics in AI, autoML, and more.",
 				"talk-type": "panel (chair)",
 				"length": 30,
 				"date": "2021-06-09"
@@ -2796,11 +2797,45 @@
 		"url": "https://www.meetup.com/SF-Enterprise-Agile/",
 		"talks": [
 			{
-				"talk": "Stealing from the best, lessons from three years at Spotify",
+				"talk": "Steal from the best, lessons from three years at Spotify",
 				"talk-type": "talk",
 				"talk-description":"<p>I was privileged to be a senior leader in the product development team at Spotify from 2013 until 2016. I joined the company right after the adoption of the now well-known \"Spotify Model.\" As a Tribe Lead and then Alliance Lead, I helped in the models' evolution as the company grew to over 800 developers across five offices on two continents.</p><p>My time at Spotify was instructive in many ways, and since leaving, I have adopted the lessons I learned as a CTO in multiple companies.</p><p>While the squads/chapters/tribes/guilds model as a method for scaling agile development is what people focus on, the ideas and values that inspired that model are valuable and applicable across a wide range of organizations.</p><p>I will share those ideas and values in this talk—their application at Spotify and how I have applied them in different organizations since.</p>",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/steal-from-the-best-249503607",
 				"date": "2021-06-21",
-				"length": 60				
+				"length": 60,
+				"reactions":[
+					{
+						"quote": "Thanks for a great topic last evening!",
+						"reference-url": "https://www.meetup.com/SF-Enterprise-Agile/events/278247437/?read=1&_xtd=gatlbWFpbF9jbGlja9oAJGI4M2ViNWViLWI0YTEtNDNmNi1hMDM1LWZjMmM2MGRkMzYyMQ&_af=event&_af_eid=278247437",
+						"credit": "M.C. M.",
+						"credit-url": "https://www.meetup.com/SF-Enterprise-Agile/members/14496745/"
+					},
+					{
+						"quote": "This was an excellent topic and presentation. Tons of information at light speed and then Q&A. We'll done! Looking forward to the next meetup with Kevin Goldsmith as the guest speaker.",
+						"reference-url": "https://www.meetup.com/SF-Enterprise-Agile/events/278247437/?read=1&_xtd=gatlbWFpbF9jbGlja9oAJGI4M2ViNWViLWI0YTEtNDNmNi1hMDM1LWZjMmM2MGRkMzYyMQ&_af=event&_af_eid=278247437",
+						"credit": "Love",
+						"credit-url": "https://www.meetup.com/SF-Enterprise-Agile/members/287108360/"
+					}
+				]
+			}
+		]
+	},
+	{
+		"conference": "0111 Conference",
+		"url": "https://7ctos.com/0111conf/",
+		"talks": [
+			{
+				"talk": "tbd",
+				"talk-type": "talk",
+				"talk-description": "tbd.",
+				"date": "2021-11-04",
+				"length": 60,
+				"location": {
+					"city": "San Diego",
+					"state": "CA",
+					"country": "US",
+					"gps": [32.97817186158677, -117.25559836120567]
+				}
 			}
 		]
 	}
