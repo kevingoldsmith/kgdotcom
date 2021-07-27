@@ -1,5 +1,25 @@
 [
 	{
+		"name": "Every decision creates a policy",
+		"url": "https://leaddev.com/technical-decision-making/every-decision-creates-policy",
+		"description": "We may make dozens of small decisions each week without considering their implications. These decisions, however, unintentionally create policies for our team or our organization that we will have to contend with later.",
+		"date": "2021-07-26",
+		"tags": [
+			"Management",
+			"Engineering Culture"
+		]
+	},
+	{
+		"name": "Own your calendar",
+		"description": "Plan your time, make your schedule match the plan, then review regularly to make sure you aren't getting off track. It has made a big difference to my own time management.",
+		"url": "https://blog.kevingoldsmith.com/2021/07/20/own-your-calendar/",
+		"date": "2021-07-20",
+		"tags": [
+			"Management",
+			"Career"
+		]
+	},
+	{
 		"name": "Addressing the challenges of partially distributed engineering teams",
 		"url": "https://leaddev.com/managing-distributed-teams/addressing-challenges-partially-distributed-engineering-teams",
 		"description": "The tech industry has consistently demonstrated creativity and innovation in how work is structured. Companies like Automattic, GitLab, and others have long shared lessons on how fully distributed teams can be effective; decades of business books have addressed the challenges of leadership in co-located teams, but there isn’t as much published wisdom on leading partially distributed teams beyond the suggestion of treating them as fully distributed.",
