@@ -2826,9 +2826,9 @@
 		"url": "https://7ctos.com/0111conf/",
 		"talks": [
 			{
-				"talk": "tbd",
+				"talk": "Steal from the best, lessons from three years at Spotify",
 				"talk-type": "talk",
-				"talk-description": "tbd.",
+				"talk-description": "<p>I was privileged to be a senior leader in the product development team at Spotify from 2013 until 2016. I joined the company right after the adoption of the now well-known \"Spotify Model.\" As a Tribe Lead and then Alliance Lead, I helped in the models' evolution as the company grew to over 800 developers across five offices on two continents.</p><p>My time at Spotify was instructive in many ways, and since leaving, I have adopted the lessons I learned as a CTO in multiple companies.</p><p>While the squads/chapters/tribes/guilds model as a method for scaling agile development is what people focus on, the ideas and values that inspired that model are valuable and applicable across a wide range of organizations.</p><p>I will share those ideas and values in this talk—their application at Spotify and how I have applied them in different organizations since.</p>",
 				"date": "2021-11-04",
 				"length": 60,
 				"location": {
@@ -2837,6 +2837,19 @@
 					"country": "US",
 					"gps": [32.97817186158677, -117.25559836120567]
 				}
+			}
+		]
+	},
+	{
+		"conference": "LeadDev Together",
+		"url": "https://events.leaddev.com/together-session-3",
+		"talks": [
+			{
+				"talk": "Raising the subject of raises",
+				"talk-type": "talk",
+				"talk-description": "<p>Whether you are responsible for salary decisions or just give input to someone else, it is important to understand the overt and subtle considerations around determining appropriate pay raises for your team. How you handle salary is a critical part of performance management and retention.</p><p>This talk gives some practical advice and things to keep in mind when you are considering what type of pay raise to make. I’ll also provide some points to make the salary discussions in your performance reviews easier.</p>",
+				"date": "2021-11-16",
+				"length": 15
 			}
 		]
 	}
