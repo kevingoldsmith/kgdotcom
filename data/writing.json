@@ -1,5 +1,15 @@
 [
 	{
+		"name": "The p-word",
+		"url": "https://blog.kevingoldsmith.com/2021/09/09/the-p-word/",
+		"description": "\"Politics\" and the techniques ascribed to it, when used in a work context, are inherently neither good nor bad. You can use politics for ill intent or good.",
+		"date": "2021-09-09",
+		"tags": [
+			"Leadership",
+			"Strategy"
+		]
+	},
+	{
 		"name": "Every decision creates a policy",
 		"url": "https://leaddev.com/technical-decision-making/every-decision-creates-policy",
 		"description": "We may make dozens of small decisions each week without considering their implications. These decisions, however, unintentionally create policies for our team or our organization that we will have to contend with later.",
