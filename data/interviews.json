@@ -1,5 +1,13 @@
 [
 	{
+		"name": "Growing And Supporting The Data Science Community At Anaconda",
+		"date": "2021-08-19",
+		"url": "https://www.pythonpodcast.com/anaconda-python-data-science-episode-328/",
+		"author": "Tobias Macey",
+		"publisher": "Podcast.__init__",
+		"summary": "Data scientists are tasked with answering challenging questions using data that is often messy and incomplete. Anaconda is on a mission to make the lives of data professionals more manageable through creation and maintenance of high quality libraries and frameworks, the distribution of an easy to use Python distribution and package ecosystem, and high quality training material. In this episode Kevin Goldsmith, CTO of Anaconda, discusses the technical and social challenges faced by data scientists, the ways that the Python ecosystem has evolved to help address those difficulties, and how Anaconda is engaging with the community to provide high quality tools and education for this constantly changing practice."
+	},
+	{
 		"name": "Spotify Squad Models feat. Kevin Goldsmith, Former VPE of Spotify",
 		"date": "2021-07-01",
 		"url": "https://www.interna.com/post/spotify-squad-models-feat-kevin-goldsmith-former-vpe-of-spotify",
