@@ -1,5 +1,15 @@
 [
 	{
+		"name": "Becoming a CTO",
+		"description": "What is the role of the CTO? What are the responsibilities of the job in a small or mid-sized technology company?",
+		"date": "2021-11-01",
+		"url": "https://blog.kevingoldsmith.com/2021/11/01/becoming-a-cto/",
+		"tags": [
+			"Management",
+			"Career"
+		]
+	},
+	{
 		"name": "The p-word",
 		"url": "https://blog.kevingoldsmith.com/2021/09/09/the-p-word/",
 		"description": "\"Politics\" and the techniques ascribed to it, when used in a work context, are inherently neither good nor bad. You can use politics for ill intent or good.",

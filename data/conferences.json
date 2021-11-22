@@ -1750,7 +1750,7 @@
 		"conference": "Compare the Market, Leadership Offsite",
 		"talks": [
 			{
-				"talk": "Distributed Teams",
+				"talk": "Leading Distributed Teams",
 				"talk-type": "talk",
 				"date": "2018-04-26",
 				"slides-url": "https://www.slideshare.net/kevingoldsmith/distributed-teams-95295288",
@@ -2114,7 +2114,7 @@
 				]
 			},
 			{
-				"talk": "Distributed Teams",
+				"talk": "Leading Distributed Teams",
 				"talk-type": "talk",
 				"talk-url": "https://www.kevingoldsmith.com/talks/distributed-teams.html",
 				"date": "2019-05-21",
@@ -2335,7 +2335,7 @@
 		"url": "https://www.stretchcon.com/2020/",
 		"talks":[
 			{
-				"talk": "Distributed Teams",
+				"talk": "Leading Distributed Teams",
 				"talk-type": "talk",
 				"date": "2020-02-14",
 				"talk-description": "Distributed teams are becoming more common in companies today. Distributed teams can help find the best talent wherever it is and bring opportunities to developers away from the tech centers. However, leading a distributed team presents unique challenges, interpersonal and technical.\nWhat makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective?\nIn this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading distributed teams over the last 25 years.",
@@ -2830,7 +2830,8 @@
 				"talk-type": "talk",
 				"talk-description": "<p>Whether you are responsible for salary decisions or just give input to someone else, it is important to understand the overt and subtle considerations around determining appropriate pay raises for your team. How you handle salary is a critical part of performance management and retention.</p><p>This talk gives some practical advice and things to keep in mind when you are considering what type of pay raise to make. I’ll also provide some points to make the salary discussions in your performance reviews easier.</p>",
 				"date": "2021-11-16",
-				"length": 15
+				"length": 15,
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/raising-the-subject-of-raises"
 			}
 		]
 	},
@@ -2843,6 +2844,7 @@
 				"talk-type": "talk",
 				"talk-description": "Partly distributed teams (teams with co-located and distributed members) existed before the pandemic, but are becoming the new normal as companies plan their future. We have a lot of knowledge about managing fully co-located teams from centuries of work, and modern technology companies have pioneered fully distributed teams. However, leading a partially distributed team presents unique challenges, interpersonal and technical. What makes partially distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective? In this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication. He gives examples of these problems and solutions from his experience leading partially distributed teams over the last 25 years.",
 				"date": "2021-11-18",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/managing-partly-distributed-teams",
 				"length": 20
 			}
 		]
