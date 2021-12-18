@@ -2848,5 +2848,18 @@
 				"length": 20
 			}
 		]
+	},
+	{
+		"conference": "Society for Information Management",
+		"url": "https://chapter.simnet.org/seattle/home",
+		"talks": [
+			{
+				"talk": "Making Distributed Organizations More Effective",
+				"talk-type": "talk",
+				"talk-description": "to be determined",
+				"date": "2022-04-20",
+				"length": 45
+			}
+		]
 	}
 ]
