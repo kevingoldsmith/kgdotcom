@@ -2850,6 +2850,18 @@
 		]
 	},
 	{
+		"conference": "CTO Universe Webinar Series",
+		"url": "https://www.ctouniverse.com/",
+		"talks":[
+			{
+				"talk": "Investments for CTOs and VPs of Engineers",
+				"talk-type":"panel",
+				"date": "2022-02-24",
+				"length": 60
+			}
+		]
+	},
+	{
 		"conference": "Society for Information Management",
 		"url": "https://chapter.simnet.org/seattle/home",
 		"talks": [

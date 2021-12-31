@@ -43,7 +43,22 @@
 			"position": "Chief Technology Officer",
 			"website": "https://www.anaconda.com/",
 			"startDate": "2020-10-05",
-			"summary": "Oversee innovation for Anaconda’s current open-source and commercial offerings, as well as develop new solutions to bring data science practitioners together with innovators, vendors, and thought leaders in the industry."
+			"summary": "Oversee innovation for Anaconda’s current open-source and commercial offerings, as well as develop new solutions to bring data science practitioners together with innovators, vendors, and thought leaders in the industry.",
+			"highlights": [
+				"Helped company raise a significant round in Spring 2021",
+				"Grew engineering team signifcantly in first year",
+				"Launched Anaconda's first SAAS products",
+				"Four quarters of record revenue growth"
+			]
+		},
+		{
+			"company": "Pickatale",
+			"location": "Oslo, Norway",
+			"position": "Member, Board of Directors",
+			"website": "https://pickatale.co.uk/",
+			"startDate": "2021-12-01",
+			"summary": "Support and oversee the company and executive team"
+
 		},
 		{
 			"company": "Nimble Autonomy, LLC",

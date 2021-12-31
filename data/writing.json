@@ -1,5 +1,14 @@
 [
 	{
+		"name": "Writing Useful Performance Reviews: Making a raise recommendation",
+		"description": "With your review ready, how do you decide on what salary changes to recommend?",
+		"date": "2021-12-18",
+		"url": "https://blog.kevingoldsmith.com/2021/12/18/writing-useful-performance-reviews-making-a-raise-recommendation/",
+		"tags": [
+			"Management"
+		]
+	},
+	{
 		"name": "Writing Useful Performance Reviews: Evaluating the data and writing the review",
 		"description": "Once you have collected your data, it is time to actually write the review. Part 2 in my series on writing performance reviews.",
 		"date": "2021-12-11",
@@ -181,208 +190,208 @@
 		],
 		"date": "2020-03-31"
 	},
-{
-	"name": "The Next Step",
-	"url": "https://blog.kevingoldsmith.com/2019/05/11/the-next-step/",
-	"description": "If you have a good job, a job that pays you well, a team you like working with, and a mission you believe in, deciding to move on from that role is challenging.",
-	"tags": [
-		"Onfido",
-		"AstrumU"
-	],
-	"date": "2019-05-11"
-},
-{
-	"name": "Agile at AstrumU: A Case Study",
-	"url": "https://blog.kevingoldsmith.com/2019/02/04/agile-at-astrumu-a-case-study/",
-	"description": "This article describes how we organize our work at AstrumU using a Scrumban process.",
-	"tags": [
-		"Agile",
-		"AstrumU"
-	],
-	"date": "2019-02-04"
-},
-{
-	"name": "Using Self-Selection to Create Journey Teams at Avvo",
-	"url": "http://blog.kevingoldsmith.com/2018/12/09/using-self-selection-to-create-journey-teams-at-avvo/http://blog.kevingoldsmith.com/2018/12/09/using-self-selection-to-create-journey-teams-at-avvo/",
-	"description": "Many companies are interested in experimenting with self-selection as a way of organizing their teams. I see questions about the process often in online forums. While there are some excellent books and blog posts on the topic, I thought that I would share a self-selection exercise that we did at my last company, Avvo. It worked reasonably well and with relatively little drama. If you are considering a similar exercise, you might consider this approach.",
-	"tags": [
-		"Leadership",
-		"Organizational Design",
-		"Avvo",
-		"Engineering Culture"
-	],
-	"date": "2018-12-09"
-},
-{
-	"name": "How I Get My Focused Work Done",
-	"url": "http://blog.kevingoldsmith.com/2018/05/31/how-i-get-my-focused-work-done/",
-	"description": "Over the years, I’ve tried many different ways to improve my focused time. Here are the things that work best for me.",
-	"tags": [
-		"Management",
-		"Leadership"
-	],
-	"date": "2018-05-31"
-},
-{
-	"name": "In 2018 Decide to Work Deliberately",
-	"url": "http://blog.kevingoldsmith.com/2018/01/01/in-2018-decide-to-work-deliberately/",
-	"description": "What does it mean to live (and work) deliberately?",
-	"tags": [
-		"Management",
-		"Leadership",
-		"Strategy"
-	],
-	"date": "2018-01-01"
-},
-{
-	"name": "Building a Management Training Curriculum at Avvo",
-	"url": "https://medium.com/avvo/building-a-management-training-curriculum-at-avvo-5286b1d804f",
-	"description": "An approach to collectively determining the priorities for a team training program.",
-	"tags": [
-		"Management",
-		"Leadership",
-		"Avvo",
-		"Engineering Culture"
-	],
-	"date": "2017-10-05"
-},
-{
-	"name": "Thoughts on emulating Spotify’s matrix organization in other companies",
-	"url": "http://blog.kevingoldsmith.com/2014/03/14/thoughts-on-emulating-spotifys-matrix-organization-in-other-companies/",
-	"description": "I was in San Francisco in December for a conference. While I was there, I ended up connecting with a couple different companies who have been inspired by Henrik Kniberg’s whitepaper on Scaling Agile at Spotify, and who have been trying to do implement some of those ideas in their own companies.",
-	"tags": [
-		"Management",
-		"Leadership",
-		"Spotify",
-		"Organizational Design",
-		"Engineering Culture"
-	],
-	"date": "2014-03-14"
-},
-{
-	"name": "The Spotify model: how to create, dissolve, and remix teams to be more dynamic and more innovative",
-	"url": "http://blog.kevingoldsmith.com/2015/03/23/the-spotify-model-how-to-create-dissolve-and-remix-teams-to-be-more-dynamic-and-more-innovative/",
-	"description": "One of the most challenging parts of managing a traditional, hierarchical, organization is being responsive to new opportunities; especially those that require leveraging skillsets outside your own team. At Spotify, our organizational model allows us to create, dissolve, and remix teams with a minimal disruption to individuals or managers. This gives us tremendous abilities to address both temporary and long term opportunities.",
-	"tags": [
-		"Agile",
-		"Spotify",
-		"Organizational Design",
-		"Leadership",
-		"Management",
-		"Engineering Culture"
-	],
-	"date": "2015-03-23"
-},
-{
-	"name": "A diversity challenge: tech start-ups have a great opportunity",
-	"url": "http://blog.kevingoldsmith.com/2017/05/16/a-diversity-challenge-tech-start-ups-have-a-great-opportunity/",
-	"description": "Large technology companies should still work consistently to improve their diversity, but startups are much better suited to solve the diversity problem for the industry as a whole.",
-	"tags": [
-		"Management",
-		"Leadership",
-		"Diversity",
-		"Hiring"
-	],
-	"date": "2017-05-16"
-},
-{
-	"name": "Building a technical career path at Spotify",
-	"url": "http://blog.kevingoldsmith.com/2016/03/15/building-a-technical-career-path-at-spotify/",
-	"description": "Spotify launched a career path framework for individuals last year. Since then, I’ve spoken to leaders at several other companies about it. This seems to be a bit of a hot topic, so I’ve decided to write about our model and how we arrived at it. Hopefully, this may be useful to your company.",
-	"tags": [
-		"Spotify",
-		"Management"
-	],
-	"date": "2016-02-08"
-},
-{
-	"name": "Spotify Technology Career Steps",
-	"url": "http://blog.kevingoldsmith.com/2016/03/16/spotify-technology-career-steps/",
-	"description": "Spotify's first technology career pathing structure",
-	"tags": [
-		"Spotify",
-		"Management"
-	],
-	"date": "2016-02-15"
-},
-{
-	"name": "Things We Learned Creating Technology Career Steps",
-	"url": "http://blog.kevingoldsmith.com/2016/03/17/things-we-learned-creating-technology-career-steps/",
-	"description": "The things we learned building a non-tradtional career pathing structure at a company which thrives on autonomy, servant leadership and strong teams",
-	"tags": [
-		"Spotify",
-		"Management"
-	],
-	"date": "2016-02-22"
-},
-{
-	"name": "The Myth of the Startup in a Large Company",
-	"url": "http://blog.kevingoldsmith.com/2014/08/10/the-myth-of-the-startup-in-a-large-company/",
-	"description": "Can you really 'act like a startup' in the middle of a large, established, company?",
-	"tags": [
-		"Organizational Design",
-		"Management",
-		"Strategy"
-	],
-	"date": "2014-08-10"
-},
-{
-	"name": "Protecting your team from layoffs",
-	"url": "http://blog.kevingoldsmith.com/2014/10/03/protecting-your-team-from-layoffs/",
-	"description": "Tips from eight years of managing in a layoff-prone company.",
-	"tags": [
-		"Management"
-	],
-	"date": "2014-10-03"
-},
-{
-	"name": "Leaving Avvo",
-	"url": "http://blog.kevingoldsmith.com/2018/03/19/leaving-avvo/",
-	"description": "It's been awesome, but it's time for the next thing. I'm leaving Avvo.",
-	"tags": [
-		"Avvo"
-	],
-	"date": "2018-03-19"
-},
-{
-	"name": "Leaving Spotify",
-	"url": "http://blog.kevingoldsmith.com/2016/05/20/leaving-spotify/",
-	"description": "Today is my third anniversary at Spotify. It has been an amazing adventure and a time that I will treasure, but it is time for me to move…",
-	"tags": [
-		"Spotify"
-	],
-	"date": "2016-05-20"
-},
-{
-	"name": "Building a Culture of Continuous Improvement",
-	"url": "https://www.techwell.com/techwell-insights/2018/05/building-culture-continuous-improvement",
-	"description": "A culture of continuous improvement is a culture where you are always open to improving how you build and deliver. You don't accept the status quo; you choose how to work and feel empowered to change it if it no longer makes sense. It is a people-first culture.",
-	"tags": [
-		"Avvo",
-		"Agile",
-		"Leadership",
-		"Organizational Design",
-		"Strategy",
-		"Engineering Culture"
-	],
-	"date": "2018-05-29"
-},
-{
-	"name": "Articles for the Pixel Bender Developer Center",
-	"url": "https://web.archive.org/web/20141229183911/https://www.adobe.com/devnet/archive/pixelbender.html",
-	"description": "A collection of articles for developers to help them understand and learn the Pixel Bender language created by my team at Adobe.",
-	"tags": [
-		"Adobe",
-		"Software Development"
-	],
-	"date": "2010-01-11"
-},
-{
-	"name": "",
-	"url": "",
-	"description": "",
-	"tags": [
-	],
-	"date": ""
-}
+	{
+		"name": "The Next Step",
+		"url": "https://blog.kevingoldsmith.com/2019/05/11/the-next-step/",
+		"description": "If you have a good job, a job that pays you well, a team you like working with, and a mission you believe in, deciding to move on from that role is challenging.",
+		"tags": [
+			"Onfido",
+			"AstrumU"
+		],
+		"date": "2019-05-11"
+	},
+	{
+		"name": "Agile at AstrumU: A Case Study",
+		"url": "https://blog.kevingoldsmith.com/2019/02/04/agile-at-astrumu-a-case-study/",
+		"description": "This article describes how we organize our work at AstrumU using a Scrumban process.",
+		"tags": [
+			"Agile",
+			"AstrumU"
+		],
+		"date": "2019-02-04"
+	},
+	{
+		"name": "Using Self-Selection to Create Journey Teams at Avvo",
+		"url": "http://blog.kevingoldsmith.com/2018/12/09/using-self-selection-to-create-journey-teams-at-avvo/http://blog.kevingoldsmith.com/2018/12/09/using-self-selection-to-create-journey-teams-at-avvo/",
+		"description": "Many companies are interested in experimenting with self-selection as a way of organizing their teams. I see questions about the process often in online forums. While there are some excellent books and blog posts on the topic, I thought that I would share a self-selection exercise that we did at my last company, Avvo. It worked reasonably well and with relatively little drama. If you are considering a similar exercise, you might consider this approach.",
+		"tags": [
+			"Leadership",
+			"Organizational Design",
+			"Avvo",
+			"Engineering Culture"
+		],
+		"date": "2018-12-09"
+	},
+	{
+		"name": "How I Get My Focused Work Done",
+		"url": "http://blog.kevingoldsmith.com/2018/05/31/how-i-get-my-focused-work-done/",
+		"description": "Over the years, I’ve tried many different ways to improve my focused time. Here are the things that work best for me.",
+		"tags": [
+			"Management",
+			"Leadership"
+		],
+		"date": "2018-05-31"
+	},
+	{
+		"name": "In 2018 Decide to Work Deliberately",
+		"url": "http://blog.kevingoldsmith.com/2018/01/01/in-2018-decide-to-work-deliberately/",
+		"description": "What does it mean to live (and work) deliberately?",
+		"tags": [
+			"Management",
+			"Leadership",
+			"Strategy"
+		],
+		"date": "2018-01-01"
+	},
+	{
+		"name": "Building a Management Training Curriculum at Avvo",
+		"url": "https://medium.com/avvo/building-a-management-training-curriculum-at-avvo-5286b1d804f",
+		"description": "An approach to collectively determining the priorities for a team training program.",
+		"tags": [
+			"Management",
+			"Leadership",
+			"Avvo",
+			"Engineering Culture"
+		],
+		"date": "2017-10-05"
+	},
+	{
+		"name": "Thoughts on emulating Spotify’s matrix organization in other companies",
+		"url": "http://blog.kevingoldsmith.com/2014/03/14/thoughts-on-emulating-spotifys-matrix-organization-in-other-companies/",
+		"description": "I was in San Francisco in December for a conference. While I was there, I ended up connecting with a couple different companies who have been inspired by Henrik Kniberg’s whitepaper on Scaling Agile at Spotify, and who have been trying to do implement some of those ideas in their own companies.",
+		"tags": [
+			"Management",
+			"Leadership",
+			"Spotify",
+			"Organizational Design",
+			"Engineering Culture"
+		],
+		"date": "2014-03-14"
+	},
+	{
+		"name": "The Spotify model: how to create, dissolve, and remix teams to be more dynamic and more innovative",
+		"url": "http://blog.kevingoldsmith.com/2015/03/23/the-spotify-model-how-to-create-dissolve-and-remix-teams-to-be-more-dynamic-and-more-innovative/",
+		"description": "One of the most challenging parts of managing a traditional, hierarchical, organization is being responsive to new opportunities; especially those that require leveraging skillsets outside your own team. At Spotify, our organizational model allows us to create, dissolve, and remix teams with a minimal disruption to individuals or managers. This gives us tremendous abilities to address both temporary and long term opportunities.",
+		"tags": [
+			"Agile",
+			"Spotify",
+			"Organizational Design",
+			"Leadership",
+			"Management",
+			"Engineering Culture"
+		],
+		"date": "2015-03-23"
+	},
+	{
+		"name": "A diversity challenge: tech start-ups have a great opportunity",
+		"url": "http://blog.kevingoldsmith.com/2017/05/16/a-diversity-challenge-tech-start-ups-have-a-great-opportunity/",
+		"description": "Large technology companies should still work consistently to improve their diversity, but startups are much better suited to solve the diversity problem for the industry as a whole.",
+		"tags": [
+			"Management",
+			"Leadership",
+			"Diversity",
+			"Hiring"
+		],
+		"date": "2017-05-16"
+	},
+	{
+		"name": "Building a technical career path at Spotify",
+		"url": "http://blog.kevingoldsmith.com/2016/03/15/building-a-technical-career-path-at-spotify/",
+		"description": "Spotify launched a career path framework for individuals last year. Since then, I’ve spoken to leaders at several other companies about it. This seems to be a bit of a hot topic, so I’ve decided to write about our model and how we arrived at it. Hopefully, this may be useful to your company.",
+		"tags": [
+			"Spotify",
+			"Management"
+		],
+		"date": "2016-02-08"
+	},
+	{
+		"name": "Spotify Technology Career Steps",
+		"url": "http://blog.kevingoldsmith.com/2016/03/16/spotify-technology-career-steps/",
+		"description": "Spotify's first technology career pathing structure",
+		"tags": [
+			"Spotify",
+			"Management"
+		],
+		"date": "2016-02-15"
+	},
+	{
+		"name": "Things We Learned Creating Technology Career Steps",
+		"url": "http://blog.kevingoldsmith.com/2016/03/17/things-we-learned-creating-technology-career-steps/",
+		"description": "The things we learned building a non-tradtional career pathing structure at a company which thrives on autonomy, servant leadership and strong teams",
+		"tags": [
+			"Spotify",
+			"Management"
+		],
+		"date": "2016-02-22"
+	},
+	{
+		"name": "The Myth of the Startup in a Large Company",
+		"url": "http://blog.kevingoldsmith.com/2014/08/10/the-myth-of-the-startup-in-a-large-company/",
+		"description": "Can you really 'act like a startup' in the middle of a large, established, company?",
+		"tags": [
+			"Organizational Design",
+			"Management",
+			"Strategy"
+		],
+		"date": "2014-08-10"
+	},
+	{
+		"name": "Protecting your team from layoffs",
+		"url": "http://blog.kevingoldsmith.com/2014/10/03/protecting-your-team-from-layoffs/",
+		"description": "Tips from eight years of managing in a layoff-prone company.",
+		"tags": [
+			"Management"
+		],
+		"date": "2014-10-03"
+	},
+	{
+		"name": "Leaving Avvo",
+		"url": "http://blog.kevingoldsmith.com/2018/03/19/leaving-avvo/",
+		"description": "It's been awesome, but it's time for the next thing. I'm leaving Avvo.",
+		"tags": [
+			"Avvo"
+		],
+		"date": "2018-03-19"
+	},
+	{
+		"name": "Leaving Spotify",
+		"url": "http://blog.kevingoldsmith.com/2016/05/20/leaving-spotify/",
+		"description": "Today is my third anniversary at Spotify. It has been an amazing adventure and a time that I will treasure, but it is time for me to move…",
+		"tags": [
+			"Spotify"
+		],
+		"date": "2016-05-20"
+	},
+	{
+		"name": "Building a Culture of Continuous Improvement",
+		"url": "https://www.techwell.com/techwell-insights/2018/05/building-culture-continuous-improvement",
+		"description": "A culture of continuous improvement is a culture where you are always open to improving how you build and deliver. You don't accept the status quo; you choose how to work and feel empowered to change it if it no longer makes sense. It is a people-first culture.",
+		"tags": [
+			"Avvo",
+			"Agile",
+			"Leadership",
+			"Organizational Design",
+			"Strategy",
+			"Engineering Culture"
+		],
+		"date": "2018-05-29"
+	},
+	{
+		"name": "Articles for the Pixel Bender Developer Center",
+		"url": "https://web.archive.org/web/20141229183911/https://www.adobe.com/devnet/archive/pixelbender.html",
+		"description": "A collection of articles for developers to help them understand and learn the Pixel Bender language created by my team at Adobe.",
+		"tags": [
+			"Adobe",
+			"Software Development"
+		],
+		"date": "2010-01-11"
+	},
+	{
+		"name": "",
+		"url": "",
+		"description": "",
+		"tags": [
+		],
+		"date": ""
+	}
 ]
