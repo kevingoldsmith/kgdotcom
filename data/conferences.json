@@ -2873,5 +2873,18 @@
 				"length": 45
 			}
 		]
+	},
+	{
+		"conference": "LeadDev Together",
+		"url": "https://events.leaddev.com/together-2022",
+		"talks": [
+			{
+				"talk": "Firing like a human",
+				"talk-type": "talk",
+				"talk-description": "<p>Unfortunately, there will be times when even the most thought out improvement plans don’t work out. And in these situations, it will sometimes be necessary to let a person go. This is painful for you as a manager and will have material effects on the life of your report - and as such, it can’t be a decision that is made lightly.</p><p>In this talk, we’ll provide three safeguards that will allow you to make this tricky choice confidently. We’ll ask: Were you transparent with this person? Did you support this person and give them the tools to succeed? And did you act with integrity? We’ll then outline practical advice on how to hold a firing conversation.</p>",
+				"date": "2022-03-29",
+				"length": 20
+			}
+		]
 	}
 ]
