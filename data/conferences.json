@@ -2886,5 +2886,43 @@
 				"length": 20
 			}
 		]
+	},
+	{
+		"conference": "LeadingEng",
+		"url": "https://leaddev.com/leadingeng-london",
+		"talks": [
+			{
+				"talk": "Personal Improvement",
+				"talk-type": "talk",
+				"date": "2022-06-10",
+				"length": 30,
+				"location": {
+					"venue": "The Barbican Centre",
+					"address": "Silk Street",
+					"city": "London",
+					"country": "GB",
+					"postal code": "EC2Y 8DS",
+					"gps": [51.520170, -0.093274]
+				}
+			}
+		]
+	},
+	{
+		"conference": "The 2022 Seattle CTO Summit",
+		"url": "https://www.ctoconnection.com/events/in-person/2022-12-08-the-2022-seattle-cto-summit",
+		"talks":[
+			{
+				"talk": "Developing Your Developers: Constructing Career Paths For Your Technologists",
+				"talk-type": "talk",
+				"date": "2022-12-08",
+				"length": 30,
+				"location":{
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"gps": [47.60621, -122.33207]
+				}
+			}
+		]
 	}
 ]
