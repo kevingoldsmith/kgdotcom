@@ -2851,13 +2851,14 @@
 	},
 	{
 		"conference": "CTO Universe Webinar Series",
-		"url": "https://www.ctouniverse.com/frs/20928747/your-complete-investment-guide-for-continuous-technology-improvement/email",
+		"url": "https://www.ctouniverse.com/frs/20928747/discover-how-senior-technology-leaders-can-secure-the-budget-that-they-need/",
 		"talks":[
 			{
 				"talk": "Investments for CTOs and VPs of Engineers",
 				"talk-type":"panel",
 				"date": "2022-02-24",
-				"length": 60
+				"length": 60,
+				"recording-url": "https://www.ctouniverse.com/frs/20928747/discover-how-senior-technology-leaders-can-secure-the-budget-that-they-need/"
 			}
 		]
 	},
