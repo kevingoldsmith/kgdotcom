@@ -2863,19 +2863,6 @@
 		]
 	},
 	{
-		"conference": "Society for Information Management",
-		"url": "https://chapter.simnet.org/seattle/home",
-		"talks": [
-			{
-				"talk": "Making Distributed Organizations More Effective",
-				"talk-type": "talk",
-				"talk-description": "to be determined",
-				"date": "2022-04-20",
-				"length": 45
-			}
-		]
-	},
-	{
 		"conference": "LeadDev Together",
 		"url": "https://events.leaddev.com/together-2022",
 		"talks": [
@@ -2893,18 +2880,32 @@
 		"url": "https://leaddev.com/leadingeng-london",
 		"talks": [
 			{
-				"talk": "Personal Improvement",
+				"talk": "How do you keep growing when you are the leader of the organization?",
+				"talk-description": "<p>As I've moved into more senior leadership roles, professional development has become my responsibility. No CEO or CTO I worked for had much time to mentor me. They expected that I had already figured it out on my own.</p><p>Your organization looks to you to be the expert, and you are often the most senior around. However, reaching senior leadership doesn't mean that we no longer need to grow professionally. On the contrary, we should never stop trying to improve and get better at our jobs. We should always be striving to learn and grow. We now need to take full responsibility for it.</p><p>Over the years, I've leveraged professional coaches, taken courses, attended workshops, participated in formal and informal networks of peers, and assembled tools to help me find my areas of improvement and help me measure progress towards my goals.</p><p>In this talk, I will share what I've learned as I've built a framework that works for me. Then, I will give you ideas on how you can create a program for yourself that will help you continue to grow in your role.</p>",
 				"talk-type": "talk",
 				"date": "2022-06-10",
 				"length": 30,
 				"location": {
-					"venue": "The Barbican Centre",
-					"address": "Silk Street",
+					"venue": "Banking Hall",
+					"address": "Banking Hall 14, Cornhill",
 					"city": "London",
 					"country": "GB",
-					"postal code": "EC2Y 8DS",
-					"gps": [51.520170, -0.093274]
+					"postal code": "EC3V 3ND",
+					"gps": [51.513249760526556, -0.08797742379893814]
 				}
+			}
+		]
+	},
+	{
+		"conference": "Society for Information Management",
+		"url": "https://chapter.simnet.org/seattle/home",
+		"talks": [
+			{
+				"talk": "Making Distributed Organizations More Effective",
+				"talk-type": "talk",
+				"talk-description": "to be determined",
+				"date": "2022-09-21",
+				"length": 45
 			}
 		]
 	},
