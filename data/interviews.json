@@ -1,5 +1,13 @@
 [
 	{
+		"name": "AI IN ACTION E322: Kevin Goldsmith, Chief Technology Officer at Anaconda",
+		"date": "2022-03-28",
+		"url": "https://alldus.com/blog/podcasts/aiinaction-kevin-goldsmith-anaconda/#content",
+		"author": "JP Valentine",
+		"publisher": "The Alldus Podcast",
+		"summary": "<p>Today's guest is Kevin Goldsmith, Chief Technology Officer at Anaconda. With more than 20 million users, Anaconda is the world’s most popular data science platform and the foundation of modern machine learning. Anaconda pioneered the use of Python for data science and continue to steward open-source projects that make tomorrow’s innovations possible.  Their enterprise-grade solutions enable corporate, research and academic institutions to harness the power of open source for competitive advantage, groundbreaking research and a better world.</p><p>Kevin is an experienced leader in high-performing product, research and shared technology engineering organizations. His technical areas of expertise include service scalability, user experience, consumer product development, GPGPU, multi-core, connected architectures, signal processing, domain-specific languages and graphics. Kevin currently oversees innovation for Anaconda's current open-source and commercial offerings, and develops new solutions to bring data science practitioners together with innovators, vendors and thought leaders in the industry.</p><p>In the episode, Kevin will discuss:<ul><li>The work he does with Anaconda</li><li>Benefits that the Anaconda Nucleus brings to users</li><li>Company culture and what it’s like to work at Anaconda</li><li>Interesting projects and plans for growing the team</li><li>Upcoming AI trends that excite him in the industry</li></ul></p>"
+	},
+	{
 		"name": "The power of collective autonomy with Kevin Goldsmith",
 		"date": "2022-02-26",
 		"url": "https://pancakesandpeacocks.com/episode-42-the-power-of-collective-autonomy-with-kevin-goldsmith/",
