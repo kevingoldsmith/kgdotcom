@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <style>
+    :not(:defined) {
+        visibility: hidden;
+    }
+    </style>
+</head>
+<body>
+    <h1>Hello! My name is <span id="name-goes-here">Kevin Goldsmith</span></h1>
+    <py-script>
+import random
+
+names = ["Kevin Goldsmith", "Кевин Голдсмит", "ケビン・ゴールドスミス", "케빈 골드스미스", "凯文・戈德史密斯"]
+el = Element("name-goes-here")
+while True:
+    name = random.choice(names)
+    for n in range(0, len(name)+1):
+        el.write(name[0:n])
+        await asyncio.sleep(0.2)
+    await asyncio.sleep(5)
+    for n in range(1, len(name)+1):
+        el.write(name[0:-n])
+        await asyncio.sleep(0.2)
+    </py-script>
+</body>    
