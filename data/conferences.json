@@ -2886,12 +2886,12 @@
 				"date": "2022-06-10",
 				"length": 30,
 				"location": {
-					"venue": "Banking Hall",
-					"address": "Banking Hall 14, Cornhill",
+					"venue": "The Grand at Trafalgar Square",
+					"address": "8 Northumberland Avenue",
 					"city": "London",
 					"country": "GB",
-					"postal code": "EC3V 3ND",
-					"gps": [51.513249760526556, -0.08797742379893814]
+					"postal code": "WC2N 5BY",
+					"gps": [51.507055, -0.125991]
 				}
 			}
 		]
