@@ -2881,6 +2881,7 @@
 		"talks": [
 			{
 				"talk": "How do you keep growing when you are the leader of the organization?",
+				"slides-url": "https://www.slideshare.net/kevingoldsmith/how-do-you-grow-when-you-are-the-leader-of-an-organization",
 				"talk-description": "<p>As I've moved into more senior leadership roles, professional development has become my responsibility. No CEO or CTO I worked for had much time to mentor me. They expected that I had already figured it out on my own.</p><p>Your organization looks to you to be the expert, and you are often the most senior around. However, reaching senior leadership doesn't mean that we no longer need to grow professionally. On the contrary, we should never stop trying to improve and get better at our jobs. We should always be striving to learn and grow. We now need to take full responsibility for it.</p><p>Over the years, I've leveraged professional coaches, taken courses, attended workshops, participated in formal and informal networks of peers, and assembled tools to help me find my areas of improvement and help me measure progress towards my goals.</p><p>In this talk, I will share what I've learned as I've built a framework that works for me. Then, I will give you ideas on how you can create a program for yourself that will help you continue to grow in your role.</p>",
 				"talk-type": "talk",
 				"date": "2022-06-10",
@@ -2892,6 +2893,27 @@
 					"country": "GB",
 					"postal code": "WC2N 5BY",
 					"gps": [51.507055, -0.125991]
+				}
+			}
+		]
+	},
+	{
+		"conference": "Agile Meets Architecture",
+		"url": "https://www.agile-meets-architecture.com/",
+		"talks": [
+			{
+				"talk": "Architecture and Organization",
+				"talk-type": "talk",
+				"talk-description": "Drawing on real-life examples from Avvo, Spotify, Adobe and Microsoft, Kevin Goldsmith explores why you should consider changing your organization to improve your architecture and discusses the successes and failures he’s seen around the interplay of organizational models and software architectures. Kevin often visits companies, where he hears about how they struggle to break up monolithic applications or move to a continuous deployment pipeline. Oftentimes, the organizational structure is clearly making their problems harder but is seen as something that can’t be changed. Kevin relates his own journey to a more experimental organizational style. As a developer at Microsoft, Kevin worked in a rigid hierarchy organized around functional areas. The communication flows within the organization dictated the way it structured its libraries and dependencies. This is the essence of Conway’s law. In this case, the company hierarchy and the architecture it produced was often suboptimal for the problem Kevin and his team were solving, but it was the architectural path of least resistance. When Kevin moved to Adobe and became a senior manager, he started to build his organization in the traditional way. Adobe wanted to create a more fluid and agile architecture for its products, but the company struggled to realize these goals because it was too hard to work across teams and reporting lines. The company finally started to make some progress as the organization became more fluid and loosely coupled. Kevin then went to Spotify, which had realized this problem early on and restructured its organization in a way that supported the architectural model that it wanted to build. As a vice president of engineering, Kevin was able to see firsthand how the organizational model simplified the architectural challenges that other companies struggled with while also introducing difficulties that other companies were easily able to overcome. When Kevin joined Avvo as its CTO, the company had the same organization and architectural challenges as many other startups, but rather than attack them only from an architectural angle, Avvo experimented with architecture and organization together to improve its legacy systems and help build new ones faster and with higher quality.",
+				"date": "2022-09-07",
+				"length": 60,
+				"location": {
+					"venue": "Kulturbrauerei, Berlin",
+					"address": "Schönhauser Allee 36",
+					"city": "Berlin",
+					"country": "DE",
+					"postal code": "10435",
+					"gps": [52.53910533717885, 13.413581664515375]
 				}
 			}
 		]
