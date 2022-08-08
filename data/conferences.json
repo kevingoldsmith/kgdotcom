@@ -2932,6 +2932,27 @@
 		]
 	},
 	{
+		"conference": "0111 Conference",
+		"url": "https://www.eventcreate.com/e/0111-2022",
+		"talks":[
+			{
+				"talk": "TBD",
+				"talk-type": "talk",
+				"date": "2022-11-02",
+				"length": 30,
+				"location": {
+					"venue": "The Lane",
+					"address": "900 Bayfront Ct Suite 200",
+					"city": "San Diego",
+					"state": "CA",
+					"country": "US",
+					"postal code": "92101",
+					"gps":[32.71707880769359, -117.17180705993877]
+				}
+			}
+		]
+	},
+	{
 		"conference": "The 2022 Seattle CTO Summit",
 		"url": "https://www.ctoconnection.com/events/in-person/2022-12-08-the-2022-seattle-cto-summit",
 		"talks":[
