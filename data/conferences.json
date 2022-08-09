@@ -2927,7 +2927,14 @@
 				"talk-type": "talk",
 				"talk-description": "to be determined",
 				"date": "2022-09-21",
-				"length": 45
+				"length": 45,
+				"location": {
+					"city": "Seattle",
+					"state": "WA",
+					"country": "US",
+					"postal code": "98101",
+					"gps": [47.610302, -122.336820]
+				}
 			}
 		]
 	},

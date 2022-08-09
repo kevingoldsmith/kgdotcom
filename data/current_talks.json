@@ -4,16 +4,12 @@
 		"description": "Distributed teams can help find the best talent wherever it is and bring opportunities to developers away from the tech centers. However, leading a distributed team presents unique challenges, interpersonal and technical. What makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective? In this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication."
 	},
 	{
-		"talk": "Steal from the best, lessons from three years at Spotify",
-		"description": "I was privileged to be a senior leader in the product development team at Spotify from 2013 until 2016. Since leaving, I have adopted the lessons I learned as a CTO in multiple companies. I will share the ideas and values that inspired the \"Spotify Model\" in this talk—their application at Spotify and how I have applied them in different organizations since."
+		"talk": "How do you keep growing when you are the leader of the organization?",
+		"description": "Your organization looks to you to be the expert, and you are often the most senior around. However, reaching senior leadership doesn't mean that we no longer need to grow professionally. On the contrary, we should never stop trying to improve and get better at our jobs. We should always be striving to learn and grow. We now need to take full responsibility for it."
 	},
 	{
 		"talk": "Developing Your Developers: Constructing Career Paths For Your Technologists",
 		"description": "How you construct development paths in your company can support and deepen your company values. Doing it well means heightening employee engagement and improving retention. This talk gives technology and people team leaders a place to start their conversations."
-	},
-	{
-		"talk":"Using Agile Techniques to Build a More Inclusive Team",
-		"description": "Building psychological safety in your teams is critical if you want them to perform at their best. The challenge is how to develop and encourage the trust and collaboration and to make sure that all voices are heard. \nThe agile community has developed facilitation exercises and tools that make conversations more democratic and inclusive. I have used some of these techniques with my teams for years and have found them incredibly valuable. I will teach you some of the agile methods that I use for large and small team meetings, brainstorms, and one-on-ones that encourage all team members to participate. These tools also help make sure that all voices are respected and valued."
 	},
 	{
 		"talk": "Architecture and Organization",
