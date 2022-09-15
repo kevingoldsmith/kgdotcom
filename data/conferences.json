@@ -2914,7 +2914,15 @@
 					"country": "DE",
 					"postal code": "10435",
 					"gps": [52.53910533717885, 13.413581664515375]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "And it went on! @KevinGoldsmith connecting Neuroscience and Conway's law. Really insightful (and scientifically backed!) experiences regarding the impact of organizational structure on software architecture! @AmA_conf #amaberlin",
+						"reference-url": "https://twitter.com/bemayr/status/1567448380019822594",
+						"credit": "Bernhard Mayr",
+						"credit-url": "https://twitter.com/bemayr"
+					}
+				]
 			}
 		]
 	},
