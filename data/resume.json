@@ -95,7 +95,7 @@
 			"company": "AstrumU",
 			"location": "Kirkland, WA",
 			"position": "Advisor",
-			"website": "http://AstrumU.com",
+			"website": "https://AstrumU.com",
 			"startDate": "2019-04-01",
 			"endDate": "2019-12-01",
 			"summary": "Moved to an advisor role after leaving the company as a full-time employee."
@@ -113,7 +113,7 @@
 			"company": "AstrumU",
 			"location": "Kirkland, WA",
 			"position": "VP Engineering",
-			"website": "http://AstrumU.com",
+			"website": "https://AstrumU.com",
 			"startDate": "2018-06-01",
 			"endDate": "2019-03-30",
 			"summary": "Hired initial development team in US and remote. Responsible for initial microservice software architecture using Kubernetes and Istio. Released iniital B2B and B2C application MVPs to the market."

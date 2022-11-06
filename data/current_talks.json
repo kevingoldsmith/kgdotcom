@@ -1,5 +1,9 @@
 [
 	{
+		"talk": "It's teams all the way down: Design patterns for engineering organizations",
+		"description": "While there is no \"one size fits all\" solution for organizational structure, there are patterns for the different stages of startups that can be adapted to your culture and best practices to leverage."
+	},
+	{
 		"talk": "Leading Distributed Teams",
 		"description": "Distributed teams can help find the best talent wherever it is and bring opportunities to developers away from the tech centers. However, leading a distributed team presents unique challenges, interpersonal and technical. What makes distributed teams especially challenging? How can we address these challenges to make our distributed organizations more effective? In this talk, Kevin Goldsmith discusses four main challenges: Conway's Law, Amdahl's Law (as applied to organizations), Empathy, and Communication."
 	},
