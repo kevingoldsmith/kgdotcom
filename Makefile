@@ -27,7 +27,13 @@ publish:
 lint:
 	pylint *.py
 
+black:
+	black .
+
+mypy:
+	mypy --disallow-untyped-defs .
+
 list:
 	@grep '^[^#[:space:]].*:' Makefile
 
-.PHONY: setup clean test debug publish build list lint
+.PHONY: setup clean test debug publish build list lint black mypy
