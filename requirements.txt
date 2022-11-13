@@ -23,7 +23,7 @@ six==1.15.0
 soupsieve==2.2.1
 toml==0.10.2
 tomli==2.0.1
-typed-ast==1.4.2
+typed-ast==1.5.4
 types-requests==2.28.11.4
 types-urllib3==1.26.25.3
 typing_extensions==4.4.0

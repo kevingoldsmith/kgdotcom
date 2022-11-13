@@ -11,24 +11,29 @@ __copyright__ = "Copyright 2021, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Production"  # Prototype, Development or Production
 
-import urllib
-import json
-import os
 import copy
+import json
+import logging
+import os
+import requests
 from datetime import timedelta
 from operator import itemgetter
-from xmlrpc.client import boolean
-import requests
-import requests_cache  # type: ignore
-from bs4 import BeautifulSoup  # type: ignore
+from typing import Tuple, List, Union, Dict
+
 import jinja2  # type: ignore
+import requests_cache  # type: ignore
+import urllib
+from bs4 import BeautifulSoup  # type: ignore
+from xmlrpc.client import boolean
+
 import common
 from navigation import get_href_root, get_talk_root_for_talk
-from typing import Tuple, List, Union, Dict
+
 
 # requests cache
 requests_cache.install_cache(expire_after=timedelta(days=1))
 requests_cache.remove_expired_responses()
+logger = logging.getLogger(__name__)
 
 
 def get_embed_code_from_video_url(video_url: str) -> str:
@@ -104,7 +109,7 @@ def get_embed_code_from_slides_url(slides_url: str) -> Union[str, None]:
         soup.iframe["width"] = "600"
         soup.iframe["height"] = str(int(600 * aspect_ratio))
         return soup.iframe.prettify()
-    print("ERROR: get slideshare embed failed")
+    logger.error("get slideshare embed failed")
     return None
 
 
@@ -130,7 +135,7 @@ def generate_talk_page(
     outputfilename = filetitle + ".html"
     filepath = output_directory + filetitle + ".html"
 
-    print(f"creating file: {filetitle}")
+    logger.info(f"creating file: {filetitle}")
 
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["title"] = f"{talktitle}: a talk by Kevin Goldsmith"

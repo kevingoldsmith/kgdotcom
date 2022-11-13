@@ -11,18 +11,21 @@ __copyright__ = "Copyright 2021, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Production"  # Prototype, Development or Production
 
-from datetime import date
-from operator import itemgetter
-import os
+import argparse
 import copy
 import json
-import argparse
-from xmlrpc.client import boolean
+import logging
+import os
+from datetime import date
+from operator import itemgetter
+
 import jinja2  # type: ignore
+from xmlrpc.client import boolean
+
 import common
-from navigation import get_talk_url
-from generate_talk_page import generate_talk_page
 import conference_talk_types
+from generate_talk_page import generate_talk_page
+from navigation import get_talk_url
 
 
 def generate_conference_pages(debug_mode: boolean = False) -> None:
@@ -49,8 +52,8 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
                 talk_index = ""
                 talk_index = talk["root-talk"] if "root-talk" in talk else talk["talk"]
                 if not conference_talk_types.has_valid_talk_type(talk):
-                    print(
-                        f"ERROR: {talk['talk']} has invalid type {talk.get('talk-type', 'NONE')}"
+                    logger.error(
+                        f"{talk['talk']} has invalid type {talk.get('talk-type', 'NONE')}"
                     )
                 if conference_talk_types.is_talk(talk):
                     if len(talk_index) > 0:
@@ -186,7 +189,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
     talkpagetemplate = env.get_template("talk-index-template.html")
 
-    print("creating index.html")
+    logger.info("creating index.html")
     marker_list = []
     info_list = []
     for conference in conference_talks:
@@ -271,5 +274,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="generate the talks pages")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
+    logger = logging.getLogger(__name__)
+    common.initialize_logging(logging.INFO)
 
     generate_conference_pages(args.debug)
+else:
+    logger = logging.getLogger()

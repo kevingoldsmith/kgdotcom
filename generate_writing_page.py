@@ -13,12 +13,20 @@ __status__ = "Production"  # Prototype, Development or Production
 
 # --------------------------------------------------------------------------------
 
-import json
 import argparse
+import json
+import logging
 import os
-from xmlrpc.client import boolean
+
 import jinja2  # type: ignore
-from common import get_output_directory, validate_url, format_month_day_year_from_string
+from xmlrpc.client import boolean
+
+from common import (
+    get_output_directory,
+    validate_url,
+    format_month_day_year_from_string,
+    initialize_logging,
+)
 
 
 def tagify_tag(tag: str) -> str:
@@ -69,7 +77,7 @@ def generate_writing_page(
         debug_mode=debug_mode, writinglist=article_list, tagbuttons=button_list
     )
     output_path = os.path.join(output_directory, output_file)
-    print("writing: " + output_path)
+    logger.info(f"writing: {output_path}")
     with open(output_path, "w") as file:
         file.write(writingpagetemplate.render(writings))
 
@@ -78,5 +86,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="generate the writings file")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
+    logger = logging.getLogger(__name__)
+    initialize_logging(logging.INFO)
 
     generate_writing_page(debug_mode=args.debug, output_file="writing.html")
+else:
+    logger = logging.getLogger()

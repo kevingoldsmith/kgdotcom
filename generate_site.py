@@ -11,14 +11,17 @@ __copyright__ = "Copyright 2021, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Production"  # Prototype, Development or Production
 
-import os
 import argparse
-from xmlrpc.client import boolean
+import logging
+import os
+
 import jinja2  # type: ignore
+from xmlrpc.client import boolean
+
 import generate_resume_page
 import generate_writing_page
 import generate_talk_pages
-from common import get_output_directory
+from common import get_output_directory, initialize_logging
 
 
 def generate_other_pages(debug_mode: boolean = False) -> None:
@@ -34,7 +37,7 @@ def generate_other_pages(debug_mode: boolean = False) -> None:
         template = env.get_template(page[1])
         page_data = dict(debug_mode=debug_mode)
         output_path = os.path.join(get_output_directory(debug_mode), page[0])
-        print("writing: " + output_path)
+        logger.info(f"writing: {output_path}")
         with open(output_path, "w") as file:
             file.write(template.render(page_data))
 
@@ -55,5 +58,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="generate the files for the site")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
+    logger = logging.getLogger(__name__)
+    initialize_logging(logging.INFO)
 
     main(debug_mode=args.debug)
+else:
+    logger = logging.getLogger()

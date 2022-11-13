@@ -12,13 +12,16 @@ __status__ = "Production"  # Prototype, Development or Production
 # --------------------------------------------------------------------------------
 
 import argparse
-import os
 import datetime
+import logging
+import os
 from string import Template
-from xmlrpc.client import boolean
-from navigation import get_href_root
-from common import get_output_directory
 from typing import Tuple
+
+from xmlrpc.client import boolean
+
+from navigation import get_href_root
+from common import get_output_directory, initialize_logging
 
 
 def generate_sitemap(debug_mode: boolean = False) -> None:
@@ -57,7 +60,7 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
         template = Template(template_file.read())
 
     sitemap_dict = dict(urllist="\n".join(sitemap_entries))
-    print("writing: sitemap.xml")
+    logging.info("writing: sitemap.xml")
     with open(get_output_directory(debug_mode) + "sitemap.xml", "w") as output_file:
         output_file.write(template.substitute(sitemap_dict))
 
@@ -66,4 +69,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="generate the sitemap")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
+    logger = logging.getLogger(__name__)
+    initialize_logging(logging.INFO)
     generate_sitemap(args.debug)
+else:
+    logger = logging.getLogger()

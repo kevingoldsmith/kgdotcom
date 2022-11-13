@@ -11,13 +11,20 @@ __status__ = "Production"  # Prototype, Development or Production
 
 # --------------------------------------------------------------------------------
 
-import os
-from datetime import date
-import string
+import configparser
 import json
-from xmlrpc.client import Boolean
+import logging
+import os
 import requests
+import string
+from datetime import date
+from typing import Union
+
 import pycountry  # type: ignore
+from xmlrpc.client import Boolean
+
+
+logger = logging.getLogger(__name__)
 
 
 def get_output_directory(debug: bool = False) -> str:
@@ -133,7 +140,7 @@ def check_for_missing_values(original: dict, new: dict) -> None:
         if (key in ["description", "title", "presentationlist"]) and (
             original[key] == new[key]
         ):
-            print("\tWARNING: {0} has default value".format(key))
+            logger.warning(f"{key} has default value")
 
 
 # thanks lazyweb
@@ -167,8 +174,33 @@ def validate_url(address: str) -> Boolean:
 
     if not response:
         try:
-            print(f"URL failed to validate: {address}, status code: {resp.status_code}")
+            logger.warning(
+                f"URL failed to validate: {address}, status code: {resp.status_code}"
+            )
         except NameError:
-            print(f"URL failed to validate: {address}")
+            logger.warning(f"URL failed to validate: {address}")
 
     return response
+
+
+def initialize_logging(
+    logging_level: int, logging_file: Union[str, None] = None
+) -> None:
+    logger = logging.getLogger()
+    logger.setLevel(logging_level)
+    formatter = logging.Formatter("%(levelname)s: %(message)s")
+    formatter.datefmt = "%Y-%m-%d %H:%M:%S %z"
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.INFO)
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
+
+    if logging_file:
+        fh = logging.FileHandler(logging_file)
+        fh.setLevel(logging_level)
+        file_formatter = logging.Formatter(
+            "%(name)s - %(asctime)s (%(levelname)s): %(message)s"
+        )
+        file_formatter.datefmt = "%Y-%m-%d %H:%M:%S %z"
+        fh.setFormatter(file_formatter)
+        logger.addHandler(fh)

@@ -11,13 +11,19 @@ __copyright__ = "Copyright 2021, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Production"  # Prototype, Development or Production
 
-import os
 import argparse
 import json
-from xmlrpc.client import boolean
-import jinja2  # type: ignore
-import common
+import logging
+import os
 from typing import List
+
+import jinja2  # type: ignore
+from xmlrpc.client import boolean
+
+import common
+
+
+logger = logging.getLogger()
 
 
 def format_job_list(work: List[dict]) -> List[dict]:
@@ -107,7 +113,9 @@ def format_keynote_list(conferences: List[dict], debug_mode: boolean) -> List[di
                     ):
                         talk["talk-url"] = talk_path
                     else:
-                        print(f"ERROR: talk-path does not exist for {talk['talk']}!")
+                        logger.error(
+                            f"ERROR: talk-path does not exist for {talk['talk']}!"
+                        )
                 else:
                     common.validate_url(talk["talk-url"])
                 keynote = dict(
@@ -171,7 +179,7 @@ def generate_resume_page(
     )
 
     output_path = os.path.join(common.get_output_directory(debug_mode), output_file)
-    print(f"writing: {output_path}")
+    logger.info(f"writing: {output_path}")
     with open(output_path, "w") as file:
         file.write(pagetemplate.render(page_variables))
 
@@ -180,5 +188,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="generate the writings file")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
+    logger = logging.getLogger(__name__)
+    common.initialize_logging(logging.INFO)
 
     generate_resume_page(debug_mode=args.debug, output_file="resume.html")
