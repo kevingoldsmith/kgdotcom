@@ -1,5 +1,13 @@
 [
 	{
+		"name": "Data Journey with Kevin Goldsmith (Anaconda) - Data & analytics used internally at Anaconda, SQL vs. Python, Layoffs and hiring in the tech sector, Agile data projects",
+		"date": "2022-11-30",
+		"url": "https://open.spotify.com/episode/3WQGuZLV6Qm20ODIKeeqEc?si=3c7eb679f8a44889",
+		"author": "Adam Kawa",
+		"publisher": "Radio DaTa",
+		"summary": "<p>Kevin Goldsmith works as a CTO at Anaconda, and he had previously worked in various roles at several companies e.g. CTO at Onfido and Avvo, as well as VP of Engineering at Spotify. He is also a Board Member and Advisor at several companies.</p><p>Anaconda is the most popular open-source distribution of the Python and R programming languages for data science that aims to simplify package management and deployment. Currently, ~30M practitioners from 235 countries and regions use Anaconda in their work.</p><p>Topics that we talk about:</p><ul><li>What Anaconda is, who uses it and why</li><li>Data and analytics used internally by Anaconda</li><li>The role and responsibilities of CTO at Anaconda</li><li>SQL vs. Python in data science</li><li>Hiring and layoffs in the tech industry</li><li>An agile approach to data engineering and data science projects</li></ul><p>The podcast was recorded by Adam Kawa (GetInData).</p>"
+	},
+	{
 		"name": "Will nationalism end the golden age of global AI collaboration?",
 		"date": "2022-11-01",
 		"url": "https://www.protocol.com/enterprise/china-us-ai-open-source",
