@@ -43,12 +43,16 @@
 			"position": "Chief Technology Officer",
 			"website": "https://www.anaconda.com/",
 			"startDate": "2020-10-05",
-			"summary": "Oversee innovation for Anaconda’s current open-source and commercial offerings, as well as develop new solutions to bring data science practitioners together with innovators, vendors, and thought leaders in the industry.",
+			"endDate": "2022-11-18",
+			"summary": "During my tenure at Anaconda: the company had seven consecutive quarters of record revenue growth; we raised a substantial funding round; we launched the company's first SAAS platform and products; I brought the Pyston and Beeware open-source projects under the company's umbrella; I helped to negotiate new partnerships with Snowflake, Microsoft, Amazon, and Oracle; and I lead the company's first acquisition. To support these efforts, I grew the engineering organization from 46 to 145, substantially expanding the footprint outside the USA and adding new technical disciplines to the company. I drove dramatic improvements to the company's platform and infrastructure, including creating a data platform team, and made substantial efficiency improvements to both product engineering as well as build engineering for the company's open source python distribution used by 30 million practioners.",
 			"highlights": [
 				"Helped company raise a significant round in Spring 2021",
-				"Grew engineering team signifcantly in first year",
+				"Grew engineering team from 46 to 145 in two years",
 				"Launched Anaconda's first SAAS products",
-				"Four quarters of record revenue growth"
+				"Seven quarters of record revenue growth",
+				"Lead company's first acquisition",
+				"Helped negotiate new partnerships with Snowflake, Microsoft, Amazon and Oracle",
+				"Create a platform and infrastructure organization"
 			]
 		},
 		{
