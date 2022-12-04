@@ -5,7 +5,7 @@
 
 __version__ = "1.0.0"
 __author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
+__copyright__ = "Copyright 2022, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Production"  # Prototype, Development or Production
 
