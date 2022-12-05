@@ -12,10 +12,12 @@ __license__ = "MIT"
 __status__ = "Development"  # Prototype, Development or Production
 
 import argparse
+import copy
 import json
 import logging
 import os
 
+import jinja2  # type: ignore
 from PIL import Image as PILImage
 from PIL.ExifTags import TAGS
 
@@ -29,6 +31,7 @@ class Gallery:
     def __init__(self, name:str, directory:str) -> None:
         self.name = name
         self.description = ""
+        self.output_path = ""
         self.directory = directory
         self.sub_galleries = []
         self.images = []
@@ -102,14 +105,40 @@ class Image:
         return any(filename.endswith(e) for e in extensions)
 
 
-def create_gallery(gallery:Gallery, path:str) -> None:
+def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = False) -> None:
     logging.info("creating gallery: %s at %s", gallery.name, path)
     
     for sub_gallery in gallery.sub_galleries:
-        gallery_path = os.path.join(path, sub_gallery.name)
+        subdirectory_name = "".join(c for c in sub_gallery.name if c.isalnum())
+        gallery_path = os.path.join(path, subdirectory_name)
         if not os.path.exists(gallery_path):
             os.mkdir(gallery_path)
-        create_gallery(sub_gallery, os.path.join(gallery_path, gallery.name))
+        sub_gallery.relative_path = subdirectory_name + "/"
+        create_gallery(sub_gallery, gallery_path, depth+1, debug_mode)
+    
+    root_path = "/"
+    if debug_mode:
+        root_path = "../" * depth
+    
+    # get the page template
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
+    gallery_page_template = env.get_template("photo-gallery-template.html")
+
+    # get the page variables (which becomes our template dictionary)
+    with open("data/pagevariables.json") as file:
+        pagevariables = json.load(file)
+
+    pagevalues = copy.deepcopy(pagevariables)
+    pagevalues["debug_mode"] = debug_mode
+    pagevalues["title"] = f"{gallery.name}: a photographic gallery by Kevin Goldsmith"
+    pagevalues["galleryname"] = gallery.name
+    pagevalues["gallerydescription"] = gallery.description
+    pagevalues["subgalleries"] = gallery.sub_galleries
+    pagevalues["rootpath"] = root_path
+
+    # common.check_for_missing_values(pagevariables, pagevalues)
+    with open(os.path.join(path, "index.html"), "w") as file:
+        file.write(gallery_page_template.render(pagevalues))
 
 
 def generate_photo_pages(debug_mode: bool = False) -> None:
@@ -121,7 +150,7 @@ def generate_photo_pages(debug_mode: bool = False) -> None:
     if not os.path.exists(output_directory):
         os.mkdir(output_directory)
     
-    create_gallery(top_gallery, output_directory)
+    create_gallery(top_gallery, output_directory, 1, debug_mode)
 
 
 if __name__ == "__main__":
