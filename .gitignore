@@ -7,3 +7,4 @@ testoutput/
 venv
 cache.sqlite
 http_cache.sqlite
+photos/
