@@ -16,7 +16,6 @@ import copy
 import json
 import logging
 import os
-from shutil import copyfile
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
@@ -25,8 +24,6 @@ from PIL.ExifTags import TAGS
 import common
 
 __PHOTOS_DIRECTORY = "photos"
-__GALLERY_PHOTO_MAX = (2000,2000)
-__GALLERY_THUMB_MAX = (1000,1000)
 
 class Gallery:
     def __init__(self, name:str, directory:str) -> None:
@@ -66,6 +63,9 @@ class Gallery:
 
 
 class Image:
+    __GALLERY_PHOTO_MAX = (2000,2000)
+    __GALLERY_THUMB_MAX = (1000,1000)
+
     def __init__(self, name:str, path:str) -> None:
         self.name = name
         self.path = path
@@ -105,10 +105,29 @@ class Image:
     def generate_output_images(self, destination_path:str) -> None:
         self.output_filename = os.path.basename(self.path)
         self.output_file_path = os.path.join(destination_path, self.output_filename)
-        copyfile(self.path, self.output_file_path)
+        filename_split = os.path.splitext(self.output_filename)
+        self.thumb_filename = f"{filename_split[0]}-thumb{filename_split[1]}"
+        self.thumb_file_path = os.path.join(destination_path, self.thumb_filename)
+        pil_image = PILImage.open(self.path)
+        
+        if not os.path.exists(self.output_file_path):
+            new_image = pil_image.resize(Image.get_resized_image_dimensions(pil_image.size, Image.__GALLERY_PHOTO_MAX), resample=PILImage.Resampling.LANCZOS)
+            new_image.save(self.output_file_path)
 
-    def is_image_file(filename:str, extensions=['.jpg', '.jpeg', '.gif', '.png']):
+        if not os.path.exists(self.thumb_file_path):        
+            new_thumbnail = pil_image.resize(Image.get_resized_image_dimensions(pil_image.size, Image.__GALLERY_THUMB_MAX), resample=PILImage.Resampling.LANCZOS)
+            new_thumbnail.save(self.thumb_file_path)
+
+    def is_image_file(filename:str, extensions=['.jpg', '.jpeg', '.gif', '.png'])->bool:
         return any(filename.endswith(e) for e in extensions)
+
+    def get_resized_image_dimensions(orig_size:tuple[int,int], max_size:tuple[int,int])->tuple[int,int]:
+        if (orig_size[0] <= max_size[0]) and (orig_size[1] <= max_size[1]):
+            return orig_size
+        aspect_ratio = float(orig_size[0])/float(orig_size[1])
+        if aspect_ratio > 1.0: #landscape
+            return (int(max_size[0]), int(max_size[1]/aspect_ratio))
+        return (int(max_size[0]*aspect_ratio), int(max_size[1]))
 
 
 def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = False) -> None:

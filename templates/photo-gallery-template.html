@@ -23,9 +23,7 @@
     <link rel="stylesheet" href="{{rootpath}}css/main.css" />
     <style>
         img {
-            width: 100%;
             max-width: 400px;
-            height: 100%;
             max-height: 400px;
         }
     </style>
@@ -46,7 +44,7 @@
         {% if images %}
         <ul>
             {% for image in images %}
-            <li><img src="{{image.output_filename}}" />{{image.name}}</li>
+            <li><img src="{{image.thumb_filename}}" />{{image.name}}</li>
             {% endfor %}
         </ul>
         {% endif %}
