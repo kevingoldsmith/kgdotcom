@@ -11,6 +11,7 @@ __copyright__ = "Copyright 2022, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Development"  # Prototype, Development or Production
 
+import argparse
 import json
 import logging
 import os
@@ -18,6 +19,7 @@ import os
 from PIL import Image as PILImage
 from PIL.ExifTags import TAGS
 
+import common
 
 __PHOTOS_DIRECTORY = "photos"
 __GALLERY_PHOTO_MAX = (2000,2000)
@@ -26,6 +28,7 @@ __GALLERY_THUMB_MAX = (1000,1000)
 class Gallery:
     def __init__(self, name:str, directory:str) -> None:
         self.name = name
+        self.description = ""
         self.directory = directory
         self.sub_galleries = []
         self.images = []
@@ -47,7 +50,16 @@ class Gallery:
                 newgal.populate()
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
-        pass
+        self.load_JSON_metadata()
+
+    def load_JSON_metadata(self) -> None:
+        json_file = os.path.join(self.directory, self.name + ".json")
+        if os.path.exists(json_file):
+            with open(json_file, 'r') as f:
+                image_data = json.load(f)
+                self.name = image_data.get('name', self.name)
+                self.description = image_data.get('description', '')
+
 
 class Image:
     def __init__(self, name:str, path:str) -> None:
@@ -90,13 +102,44 @@ class Image:
         return any(filename.endswith(e) for e in extensions)
 
 
+def create_gallery(gallery:Gallery, path:str) -> None:
+    logging.info("creating gallery: %s at %s", gallery.name, path)
+    
+    for sub_gallery in gallery.sub_galleries:
+        gallery_path = os.path.join(path, sub_gallery.name)
+        if not os.path.exists(gallery_path):
+            os.mkdir(gallery_path)
+        create_gallery(sub_gallery, os.path.join(gallery_path, gallery.name))
+
+
 def generate_photo_pages(debug_mode: bool = False) -> None:
+    logger.debug("generate_photo_pages")
     top_gallery = Gallery("portfolio", __PHOTOS_DIRECTORY)
     top_gallery.populate()
-    print(top_gallery)
-    return True
+    logger.debug("gallery populated: %s", top_gallery)
+    output_directory = os.path.join(common.get_output_directory(debug_mode), "photos/")
+    if not os.path.exists(output_directory):
+        os.mkdir(output_directory)
+    
+    create_gallery(top_gallery, output_directory)
 
-generate_photo_pages()
+
+if __name__ == "__main__":
+    # parse command line
+    parser = argparse.ArgumentParser(description="generate the photos pages")
+    parser.add_argument("--debug", action="store_true")
+    args = parser.parse_args()
+    logger = logging.getLogger(__name__)
+    if args.debug:
+        #common.initialize_logging(logging.DEBUG)
+        common.initialize_logging(logging.INFO)
+    else:    
+        common.initialize_logging(logging.INFO)
+
+    generate_photo_pages(args.debug)
+else:
+    logger = logging.getLogger()
+
 
 """ # FROM OPEN AI
 import os
