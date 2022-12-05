@@ -16,6 +16,7 @@ import copy
 import json
 import logging
 import os
+from shutil import copyfile
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
@@ -101,6 +102,11 @@ class Image:
                 self.name = image_data.get('name', self.name)
                 self.description = image_data.get('description', '')
 
+    def generate_output_images(self, destination_path:str) -> None:
+        self.output_filename = os.path.basename(self.path)
+        self.output_file_path = os.path.join(destination_path, self.output_filename)
+        copyfile(self.path, self.output_file_path)
+
     def is_image_file(filename:str, extensions=['.jpg', '.jpeg', '.gif', '.png']):
         return any(filename.endswith(e) for e in extensions)
 
@@ -116,6 +122,9 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
         sub_gallery.relative_path = subdirectory_name + "/"
         create_gallery(sub_gallery, gallery_path, depth+1, debug_mode)
     
+    for image in gallery.images:
+        image.generate_output_images(path)
+
     root_path = "/"
     if debug_mode:
         root_path = "../" * depth
@@ -133,8 +142,9 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
     pagevalues["title"] = f"{gallery.name}: a photographic gallery by Kevin Goldsmith"
     pagevalues["galleryname"] = gallery.name
     pagevalues["gallerydescription"] = gallery.description
-    pagevalues["subgalleries"] = gallery.sub_galleries
     pagevalues["rootpath"] = root_path
+    pagevalues["subgalleries"] = gallery.sub_galleries
+    pagevalues["images"] = gallery.images
 
     # common.check_for_missing_values(pagevariables, pagevalues)
     with open(os.path.join(path, "index.html"), "w") as file:
