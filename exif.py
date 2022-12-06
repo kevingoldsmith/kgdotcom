@@ -163,6 +163,8 @@ def _process_exif_dict(exif_dict):
         exif_dict["ExposureBiasValue"]["processed"] = \
             "{} EV".format(exif_dict["ExposureBiasValue"]["processed"])
 
+    # still need to process GPS, see https://stackoverflow.com/questions/19804768/interpreting-gps-info-of-exif-data-from-photo-in-python
+
     return exif_dict
 
 # based on https://python.plainenglish.io/reading-a-photographs-exif-data-with-python-and-pillow-a29fceafb761
