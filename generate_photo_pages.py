@@ -45,7 +45,7 @@ class Gallery:
         for item in items:
             path = os.path.join(self.directory, item)
             if Image.is_image_file(path):
-                self.images.append(Image(item, path))
+                self.images.append(Image(os.path.splitext(item)[0], path))
             elif os.path.isdir(path):
                 newgal = Gallery(item, path)
                 newgal.populate()
@@ -130,6 +130,28 @@ class Image:
         return (int(max_size[0]*aspect_ratio), int(max_size[1]))
 
 
+def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, debug_mode) -> None:
+    logging.info("creating image page for: %s at %s", image.output_filename, path)
+    # get the page template
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
+    gallery_page_template = env.get_template("photo-page-template.html")
+
+    # get the page variables (which becomes our template dictionary)
+    with open("data/pagevariables.json") as file:
+        pagevariables = json.load(file)
+
+    pagevalues = copy.deepcopy(pagevariables)
+    pagevalues["debug_mode"] = debug_mode
+    pagevalues["title"] = f"{image.name}: a photo by Kevin Goldsmith"
+    pagevalues["rootpath"] = root_path
+    pagevalues["photo"] = image
+
+    image.image_page = image.name + ".html"
+    image.image_page_path = os.path.join(path, image.name + ".html")
+    with open(image.image_page_path, "w") as file:
+        file.write(gallery_page_template.render(pagevalues))
+
+
 def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = False) -> None:
     logging.info("creating gallery: %s at %s", gallery.name, path)
     
@@ -141,12 +163,15 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
         sub_gallery.relative_path = subdirectory_name + "/"
         create_gallery(sub_gallery, gallery_path, depth+1, debug_mode)
     
-    for image in gallery.images:
-        image.generate_output_images(path)
-
     root_path = "/"
     if debug_mode:
         root_path = "../" * depth
+    
+    for image in gallery.images:
+        image.generate_output_images(path)
+
+    for image in gallery.images:
+        create_image_page(gallery, image, path, root_path, debug_mode)
     
     # get the page template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))

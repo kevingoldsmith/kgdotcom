@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{title}}</title>
-    <meta name="description" content="Photogallery {{galleryname}} by {{author}}" />
+    <meta name="description" content="Photo {{photo.title}} by {{author}}" />
     <meta name="author" content="{{author}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="{{googsiteverification}}" />
@@ -22,9 +22,13 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
     <link rel="stylesheet" href="{{rootpath}}css/main.css" />
     <style>
-        img {
+        .thumbnail {
             max-width: 400px;
             max-height: 400px;
+        }
+        .fullsize {
+            max-width: 1000px;
+            max-height: 1000px;
         }
     </style>
 </head>
@@ -32,22 +36,9 @@
 <body>
 	{% include 'photo-header.html' %}
 	<main id="content">
-        <h1>{{galleryname}}</h1>
-        {% if gallerydescription %}<div id="gallerydescription">{{gallerydescription}}</div>{% endif %}
-        {% if subgalleries %}
-        <ul>
-            {% for gallery in subgalleries %}
-            <li><a href="{{gallery.relative_path}}{% if debug_mode %}index.html{% endif %}">{{gallery.name}}</a></li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% if images %}
-        <ul>
-            {% for image in images %}
-            <li><img src="{{image.thumb_filename}}" /> <a href="{{image.image_page}}">{{image.name}}</a></li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+        <h1>{{photo.title}}</h1>
+        {% if photo.description %}<div id="photodescription">{{photo.description}}</div>{% endif %}
+        <img class="fullsize" src="{{photo.output_filename}}" />
 		<!-- end #mainContent -->
 	</main>
 	{% include 'footer.html' %}
