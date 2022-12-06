@@ -16,12 +16,14 @@ import copy
 import json
 import logging
 import os
+import time
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
 from PIL.ExifTags import TAGS
 
 import common
+from exif import process_exif_dict
 
 __PHOTOS_DIRECTORY = "photos"
 
@@ -81,17 +83,9 @@ class Image:
     
     def initialize_EXIF(self) -> None:
         pil_image = PILImage.open(self.path)
-        self.exif['format'] = pil_image.format
-        self.exif['size'] = pil_image.size
-        exif_tags = pil_image.getexif()
-        for tag_id in exif_tags:
-            # get the tag name, instead of human unreadable tag id
-            tag = TAGS.get(tag_id, tag_id)
-            data = exif_tags.get(tag_id)
-            # decode bytes 
-            if isinstance(data, bytes):
-                data = data.decode()
-            self.exif[tag] = data
+        self.exif = process_exif_dict(pil_image.getexif())
+        print(self.exif)
+        pil_image.close()
     
     def load_JSON_overrides(self) -> None:
         root_name = os.path.splitext(self.path)[0]
@@ -132,6 +126,7 @@ class Image:
 
 def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, debug_mode) -> None:
     logging.info("creating image page for: %s at %s", image.output_filename, path)
+
     # get the page template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
     gallery_page_template = env.get_template("photo-page-template.html")
@@ -145,6 +140,8 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     pagevalues["title"] = f"{image.name}: a photo by Kevin Goldsmith"
     pagevalues["rootpath"] = root_path
     pagevalues["photo"] = image
+    if "DateTime" in image.exif:
+        pagevalues["date_taken"] = image.exif["DateTime"]["processed"].strftime("%B %d, %Y")
 
     image.image_page = image.name + ".html"
     image.image_page_path = os.path.join(path, image.name + ".html")

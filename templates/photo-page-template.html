@@ -39,6 +39,8 @@
         <h1>{{photo.title}}</h1>
         {% if photo.description %}<div id="photodescription">{{photo.description}}</div>{% endif %}
         <img class="fullsize" src="{{photo.output_filename}}" />
+        {% if photo.exif.Make or photo.exif.Model %}<div>{% if photo.exif.Make %}{{photo.exif.Make.processed}}{% endif %} {% if photo.exif.Model %}{{photo.exif.Model.processed}}{% endif %}</div>{% endif %}
+        {% if date_taken %}<div>{{date_taken}}</div>{% endif %}
 		<!-- end #mainContent -->
 	</main>
 	{% include 'footer.html' %}
