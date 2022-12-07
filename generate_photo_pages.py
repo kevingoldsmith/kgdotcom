@@ -83,7 +83,7 @@ class Image:
     
     def initialize_EXIF(self) -> None:
         pil_image = PILImage.open(self.path)
-        self.exif = process_exif_dict(pil_image.getexif())
+        self.exif = process_exif_dict(pil_image)
         print(self.exif)
         pil_image.close()
     

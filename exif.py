@@ -2,10 +2,12 @@ import datetime
 from fractions import Fraction
 
 from PIL import Image
-import PIL.ExifTags
+from PIL.Image import Exif
+from PIL.ExifTags import GPSTAGS, TAGS
+from PIL.TiffImagePlugin import IFDRational
 
 
-def process_exif_dict(exif_data_PIL):
+def process_exif_dict(image:Image.Image):
 
     """
     Generate a dictionary of dictionaries.
@@ -23,12 +25,12 @@ def process_exif_dict(exif_data_PIL):
         or a processed version if not.
     """
     
-    exif_data = {}
+    exif_data:Exif = image.getexif()
 
-    for k, v in PIL.ExifTags.TAGS.items():
+    for k, v in TAGS.items():
 
-        if k in exif_data_PIL:
-            value = exif_data_PIL[k]
+        if k in exif_data:
+            value = exif_data[k]
             if len(str(value)) > 64:
                 value = str(value)[:65] + "..."
 
@@ -85,6 +87,20 @@ def _create_lookups():
                                "Rotate 270 CW")
 
     return lookups
+
+
+def dms_to_degrees(v):
+    """Convert degree/minute/second to decimal degrees."""
+
+    if IFDRational and isinstance(v[0], IFDRational):
+        d = float(v[0])
+        m = float(v[1])
+        s = float(v[2])
+    else:
+        d = float(v[0][0]) / float(v[0][1])
+        m = float(v[1][0]) / float(v[1][1])
+        s = float(v[2][0]) / float(v[2][1])
+    return d + (m / 60.0) + (s / 3600.0)
 
 
 def _process_exif_dict(exif_dict):
@@ -163,7 +179,28 @@ def _process_exif_dict(exif_dict):
         exif_dict["ExposureBiasValue"]["processed"] = \
             "{} EV".format(exif_dict["ExposureBiasValue"]["processed"])
 
-    # still need to process GPS, see https://stackoverflow.com/questions/19804768/interpreting-gps-info-of-exif-data-from-photo-in-python
+    if "GPSInfo" in exif_dict:
+        if exif_dict["GPSInfo"]["raw"] is not dict:
+            exif_dict["GPSInfo"]["raw"] = exif_dict.get_ifd(exif_dict["GPSInfo"]["tag"])
+        exif_dict["GPSInfo"]["processed"] = {
+            GPSTAGS.get(tag, tag): value for tag, value in exif_dict["GPSInfo"]["raw"].items()
+        }
+        lat_info = exif_dict["GPSInfo"]["processed"].get('GPSLatitude')
+        lon_info = exif_dict["GPSInfo"]["processed"].get('GPSLongitude')
+        lat_ref_info = exif_dict["GPSInfo"]["processed"].get('GPSLatitudeRef')
+        lon_ref_info = exif_dict["GPSInfo"]["processed"].get('GPSLongitudeRef')
+
+        if lat_info and lon_info and lat_ref_info and lon_ref_info:
+            try:
+                lat = dms_to_degrees(lat_info)
+                lon = dms_to_degrees(lon_info)
+            except (ZeroDivisionError, ValueError, TypeError):
+                pass
+            else:
+                exif_dict["GPSInfo"]["processed"]["simpleGPS"] = {
+                    'lat': -lat if lat_ref_info != 'N' else lat,
+                    'lon': -lon if lon_ref_info != 'E' else lon,
+                }
 
     return exif_dict
 
