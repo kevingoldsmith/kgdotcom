@@ -7,7 +7,7 @@ from PIL.ExifTags import GPSTAGS, TAGS
 from PIL.TiffImagePlugin import IFDRational
 
 
-def process_exif_dict(image:Image.Image):
+def get_exif_data(image:Image.Image):
 
     """
     Generate a dictionary of dictionaries.
@@ -112,7 +112,6 @@ def _process_exif_dict(exif_dict):
     if "DateTime" in exif_dict:
         exif_dict["DateTime"]["processed"] = \
             datetime.datetime.strptime(exif_dict["DateTime"]["raw"], date_format)
-
     if "DateTimeOriginal" in exif_dict:
         exif_dict["DateTimeOriginal"]["processed"] = \
             datetime.datetime.strptime(exif_dict["DateTimeOriginal"]["raw"],

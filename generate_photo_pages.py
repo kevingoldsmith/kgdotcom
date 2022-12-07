@@ -20,10 +20,11 @@ import time
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
+from PIL import IptcImagePlugin
 from PIL.ExifTags import TAGS
 
 import common
-from exif import process_exif_dict
+from exif import get_exif_data
 
 __PHOTOS_DIRECTORY = "photos"
 
@@ -71,9 +72,11 @@ class Image:
     def __init__(self, name:str, path:str) -> None:
         self.name = name
         self.path = path
+        self.image = None
         self.exif = {}
-        self.initialize_EXIF()
-        self.load_JSON_overrides()
+        self.iptc = {}
+        self.data_overrides = {}
+        self.load_image()        
 
     def __str__(self) -> str:
         return f"{self.name} - {self.path}"
@@ -81,20 +84,44 @@ class Image:
     def __repr__(self) -> str:
         return str(self)
     
-    def initialize_EXIF(self) -> None:
-        pil_image = PILImage.open(self.path)
-        self.exif = process_exif_dict(pil_image)
-        print(self.exif)
-        pil_image.close()
-    
-    def load_JSON_overrides(self) -> None:
+    def load_image(self) -> None:
+        self.image = PILImage.open(self.path)
+        self.exif = get_exif_data(self.image)
+        self.iptc = get_iptc_data(self.image)
+        self.data_overrides = self.get_JSON_overrides()
+        self.image.close()
+
+    def get_JSON_overrides(self) -> dict:
         root_name = os.path.splitext(self.path)[0]
         json_file = root_name + ".json"
+        overrides = {}
         if os.path.exists(json_file):
             with open(json_file, 'r') as f:
-                image_data = json.load(f)
-                self.name = image_data.get('name', self.name)
-                self.description = image_data.get('description', '')
+                overrides = json.load(f)
+                self.name = overrides.get('name', self.name)
+                self.description = overrides.get('description', '')
+        return overrides
+
+    def get_simple_metadata(self) -> dict:
+        simple = {}        
+        simple["title"] = self.iptc.get("title", self.name)
+        if "description" in self.iptc:
+            simple["description"] = self.iptc["description"]
+        exif_tags = ["Make", "Model", "LensModel", "FNumber", "FocalLength", "ExposureTime", "ISOSpeedRatings", "DateTimeOriginal", "GPSInfo"]
+        for tag in exif_tags:
+            if tag in self.exif:
+                simple[tag] = self.exif[tag]["processed"]
+        if "GPSInfo" in simple:
+            if "simpleGPS" in simple["GPSInfo"]:
+                simple["GPSInfo"] = simple["GPSInfo"]["simpleGPS"]
+            else:
+                del simple["GPSInfo"]
+        override_tags = ["title", "description", "DateTimeOriginal"]
+        for tag in override_tags:
+            if tag in self.data_overrides:
+                simple[tag] = self.data_overrides[tag]
+
+        return simple
 
     def generate_output_images(self, destination_path:str) -> None:
         self.output_filename = os.path.basename(self.path)
@@ -124,8 +151,39 @@ class Image:
         return (int(max_size[0]*aspect_ratio), int(max_size[1]))
 
 
+def get_iptc_data(image:PILImage.Image) -> dict:
+    """Return a dict with the raw IPTC data."""
+
+    iptc_data = {}
+    raw_iptc = {}
+
+    # PILs IptcImagePlugin issues a SyntaxError in certain circumstances
+    # with malformed metadata, see PIL/IptcImagePlugin.py", line 71.
+    # ( https://github.com/python-pillow/Pillow/blob/
+    # 9dd0348be2751beb2c617e32ff9985aa2f92ae5f/src/PIL/IptcImagePlugin.py#L71 )
+    raw_iptc = IptcImagePlugin.getiptcinfo(image)
+
+    # IPTC fields are catalogued in:
+    # https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata
+    # 2:05 is the IPTC title property
+    if raw_iptc and (2, 5) in raw_iptc:
+        iptc_data["title"] = raw_iptc[(2, 5)].decode('utf-8', errors='replace')
+
+    # 2:120 is the IPTC description property
+    if raw_iptc and (2, 120) in raw_iptc:
+        iptc_data["description"] = raw_iptc[(2, 120)].decode('utf-8', errors='replace')
+
+    # 2:105 is the IPTC headline property
+    if raw_iptc and (2, 105) in raw_iptc:
+        iptc_data["headline"] = raw_iptc[(2, 105)].decode('utf-8', errors='replace')
+
+    return iptc_data
+
+
 def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, debug_mode) -> None:
     logging.info("creating image page for: %s at %s", image.output_filename, path)
+
+    simple_metadata = image.get_simple_metadata()
 
     # get the page template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
@@ -140,8 +198,9 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     pagevalues["title"] = f"{image.name}: a photo by Kevin Goldsmith"
     pagevalues["rootpath"] = root_path
     pagevalues["photo"] = image
-    if "DateTime" in image.exif:
-        pagevalues["date_taken"] = image.exif["DateTime"]["processed"].strftime("%B %d, %Y")
+    pagevalues["metadata"] = simple_metadata
+    if "DateTimeOriginal" in simple_metadata:
+        pagevalues["date_taken"] = simple_metadata["DateTimeOriginal"].strftime("%B %d, %Y")
 
     image.image_page = image.name + ".html"
     image.image_page_path = os.path.join(path, image.name + ".html")

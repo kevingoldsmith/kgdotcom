@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{{title}}</title>
-    <meta name="description" content="Photo {{photo.title}} by {{author}}" />
+    <meta name="description" content="Photo {{metadata.title}} by {{author}}" />
     <meta name="author" content="{{author}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="{{googsiteverification}}" />
@@ -36,10 +36,10 @@
 <body>
 	{% include 'photo-header.html' %}
 	<main id="content">
-        <h1>{{photo.title}}</h1>
-        {% if photo.description %}<div id="photodescription">{{photo.description}}</div>{% endif %}
+        <h1>{{metadata.title}}</h1>
+        {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}
         <img class="fullsize" src="{{photo.output_filename}}" />
-        {% if photo.exif.Make or photo.exif.Model %}<div>{% if photo.exif.Make %}{{photo.exif.Make.processed}}{% endif %} {% if photo.exif.Model %}{{photo.exif.Model.processed}}{% endif %}</div>{% endif %}
+        {% if metadata.Make or metadata.Model %}<div>{% if metadata.Make %}{{metadata.Make}}{% endif %} {% if metadata.Model %}{{metadata.Model}}{% endif %}</div>{% endif %}
         {% if date_taken %}<div>{{date_taken}}</div>{% endif %}
 		<!-- end #mainContent -->
 	</main>
