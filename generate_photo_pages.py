@@ -16,7 +16,7 @@ import copy
 import json
 import logging
 import os
-import time
+from typing import Any
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
@@ -29,13 +29,14 @@ from exif import get_exif_data
 __PHOTOS_DIRECTORY = "photos"
 
 class Gallery:
-    def __init__(self, name:str, directory:str) -> None:
+    def __init__(self, name:str, directory:str, parent:Any = None) -> None:
         self.name = name
         self.description = ""
         self.output_path = ""
         self.directory = directory
         self.sub_galleries = []
         self.images = []
+        self.parent = parent
 
     def __str__(self) -> str:
         return f"{self.name} / subgalleries: {self.sub_galleries} / images: {self.images}"
@@ -50,7 +51,7 @@ class Gallery:
             if Image.is_image_file(path):
                 self.images.append(Image(os.path.splitext(item)[0], path))
             elif os.path.isdir(path):
-                newgal = Gallery(item, path)
+                newgal = Gallery(item, path, self)
                 newgal.populate()
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
@@ -195,12 +196,23 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     with open("data/pagevariables.json") as file:
         pagevariables = json.load(file)
 
+    # build breadcrumbs
+    temp_gallery = gallery
+    breadcrumbs = []
+    relative_path = "index.html"
+    while temp_gallery:
+        breadcrumbs.append((temp_gallery.name, relative_path))
+        temp_gallery = temp_gallery.parent
+        relative_path = "../" + relative_path
+    breadcrumbs.reverse()
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
     pagevalues["title"] = f"{image.name}: a photo by Kevin Goldsmith"
     pagevalues["rootpath"] = root_path
     pagevalues["photo"] = image
     pagevalues["metadata"] = simple_metadata
+    pagevalues["breadcrumbs"] = breadcrumbs
     if "DateTimeOriginal" in simple_metadata:
         pagevalues["date_taken"] = simple_metadata["DateTimeOriginal"].strftime("%B %d, %Y")
 
@@ -239,6 +251,18 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
     with open("data/pagevariables.json") as file:
         pagevariables = json.load(file)
 
+    # build breadcrumbs
+    breadcrumbs = None
+    if gallery.parent:
+        temp_gallery = gallery.parent
+        breadcrumbs = []
+        relative_path = "../index.html"
+        while temp_gallery:
+            breadcrumbs.append((temp_gallery.name, relative_path))
+            temp_gallery = temp_gallery.parent
+            relative_path = "../" + relative_path
+        breadcrumbs.reverse()
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
     pagevalues["title"] = f"{gallery.name}: a photographic gallery by Kevin Goldsmith"
@@ -247,6 +271,8 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
     pagevalues["rootpath"] = root_path
     pagevalues["subgalleries"] = gallery.sub_galleries
     pagevalues["images"] = gallery.images
+    if breadcrumbs:
+        pagevalues["breadcrumbs"] = breadcrumbs
 
     # common.check_for_missing_values(pagevariables, pagevalues)
     with open(os.path.join(path, "index.html"), "w") as file:

@@ -32,6 +32,7 @@
 <body>
 	{% include 'photo-header.html' %}
 	<main id="content">
+        {% if breadcrumbs %}<div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>{% endif %}
         <h1>{{galleryname}}</h1>
         {% if gallerydescription %}<div id="gallerydescription">{{gallerydescription}}</div>{% endif %}
         {% if subgalleries %}

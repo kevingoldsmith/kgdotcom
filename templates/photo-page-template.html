@@ -36,6 +36,7 @@
 <body>
 	{% include 'photo-header.html' %}
 	<main id="content">
+        <div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>
         <h1>{{metadata.title}}</h1>
         {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}
         <img class="fullsize" src="{{photo.output_filename}}" />
