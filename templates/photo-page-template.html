@@ -39,7 +39,14 @@
         <h1>{{metadata.title}}</h1>
         {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}
         <img class="fullsize" src="{{photo.output_filename}}" />
-        {% if metadata.Make or metadata.Model %}<div>{% if metadata.Make %}{{metadata.Make}}{% endif %} {% if metadata.Model %}{{metadata.Model}}{% endif %}</div>{% endif %}
+        <table>
+            {% for key, value in metadata.items() %}
+            <tr>{% if key == "GPSInfo" %}<td>GPS:</td><td><a href="https://www.google.com/maps/search/?api=1&query={{ value['lat'] }}%2C{{ value['lon'] }} target='_blank'">{{ value['lat'] }}, {{ value['lon'] }}</a></td>{% else %}
+                <td>{{ key }}:</td>
+                <td>{{ value }}</td>{% endif %}
+            </tr>
+            {% endfor %}        
+        </table>
         {% if date_taken %}<div>{{date_taken}}</div>{% endif %}
 		<!-- end #mainContent -->
 	</main>

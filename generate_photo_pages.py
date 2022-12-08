@@ -120,6 +120,8 @@ class Image:
         for tag in override_tags:
             if tag in self.data_overrides:
                 simple[tag] = self.data_overrides[tag]
+        if ("Make" in simple) and ("Model" in simple) and simple["Model"].startswith(simple["Make"]):
+            simple["Model"] = simple["Model"][len(simple["Make"])+1:]
 
         return simple
 
