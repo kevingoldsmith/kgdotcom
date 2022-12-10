@@ -27,6 +27,7 @@ import common
 from exif import get_exif_data
 
 __PHOTOS_DIRECTORY = "photos"
+__SITE_URL = "https://kevingoldsmith.com/"
 
 class Gallery:
     def __init__(self, name:str, directory:str, parent:Any = None) -> None:
@@ -229,6 +230,8 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     breadcrumbs.reverse()
 
     previous, next, next_next = get_prev_next_nextnext(gallery.images, image)
+    image.image_page = image.name + ".html"
+    image.image_page_path = os.path.join(path, image.name + ".html")
 
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
@@ -243,9 +246,8 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     pagevalues["next_image"] = next
     if not previous:
         pagevalues["next_next_image"] = next_next
+    pagevalues["url"] = __SITE_URL + image.image_page_path
 
-    image.image_page = image.name + ".html"
-    image.image_page_path = os.path.join(path, image.name + ".html")
     with open(image.image_page_path, "w") as file:
         file.write(gallery_page_template.render(pagevalues))
 

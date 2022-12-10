@@ -44,6 +44,11 @@
         <h1>{{metadata.title}}</h1>
         {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}
         <img class="fullsize" src="{{photo.output_filename}}" />
+        <ul>
+            <li><a href="https://twitter.com/share?url={{url}}&text=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith" target="_blank">Twitter</a></li>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{url}}&quote=photo%20by%20Kevin%20Goldsmith" target="_blank">facebook</a></li>
+            <li><a href="mailto:?subject=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith&body={{url}}">Email</a></li>
+        </ul>
         <table>
             {% for key, value in metadata.items() %}
             <tr>{% if key == "GPSInfo" %}<td>GPS:</td><td><a href="https://www.google.com/maps/search/?api=1&query={{ value['lat'] }}%2C{{ value['lon'] }} target='_blank'">{{ value['lat'] }}, {{ value['lon'] }}</a></td>{% else %}
