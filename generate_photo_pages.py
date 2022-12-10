@@ -16,7 +16,7 @@ import copy
 import json
 import logging
 import os
-from typing import Any
+from typing import Any, Tuple, List
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
@@ -160,6 +160,22 @@ class Image:
         return (int(max_size[0]*aspect_ratio), int(max_size[1]))
 
 
+def get_prev_next_nextnext(image_list:List[Image], image:Image) -> Tuple[Image, Image, Image]:
+    prev_el = None
+    next_el = None
+    next_next_el = None
+    for index, elem in enumerate(image_list):
+        if image.name == elem.name:
+            if index - 1 >= 0:
+                prev_el = image_list[index - 1]
+            if index + 1 < len(image_list):
+                next_el = image_list[index + 1]
+            if index + 2 < len(image_list):
+                next_next_el = image_list[index + 2]
+            break
+    return prev_el, next_el, next_next_el
+
+
 def get_iptc_data(image:PILImage.Image) -> dict:
     """Return a dict with the raw IPTC data."""
 
@@ -212,6 +228,8 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
         relative_path = "../" + relative_path
     breadcrumbs.reverse()
 
+    previous, next, next_next = get_prev_next_nextnext(gallery.images, image)
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
     pagevalues["title"] = f"{image.name}: a photo by Kevin Goldsmith"
@@ -221,6 +239,10 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     pagevalues["breadcrumbs"] = breadcrumbs
     if "DateTimeOriginal" in simple_metadata:
         pagevalues["date_taken"] = simple_metadata["DateTimeOriginal"].strftime("%B %d, %Y")
+    pagevalues["previous_image"] = previous
+    pagevalues["next_image"] = next
+    if not previous:
+        pagevalues["next_next_image"] = next_next
 
     image.image_page = image.name + ".html"
     image.image_page_path = os.path.join(path, image.name + ".html")
@@ -245,6 +267,7 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
     
     for image in gallery.images:
         image.generate_output_images(path)
+        image.image_page = image.name + ".html"
 
     for image in gallery.images:
         create_image_page(gallery, image, path, root_path, debug_mode)

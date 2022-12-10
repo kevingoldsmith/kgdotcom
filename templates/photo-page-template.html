@@ -22,6 +22,10 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
     <link rel="stylesheet" href="{{rootpath}}css/main.css" />
     <style>
+        .navthumb {
+            max-width: 200px;
+            max-height: 200px;
+        }
         .thumbnail {
             max-width: 400px;
             max-height: 400px;
@@ -49,6 +53,10 @@
             {% endfor %}        
         </table>
         {% if date_taken %}<div>{{date_taken}}</div>{% endif %}
+        {% if previous_image %}<a href="{{previous_image.image_page}}"><img class="navthumb" src="{{previous_image.thumb_filename}}" /></a>{% endif %}
+        <img class="navthumb" src="{{photo.thumb_filename}}" />
+        {% if next_image %}<a href="{{next_image.image_page}}"><img class="navthumb" src="{{next_image.thumb_filename}}" /></a>{% endif %}
+        {% if next_next_image %}<a href="{{next_next_image.image_page}}"><img class="navthumb" src="{{next_next_image.thumb_filename}}" /></a>{% endif %}
 		<!-- end #mainContent -->
 	</main>
 	{% include 'footer.html' %}

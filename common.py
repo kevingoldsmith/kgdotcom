@@ -11,7 +11,6 @@ __status__ = "Production"  # Prototype, Development or Production
 
 # --------------------------------------------------------------------------------
 
-import configparser
 import json
 import logging
 import os
