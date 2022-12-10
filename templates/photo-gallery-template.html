@@ -38,7 +38,7 @@
         {% if subgalleries %}
         <ul>
             {% for gallery in subgalleries %}
-            <li><a href="{{gallery.relative_path}}{% if debug_mode %}index.html{% endif %}">{{gallery.name}}</a></li>
+            <li><a href="{{gallery.relative_path}}{% if debug_mode %}index.html{% endif %}">{% if gallery.preview_image %}<img src="{{gallery.relative_path}}{{gallery.preview_image.thumb_filename}}" /> {% endif %}{{gallery.name}}</a></li>
             {% endfor %}
         </ul>
         {% endif %}

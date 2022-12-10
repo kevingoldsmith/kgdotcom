@@ -36,6 +36,7 @@ class Gallery:
         self.directory = directory
         self.sub_galleries = []
         self.images = []
+        self.preview_image = None
         self.parent = parent
 
     def __str__(self) -> str:
@@ -55,15 +56,20 @@ class Gallery:
                 newgal.populate()
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
+        if len(self.images) > 0:
+            self.preview_image = self.images[0]
         self.load_JSON_metadata()
 
     def load_JSON_metadata(self) -> None:
         json_file = os.path.join(self.directory, self.name + ".json")
         if os.path.exists(json_file):
             with open(json_file, 'r') as f:
-                image_data = json.load(f)
-                self.name = image_data.get('name', self.name)
-                self.description = image_data.get('description', '')
+                gallery_data = json.load(f)
+                self.name = gallery_data.get('name', self.name)
+                self.description = gallery_data.get('description', '')
+                preview_name = gallery_data.get('preview')
+                if preview_name:
+                    list(filter(lambda image: image['name'] == preview_name, self.images))
 
 
 class Image:
