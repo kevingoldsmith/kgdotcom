@@ -63,6 +63,7 @@
         <h1>{{galleryname}}</h1>
         {% if gallerydescription %}<div id="gallerydescription">{{gallerydescription}}</div>{% endif %}
         {% if subgalleries %}
+        {% if images %}<h2>albums</h2>{% endif %}
         <div class="wrapper">
             {% for gallery in subgalleries %}
             <div><a href="{{gallery.relative_path}}{% if debug_mode %}index.html{% endif %}">{% if gallery.preview_image %}<img src="{{gallery.relative_path}}{{gallery.preview_image.thumb_filename}}" />{% endif %}<div>{{gallery.name}}</div></a></div>
@@ -70,11 +71,12 @@
         </div>
         {% endif %}
         {% if images %}
-        <ul>
+        {% if subgalleries %}<h2>images</h2>{% endif %}
+        <div class="wrapper">
             {% for image in images %}
-            <li><a href="{{image.image_page}}"><img src="{{image.thumb_filename}}" />  {{image.name}}</a></li>
+            <div><a href="{{image.image_page}}"><img src="{{image.thumb_filename}}" /><div>{{image.name}}</a></div></div>
             {% endfor %}
-        </ul>
+        </div>
         {% endif %}
 		<!-- end #mainContent -->
 	</main>
