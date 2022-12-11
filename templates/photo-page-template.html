@@ -10,9 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="{{googsiteverification}}" />
     <link rel="canonical" href="https://kevingoldsmith.com/photos/{{filename}}" />
-   
 	{% include 'favicon.html' %}
-
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 	<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
@@ -44,7 +42,7 @@
         <h1>{{metadata.title}}</h1>
         {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}
         <img class="fullsize" src="{{photo.output_filename}}" />
-        <ul>
+        <ul id="sharing">
             <li><a href="https://twitter.com/share?url={{url}}&text=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith" target="_blank">Twitter</a></li>
             <li><a href="https://www.facebook.com/sharer/sharer.php?u={{url}}&quote=photo%20by%20Kevin%20Goldsmith" target="_blank">facebook</a></li>
             <li><a href="mailto:?subject=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith&body={{url}}">Email</a></li>
