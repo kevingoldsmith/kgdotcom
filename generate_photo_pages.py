@@ -238,6 +238,7 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     pagevalues["title"] = f"{image.name}: a photo by Kevin Goldsmith"
     pagevalues["rootpath"] = root_path
     pagevalues["photo"] = image
+    pagevalues["gallery"] = gallery
     pagevalues["metadata"] = simple_metadata
     pagevalues["breadcrumbs"] = breadcrumbs
     if "DateTimeOriginal" in simple_metadata:

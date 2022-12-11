@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="{{rootpath}}css/main.css" />
     <style>
         .navthumb {
-            max-width: 200px;
-            max-height: 200px;
+            max-width: 60px;
+            max-height: 60px;
         }
         .thumbnail {
             max-width: 400px;
@@ -32,36 +32,81 @@
             max-width: 1000px;
             max-height: 1000px;
         }
+        .mcol {
+            float: left;
+        }
+        .rcol {
+            float: left;
+            width: 200px;
+        }
+        .right {
+            float:right;
+        }
     </style>
 </head>
 {% include 'google-analytics.html' %}
 <body>
 	{% include 'photo-header.html' %}
 	<main id="content">
-        <div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>
-        <h1>{{metadata.title}}</h1>
-        {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}
-        <img class="fullsize" src="{{photo.output_filename}}" />
-        <ul id="sharing">
-            <li><a href="https://twitter.com/share?url={{url}}&text=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith" target="_blank">Twitter</a></li>
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{url}}&quote=photo%20by%20Kevin%20Goldsmith" target="_blank">facebook</a></li>
-            <li><a href="mailto:?subject=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith&body={{url}}">Email</a></li>
-        </ul>
-        <table>
-            {% for key, value in metadata.items() %}
-            <tr>{% if key == "GPSInfo" %}<td>GPS:</td><td><a href="https://www.google.com/maps/search/?api=1&query={{ value['lat'] }}%2C{{ value['lon'] }} target='_blank'">{{ value['lat'] }}, {{ value['lon'] }}</a></td>{% else %}
-                <td>{{ key }}:</td>
-                <td>{{ value }}</td>{% endif %}
-            </tr>
-            {% endfor %}        
-        </table>
-        {% if date_taken %}<div>{{date_taken}}</div>{% endif %}
-        {% if previous_image %}<a href="{{previous_image.image_page}}"><img class="navthumb" src="{{previous_image.thumb_filename}}" /></a>{% endif %}
-        <img class="navthumb" src="{{photo.thumb_filename}}" />
-        {% if next_image %}<a href="{{next_image.image_page}}"><img class="navthumb" src="{{next_image.thumb_filename}}" /></a>{% endif %}
-        {% if next_next_image %}<a href="{{next_next_image.image_page}}"><img class="navthumb" src="{{next_next_image.thumb_filename}}" /></a>{% endif %}
+        <div>
+            <div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>
+        </div>
+        <div class="mcol">
+            <div>
+                <h1>{{metadata.title}}</h1>
+            </div>
+            <figure>
+                <img class="fullsize" src="{{photo.output_filename}}" />
+                {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}        
+            </figure>
+        </div>
+        <div class="rcol">
+            <aside>
+                <section>
+                    <div>
+                        {% if next_image %}<div class="right"><span class="wrap last"><a href="{{next_image.image_page}}">Next</a></span></div>{% endif %}
+                        {% if previous_image %}<span class="wrap first"><a href="{{previous_image.image_page}}">Previous</a></span>{% endif %}
+                    </div>    
+                </section>
+                <section>
+                    <h3>{{gallery.name}}</h3>
+                    <div>
+                        {% if previous_image %}<a href="{{previous_image.image_page}}"><img class="navthumb" src="{{previous_image.thumb_filename}}" /></a>{% endif %}
+                        <img class="navthumb" src="{{photo.thumb_filename}}" />
+                        {% if next_image %}<a href="{{next_image.image_page}}"><img class="navthumb" src="{{next_image.thumb_filename}}" /></a>{% endif %}
+                        {% if next_next_image %}<a href="{{next_next_image.image_page}}"><img class="navthumb" src="{{next_next_image.thumb_filename}}" /></a>{% endif %}
+                    </div>
+                </section>
+                <section>
+                    <h3>Sharing</h3>
+                    <ul id="sharing">
+                        <li><a href="https://twitter.com/share?url={{url}}&text=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{url}}&quote=photo%20by%20Kevin%20Goldsmith" target="_blank">facebook</a></li>
+                        <li><a href="mailto:?subject=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith&body={{url}}">Email</a></li>
+                    </ul>            
+                </section>
+                {% if date_taken %}<section>
+                    <h3>Captured</h3>
+                    <div>{{date_taken}}</div>
+                </section>{% endif %}
+                <section>
+                    <h3>Metadata</h3>
+                    <div>
+                        <table>
+                            {% for key, value in metadata.items() %}
+                            <tr>{% if key == "GPSInfo" %}<td>GPS:</td><td><a href="https://www.google.com/maps/search/?api=1&query={{ value['lat'] }}%2C{{ value['lon'] }} target='_blank'">{{ value['lat'] }}, {{ value['lon'] }}</a></td>{% else %}
+                                <td>{{ key }}:</td>
+                                <td>{{ value }}</td>{% endif %}
+                            </tr>
+                            {% endfor %}        
+                        </table>                
+                    </div>
+                </section>
+            </aside>
+        </div>
 		<!-- end #mainContent -->
 	</main>
+    <div style="clear:both"></div>
 	{% include 'footer.html' %}
 	<script src="{{rootpath}}js/fontfaceobserver.js"></script>
 </body>
