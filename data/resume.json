@@ -38,22 +38,12 @@
 	},
 	"work": [
 		{
-			"company": "Anaconda",
-			"location": "Austin, TX (remote)",
+			"company": "DistroKid",
+			"location": "New York, NY (remote)",
 			"position": "Chief Technology Officer",
-			"website": "https://www.anaconda.com/",
-			"startDate": "2020-10-05",
-			"endDate": "2022-11-18",
-			"summary": "During my tenure at Anaconda: the company had seven consecutive quarters of record revenue growth; we raised a substantial funding round; we launched the company's first SAAS platform and products; I brought the Pyston and Beeware open-source projects under the company's umbrella; I helped to negotiate new partnerships with Snowflake, Microsoft, Amazon, and Oracle; and I lead the company's first acquisition. To support these efforts, I grew the engineering organization from 46 to 145, substantially expanding the footprint outside the USA and adding new technical disciplines to the company. I drove dramatic improvements to the company's platform and infrastructure, including creating a data platform team, and made substantial efficiency improvements to both product engineering as well as build engineering for the company's open source python distribution used by 30 million practioners.",
-			"highlights": [
-				"Helped company raise a significant round in Spring 2021",
-				"Grew engineering team from 46 to 145 in two years",
-				"Launched Anaconda's first SAAS products",
-				"Seven quarters of record revenue growth",
-				"Lead company's first acquisition",
-				"Helped negotiate new partnerships with Snowflake, Microsoft, Amazon and Oracle",
-				"Create a platform and infrastructure organization"
-			]
+			"website": "https://distrokid.com",
+			"startDate": "2022-12-12",
+			"summary": "CTO of the world's largest distributor of digital music."
 		},
 		{
 			"company": "Pickatale",
@@ -71,6 +61,25 @@
 			"website": "https://nimbleautonomy.com",
 			"startDate": "2020-07-01",
 			"summary": "Formed a consultancy to structure and professionalize my occasional consulting and professional writing and speaking work. Supporting growing technology companies and their leadership to scale healthily and sustainably."
+		},
+		{
+			"company": "Anaconda",
+			"location": "Austin, TX (remote)",
+			"position": "Chief Technology Officer",
+			"website": "https://www.anaconda.com/",
+			"startDate": "2020-10-05",
+			"endDate": "2022-11-18",
+			"summary": "During my tenure at Anaconda: the company had seven consecutive quarters of record revenue growth; we raised a substantial funding round; we launched the company's first SAAS platform and products; we launched the open-source PyScript web development framework; I brought the Pyston and Beeware open-source projects under the company's umbrella; I helped to negotiate new partnerships with Snowflake, Microsoft, Amazon, and Oracle; and I lead the company's first acquisition. To support these efforts, I grew the engineering organization from 46 to 145, substantially expanding the footprint outside the USA and adding new technical disciplines to the company. I drove dramatic improvements to the company's platform and infrastructure, including creating data platform and security teams, and made substantial efficiency improvements to both product engineering as well as build engineering for the company's open source python distribution used by 30 million practioners.",
+			"highlights": [
+				"Helped company raise a significant round in Spring 2021",
+				"Grew engineering team from 46 to 145 in two years",
+				"Launched Anaconda's first SAAS products",
+				"Launched the open-source PyScript web development platform",
+				"Seven quarters of record revenue growth",
+				"Lead company's first acquisition",
+				"Helped negotiate new partnerships with Snowflake, Microsoft, Amazon and Oracle",
+				"Create a platform and infrastructure organization"
+			]
 		},
 		{
 			"company": "Onfido",
