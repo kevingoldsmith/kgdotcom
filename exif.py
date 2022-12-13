@@ -28,8 +28,16 @@ def get_exif_data(image:Image.Image):
     exif_data:Exif = image.getexif()
 
     for k, v in TAGS.items():
-
-        if k in exif_data:
+        if v == "ExifOffset":
+            info = exif_data.get_ifd(k)
+            for k2, v2 in info.items():
+                k2_tag = TAGS.get(k2,k2)
+                exif_data[k2_tag] = {
+                    "tag": k2_tag,
+                    "raw": v2,
+                    "processed": v2
+                }
+        elif k in exif_data:
             value = exif_data[k]
             if len(str(value)) > 64:
                 value = str(value)[:65] + "..."
