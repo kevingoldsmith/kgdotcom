@@ -152,7 +152,7 @@ class Image:
     def is_image_file(filename:str, extensions=['.jpg', '.jpeg', '.gif', '.png'])->bool:
         return any(filename.endswith(e) for e in extensions)
 
-    def get_resized_image_dimensions(orig_size:tuple[int,int], max_size:tuple[int,int])->tuple[int,int]:
+    def get_resized_image_dimensions(orig_size:Tuple[int,int], max_size:Tuple[int,int])->Tuple[int,int]:
         if (orig_size[0] <= max_size[0]) and (orig_size[1] <= max_size[1]):
             return orig_size
         aspect_ratio = float(orig_size[0])/float(orig_size[1])
