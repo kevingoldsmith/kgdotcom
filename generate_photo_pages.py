@@ -295,14 +295,19 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
             relative_path = "../" + relative_path
         breadcrumbs.reverse()
 
+    #sorted_galleries = sorted(gallery.sub_galleries, key = lambda g: g.name)
+    sorted_galleries = sorted(gallery.sub_galleries, key = lambda g: len(g.sub_galleries)*2 + len(g.images))
+    sorted_galleries.reverse()
+    sorted_images = sorted(gallery.images, key = lambda i: i.name)
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
     pagevalues["title"] = f"{gallery.name}: a photographic gallery by Kevin Goldsmith"
     pagevalues["galleryname"] = gallery.name
     pagevalues["gallerydescription"] = gallery.description
     pagevalues["rootpath"] = root_path
-    pagevalues["subgalleries"] = gallery.sub_galleries
-    pagevalues["images"] = gallery.images
+    pagevalues["subgalleries"] = sorted_galleries
+    pagevalues["images"] = sorted_images
     if breadcrumbs:
         pagevalues["breadcrumbs"] = breadcrumbs
 
