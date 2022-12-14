@@ -116,14 +116,24 @@ class Image:
         if "description" in self.iptc:
             simple["description"] = self.iptc["description"]
         exif_tags = ["Make", "Model", "LensModel", "FNumber", "FocalLength", "ExposureTime", "ISOSpeedRatings", "DateTimeOriginal", "GPSInfo"]
+        friendly_tags = {
+            "LensModel": "Lens Model",
+            "FNumber": "f-number",
+            "FocalLength": "Focal Length",
+            "ExposureTime": "Exposure Time",
+            "ISOSpeedRatings": "ISO Speed",
+            "DateTimeOriginal": "Capture Date",
+            "GPSInfo": "GPS"
+        }
         for tag in exif_tags:
             if tag in self.exif:
-                simple[tag] = self.exif[tag]["processed"]
-        if "GPSInfo" in simple:
-            if "simpleGPS" in simple["GPSInfo"]:
-                simple["GPSInfo"] = simple["GPSInfo"]["simpleGPS"]
+                friendly_tag = friendly_tags.get(tag, tag)
+                simple[friendly_tag] = self.exif[tag]["processed"]
+        if "GPS" in simple:
+            if "simpleGPS" in simple["GPS"]:
+                simple["GPS"] = simple["GPS"]["simpleGPS"]
             else:
-                del simple["GPSInfo"]
+                del simple["GPS"]
         override_tags = ["title", "description", "DateTimeOriginal"]
         for tag in override_tags:
             if tag in self.data_overrides:
@@ -241,8 +251,9 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
     pagevalues["gallery"] = gallery
     pagevalues["metadata"] = simple_metadata
     pagevalues["breadcrumbs"] = breadcrumbs
-    if "DateTimeOriginal" in simple_metadata:
-        pagevalues["date_taken"] = simple_metadata["DateTimeOriginal"].strftime("%B %d, %Y")
+    if "Capture Date" in simple_metadata:
+        pagevalues["date_taken"] = simple_metadata["Capture Date"].strftime("%B %d, %Y")
+        del simple_metadata["Capture Date"]
     pagevalues["previous_image"] = previous
     pagevalues["next_image"] = next
     if not previous:
