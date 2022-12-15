@@ -11,7 +11,6 @@ __status__ = "Production"  # Prototype, Development or Production
 
 # --------------------------------------------------------------------------------
 
-import configparser
 import json
 import logging
 import os
@@ -191,7 +190,7 @@ def initialize_logging(
     formatter = logging.Formatter("%(levelname)s: %(message)s")
     formatter.datefmt = "%Y-%m-%d %H:%M:%S %z"
     ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
+    ch.setLevel(logging_level)
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 

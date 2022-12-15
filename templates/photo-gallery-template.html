@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{title}}</title>
+    <meta name="description" content="Photogallery {{galleryname}} by {{author}}" />
+    <meta name="author" content="{{author}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="{{googsiteverification}}" />
+    <link rel="canonical" href="https://kevingoldsmith.com/photos/{{filename}}" />
+   
+	{% include 'favicon.html' %}
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+	<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+	<link rel="dns-prefetch" href="https://google-analytics.com" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
+    <link rel="stylesheet" href="{{rootpath}}css/main.css" />
+    <link rel="stylesheet" href="{{rootpath}}css/gallery.css" />
+    <style>
+        img {
+            max-width: 400px;
+            max-height: 400px;
+        }
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            grid-auto-rows: minmax(500px, auto);
+            align-items: start;
+            justify-items: center;
+        }
+{#
+        @keyframes display {
+            0% {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            10% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            20% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            30% {
+                transform: translateX(-400px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(-400px);
+                opacity: 0;
+            }
+        }
+        .pic-ctn {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15vh;
+            z-index: -100;
+        }
+        .pic-ctn > img {
+            position: absolute;
+            top: 0;
+            left: calc(50% - 200px);
+            opacity: 0;
+            animation: display 10s infinite;
+        }
+        img:nth-child(2) {
+            animation-delay: 2s;
+        }
+        img:nth-child(3) {
+            animation-delay: 4s;
+        }
+        img:nth-child(4) {
+            animation-delay: 6s;
+        }
+        img:nth-child(5) {
+            animation-delay: 8s;
+        }
+#}
+        @media only screen and (max-width: 40em) {
+            .wrapper {
+                grid-template-columns: repeat(1, 1fr);
+                grid-auto-rows: minmax(auto, auto);
+                gap: 20px;
+            }
+        }
+        @media only screen and (min-width: 40em) and (max-width: 65em) {
+            img {
+                max-width: 300px;
+                max-height: 300px;
+            }
+            .wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: minmax(auto, auto);
+                gap: 20px;
+                margin: 0em 2em 0em 2em;
+            }
+        }
+    </style>
+</head>
+{% include 'google-analytics.html' %}
+<body>
+	{% include 'photo-header.html' %}
+	<main id="content">
+        {% if breadcrumbs %}<div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>{% endif %}
+        <h1>{{galleryname}}</h1>
+{#
+        {% if subgalleries and not images %}
+        <div class="pic-ctn">
+            {% for gallery in subgalleries[:5] %}
+            <img src="{{gallery.relative_path}}{{gallery.preview_image.thumb_filename}}" class="pic"/>
+            {% endfor %}
+        </div>
+        {% endif %}
+#}
+        {% if gallerydescription %}<div id="gallerydescription">{{gallerydescription}}</div>{% endif %}
+        {% if subgalleries %}
+        {% if images %}<h2>albums</h2>{% endif %}
+        <div class="wrapper">
+            {% for gallery in subgalleries %}
+            <div><a href="{{gallery.relative_path}}{% if debug_mode %}index.html{% endif %}">{% if gallery.preview_image %}<img src="{{gallery.relative_path}}{{gallery.preview_image.thumb_filename}}" />{% endif %}<div>{{gallery.name}}</div></a></div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if images %}
+        {% if subgalleries %}<h2>images</h2>{% endif %}
+        <div class="wrapper">
+            {% for image in images %}
+            <div><a href="{{image.image_page}}"><img src="{{image.thumb_filename}}" /><div>{% if image.iptc.title %}{{image.iptc.title}}{% else %}{{image.name}}{% endif %}</a></div></div>
+            {% endfor %}
+        </div>
+        {% endif %}
+		<!-- end #mainContent -->
+	</main>
+	{% include 'footer.html' %}
+	<script src="{{rootpath}}js/fontfaceobserver.js"></script>
+</body>
+</html>

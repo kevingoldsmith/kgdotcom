@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{title}}</title>
+    <meta name="description" content="Photo {{metadata.title}} by {{author}}" />
+    <meta name="author" content="{{author}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="{{googsiteverification}}" />
+    <link rel="canonical" href="https://kevingoldsmith.com/photos/{{filename}}" />
+	{% include 'favicon.html' %}
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+	<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+	<link rel="dns-prefetch" href="https://google-analytics.com" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
+    <link rel="stylesheet" href="{{rootpath}}css/main.css" />
+    <link rel="stylesheet" href="{{rootpath}}css/genericons.css" />
+    <style>
+        .navthumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        .thumbnail {
+            max-width: 400px;
+            max-height: 400px;
+            pointer-events: none;
+        }
+        .fullsize {
+            max-width: 1000px;
+            max-height: 1000px;
+            pointer-events: none;
+        }
+        .mcol {
+            float: left;
+        }
+        .rcol {
+            float: left;
+            width: 300px;
+            margin-top: 1em;
+        }
+        .rcol section {
+            padding-bottom: 1em;
+        }
+        .rcol section h3 {
+           margin-bottom: .5em;
+        }
+        .right {
+            float:right;
+        }
+        #photo-metadata tr {
+            vertical-align: top;
+        }
+        .md-title {
+            font-weight: bolder;
+            text-transform: uppercase;
+        }
+		.genericon {
+			width: 24px;
+			height: 24px;
+			font-size: 24px;
+		}
+		.myButton {
+			padding: 4px 4px 9px 3px;
+		}
+        #sharing {
+            padding: 10px 0px 10px 0px;
+        }
+        @media only screen and (max-width: 1000px) {
+            .fullsize {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+{% include 'google-analytics.html' %}
+<body>
+	{% include 'photo-header.html' %}
+	<main id="content">
+        <div id="header">
+            <div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>
+            <div><h1>{{metadata.title}}</h1></div>
+        </div>
+        <div class="mcol">
+            <figure>
+                    <img class="fullsize" src="{{photo.output_filename}}" onContextMenu="return false;"/>
+                {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}        
+            </figure>
+        </div>
+        <div class="rcol">
+            <aside>
+                <section>
+                    <div>
+                        {% if next_image %}<div class="right"><span class="wrap last"><a href="{{next_image.image_page}}">Next</a></span></div>{% endif %}
+                        {% if previous_image %}<span class="wrap first"><a href="{{previous_image.image_page}}">Previous</a></span>{% endif %}
+                    </div>    
+                </section>
+                <section>
+                    <h3>{{gallery.name}}</h3>
+                    <div>
+                        {% if previous_image %}<a href="{{previous_image.image_page}}"><img class="navthumb" src="{{previous_image.thumb_filename}}" alt="{{previous_image.name}}" /></a>{% endif %}
+                        <img class="navthumb" src="{{photo.thumb_filename}}" />
+                        {% if next_image %}<a href="{{next_image.image_page}}"><img class="navthumb" src="{{next_image.thumb_filename}}" alt="{{next_image.name}}" /></a>{% endif %}
+                        {% if next_next_image %}<a href="{{next_next_image.image_page}}"><img class="navthumb" src="{{next_next_image.thumb_filename}}" alt="{{next_next_image.name}}" /></a>{% endif %}
+                    </div>
+                </section>
+                <section>
+                    <h3>Sharing</h3>
+                    <div id="sharing">
+                        <span class="myButton"><a class="outbound" itemprop="url" href="https://twitter.com/share?url={{url}}&text=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith" target="_blank" title="twitter"><span class="genericon genericon-twitter"></span></a></span>
+                        <span class="myButton"><a class="outbound" itemprop="url" href="https://www.facebook.com/sharer/sharer.php?u={{url}}&quote=photo%20by%20Kevin%20Goldsmith" target="_blank" title="facebook"><span class="genericon genericon-facebook"></span></a></span>
+                        <span class="myButton"><a class="outbound" itemprop="url" href="mailto:?subject=photo%20by%20Kevin%20Goldsmith&via=kevingoldsmith&body={{url}}" target="_blank"><span class="genericon genericon-mail" title="e-mail"></span></a></span>
+                    </div>            
+                </section>
+                {% if date_taken %}<section>
+                    <h3>Captured</h3>
+                    <div>{{date_taken}}</div>
+                </section>{% endif %}
+                <section>
+                    <h3>Metadata</h3>
+                    <div id="photo-metadata">
+                        <table>
+                            {% for key, value in metadata.items() %}
+                            <tr>
+                                {% if key == "GPS" %}
+                                <td class="md-title">GPS:</td>
+                                <td><a href="https://www.google.com/maps/search/?api=1&query={{ value['lat'] }}%2C{{ value['lon'] }} target='_blank'">{{ value['lat'] }}, {{ value['lon'] }}</a></td>
+                                {% elif key == "description" or key == "title" %}
+                                {% else %}
+                                <td class="md-title">{{ key }}:</td>
+                                <td>{{ value }}</td>{% endif %}
+                            </tr>
+                            {% endfor %}        
+                        </table>                
+                    </div>
+                </section>
+                <section>
+                    <h3>Rights</h3>
+                    <div id="copyright">
+                        &copy; Kevin Goldsmith, no usage without permission
+                    </div>
+                </section>
+            </aside>
+        </div>
+		<!-- end #mainContent -->
+	</main>
+    <div style="clear:both"></div>
+	{% include 'footer.html' %}
+	<script src="{{rootpath}}js/fontfaceobserver.js"></script>
+</body>
+</html>
