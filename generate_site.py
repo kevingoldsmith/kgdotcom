@@ -21,6 +21,7 @@ from xmlrpc.client import boolean
 import generate_resume_page
 import generate_writing_page
 import generate_talk_pages
+import generate_photo_pages
 from common import get_output_directory, initialize_logging
 
 
@@ -51,6 +52,7 @@ def main(debug_mode: boolean = False) -> None:
     generate_resume_page.generate_resume_page(
         debug_mode=debug_mode, output_file="resume.html"
     )
+    generate_photo_pages.generate_photo_pages(debug_mode)
     generate_other_pages(debug_mode)
 
 

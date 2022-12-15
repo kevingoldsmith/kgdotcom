@@ -245,7 +245,7 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
 
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
-    pagevalues["title"] = f"{image.name}: a photo by Kevin Goldsmith"
+    pagevalues["title"] = f"{simple_metadata['title']}: a photo by Kevin Goldsmith"
     pagevalues["rootpath"] = root_path
     pagevalues["photo"] = image
     pagevalues["gallery"] = gallery
@@ -329,7 +329,7 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
 
 def generate_photo_pages(debug_mode: bool = False) -> None:
     logger.debug("generate_photo_pages")
-    top_gallery = Gallery("portfolio", __PHOTOS_DIRECTORY)
+    top_gallery = Gallery("Albums", __PHOTOS_DIRECTORY)
     top_gallery.populate()
     logger.debug("gallery populated: %s", top_gallery)
     output_directory = os.path.join(common.get_output_directory(debug_mode), "photos/")
