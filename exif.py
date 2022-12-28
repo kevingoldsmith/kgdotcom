@@ -1,13 +1,14 @@
 import datetime
-from fractions import Fraction
 
+import typing
+from fractions import Fraction
 from PIL import Image
 from PIL.Image import Exif
 from PIL.ExifTags import GPSTAGS, TAGS
 from PIL.TiffImagePlugin import IFDRational
 
 
-def get_exif_data(image:Image.Image):
+def get_exif_data(image:Image.Image) -> Exif:
 
     """
     Generate a dictionary of dictionaries.
@@ -51,12 +52,12 @@ def get_exif_data(image:Image.Image):
     return exif_data
 
 
-def _derationalize(rational):
+def _derationalize(rational: IFDRational) -> float:
 
     return rational.numerator / rational.denominator
 
 
-def _create_lookups():
+def _create_lookups() -> dict:
 
     lookups = {}
 
@@ -97,7 +98,7 @@ def _create_lookups():
     return lookups
 
 
-def dms_to_degrees(v):
+def dms_to_degrees(v: typing.Any) -> float:
     """Convert degree/minute/second to decimal degrees."""
 
     if IFDRational and isinstance(v[0], IFDRational):
@@ -111,7 +112,7 @@ def dms_to_degrees(v):
     return d + (m / 60.0) + (s / 3600.0)
 
 
-def _process_exif_dict(exif_dict):
+def _process_exif_dict(exif_dict: Exif) -> Exif:
 
     date_format = "%Y:%m:%d %H:%M:%S"
 

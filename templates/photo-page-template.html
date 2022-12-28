@@ -129,7 +129,7 @@
                             <tr>
                                 {% if key == "GPS" %}
                                 <td class="md-title">GPS:</td>
-                                <td><a href="https://www.google.com/maps/search/?api=1&query={{ value['lat'] }}%2C{{ value['lon'] }} target='_blank'">{{ value['lat'] }}, {{ value['lon'] }}</a></td>
+                                <td><a href="https://www.google.com/maps/search/?api=1&query={{ value['lat'] }}%2C{{ value['lon'] }}" target='_blank'>{{ value['lat'] }}, {{ value['lon'] }}</a></td>
                                 {% elif key == "description" or key == "title" %}
                                 {% else %}
                                 <td class="md-title">{{ key }}:</td>

@@ -5,7 +5,7 @@
 
 __version__ = "1.0.0"
 __author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2022, Kevin Goldsmith"
+__copyright__ = "Copyright 2021, Kevin Goldsmith"
 __license__ = "MIT"
 __status__ = "Production"  # Prototype, Development or Production
 
@@ -26,9 +26,12 @@ from common import get_output_directory, initialize_logging
 
 def generate_sitemap(debug_mode: boolean = False) -> None:
     """walks the output directory and adds html files to the sitemap.xml file"""
-    format_url = "<url><loc>{url}</loc><lastmod>{date}</lastmod></url>"
+    format_url = "<url><loc>{url}</loc><lastmod>{date}</lastmod><changefreq>monthly</changefreq><priority>{priority}</priority></url>"
 
     ignore_files = ["403page.html", "404page.html", "nortonsw_8ae7e2e0-1022-0.html"]
+    important_files = ['https://kevingoldsmith.com/resume.html',
+        'https://kevingoldsmith.com/writing.html', 'https://kevingoldsmith.com/talks/',
+        'https://kevingoldsmith.com/music.html', 'https://kevingoldsmith.com/photos/']
 
     sitemap_files = []
     path = get_output_directory(debug_mode)
@@ -37,22 +40,25 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
             ext = os.path.splitext(file)[1]
             if (not file in ignore_files) and (ext == ".html"):
                 path_list = path.split(os.sep)
-                # cheat since I know that there is only a single depth
                 sitemap_files.append(
                     (
                         os.path.join(path, file),
-                        get_href_root(os.path.join(path_list[1], file), debug_mode),
+                        get_href_root(os.path.join(*path_list[1:], file), debug_mode),
                     )
                 )
 
     sitemap_entries = []
     for sfile in sitemap_files:
+        priority = 0.3
+        if sfile[1] in important_files:
+            priority = 0.8
         sitemap_entries.append(
             format_url.format(
                 url=sfile[1],
                 date=datetime.datetime.fromtimestamp(
                     os.path.getmtime(sfile[0])
                 ).strftime("%Y-%m-%d"),
+                priority=priority
             )
         )
 
