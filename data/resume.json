@@ -46,21 +46,21 @@
 			"summary": "CTO of the world's largest distributor of digital music."
 		},
 		{
-			"company": "Pickatale",
-			"location": "Oslo, Norway",
-			"position": "Member, Board of Directors",
-			"website": "https://pickatale.co.uk/",
-			"startDate": "2021-12-01",
-			"summary": "Support and oversee the company and executive team"
-
-		},
-		{
 			"company": "Nimble Autonomy, LLC",
 			"location": "Mercer Island, WA",
 			"position": "Founder/Principal",
 			"website": "https://nimbleautonomy.com",
 			"startDate": "2020-07-01",
 			"summary": "Formed a consultancy to structure and professionalize my occasional consulting and professional writing and speaking work. Supporting growing technology companies and their leadership to scale healthily and sustainably."
+		},
+		{
+			"company": "Pickatale",
+			"location": "Oslo, Norway",
+			"position": "Member, Board of Directors",
+			"website": "https://pickatale.co.uk/",
+			"startDate": "2021-12-01",
+			"endDate": "2022-12-31",
+			"summary": "Oversaw and supported the company and executive team"
 		},
 		{
 			"company": "Anaconda",
