@@ -1,5 +1,13 @@
 [
 	{
+		"name": "CTO Kevin Goldsmith on Leveraging Failure to Drive Success at Spotify and DistroKid",
+		"date": "2023-02-13",
+		"url": "https://www.markgraban.com/cto-kevin-goldsmith-on-leveraging-failure-to-drive-success-at-spotify-and-distrokid/",
+		"author": "Mark Graban",
+		"publisher": "My Favorite Mistake",
+		"summary": "<p>My guest for Episode #198 of the My Favorite Mistake podcast is Kevin Goldsmith, the chief technology officer at DistroKid, the world’s largest distributor of digital music.</p><p>Kevin is an experienced leader of high-profile, high-performing product, research, and shared technology engineering organizations. An often-invited speaker on building strong engineering teams at conferences internationally &#8211; often talking about learning from failure. Has extensive experience building products using Lean, Kanban, Scrum, and Extreme Programming methodologies.</p><p>In this episode, Kevin tells his favorite mistake story about the launch of &#8220;Spotify Now&#8221; when he was an engineering leader at Spotify. Why was there pressure to launch? What mistake did Kevin and team make regarding data from a small group of initial users? How did Spotify leverage its culture of &#8220;handling failure well&#8221;? What did Kevin learn?</p><h2>Questions and Topics:</h2><ul><li>How do you balance the cost of lost customers vs. the cost of embarrassment?</li><li>Being surprised by the results of experiments</li><li>Was Spotify Now a problem of a bad concept or bad execution? Or Bad design?</li><li>Losing customers as &#8220;the cost of learning&#8221;</li><li>Organizational learning to not get into this situation again?</li><li>Doing retrospectives on EVERYTHING to remove the stigma?</li><li>The Forbes article</a> that Kevin was quoted in</li><li>People who strongly believe in “accountability” — punishing failures — can you change their minds?</li><li>Failure vs. mistake? — how would you compare those words?</li><li>Tell us a little bit more about DistroKid &#8211; strengthening this culture of learning from mistakes?</li></ul>"
+	},
+	{
 		"name": "Data Journey with Kevin Goldsmith (Anaconda) - Data & analytics used internally at Anaconda, SQL vs. Python, Layoffs and hiring in the tech sector, Agile data projects",
 		"date": "2022-11-30",
 		"url": "https://open.spotify.com/episode/3WQGuZLV6Qm20ODIKeeqEc?si=3c7eb679f8a44889",
