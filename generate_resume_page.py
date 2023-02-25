@@ -58,7 +58,7 @@ def format_patent_list(patents: List[dict]) -> List[dict]:
             title=patent["name"],
             url=patent["url"],
             number=patent["number"],
-            author="co-author" if len(patent["authors"]) > 0 else "sole author",
+            author="co-author" if len(patent["authors"]) > 1 else "sole author",
             filing_date=common.format_month_day_year_from_string(patent["filingDate"]),
             granted_date=common.format_month_day_year_from_string(
                 patent["grantedDate"]
