@@ -2995,5 +2995,26 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "CFCamp",
+		"url": "https://www.cfcamp.org/",
+		"talks":[
+			{
+				"talk": "Don't Quit Your Day Job (Unleashing Creativity: The Inspiring Synergy between Software Developers and Emerging Technologies)",
+				"talk-description": "<p>Join us for an enlightening keynote presentation that will demonstrate how software developers and emerging technologies have a rich history of collaboration, even when it initially appeared that new advancements might threaten the profession. We will journey through the past, illustrating how developers have confronted these fears and ultimately emerged stronger and more versatile.</p><p>We will discuss the evolution of software development, highlighting instances when groundbreaking technologies initially sparked apprehension, only to create new and exciting opportunities for developers eventually. Moreover, we will explore how contemporary innovations can be harnessed to enhance and elevate your work.</p><p>Prepare for real-life examples and thought-provoking discussions that will invigorate your enthusiasm for the future of software development. By the end of the presentation, you will have gained fresh insights on how to grow and adapt as a developer, embracing the latest advancements to propel your career forward.</p>",
+				"talk-type": "keynote",
+				"date": "2023-06-22",
+				"length": 30,
+				"location": {
+					"venue": "Munich Airport Marriott Hotel",
+					"address": "Alois-Steinecker-Straße 20",
+					"city": "Freising",
+					"country": "DE",
+					"postal code": "85354",
+					"gps":[48.404640, 11.743879]
+				}
+			}
+		]
 	}
 ]
