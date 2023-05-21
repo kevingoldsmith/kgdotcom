@@ -1,0 +1,9 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:{{first_name}} {{last_name}}
+N:{{last_name}};{{first_name}};{{middle_name}};{{honorific_prefix}};{{honorific_suffix}}
+TITLE:{{title}}
+ORG:{{organization}};{{division}};{{team}}
+REV:{{rev}}
+EMAIL:{{email}}
+END:VCARD

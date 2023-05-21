@@ -15,11 +15,12 @@ import argparse
 import json
 import logging
 import os
-from typing import List
 
 import jinja2  # type: ignore
 
 import common
+
+from datetime import datetime
 
 
 logger = logging.getLogger()
@@ -32,7 +33,64 @@ def generate_contact_page(data:dict, debug_mode:bool = False) -> None:
         data (dict): _description_
         debug_mode (bool, optional): _description_. Defaults to False.
     """
-    pass
+    print(data)
+    logger.debug("generating %s", data['filename'])
+
+    # get the template
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
+    pagetemplate = env.get_template("contactpage.html")
+
+    output_path = os.path.join(common.get_output_directory(debug_mode), data['filename'])
+    logger.info(f"writing: {output_path}")
+    with open(output_path, "w") as file:
+        file.write(pagetemplate.render(data))
+
+
+def generate_card_file(data:dict, debug_mode:bool = False) -> None:
+    """
+    generate_card_file _summary_
+
+    Args:
+        data (dict): _description_
+        debug_mode (bool, optional): _description_. Defaults to False.
+    """
+    logger.debug("generating %s", data['vcf_filename'])
+
+    data['rev'] = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+
+    # get the template
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
+    pagetemplate = env.get_template("contactfile.vcf")
+
+    output_path = os.path.join(common.get_output_directory(debug_mode), data['vcf_filename'])
+    logger.info(f"writing: {output_path}")
+    with open(output_path, "w") as file:
+        file.write(pagetemplate.render(data))
+
+
+def generate_contact_pages(debug_mode:bool = False) -> None:
+    """
+    generate_contact_pages _summary_
+
+    Args:
+        debug_mode (bool, optional): _description_. Defaults to False.
+    """
+    # get the data file
+    with open("data/contact_me.json", "r") as file:
+        contact_me_data = json.load(file)
+
+    with open("data/common_meta.json") as file:
+        common_data = json.load(file)
+
+    common_contact_data = contact_me_data['common']
+
+    for page in contact_me_data['contacts']:
+        merged_data = common_data.copy()
+        merged_data.update(common_contact_data)
+        merged_data.update(page)
+        generate_contact_page(merged_data, debug_mode)
+        generate_card_file(merged_data, debug_mode)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="generate the contact me pages")
@@ -41,4 +99,4 @@ if __name__ == "__main__":
     logger = logging.getLogger(__name__)
     common.initialize_logging(logging.INFO)
 
-    generate_contact_page(data={}, debug_mode=args.debug)
+    generate_contact_pages(debug_mode=args.debug)
