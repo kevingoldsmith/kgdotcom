@@ -6,4 +6,6 @@ TITLE:{{title}}
 ORG:{{organization}};{{division}};{{team}}
 REV:{{rev}}
 EMAIL:{{email}}
+{% if address %}ADR:TYPE="{% if card_type == "personal" %}HOME{% elif %}WORK{% endif %}":;;{{address.street_address}};{{address.city}};{{address.state}};{{address.postal_code}};{{address.country}}{% endif %}
+{% for contact_method in contact_list %}X-SOCIALPROFILE;TYPE={% if contact_method.type == "LinkedIn" %}LinkedIn:{{contact_method.url}}{% endif %}{% endfor %}
 END:VCARD
