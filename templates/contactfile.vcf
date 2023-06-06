@@ -1,11 +1,48 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:{{first_name}} {{last_name}}
+{%- set type='HOME' if card_type == "personal" else 'WORK' -%}
 N:{{last_name}};{{first_name}};{{middle_name}};{{honorific_prefix}};{{honorific_suffix}}
+FN:{{first_name}} {{last_name}}
+{% if organization %}ORG:{{organization}};{{division}};{{team}}{% endif %}
 TITLE:{{title}}
-ORG:{{organization}};{{division}};{{team}}
 REV:{{rev}}
-EMAIL:{{email}}
-{% if address %}ADR:TYPE="{% if card_type == "personal" %}HOME{% elif %}WORK{% endif %}":;;{{address.street_address}};{{address.city}};{{address.state}};{{address.postal_code}};{{address.country}}{% endif %}
-{% for contact_method in contact_list %}X-SOCIALPROFILE;TYPE={% if contact_method.type == "LinkedIn" %}LinkedIn:{{contact_method.url}}{% endif %}{% endfor %}
+{%- if photo_b64 %}
+PHOTO;TYPE=JPEG;ENCODING=B:{{ photo_b64 }}
+{%- endif %}
+{%- if phone_number %}
+TEL;TYPE={{ type }},VOICE:{{ phone_number }}
+{%- endif %}
+EMAIL:type=INTERNET;TYPE={{ type }}:{{email}}
+{%- if address %}
+ADR:TYPE={{ type }}:;;{{address.street_address}};{{address.city}};{{address.state}};{{address.postal_code}};{{address.country}}
+{%- endif %}
+{%- set count = namespace(value=1) -%}
+{%- for contact_method in contact_list %}
+{%- if contact_method.type == "LinkedIn" %}
+item{{count.value}}.X-SOCIALPROFILE;TYPE=LinkedIn:x-apple:www.linkedin.com,{{contact_method.username}}
+item{{count.value}}.X-ABLabel:LinkedIn
+{%- elif contact_method.type == "homepage" %}
+item{{count.value}}.URL;type=pref:{{ contact_method.url }}
+item{{count.value}}.X-ABLabel:_$!<HomePage>!$_
+{%- endif %}
+{%- set count.value = count.value + 1 -%}
+{%- endfor %}
+{%- for contact_method in contact_list %}
+{%- if contact_method.type == "LinkedIn" %}
+URL;type=LINKEDIN:{{ contact_method.url }}
+{%- elif contact_method.type == "homepage" %}
+URL:{{ contact_method.url }}
+{%- endif %}
+{%- endfor %}
+
+item2.X-SOCIALPROFILE;type=twitter:x-apple:twitter.com,{{ twitter_username }}
+item2.X-ABLabel:Twitter
+item4.X-SOCIALPROFILE;type=facebook:x-apple:www.facebook.com,{{ facebook_username }}
+item4.X-ABLabel:Facebook
+item5.X-SOCIALPROFILE;type=instagram:x-apple:www.instagram.com,{{ instagram_username }}
+item5.X-ABLabel:Instagram
+URL;type=FACEBOOK:{{ facebook_url }}
+URL;type=TWITTER:{{ twitter_url }}
+URL;type=INSTAGRAM:{{ instagram_url }}
+
 END:VCARD
