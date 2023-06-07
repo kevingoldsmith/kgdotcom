@@ -12,6 +12,7 @@ __license__ = "MIT"
 __status__ = "Development"  # Prototype, Development or Production
 
 import argparse
+import base64
 import json
 import logging
 import os
@@ -57,6 +58,11 @@ def generate_card_file(data:dict, debug_mode:bool = False) -> None:
     logger.debug("generating %s", data['vcf_filename'])
 
     data['rev'] = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+    if 'image' in data:
+        with open(os.path.join('assets', data['image']), 'rb') as image_file:
+            image_data = image_file.read()
+            base64_image = base64.b64encode(image_data)
+            data['photo_b64'] = base64_image.decode('utf-8')
 
     # get the template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
