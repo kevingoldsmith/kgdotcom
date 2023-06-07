@@ -1,9 +1,11 @@
 BEGIN:VCARD
 VERSION:3.0
-{%- set type='HOME' if card_type == "personal" else 'WORK' -%}
+{%- set type='HOME' if card_type == "personal" else 'WORK' %}
 N:{{last_name}};{{first_name}};{{middle_name}};{{honorific_prefix}};{{honorific_suffix}}
 FN:{{first_name}} {{last_name}}
-{% if organization %}ORG:{{organization}};{{division}};{{team}}{% endif %}
+{%- if organization %}
+ORG:{{organization}};{{division}};{{team}}
+{%- endif %}
 TITLE:{{title}}
 REV:{{rev}}
 {%- if phone_number %}
@@ -16,35 +18,22 @@ ADR;TYPE={{ type }}:;;{{address.street_address}};{{address.city}};{{address.stat
 {%- set count = namespace(value=1) -%}
 {%- for contact_method in contact_list %}
 {%- if contact_method.type == "LinkedIn" %}
-item{{count.value}}.X-SOCIALPROFILE;TYPE=LinkedIn:x-apple:www.linkedin.com,{{contact_method.username}}
+item{{count.value}}.X-SOCIALPROFILE;TYPE=linkedin:{{contact_method.url}}
 item{{count.value}}.X-ABLabel:LinkedIn
 {%- elif contact_method.type == "homepage" %}
 item{{count.value}}.URL;type=pref:{{ contact_method.url }}
 item{{count.value}}.X-ABLabel:_$!<HomePage>!$_
 {%- elif contact_method.type == "twitter" %}
-item{{count.value}}.X-SOCIALPROFILE;type=twitter:x-apple:twitter.com,{{ contact_method.username }}
+item{{count.value}}.X-SOCIALPROFILE;type=twitter:{{ contact_method.url }}
 item{{count.value}}.X-ABLabel:Twitter
 {%- elif contact_method.type == "facebook" %}
-item{{count.value}}.X-SOCIALPROFILE;type=facebook:x-apple:www.facebook.com,{{ contact_method.username }}
+item{{count.value}}.X-SOCIALPROFILE;type=facebook:{{ contact_method.url }}
 item{{count.value}}.X-ABLabel:Facebook
 {%- elif contact_method.type == "instagram" %}
-item{{count.value}}.X-SOCIALPROFILE;type=instagram:x-apple:www.instagram.com,{{ contact_method.username }}
+item{{count.value}}.X-SOCIALPROFILE;type=instagram:{{ contact_method.url }}
 item{{count.value}}.X-ABLabel:Instagram
 {%- endif %}
 {%- set count.value = count.value + 1 -%}
-{%- endfor %}
-{%- for contact_method in contact_list %}
-{%- if contact_method.type == "LinkedIn" %}
-URL;type=LINKEDIN:{{ contact_method.url }}
-{%- elif contact_method.type == "homepage" %}
-URL:{{ contact_method.url }}
-{%- elif contact_method.type == "twitter" %}
-URL;type=TWITTER:{{ contact_method.url }}
-{%- elif contact_method.type == "facebook" %}
-URL;type=FACEBOOK:{{ contact_method.url }}
-{%- elif contact_method.type == "instagram" %}
-URL;type=INSTAGRAM:{{ contact_method.url }}
-{%- endif %}
 {%- endfor %}
 {%- if photo_b64 %}
 PHOTO;TYPE=JPEG;ENCODING=B:{{ photo_b64 }}
