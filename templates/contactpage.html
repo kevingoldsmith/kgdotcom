@@ -35,7 +35,19 @@
     <main>
         <ul id="contactmethods">
             {% if email %}<li class="email">{{email}}</li>{% endif %}
-            {% for contact_method in contact_list %}<li>{% if contact_method.type == "LinkedIn" %}<h2>LinkedIn</h2><a href="{{contact_method.url}}">{{contact_method.url}}</a></h2></li>{% endif %}{% endfor %}
+            {%- for contact_method in contact_list %}
+            {%- if contact_method.type == "LinkedIn" %}
+            <li><h2>LinkedIn</h2><a href="{{contact_method.url}}">{{contact_method.username}}</a></h2></li>
+            {%- elif contact_method.type == "homepage" %}
+            <li><h2>Homepage</h2><a href="{{contact_method.url}}">{{contact_method.url}}</a></h2></li>
+            {%- elif contact_method.type == "twitter" %}
+            <li><h2>Twitter</h2><a href="{{contact_method.url}}">@{{contact_method.username}}</a></h2></li>
+            {%- elif contact_method.type == "instagram" %}
+            <li><h2>Instagram</h2><a href="{{contact_method.url}}">{{contact_method.username}}</a></h2></li>
+            {%- elif contact_method.type == "facebook" %}
+            <li><h2>Instagram</h2><a href="{{contact_method.url}}">{{contact_method.username}}</a></h2></li>
+            {%- endif %}
+            {%- endfor %}
         </ul>
         <div style="clear:both"></div>
     </main>
