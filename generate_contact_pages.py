@@ -94,7 +94,15 @@ def generate_contact_page(data:dict, output_directory:str, card_file_path:str, d
 
 
 def generate_contact_wallpaper(data:dict, card_page_url: str, output_directory:str, debug_mode: bool = False) -> None:
-    
+    """
+    generate_contact_wallpaper _summary_
+
+    Args:
+        data (dict): _description_
+        card_page_url (str): _description_
+        output_directory (str): _description_
+        debug_mode (bool, optional): _description_. Defaults to False.
+    """
     filename, fileextension = os.path.splitext(data['filename'])
     output_path = os.path.join(output_directory, filename+'_wallpaper.png')
     logger.info("generating %s", output_path)

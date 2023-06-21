@@ -29,6 +29,7 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
     format_url = "<url><loc>{url}</loc><lastmod>{date}</lastmod><changefreq>monthly</changefreq><priority>{priority}</priority></url>"
 
     ignore_files = ["403page.html", "404page.html", "nortonsw_8ae7e2e0-1022-0.html"]
+    ignore_paths = ["contact"]
     important_files = ['https://kevingoldsmith.com/resume.html',
         'https://kevingoldsmith.com/writing.html', 'https://kevingoldsmith.com/talks/',
         'https://kevingoldsmith.com/music.html', 'https://kevingoldsmith.com/photos/']
@@ -36,16 +37,17 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
     sitemap_files = []
     path = get_output_directory(debug_mode)
     for path, _, files in os.walk(path):
-        for file in files:
-            ext = os.path.splitext(file)[1]
-            if (not file in ignore_files) and (ext == ".html"):
-                path_list = path.split(os.sep)
-                sitemap_files.append(
-                    (
-                        os.path.join(path, file),
-                        get_href_root(os.path.join(*path_list[1:], file), debug_mode),
+        if not os.path.split(path)[-1] in ignore_paths:
+            for file in files:
+                ext = os.path.splitext(file)[1]
+                if (not file in ignore_files) and (ext == ".html"):
+                    path_list = path.split(os.sep)
+                    sitemap_files.append(
+                        (
+                            os.path.join(path, file),
+                            get_href_root(os.path.join(*path_list[1:], file), debug_mode),
+                        )
                     )
-                )
 
     sitemap_entries = []
     for sfile in sitemap_files:

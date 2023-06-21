@@ -22,6 +22,7 @@ import generate_resume_page
 import generate_writing_page
 import generate_talk_pages
 import generate_photo_pages
+import generate_contact_pages
 from common import get_output_directory, initialize_logging
 
 
@@ -54,6 +55,7 @@ def main(debug_mode: boolean = False) -> None:
     )
     generate_photo_pages.generate_photo_pages(debug_mode)
     generate_other_pages(debug_mode)
+    generate_contact_pages.generate_contact_pages(debug_mode)
 
 
 if __name__ == "__main__":
