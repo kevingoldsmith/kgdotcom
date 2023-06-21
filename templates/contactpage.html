@@ -8,12 +8,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Contact {{author}}, {{title}}</title>
-    <meta name="description" content="Contact information for {{author}}, {{title}}" />
+    <title>Contact {{author}}{% if title%}, {{title}}{% endif %}</title>
+    <meta name="description" content="Contact information for {{author}}{% if title%}, {{title}}{% endif %}" />
     <meta name="author" content="{{author}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="{{googsiteverification}}" />
-    <link rel="canonical" href="https://kevingoldsmith.com/{{filename}}" />
+    <link rel="canonical" href="https://kevingoldsmith.com/contact/{{filename}}" />
     {% include 'favicon.html' %}
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://ajax.googleapis.com" />
@@ -22,36 +22,170 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/genericons.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/genericons.css" />
+    <style>
+    header {
+        position:static;
+        padding-bottom: 2em;
+    }
+
+    .header-image {
+        width: 100%;
+        height: 200px;
+        background: url('{{header_image}}') no-repeat center center/cover;
+    }
+
+    .profile-picture {
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: url('{{card_photo}}') no-repeat center center/cover;
+        transform: translateY(150%);
+    }
+
+    .list-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .list-item {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #ccc;
+      padding: 20px;
+      font-size: 1.5em;
+    }
+
+    .button-list-item {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .card-link {
+        margin: auto auto;
+        background-color: #058cc2;
+        border: none;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 2em;
+        border-radius: 50%;
+    }
+
+    .card-link a {
+        color: white;
+    }
+
+    .item-key {
+        flex-basis: 45%;
+        font-weight: bold;
+    }
+
+    .item-value {
+        flex-basis: 50%;
+        text-align: left;
+    }
+
+    .name {
+        clear: both;
+        margin-top: 75px;
+        font-size: 24pt;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 16pt;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .organization {
+        font-size: 16pt;
+        text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .list-item {
+        flex-direction: column;
+        align-items: start;
+        width: 80%;
+      }
+
+      .item-key, .item-value {
+        flex-basis: 100%;
+        text-align: left;
+      }
+    }    
+    </style>
 </head>
 {% include 'google-analytics.html' %}
 <body>
     <header>
-        <h1>{{first_name}} {{last_name}}</h1>
-        {{title}}
-        {{organization}}
+        <div class="header-image">
+            <div class="profile-picture"></div>
+        </div>
+        <div class="name">{{first_name}} {{last_name}}</div>
+        {%- if title %}
+        <div class="title">{{title}}</div>
+        {%- endif %}
+        {%- if organization %}
+        <div class="organization">{{organization}}</div>
+        {%- endif %}
     </header>
     <main>
-        <ul id="contactmethods">
-            {% if email %}<li class="email">{{email}}</li>{% endif %}
+        <div class="list-container">
+            <div class="button-list-item">
+                <div class="card-link"><a href="{{card_file_path}}">Contact Card</a></div>
+            </div>
+            {%- if email %}
+            <div class="list-item"><div class="item-key">e-mail</div><div class="item-value"><a href="mailto:{{email}}">{{email}}</a></div></div>
+            {%- endif %}
+            {%- if phone_number %}
+            <div class="list-item"><div class="item-key">Phone</div><div class="item-value">{{phone_number}}</div></div>
+            {%- endif %}
+            {%- if address %}
+            <div class="list-item">
+                <div class="item-key">Mailing address</div>
+                <div class="item-value">
+                {%- if address.street_address %}
+                <div>{{address.street_address}}</div>
+                {%- endif %}
+                <div>{{address.city}}{% if address.city and (address.state or address.postal_code) %}, {% endif %}{{address.state}} {{address.postal_code}}</div>
+                {%- if address.country %}
+                <div>{{address.country}}</div>
+                {%- endif %}
+                </div>
+            </div>
+            {%- endif %}
             {%- for contact_method in contact_list %}
             {%- if contact_method.type == "LinkedIn" %}
-            <li><h2>LinkedIn</h2><a href="{{contact_method.url}}">{{contact_method.username}}</a></h2></li>
+            <div class="list-item"><div class="item-key">LinkedIn</div><div class="item-value"><a href="{{contact_method.url}}">{{contact_method.username}}</a></div></div>
             {%- elif contact_method.type == "homepage" %}
-            <li><h2>Homepage</h2><a href="{{contact_method.url}}">{{contact_method.url}}</a></h2></li>
+            <div class="list-item"><div class="item-key">Home page</div><div class="item-value"><a href="{{contact_method.url}}">{{contact_method.url}}</a></div></div>
             {%- elif contact_method.type == "twitter" %}
-            <li><h2>Twitter</h2><a href="{{contact_method.url}}">@{{contact_method.username}}</a></h2></li>
+            <div class="list-item"><div class="item-key">Twitter</div><div class="item-value"><a href="{{contact_method.url}}">@{{contact_method.username}}</a></div></div>
             {%- elif contact_method.type == "instagram" %}
-            <li><h2>Instagram</h2><a href="{{contact_method.url}}">{{contact_method.username}}</a></h2></li>
+            <div class="list-item"><div class="item-key">Instagram</div><div class="item-value"><a href="{{contact_method.url}}">{{contact_method.username}}</a></div></div>
             {%- elif contact_method.type == "facebook" %}
-            <li><h2>Instagram</h2><a href="{{contact_method.url}}">{{contact_method.username}}</a></h2></li>
+            <div class="list-item"><div class="item-key">Facebook</div><div class="item-value"><a href="{{contact_method.url}}">{{contact_method.username}}</a></div></div>
             {%- endif %}
             {%- endfor %}
-        </ul>
-        <div style="clear:both"></div>
+        </div>
     </main>
     {% include 'footer.html' %}
-    <script src="/js/fontfaceobserver.js"></script>
+    <script src="../js/fontfaceobserver.js"></script>
 </body>
 </html>
