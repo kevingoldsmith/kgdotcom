@@ -18,10 +18,12 @@ import logging
 import os
 
 import jinja2  # type: ignore
+import qrcode
 
 import common
 
 from datetime import datetime
+from PIL import Image, ImageDraw, ImageFont
 
 
 logger = logging.getLogger()
@@ -60,7 +62,7 @@ def generate_card_file(data:dict, output_directory:str, debug_mode:bool = False)
     return data['vcf_filename']
 
 
-def generate_contact_page(data:dict, output_directory:str, card_file_path:str, debug_mode:bool = False) -> None:
+def generate_contact_page(data:dict, output_directory:str, card_file_path:str, debug_mode:bool = False) -> str:
     """
     generate_contact_page _summary_
 
@@ -69,9 +71,12 @@ def generate_contact_page(data:dict, output_directory:str, card_file_path:str, d
         output_directory(str): the output path
         card_file_path (str): the path of the card file to link to
         debug_mode (bool, optional): _description_. Defaults to False.
+
+    Returns:
+        the name of the generated card page
     """
     data['card_file_path'] = card_file_path
-    data['card_photo'] = os.path.join('..', 'img', data['card_photo'])
+    data['card_photo_path'] = os.path.join('..', 'img', data['card_photo'])
     if 'header_image' in data:
         data['header_image'] = os.path.join('..', 'img', data['header_image'])    
     logger.debug("generating %s", data['filename'])
@@ -84,6 +89,44 @@ def generate_contact_page(data:dict, output_directory:str, card_file_path:str, d
     logger.info(f"writing: {output_path}")
     with open(output_path, "w") as file:
         file.write(pagetemplate.render(data))
+
+    return data['filename']
+
+
+def generate_contact_wallpaper(data:dict, card_page_url: str, output_directory:str, debug_mode: bool = False) -> None:
+    
+    filename, fileextension = os.path.splitext(data['filename'])
+    output_path = os.path.join(output_directory, filename+'_wallpaper.png')
+    logger.info("generating %s", output_path)
+
+    qr_img = qrcode.make(card_page_url)
+    # assuming qr_img is 410x410
+
+    if 'card_photo' in data:
+        photo_image = Image.open(os.path.join('assets',data['card_photo']))
+    else:
+        photo_image = Image.new('RGBA', (200,200))
+    
+    template_file = os.path.join('assets',data.get('wallpaper_template', 'wallpaper_template.png'))
+    image_template = Image.open(template_file)
+
+    output_image = Image.new('RGBA', image_template.size, image_template.getpixel((0,0)))
+    output_image.paste(image_template, (0,0))
+    output_image.paste(qr_img, (335, 1440))
+    output_image.paste(photo_image, (70,69))
+
+    draw = ImageDraw.Draw(output_image)
+    text = f"{data['first_name']} {data['last_name']}"
+    font = ImageFont.truetype("assets/RobotoSlab.ttf", 108)
+    color = (0,0,0)
+
+    # Position of the text
+    position = (70,350)
+
+    # Add text to image
+    draw.text(position, text, color, font=font)
+
+    output_image.save(output_path)
 
 
 def generate_contact_pages(debug_mode:bool = False) -> None:
@@ -110,7 +153,9 @@ def generate_contact_pages(debug_mode:bool = False) -> None:
         merged_data.update(common_contact_data)
         merged_data.update(page)
         card_file = generate_card_file(merged_data, output_directory, debug_mode)
-        generate_contact_page(merged_data, output_directory, card_file, debug_mode)
+        card_page = generate_contact_page(merged_data, output_directory, card_file, debug_mode)
+        card_page_url = os.path.join("https://kevingoldsmith.com/contact", card_page)
+        generate_contact_wallpaper(merged_data, card_page_url, output_directory, debug_mode)
 
 
 if __name__ == "__main__":
