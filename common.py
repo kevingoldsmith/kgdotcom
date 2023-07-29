@@ -139,7 +139,7 @@ def check_for_missing_values(original: dict, new: dict) -> None:
         if (key in ["description", "title", "presentationlist"]) and (
             original[key] == new[key]
         ):
-            logger.warning(f"{key} has default value")
+            logger.warning("%s has default value", key)
 
 
 # thanks lazyweb
@@ -174,10 +174,12 @@ def validate_url(address: str) -> Boolean:
     if not response:
         try:
             logger.warning(
-                f"URL failed to validate: {address}, status code: {resp.status_code}"
+                "URL failed to validate: %s, status code: %s",
+                address,
+                resp.status_code
             )
         except NameError:
-            logger.warning(f"URL failed to validate: {address}")
+            logger.warning("URL failed to validate: %s", address)
 
     return response
 
