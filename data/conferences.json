@@ -3005,7 +3005,7 @@
 				"talk-description": "<p>Join us for an enlightening keynote presentation that will demonstrate how software developers and emerging technologies have a rich history of collaboration, even when it initially appeared that new advancements might threaten the profession. We will journey through the past, illustrating how developers have confronted these fears and ultimately emerged stronger and more versatile.</p><p>We will discuss the evolution of software development, highlighting instances when groundbreaking technologies initially sparked apprehension, only to create new and exciting opportunities for developers eventually. Moreover, we will explore how contemporary innovations can be harnessed to enhance and elevate your work.</p><p>Prepare for real-life examples and thought-provoking discussions that will invigorate your enthusiasm for the future of software development. By the end of the presentation, you will have gained fresh insights on how to grow and adapt as a developer, embracing the latest advancements to propel your career forward.</p>",
 				"talk-type": "keynote",
 				"date": "2023-06-22",
-				"length": 30,
+				"length": 60,
 				"location": {
 					"venue": "Munich Airport Marriott Hotel",
 					"address": "Alois-Steinecker-Straße 20",
@@ -3013,6 +3013,28 @@
 					"country": "DE",
 					"postal code": "85354",
 					"gps":[48.404640, 11.743879]
+				}
+			}
+		]
+	},
+	{
+		"conference": "JAX London",
+		"url": "https://jaxlondon.com/",
+		"talks": [
+			{
+				"talk": "The Inspiring Synergy Between Software Developers And Emerging Technologies",
+				"talk-url": "https://www.kevingoldsmith.com/talks/dont-quit-your-day-job-unleashing-creativity-the-inspiring-synergy-between-software-developers-and-emerging-technologies.html",
+				"talk-description": "<p>Join us for an enlightening keynote presentation that will demonstrate how software developers and emerging technologies have a rich history of collaboration, even when it initially appeared that new advancements might threaten the profession. We will journey through the past, illustrating how developers have confronted these fears and ultimately emerged stronger and more versatile.</p><p>We will discuss the evolution of software development, highlighting instances when groundbreaking technologies initially sparked apprehension, only to create new and exciting opportunities for developers eventually. Moreover, we will explore how contemporary innovations can be harnessed to enhance and elevate your work.</p><p>Prepare for real-life examples and thought-provoking discussions that will invigorate your enthusiasm for the future of software development. By the end of the presentation, you will have gained fresh insights on how to grow and adapt as a developer, embracing the latest advancements to propel your career forward.</p>",
+				"talk-type": "keynote",
+				"date": "2023-10-04",
+				"length": 30,
+				"location": {
+					"venue": "Business Design Centre",
+					"address": "52 Upper St, Islington",
+					"city": "London",
+					"country": "GB",
+					"postal code": "N1 0QH",
+					"gps": [51.53568908358195, -0.10523028836139078]
 				}
 			}
 		]
