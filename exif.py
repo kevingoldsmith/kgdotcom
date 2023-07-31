@@ -1,3 +1,8 @@
+"""
+    functions for gathering and manipulating EXIF data
+"""
+#pylint: disable=C0103, R0912, R0915
+
 import datetime
 
 import typing
@@ -25,7 +30,7 @@ def get_exif_data(image:Image.Image) -> Exif:
         processed: the raw data if it is human-readable,
         or a processed version if not.
     """
-    
+
     exif_data:Exif = image.getexif()
 
     for k, v in TAGS.items():
@@ -134,7 +139,7 @@ def _process_exif_dict(exif_dict: Exif) -> Exif:
             _derationalize(exif_dict["FNumber"]["raw"])
         exif_dict["FNumber"]["processed"] = \
             "f{}".format(exif_dict["FNumber"]["processed"])
-    
+
     if "MaxApertureValue" in exif_dict:
         exif_dict["MaxApertureValue"]["processed"] = \
             _derationalize(exif_dict["MaxApertureValue"]["raw"])
@@ -170,7 +175,7 @@ def _process_exif_dict(exif_dict: Exif) -> Exif:
     if "XResolution" in exif_dict:
         exif_dict["XResolution"]["processed"] = \
             int(_derationalize(exif_dict["XResolution"]["raw"]))
-    
+
     if "YResolution" in exif_dict:
         exif_dict["YResolution"]["processed"] = \
             int(_derationalize(exif_dict["YResolution"]["raw"]))
@@ -212,4 +217,5 @@ def _process_exif_dict(exif_dict: Exif) -> Exif:
 
     return exif_dict
 
+# pylint: disable=C0301
 # based on https://python.plainenglish.io/reading-a-photographs-exif-data-with-python-and-pillow-a29fceafb761

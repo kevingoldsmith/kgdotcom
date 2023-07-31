@@ -14,13 +14,14 @@ __status__ = "Production"  # Prototype, Development or Production
 import json
 import logging
 import os
-import requests
 import string
+
 from datetime import date
 from typing import Union
-
-import pycountry  # type: ignore
 from xmlrpc.client import Boolean
+
+import requests
+import pycountry  # type: ignore
 
 
 logger = logging.getLogger(__name__)
@@ -157,7 +158,12 @@ def generate_filename(filename: str) -> str:
 
 
 def validate_url(address: str) -> Boolean:
-    """given a URL make sure that it is still valid"""
+    """
+    given a URL make sure that it is still valid
+
+    Args:
+        address (str): the URL to check
+    """
     response = True
     with open("ignore_error_urls.json", "r") as url_file:
         ignore_list = json.load(url_file)
@@ -187,21 +193,29 @@ def validate_url(address: str) -> Boolean:
 def initialize_logging(
     logging_level: int, logging_file: Union[str, None] = None
 ) -> None:
+    """
+    initialize_logging set up logging with formatting for stdout and file
+
+    Args:
+        logging_level (int): the logging level
+        logging_file (Union[str, None], optional): the file to use. Defaults to None.
+    """
+    # pylint: disable=W0621
     logger = logging.getLogger()
     logger.setLevel(logging_level)
     formatter = logging.Formatter("%(levelname)s: %(message)s")
     formatter.datefmt = "%Y-%m-%d %H:%M:%S %z"
-    ch = logging.StreamHandler()
-    ch.setLevel(logging_level)
-    ch.setFormatter(formatter)
-    logger.addHandler(ch)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging_level)
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
 
     if logging_file:
-        fh = logging.FileHandler(logging_file)
-        fh.setLevel(logging_level)
+        file_handler = logging.FileHandler(logging_file)
+        file_handler.setLevel(logging_level)
         file_formatter = logging.Formatter(
             "%(name)s - %(asctime)s (%(levelname)s): %(message)s"
         )
         file_formatter.datefmt = "%Y-%m-%d %H:%M:%S %z"
-        fh.setFormatter(file_formatter)
-        logger.addHandler(fh)
+        file_handler.setFormatter(file_formatter)
+        logger.addHandler(file_handler)
