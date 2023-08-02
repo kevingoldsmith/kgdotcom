@@ -1,5 +1,9 @@
 [
 	{
+		"talk": "Don't Quit Your Day Job (Unleashing Creativity: The Inspiring Synergy between Software Developers and Emerging Technologies)",
+		"description": "Technologies like No-Code/Low-Code platforms and Large Language Models (such as ChatGPT) can make developers question low long they will be employed, but this talks put those technologies in their historical place with everything else that was supposed to get rid of software developers."
+	},
+	{
 		"talk": "It's teams all the way down: Design patterns for engineering organizations",
 		"description": "While there is no \"one size fits all\" solution for organizational structure, there are patterns for the different stages of startups that can be adapted to your culture and best practices to leverage."
 	},

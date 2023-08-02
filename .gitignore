@@ -8,3 +8,4 @@ venv
 cache.sqlite
 http_cache.sqlite
 photos/
+data/contact_me.json
