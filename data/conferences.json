@@ -3040,6 +3040,28 @@
 		]
 	},
 	{
+		"conference": "0111 Conference",
+		"url": "https://7ctos.com/0111conference",
+		"talks": [
+			{
+				"talk": "TBD",
+				"talk-description": "talk about acquisitions and due diligence as a CTO",
+				"talk-type": "talk",
+				"date": "2023-11-02",
+				"length": 75,
+				"location": {
+					"venue": "Hard Rock Hotel San Diego",
+					"address": "207 Fifth Ave",
+					"city": "San Diego",
+					"state": "CA",
+					"postal code": "92101",
+					"country": "US",
+					"gps": [32.70762215909838, -117.15988822332689]
+				}
+			}
+		]
+	},
+	{
 		"conference": "W-Jax",
 		"url": "https://jax.de/munich",
 		"talks": [
