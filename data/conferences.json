@@ -3044,8 +3044,8 @@
 		"url": "https://7ctos.com/0111conference",
 		"talks": [
 			{
-				"talk": "TBD",
-				"talk-description": "talk about acquisitions and due diligence as a CTO",
+				"talk": "Due Diligence in Funding & Acquisition: A CTO's Guide",
+				"talk-description": "In this dynamic presentation, Kevin Goldsmith will delve deep into the nuanced world of due diligence from the vantage points of both acquiring entities and those being acquired. As an organization's technological backbone, a CTO's role in mergers, acquisitions, and funding scenarios is pivotal. Attendees will journey through the meticulous processes of evaluating technology infrastructure, intellectual property assets, and addressing potential risks. Through a blend of theory, examples from Kevin Goldsmith's professional experiences, and interactive exercises, participants will simulate real-world scenarios, from technology stack matching to risk identification and team evaluation. By the end of the session, attendees will walk away equipped with a comprehensive understanding of best practices for a streamlined due diligence process, strategies for transparent communication, and the significance of collaborative approaches in tech-driven business integrations.",
 				"talk-type": "talk",
 				"date": "2023-11-02",
 				"length": 75,
