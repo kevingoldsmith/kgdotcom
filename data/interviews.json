@@ -1,5 +1,13 @@
 [
 	{
+		"name": "Kevin Goldsmith: Architecture and Organization",
+		"date": "2023-10-18",
+		"url": "https://software-architektur.tv/2023/10/18/episode185.html",
+		"author": "Eberhard Wolff",
+		"publisher": "Software Architektur im Stream",
+		"summary": "A vital aspect of modern software engineering is to align organizational structures with software architectures to enhance performance. With his extensive experience from Avvo, Spotify, Adobe, and Microsoft, Kevin will discuss the relation between organization and architecture with us. We will not just talk about Conway’s Law but also other aspects like the Homomorphic Force or the Mirroring Hypothesis."
+	},
+	{
 		"name": "What got you there is not gonna keep you there - Kevin Goldsmith, CTO at DistroKid",
 		"date": "2023-09-26",
 		"url": "https://podcasters.spotify.com/pod/show/leadershipforunicorns/episodes/14--What-got-you-there-is-not-gonna-keep-you-there---Kevin-Goldsmith---CTO-at-Distrokid--ex-Adobe--Spotify-and-Microsoft-e29ps06",
