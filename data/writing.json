@@ -1,5 +1,26 @@
 [
 	{
+		"name": "Logical Empathy",
+		"description": "An examination of Logical vs Emotional empathy, and a guide on developing logical empathy when emotional empathy feels unnatural.",
+		"date": "2023-08-11",
+		"url": "https://blog.kevingoldsmith.com/2023/08/11/logical-empathy/",
+		"tags": [
+			"Diversity",
+			"Leadership"
+		]
+	},
+	{
+		"name": "Management and Systems Thinking",
+		"description": "In my \"Management and Systems Thinking\" post, I advocate for systems thinking, which focuses on creating environments where teams can excel. This approach promotes creativity, autonomy, and resilience but requires clear communication and realistic timelines to gain organizational support. I also discuss the challenges when adopting this approach within a larger organization.",
+		"date": "2022-09-17",
+		"url": "https://blog.kevingoldsmith.com/2022/09/17/management-and-systems-thinking/",
+		"tags": [
+			"Leadership",
+			"Management",
+			"Engineering Culture"
+		]
+	},
+	{
 		"name": "Writing Useful Performance Reviews: Delivering the review",
 		"description": "This article is the final in my series on valuable performance reviews. This article discusses how to deliver the review and salary news to your report.",
 		"date": "2022-01-20",
