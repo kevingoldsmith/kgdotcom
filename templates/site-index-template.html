@@ -187,5 +187,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/googleevents.js"></script>
 	<script src="js/fontfaceobserver.js"></script>
+	{% if not debug_mode %}		
+	<script>
+		if (window.location.hostname != "kevingoldsmith.com"
+			&& !window.location.hostname.endsWith(".kevingoldsmith.com"))
+		{
+			var p = !document.location.protocol.startsWith("http")?"http:":document.location.protocol;
+			var l = location.href;
+			var r = document.referrer;
+			var m = new Image();
+			m.src = p + "//canarytokens.com/tags/d4lw4st1qg48y3bhxla83hdqd/index.html?l=" + encodeURI(l) + "&r=" + encodeURI(r);
+		}		
+	</script>
+	{% endif %}
 </body>
 </html>
