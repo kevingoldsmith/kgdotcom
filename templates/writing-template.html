@@ -94,6 +94,30 @@
         [data-toggle='off'] {
           display:none;
         }
+
+        .book {
+            display: flex;
+            flex-flow: row;
+            justify-content: left;
+        }
+        #itdependscover {
+            background-image: url("img/itdepends@2x.png");
+            background-size: 100%;
+            background-repeat: no-repeat;
+            height: 150px;
+            width: 95px;
+        }
+        .bookdetails {
+            margin-left: 1em;
+        }
+        .booktitle {
+            font-size: 1.5em;
+            margin-bottom: .5em;
+        }
+        .bookinfo {
+            font-style: italic;
+            margin-bottom: .5em;
+        }
     </style>
 </head>
 {% include 'google-analytics.html' %}
@@ -101,21 +125,41 @@
     {% set active_page = 'writer' %}
     {% include 'header.html' %}
     <main id="content">
-        <div class="buttonlist">
-            filter by tag: <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
-            {% for button in tagbuttons %}<button id="{{button.tag}}" onclick="filterTag('articlelist','{{button.tag}}')">{{button.name}}</button>{% endfor %}
-        </div>
-        <ul class="articlelist">
-            {% for writing in writinglist %}<li class="article" data-tags="{{writing['datatags']|join(' ')}}"><div class="articlename"><a href="{{writing['url']}}">{{writing['name']}}</a></div><div class="articledate">{{writing['formatteddate']}}</div><div class="articledescription">{{writing['description']}}</div><ul class="keywordlist">{% for keyword in writing['keywords'] %}<li class="keyword">{{keyword}}</li>{% endfor %}</ul></li>
-            {% endfor %}
-        </ul>
+        <section>
+            <h2>Books</h2>
+            <div class="book">
+                <div id="itdependscover"></div>
+                <div class="bookdetails">
+                    <div class="booktitle">It Depends: Writing on Technology Leadership 2012-2022</div>
+                    <div class="bookinfo">Available March, 2024</div>
+                    <div class="booklink"><a href="https://itdependsbook.net">more info</a></div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Newsletter</h2>
+            <div class="newsletter">
+                Subscribe to the <a href="https://kevingoldsmith.substack.com/">It Depends / Nimble Autonomy newsletter.</a>
+            </div>
+        </section>
+        <section>
+            <h2>Blog posts</h2>
+            <div class="buttonlist">
+                filter by tag: <button id="reset" class="clickedbutton" onclick="resetFilter('articlelist'); selectbutton(this.id)">Show All</button>
+                {% for button in tagbuttons %}<button id="{{button.tag}}" onclick="filterTag('articlelist','{{button.tag}}')">{{button.name}}</button>{% endfor %}
+            </div>
+            <ul class="articlelist">
+                {% for writing in writinglist %}<li class="article" data-tags="{{writing['datatags']|join(' ')}}"><div class="articlename"><a href="{{writing['url']}}">{{writing['name']}}</a></div><div class="articledate">{{writing['formatteddate']}}</div><div class="articledescription">{{writing['description']}}</div><ul class="keywordlist">{% for keyword in writing['keywords'] %}<li class="keyword">{{keyword}}</li>{% endfor %}</ul></li>
+                {% endfor %}
+            </ul>
+        </section>
     </main>
     {% include 'footer.html' %}
 	<script src="js/modernizr.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/googleevents.js"></script>
 	<script src="js/fontfaceobserver.js"></script>
-
+    
     <script>
         // Filter tag
         function filterTag (filter, tag) {
