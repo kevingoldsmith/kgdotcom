@@ -3096,5 +3096,27 @@
 				"length": 45
 			}
 		]
+	},
+	{
+		"conference": "LeadingEng",
+		"url": "https://leaddev.com/leadingeng-new-york",
+		"talks": [
+			{
+				"talk": "The path from Director to CTO: How to follow it, or how to mentor it",
+				"talk-description": "<p>This talk is aimed at both aspiring Chief Technology Officers and those who are in a position to mentor future CTOs. Explore the journey from a Director of Engineering role to a CTO, focusing on the skills and experiences needed for this transition and how experienced leaders can guide others on this path.</p><p>The session will start by defining the role of a CTO and how it differs from that of a Director. For those aiming to become CTOs, we'll discuss the essential skills required, such as technical knowledge, strategic planning, and leadership capabilities. The talk will also provide insights into how these skills can be developed and refined.</p><p>For attendees interested in mentorship, the talk will cover how to identify and nurture potential in others, share experiences effectively, and offer guidance that can help shape future technology leaders.</p><p>We'll also discuss the common challenges faced on this career path and offer practical advice on how to overcome them. Real-world examples will be used to illustrate successful transitions to the CTO role and how effective mentorship can make a difference.</p>",
+				"talk-type": "talk",
+				"date": "2024-09-06",
+				"length": 20,
+				"location": {
+					"venue": "Jacob Javits Convention Center",
+					"address": "429 11th Ave",
+					"city": "New York",
+					"state": "NY",
+					"postal code": "10001",
+					"country": "US",
+					"gps": [40.75805433513594, -74.0025281112156]
+				}
+			}
+		]
 	}
 ]
