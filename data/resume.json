@@ -309,6 +309,14 @@
 	],
 	"publications": [
 		{
+			"title": "It Depends: Writing on Technology Leadership 2012-2022",
+			"releaseDate": "2024-03-04",
+			"publisher": "Unit Circle Press",
+			"isbn-13": "9798218311506",
+			"website": "https://itdependsbook.net",
+			"summary": "\"a collection of essays and articles by technology executive Kevin Goldsmith, is a must-read for current or aspiring engineering managers, directors, and senior technology executives. With over thirty years of experience in leadership roles at industry-leading technology companies like IBM, Silicon Graphics, Microsoft, and Adobe, as well as early-stage startups and unicorns like Spotify, Avvo, Anaconda, and DistroKid, Goldsmith shares his knowledge about leading technology teams and larger organizations in this book.\""
+		},
+		{
 			"title": "Multiple Articles",
 			"publisher": "Adobe Developer Network",
 			"summary":"Authored several articles between January 2010 and March 2011 on using the Pixel Bender image processing language."
