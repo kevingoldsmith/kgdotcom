@@ -19,7 +19,7 @@ Pillow==10.0.1
 platformdirs==2.5.4
 pycountry==20.7.3
 pylint==2.7.2
-requests==2.31.0
+requests==2.32.0
 requests-cache==0.6.2
 six==1.15.0
 soupsieve==2.2.1
