@@ -1,5 +1,29 @@
 [
 	{
+		"name": "Leadership, Technology, and the “It Depends” Philosophy: Insights from Kevin Goldsmith",
+		"date": "2024-03-14",
+		"url": "https://www.youtube.com/watch?v=xfLwmLjon44",
+		"publisher": "7CTOs Podcast",
+		"author": "Etienne de Bruin",
+		"summary": "<p>Kevin Goldsmith, a seasoned CTO, mentor, and principal at Nimble Autonomy, joins the conversation today as we discuss Kevin's journey in technology leadership across the US, Sweden, and the UK, touching on his experiences and the release of his new book, It Depends: Writing on Technology Leadership 2012 to 2022.</p><p>The discussion covers technology adoption, with a focus on ChatGPT and its recent Teams product. Kevin reveals how his team embraced ChatGPT, its role in policy creation, and the advantages of the Teams program for collaborative work. The conversation unfolds into a deeper exploration of the evolving role of CTOs, the future landscape for aspiring leaders, and the potential impact of advanced tools on development processes.</p><p>Kevin, in addition, sheds light on the creation of his book, sharing insights into the inspiration behind the title It Depends and the unique approach that he took in preserving the original context of his blog posts. He touches on the audiobook creation process and the decision to self-release, emphasizing accessibility and convenience for readers.</p><p>Kevin also offers us a glimpse into his vision for the future, both in terms of technology leadership and the evolving capabilities of generative text generators like ChatGPT. The candid and insightful conversation provides listeners with a multifaceted view of technology, leadership, and the intricate balance between innovation and the human touch, and you won't want to miss this conversation.</p>"
+	},
+	{
+		"name": "Kevin Goldsmith - Chief Technology Officer (CTO) at DistroKid, Board Member, Advisor, and International Speaker",
+		"date": "2024-02-27",
+		"url": "https://www.youtube.com/watch?v=aw38giPxajY",
+		"author": "Jason Cavness",
+		"publisher": "The Jason Cavness Experience",
+		"summary": "<p>Kevin Goldsmith serves as the Chief Technology Officer for DistroKid, the world's largest digital music distributor. Previously, he was the CTO of Anaconda, Inc., the world's most popular data science platform with over 25 million users.</p><p>Before joining Anaconda, he served as CTO of AI-powered identity management company Onfido. Other roles have included CTO at Avvo, vice president of engineering, consumer at Spotify, and nine years at Adobe Systems as a director of engineering. He has also held software engineering roles at Microsoft and IBM.</p><p>Goldsmith is also the founder and principal at Nimble Autonomy, LLC., where he consults with growing startups working to scale their technology and teams deliberately and thoughtfully and with established companies working to be more innovative and agile in their product development practices.</p><p>Kevin is the author of “It Depends: Writing on Technology Leadership 2012-2022” which will be released in March 2024 by Unit Circle Press.</p>"
+	},
+	{
+		"name": "Finding the Stream with Kevin Goldsmith",
+		"date": "2024-02-20",
+		"url": "https://www.youtube.com/watch?v=QCdW6_gj4ew",
+		"publisher": "Godel Technologies",
+		"author": "Joshua Morgam",
+		"summary": "In this episode our host Joshua Morgan, Client Director at Godel is joined by Kevin Goldsmith, CTO at DistroKid to talk about Kevin’s career so far and how the ever-changing tech climate has shaped a culture of agile working and distributed teams."
+	},
+	{
 		"name": "Discovering How Over 30-40% of ALL NEW MUSIC is Distributed w/ Distrokid!",
 		"date": "2023-12-20",
 		"url": "https://www.youtube.com/watch?v=kSSGz1uEkNU",
@@ -50,7 +74,7 @@
 	{
 		"name": "Will nationalism end the golden age of global AI collaboration?",
 		"date": "2022-11-01",
-		"url": "https://www.protocol.com/enterprise/china-us-ai-open-source",
+		"url": "https://web.archive.org/web/20240227192724/https://www.protocol.com/enterprise/china-us-ai-open-source",
 		"author": "Kate Kaye",
 		"publisher": "Protocol",
 		"summary": "Until now, the borderless, open-source software movement that has helped bring together AI developers and tech from the U.S. and China has risen above geopolitical tensions. Could national security crackdowns tear it apart?"
@@ -138,7 +162,7 @@
 	{
 		"name": "The Tech Leaders Podcast",
 		"date": "2020-06-10",
-		"url": "https://www.bedigitaluk.com/podcast/episode/4891b346/kevin-goldsmith-cto-of-onfido-ex-spotify-adobe",
+		"url": "https://www.bedigitaluk.com/podcast/10-kevin-goldsmith-cto-of-onfido-ex-spotify-adobe/",
 		"author": "Gareth Davies",
 		"publisher": "bedigital",
 		"summary": "Gareth Interviews Kevin Goldsmith, CTO of London based, identity verification provider Onfido. An engineer by trade, Kevin cut his teeth at Microsoft in the 1990's, and was a member of the Windows Media, Windows CE, and Microsoft Research teams at a time when they were scaling into the global behemoth they are today. He was also the Director of Engineering at Adobe Systems for nine years through a similar growth trajectory and also the VP of Engineering, at Spotify where he led, both product development and streaming delivery during a crucial time. We cover the above along with his thoughts on quantum computing, technology innovation and keeping engineering teams motivated during a lockdown."
@@ -311,7 +335,7 @@
 	{
 		"name": "The cutting-edge firms that hire IT staff on personality over skills",
 		"date": "2014-09-22",
-		"url": "https://www.computing.co.uk/ctg/analysis/2371498/the-cutting-edge-firms-that-hire-it-staff-on-personality-over-skills",
+		"url": "https://web.archive.org/web/20150325043550/http://www.computing.co.uk/ctg/analysis/2371498/the-cutting-edge-firms-that-hire-it-staff-on-personality-over-skills",
 		"author": "Danny Palmer",
 		"publisher": "Computing.co.uk",
 		"summary": "When searching for a candidate to fill a vacancy, it's a given that the IT leader looking for a new employee will want to hire the best person possible. While many would automatically gravitate towards..."

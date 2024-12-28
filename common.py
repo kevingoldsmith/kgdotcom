@@ -164,6 +164,9 @@ def validate_url(address: str) -> Boolean:
     Args:
         address (str): the URL to check
     """
+    
+    #print(f"validating URL: {address}")
+    logger.debug(f"validating URL: {address}")
     response = True
     with open("ignore_error_urls.json", "r") as url_file:
         ignore_list = json.load(url_file)
@@ -172,7 +175,7 @@ def validate_url(address: str) -> Boolean:
         return True
 
     try:
-        resp = requests.get(address)
+        resp = requests.get(address, timeout=5.0)
         response = resp.status_code not in [400, 404, 403, 408, 409, 501, 502, 503]
     except requests.exceptions.RequestException:
         response = False

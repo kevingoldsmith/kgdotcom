@@ -32,7 +32,7 @@ from navigation import get_href_root, get_talk_root_for_talk
 
 # requests cache
 requests_cache.install_cache(expire_after=timedelta(days=1))
-requests_cache.remove_expired_responses()
+requests_cache.delete(expired=True)
 logger = logging.getLogger(__name__)
 
 
@@ -109,7 +109,9 @@ def get_embed_code_from_slides_url(slides_url: str) -> Union[str, None]:
         soup.iframe["width"] = "600"
         soup.iframe["height"] = str(int(600 * aspect_ratio))
         return soup.iframe.prettify()
-    logger.error("get slideshare embed failed")
+    if response.status_code == 404:
+        return f"<iframe src=\"{slides_url}\" width=\"597\" height=\"486\"></iframe>"
+    logger.error(f"get slideshare embed failed: {response}")
     return None
 
 
