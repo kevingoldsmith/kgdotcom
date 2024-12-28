@@ -30,9 +30,13 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
 
     ignore_files = ["403page.html", "404page.html", "nortonsw_8ae7e2e0-1022-0.html"]
     ignore_paths = ["contact"]
-    important_files = ['https://kevingoldsmith.com/resume.html',
-        'https://kevingoldsmith.com/writing.html', 'https://kevingoldsmith.com/talks/',
-        'https://kevingoldsmith.com/music.html', 'https://kevingoldsmith.com/photos/']
+    important_files = [
+        "https://kevingoldsmith.com/resume.html",
+        "https://kevingoldsmith.com/writing.html",
+        "https://kevingoldsmith.com/talks/",
+        "https://kevingoldsmith.com/music.html",
+        "https://kevingoldsmith.com/photos/",
+    ]
 
     sitemap_files = []
     path = get_output_directory(debug_mode)
@@ -45,7 +49,9 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
                     sitemap_files.append(
                         (
                             os.path.join(path, file),
-                            get_href_root(os.path.join(*path_list[1:], file), debug_mode),
+                            get_href_root(
+                                os.path.join(*path_list[1:], file), debug_mode
+                            ),
                         )
                     )
 
@@ -60,7 +66,7 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
                 date=datetime.datetime.fromtimestamp(
                     os.path.getmtime(sfile[0])
                 ).strftime("%Y-%m-%d"),
-                priority=priority
+                priority=priority,
             )
         )
 

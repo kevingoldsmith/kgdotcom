@@ -29,8 +29,9 @@ from exif import get_exif_data
 __PHOTOS_DIRECTORY = "photos"
 __SITE_URL = "https://kevingoldsmith.com/"
 
+
 class Gallery:
-    def __init__(self, name:str, directory:str, parent:Any = None) -> None:
+    def __init__(self, name: str, directory: str, parent: Any = None) -> None:
         self.name = name
         self.description = ""
         self.output_path = ""
@@ -41,8 +42,10 @@ class Gallery:
         self.parent = parent
 
     def __str__(self) -> str:
-        return f"{self.name} / subgalleries: {self.sub_galleries} / images: {self.images}"
-    
+        return (
+            f"{self.name} / subgalleries: {self.sub_galleries} / images: {self.images}"
+        )
+
     def __repr__(self) -> str:
         return str(self)
 
@@ -64,34 +67,36 @@ class Gallery:
     def load_JSON_metadata(self) -> None:
         json_file = os.path.join(self.directory, self.name + ".json")
         if os.path.exists(json_file):
-            with open(json_file, 'r') as f:
+            with open(json_file, "r") as f:
                 gallery_data = json.load(f)
-                self.name = gallery_data.get('name', self.name)
-                self.description = gallery_data.get('description', '')
-                preview_name = gallery_data.get('preview')
+                self.name = gallery_data.get("name", self.name)
+                self.description = gallery_data.get("description", "")
+                preview_name = gallery_data.get("preview")
                 if preview_name:
-                    list(filter(lambda image: image['name'] == preview_name, self.images))
+                    list(
+                        filter(lambda image: image["name"] == preview_name, self.images)
+                    )
 
 
 class Image:
-    __GALLERY_PHOTO_MAX = (2000,2000)
-    __GALLERY_THUMB_MAX = (1000,1000)
+    __GALLERY_PHOTO_MAX = (2000, 2000)
+    __GALLERY_THUMB_MAX = (1000, 1000)
 
-    def __init__(self, name:str, path:str) -> None:
+    def __init__(self, name: str, path: str) -> None:
         self.name = name
         self.path = path
         self.image = None
         self.exif = {}
         self.iptc = {}
         self.data_overrides = {}
-        self.load_image()        
+        self.load_image()
 
     def __str__(self) -> str:
         return f"{self.name} - {self.path}"
 
     def __repr__(self) -> str:
         return str(self)
-    
+
     def load_image(self) -> None:
         self.image = PILImage.open(self.path)
         self.exif = get_exif_data(self.image)
@@ -104,18 +109,28 @@ class Image:
         json_file = root_name + ".json"
         overrides = {}
         if os.path.exists(json_file):
-            with open(json_file, 'r') as f:
+            with open(json_file, "r") as f:
                 overrides = json.load(f)
-                self.name = overrides.get('name', self.name)
-                self.description = overrides.get('description', '')
+                self.name = overrides.get("name", self.name)
+                self.description = overrides.get("description", "")
         return overrides
 
     def get_simple_metadata(self) -> dict:
-        simple = {}        
+        simple = {}
         simple["title"] = self.iptc.get("title", self.name)
         if "description" in self.iptc:
             simple["description"] = self.iptc["description"]
-        exif_tags = ["Make", "Model", "LensModel", "FNumber", "FocalLength", "ExposureTime", "ISOSpeedRatings", "DateTimeOriginal", "GPSInfo"]
+        exif_tags = [
+            "Make",
+            "Model",
+            "LensModel",
+            "FNumber",
+            "FocalLength",
+            "ExposureTime",
+            "ISOSpeedRatings",
+            "DateTimeOriginal",
+            "GPSInfo",
+        ]
         friendly_tags = {
             "LensModel": "Lens Model",
             "FNumber": "f-number",
@@ -123,7 +138,7 @@ class Image:
             "ExposureTime": "Exposure Time",
             "ISOSpeedRatings": "ISO Speed",
             "DateTimeOriginal": "Capture Date",
-            "GPSInfo": "GPS"
+            "GPSInfo": "GPS",
         }
         for tag in exif_tags:
             if tag in self.exif:
@@ -138,40 +153,60 @@ class Image:
         for tag in override_tags:
             if tag in self.data_overrides:
                 simple[tag] = self.data_overrides[tag]
-        if ("Make" in simple) and ("Model" in simple) and simple["Model"].startswith(simple["Make"]):
-            simple["Model"] = simple["Model"][len(simple["Make"])+1:]
+        if (
+            ("Make" in simple)
+            and ("Model" in simple)
+            and simple["Model"].startswith(simple["Make"])
+        ):
+            simple["Model"] = simple["Model"][len(simple["Make"]) + 1 :]
 
         return simple
 
-    def generate_output_images(self, destination_path:str) -> None:
+    def generate_output_images(self, destination_path: str) -> None:
         self.output_filename = os.path.basename(self.path)
         self.output_file_path = os.path.join(destination_path, self.output_filename)
         filename_split = os.path.splitext(self.output_filename)
         self.thumb_filename = f"{filename_split[0]}-thumb{filename_split[1]}"
         self.thumb_file_path = os.path.join(destination_path, self.thumb_filename)
         pil_image = PILImage.open(self.path)
-        
+
         if not os.path.exists(self.output_file_path):
-            new_image = pil_image.resize(Image.get_resized_image_dimensions(pil_image.size, Image.__GALLERY_PHOTO_MAX), resample=PILImage.Resampling.LANCZOS)
+            new_image = pil_image.resize(
+                Image.get_resized_image_dimensions(
+                    pil_image.size, Image.__GALLERY_PHOTO_MAX
+                ),
+                resample=PILImage.Resampling.LANCZOS,
+            )
             new_image.save(self.output_file_path)
 
-        if not os.path.exists(self.thumb_file_path):        
-            new_thumbnail = pil_image.resize(Image.get_resized_image_dimensions(pil_image.size, Image.__GALLERY_THUMB_MAX), resample=PILImage.Resampling.LANCZOS)
+        if not os.path.exists(self.thumb_file_path):
+            new_thumbnail = pil_image.resize(
+                Image.get_resized_image_dimensions(
+                    pil_image.size, Image.__GALLERY_THUMB_MAX
+                ),
+                resample=PILImage.Resampling.LANCZOS,
+            )
             new_thumbnail.save(self.thumb_file_path)
 
-    def is_image_file(filename:str, extensions=['.jpg', '.jpeg', '.gif', '.png'])->bool:
+    def is_image_file(
+        filename: str, extensions=[".jpg", ".jpeg", ".gif", ".png"]
+    ) -> bool:
         return any(filename.endswith(e) for e in extensions)
 
-    def get_resized_image_dimensions(orig_size:Tuple[int,int], max_size:Tuple[int,int])->Tuple[int,int]:
+    def get_resized_image_dimensions(
+        orig_size: Tuple[int, int], max_size: Tuple[int, int]
+    ) -> Tuple[int, int]:
         if (orig_size[0] <= max_size[0]) and (orig_size[1] <= max_size[1]):
             return orig_size
-        aspect_ratio = float(orig_size[0])/float(orig_size[1])
-        if aspect_ratio > 1.0: #landscape
-            return (int(max_size[0]), int(max_size[1]/aspect_ratio))
-        return (int(max_size[0]*aspect_ratio), int(max_size[1]))
+        aspect_ratio = float(orig_size[0]) / float(orig_size[1])
+        if aspect_ratio > 1.0:  # landscape
+            return (int(max_size[0]), int(max_size[1] / aspect_ratio))
+        return (int(max_size[0] * aspect_ratio), int(max_size[1]))
 
 
-def get_prev_next_nextnext(image_list:List[Image], image:Image) -> Tuple[Image, Image, Image]:
+def get_prev_next_nextnext(
+    image_list: List[Image], image: Image
+) -> Tuple[Image, Image, Image]:
     prev_el = None
     next_el = None
     next_next_el = None
@@ -187,7 +222,7 @@ def get_prev_next_nextnext(image_list:List[Image], image:Image) -> Tuple[Image, 
     return prev_el, next_el, next_next_el
 
 
-def get_iptc_data(image:PILImage.Image) -> dict:
+def get_iptc_data(image: PILImage.Image) -> dict:
     """Return a dict with the raw IPTC data."""
 
     iptc_data = {}
@@ -203,20 +238,22 @@ def get_iptc_data(image:PILImage.Image) -> dict:
     # https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata
     # 2:05 is the IPTC title property
     if raw_iptc and (2, 5) in raw_iptc:
-        iptc_data["title"] = raw_iptc[(2, 5)].decode('utf-8', errors='replace')
+        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace")
 
     # 2:120 is the IPTC description property
     if raw_iptc and (2, 120) in raw_iptc:
-        iptc_data["description"] = raw_iptc[(2, 120)].decode('utf-8', errors='replace')
+        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace")
 
     # 2:105 is the IPTC headline property
     if raw_iptc and (2, 105) in raw_iptc:
-        iptc_data["headline"] = raw_iptc[(2, 105)].decode('utf-8', errors='replace')
+        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace")
 
     return iptc_data
 
 
-def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, debug_mode) -> None:
+def create_image_page(
+    gallery: Gallery, image: Image, path: str, root_path: str, debug_mode
+) -> None:
     logging.info("creating image page for: %s at %s", image.output_filename, path)
 
     simple_metadata = image.get_simple_metadata()
@@ -264,28 +301,30 @@ def create_image_page(gallery:Gallery, image:Image, path:str, root_path:str, deb
         file.write(gallery_page_template.render(pagevalues))
 
 
-def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = False) -> None:
+def create_gallery(
+    gallery: Gallery, path: str, depth: int = 0, debug_mode: bool = False
+) -> None:
     logging.info("creating gallery: %s at %s", gallery.name, path)
-    
+
     for sub_gallery in gallery.sub_galleries:
         subdirectory_name = "".join(c for c in sub_gallery.name if c.isalnum())
         gallery_path = os.path.join(path, subdirectory_name)
         if not os.path.exists(gallery_path):
             os.mkdir(gallery_path)
         sub_gallery.relative_path = subdirectory_name + "/"
-        create_gallery(sub_gallery, gallery_path, depth+1, debug_mode)
-    
+        create_gallery(sub_gallery, gallery_path, depth + 1, debug_mode)
+
     root_path = "/"
     if debug_mode:
         root_path = "../" * depth
-    
+
     for image in gallery.images:
         image.generate_output_images(path)
         image.image_page = image.name + ".html"
 
     for image in gallery.images:
         create_image_page(gallery, image, path, root_path, debug_mode)
-    
+
     # get the page template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
     gallery_page_template = env.get_template("photo-gallery-template.html")
@@ -306,10 +345,12 @@ def create_gallery(gallery:Gallery, path:str, depth:int = 0, debug_mode:bool = F
             relative_path = "../" + relative_path
         breadcrumbs.reverse()
 
-    #sorted_galleries = sorted(gallery.sub_galleries, key = lambda g: g.name)
-    sorted_galleries = sorted(gallery.sub_galleries, key = lambda g: len(g.sub_galleries)*2 + len(g.images))
+    # sorted_galleries = sorted(gallery.sub_galleries, key = lambda g: g.name)
+    sorted_galleries = sorted(
+        gallery.sub_galleries, key=lambda g: len(g.sub_galleries) * 2 + len(g.images)
+    )
     sorted_galleries.reverse()
-    sorted_images = sorted(gallery.images, key = lambda i: i.name)
+    sorted_images = sorted(gallery.images, key=lambda i: i.name)
 
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
@@ -335,7 +376,7 @@ def generate_photo_pages(debug_mode: bool = False) -> None:
     output_directory = os.path.join(common.get_output_directory(debug_mode), "photos/")
     if not os.path.exists(output_directory):
         os.mkdir(output_directory)
-    
+
     create_gallery(top_gallery, output_directory, 1, debug_mode)
 
 
@@ -346,9 +387,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     logger = logging.getLogger(__name__)
     if args.debug:
-        #common.initialize_logging(logging.DEBUG)
+        # common.initialize_logging(logging.DEBUG)
         common.initialize_logging(logging.INFO)
-    else:    
+    else:
         common.initialize_logging(logging.INFO)
 
     generate_photo_pages(args.debug)

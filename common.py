@@ -164,8 +164,8 @@ def validate_url(address: str) -> Boolean:
     Args:
         address (str): the URL to check
     """
-    
-    #print(f"validating URL: {address}")
+
+    # print(f"validating URL: {address}")
     logger.debug(f"validating URL: {address}")
     response = True
     with open("ignore_error_urls.json", "r") as url_file:
@@ -183,9 +183,7 @@ def validate_url(address: str) -> Boolean:
     if not response:
         try:
             logger.warning(
-                "URL failed to validate: %s, status code: %s",
-                address,
-                resp.status_code
+                "URL failed to validate: %s, status code: %s", address, resp.status_code
             )
         except NameError:
             logger.warning("URL failed to validate: %s", address)

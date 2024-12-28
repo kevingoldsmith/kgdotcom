@@ -35,9 +35,11 @@ def format_job_list(work: List[dict]) -> List[dict]:
         job = dict(
             title=work_item["position"],
             from_date=common.format_month_year_from_string(work_item["startDate"]),
-            to_date=common.format_month_year_from_string(work_item["endDate"])
-            if "endDate" in work_item
-            else "present",
+            to_date=(
+                common.format_month_year_from_string(work_item["endDate"])
+                if "endDate" in work_item
+                else "present"
+            ),
             company=work_item["company"],
             website=work_item.get("website"),
             city=work_item["location"],
@@ -124,11 +126,11 @@ def format_keynote_list(conferences: List[dict], debug_mode: boolean) -> List[di
                     conference=conference["conference"],
                     conference_url=conference.get("url"),
                     date=common.format_month_year_from_string(talk["date"]),
-                    location=common.format_city_state_country_from_location(
-                        talk["location"]
-                    )
-                    if "location" in talk
-                    else "virtual",
+                    location=(
+                        common.format_city_state_country_from_location(talk["location"])
+                        if "location" in talk
+                        else "virtual"
+                    ),
                 )
                 keynote_list.append(keynote)
     return keynote_list
