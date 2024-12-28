@@ -109,7 +109,9 @@ def get_embed_code_from_slides_url(slides_url: str) -> Union[str, None]:
         soup.iframe["width"] = "600"
         soup.iframe["height"] = str(int(600 * aspect_ratio))
         return soup.iframe.prettify()
-    logger.error("get slideshare embed failed")
+    if response.status_code == 404:
+        return f"<iframe src=\"{slides_url}\" width=\"597\" height=\"486\"></iframe>"
+    logger.error(f"get slideshare embed failed: {response}")
     return None
 
 
