@@ -107,21 +107,26 @@ def generate_contact_wallpaper(data:dict, card_page_url: str, output_directory:s
     output_path = os.path.join(output_directory, filename+'_wallpaper.png')
     logger.info("generating %s", output_path)
 
-    qr_img = qrcode.make(card_page_url)
+    qr_img = qrcode.make(card_page_url).convert('RGBA')
+    logger.debug(f"QR image size: {qr_img.size}, mode: {qr_img.mode}")
     # assuming qr_img is 410x410
 
     if 'card_photo' in data:
-        photo_image = Image.open(os.path.join('assets',data['card_photo']))
+        photo_image = Image.open(os.path.join('assets',data['card_photo'])).convert('RGBA')
     else:
         photo_image = Image.new('RGBA', (200,200))
+    logger.debug(f"Photo image size: {photo_image.size}, mode: {photo_image.mode}")
     
     template_file = os.path.join('assets',data.get('wallpaper_template', 'wallpaper_template.png'))
-    image_template = Image.open(template_file)
+    image_template = Image.open(template_file).convert('RGBA')
+    logger.debug(f"Template image size: {image_template.size}, mode: {image_template.mode}")
 
     output_image = Image.new('RGBA', image_template.size, image_template.getpixel((0,0)))
+    logger.debug(f"Output image size: {output_image.size}, mode: {output_image.mode}")
+
     output_image.paste(image_template, (0,0))
-    output_image.paste(qr_img, (335, 1440))
-    output_image.paste(photo_image, (70,69))
+    output_image.paste(qr_img, (335, 1440), qr_img)
+    output_image.paste(photo_image, (70,69), photo_image)
 
     draw = ImageDraw.Draw(output_image)
     text = f"{data['first_name']} {data['last_name']}"
