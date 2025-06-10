@@ -24,7 +24,7 @@ pycountry==24.6.1
 pycparser==2.22
 pylint==3.3.3
 qrcode==8.0
-requests==2.32.3
+requests==2.32.4
 requests-cache==1.2.1
 six==1.17.0
 soupsieve==2.6
