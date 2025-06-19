@@ -40,4 +40,4 @@ types-setuptools==75.6.0.20241223
 types-ujson==5.10.0.20240515
 typing_extensions==4.12.2
 url-normalize==1.4.3
-urllib3==2.3.0
+urllib3==2.5.0
