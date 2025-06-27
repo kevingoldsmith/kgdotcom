@@ -2,10 +2,13 @@
 __pycache__/
 *.pyc
 output/
+lkgoutput/
 testoutput/
+lkgtestoutput/
 .DS_Store
 venv
 cache.sqlite
 http_cache.sqlite
 photos/
 data/contact_me.json
+working_files/
