@@ -20,7 +20,7 @@ import os
 import jinja2  # type: ignore
 import qrcode
 
-import common
+from kgdotcom.core import common
 
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont

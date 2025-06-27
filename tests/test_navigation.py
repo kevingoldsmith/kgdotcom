@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import unittest
-import navigation
+from kgdotcom.core import navigation
 
 
 class TestNavigation(unittest.TestCase):

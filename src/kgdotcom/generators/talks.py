@@ -22,10 +22,10 @@ from operator import itemgetter
 import jinja2  # type: ignore
 from xmlrpc.client import boolean
 
-import common
-import conference_talk_types
-from generate_talk_page import generate_talk_page
-from navigation import get_talk_url
+from kgdotcom.core import common
+from kgdotcom.utils import talk_types as conference_talk_types
+from kgdotcom.generators.talk_page import generate_talk_page
+from kgdotcom.core.navigation import get_talk_url
 
 
 def generate_conference_pages(debug_mode: boolean = False) -> None:
