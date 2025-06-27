@@ -40,7 +40,13 @@ scan: venv/bin/activate
 	. venv/bin/activate; bandit -r . -f json -o security-report.json
 	# safety scan - need to register
 
+testcheckpoint: output
+	python3 tests/compare_outputs.py output lkgoutput
+
+testdebugcheckpoint: testoutput
+	python3 tests/compare_outputs.py testoutput lkgtestoutput
+
 list:
 	@grep '^[^#[:space:]].*:' Makefile
 
-.PHONY: clean test debug publish build list lint black mypy scan
+.PHONY: clean test debug publish build list lint black mypy scan checkpoint checkpoint-debug

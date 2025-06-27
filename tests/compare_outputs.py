@@ -7,8 +7,9 @@ import os
 import sys
 import filecmp
 import difflib
+import argparse
 from pathlib import Path
-from typing import Set, List, Tuple
+from typing import Set, Tuple
 
 
 def get_all_files(directory: Path) -> Set[str]:
@@ -17,7 +18,7 @@ def get_all_files(directory: Path) -> Set[str]:
     if not directory.exists():
         return files
     
-    for root, dirs, filenames in os.walk(directory):
+    for root, _, filenames in os.walk(directory):
         for filename in filenames:
             full_path = Path(root) / filename
             relative_path = full_path.relative_to(directory)
@@ -55,8 +56,8 @@ def show_file_diff(file1: Path, file2: Path, relative_path: str):
         
         diff = list(difflib.unified_diff(
             lines1, lines2,
-            fromfile=f"output/{relative_path}",
-            tofile=f"lkgoutput/{relative_path}",
+            fromfile=f"dir1/{relative_path}",
+            tofile=f"dir2/{relative_path}",
             lineterm=''
         ))
         
@@ -73,32 +74,46 @@ def show_file_diff(file1: Path, file2: Path, relative_path: str):
 
 def main():
     """Main comparison function."""
-    output_dir = Path("output")
-    lkg_dir = Path("lkgoutput")
+    parser = argparse.ArgumentParser(
+        description="Compare directory structures and file contents between two directories"
+    )
+    parser.add_argument("dir1", help="First directory to compare")
+    parser.add_argument("dir2", help="Second directory to compare")
+    parser.add_argument(
+        "--max-diffs", 
+        type=int, 
+        default=10, 
+        help="Maximum number of file diffs to show (default: 10)"
+    )
     
-    if not output_dir.exists():
-        print("ERROR: output/ directory does not exist")
+    args = parser.parse_args()
+    
+    dir1 = Path(args.dir1)
+    dir2 = Path(args.dir2)
+    
+    if not dir1.exists():
+        print(f"ERROR: {dir1} directory does not exist")
         sys.exit(1)
     
-    if not lkg_dir.exists():
-        print("ERROR: lkgoutput/ directory does not exist")
+    if not dir2.exists():
+        print(f"ERROR: {dir2} directory does not exist")
         sys.exit(1)
     
-    print("Comparing output/ and lkgoutput/ directories...")
+    print(f"Comparing {dir1} and {dir2} directories...")
     print("=" * 50)
     
     # Compare directory structures
-    common_files, only_in_output, only_in_lkg = compare_directories(output_dir, lkg_dir)
+    common_files, only_in_dir1, only_in_dir2 = compare_directories(dir1, dir2)
     
     # Report structure differences
-    if only_in_output:
-        print(f"\nFiles only in output/ ({len(only_in_output)}):")
-        for file in sorted(only_in_output):
+    if only_in_dir1:
+        print(f"\nFiles only in {dir1} ({len(only_in_dir1)}):")
+        for file in sorted(only_in_dir1):
             print(f"  + {file}")
     
-    if only_in_lkg:
-        print(f"\nFiles only in lkgoutput/ ({len(only_in_lkg)}):")
-        for file in sorted(only_in_lkg):
+    if only_in_dir2:
+        print(f"\nFiles only in {dir2} ({len(only_in_dir2)}):")
+        for file in sorted(only_in_dir2):
             print(f"  - {file}")
     
     # Compare common files
@@ -106,8 +121,8 @@ def main():
     identical_files = []
     
     for relative_path in sorted(common_files):
-        file1 = output_dir / relative_path
-        file2 = lkg_dir / relative_path
+        file1 = dir1 / relative_path
+        file2 = dir2 / relative_path
         
         if compare_file_contents(file1, file2):
             identical_files.append(relative_path)
@@ -125,30 +140,30 @@ def main():
             print(f"  ~ {file}")
         
         # Show diffs for different files
-        if len(different_files) <= 10:  # Only show diffs for first 10 files
+        if len(different_files) <= args.max_diffs:
             for relative_path in different_files:
-                file1 = output_dir / relative_path
-                file2 = lkg_dir / relative_path
+                file1 = dir1 / relative_path
+                file2 = dir2 / relative_path
                 show_file_diff(file1, file2, relative_path)
         else:
-            print(f"\n(Too many different files to show diffs - showing first 10)")
-            for relative_path in different_files[:10]:
-                file1 = output_dir / relative_path
-                file2 = lkg_dir / relative_path
+            print(f"\n(Too many different files to show diffs - showing first {args.max_diffs})")
+            for relative_path in different_files[:args.max_diffs]:
+                file1 = dir1 / relative_path
+                file2 = dir2 / relative_path
                 show_file_diff(file1, file2, relative_path)
     
     # Summary
     print("\n" + "=" * 50)
     print("SUMMARY:")
-    print(f"  Total files in output/: {len(get_all_files(output_dir))}")
-    print(f"  Total files in lkgoutput/: {len(get_all_files(lkg_dir))}")
+    print(f"  Total files in {dir1}: {len(get_all_files(dir1))}")
+    print(f"  Total files in {dir2}: {len(get_all_files(dir2))}")
     print(f"  Common files: {len(common_files)}")
-    print(f"  Files only in output/: {len(only_in_output)}")
-    print(f"  Files only in lkgoutput/: {len(only_in_lkg)}")
+    print(f"  Files only in {dir1}: {len(only_in_dir1)}")
+    print(f"  Files only in {dir2}: {len(only_in_dir2)}")
     print(f"  Identical files: {len(identical_files)}")
     print(f"  Different files: {len(different_files)}")
     
-    if different_files or only_in_output or only_in_lkg:
+    if different_files or only_in_dir1 or only_in_dir2:
         print("\nDirectories are DIFFERENT")
         sys.exit(1)
     else:
