@@ -26,8 +26,8 @@ import urllib
 from bs4 import BeautifulSoup  # type: ignore
 from xmlrpc.client import boolean
 
-import common
-from navigation import get_href_root, get_talk_root_for_talk
+from kgdotcom.core import common
+from kgdotcom.core.navigation import get_href_root, get_talk_root_for_talk
 
 
 # requests cache

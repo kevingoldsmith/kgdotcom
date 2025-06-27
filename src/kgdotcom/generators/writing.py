@@ -21,7 +21,7 @@ import os
 import jinja2  # type: ignore
 from xmlrpc.client import boolean
 
-from common import (
+from kgdotcom.core.common import (
     get_output_directory,
     validate_url,
     format_month_day_year_from_string,

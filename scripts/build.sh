@@ -31,10 +31,10 @@ else
 fi
 if ! $simple ; then
     if $debug ; then
-        python generate_site.py --debug
+        python -m kgdotcom.cli --debug
     else        
-        python generate_site.py
-        python generate_sitemap.py
+        python -m kgdotcom.cli
+        python -m kgdotcom.generators.sitemap
     fi
 fi
 

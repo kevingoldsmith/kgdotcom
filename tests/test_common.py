@@ -2,7 +2,7 @@
 
 import unittest
 import os
-import common
+from kgdotcom.core import common
 
 
 class TestCommon(unittest.TestCase):

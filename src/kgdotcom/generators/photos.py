@@ -23,8 +23,8 @@ from PIL import Image as PILImage
 from PIL import IptcImagePlugin
 from PIL.ExifTags import TAGS
 
-import common
-from exif import get_exif_data
+from kgdotcom.core import common
+from kgdotcom.utils.exif import get_exif_data
 
 __PHOTOS_DIRECTORY = "photos"
 __SITE_URL = "https://kevingoldsmith.com/"
