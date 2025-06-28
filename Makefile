@@ -52,4 +52,4 @@ testdebugcheckpoint: testoutput
 list:
 	@grep '^[^#[:space:]].*:' Makefile
 
-.PHONY: venv clean test debug publish build list lint black mypy scan checkpoint checkpoint-debug
+.PHONY: venv clean test debug publish build list lint black mypy scan checkpoint checkpoint-debug testcheckpoint testdebugcheckpoint
