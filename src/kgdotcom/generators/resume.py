@@ -20,7 +20,7 @@ from typing import List
 import jinja2  # type: ignore
 from xmlrpc.client import boolean
 
-import common
+from kgdotcom.core import common
 
 
 logger = logging.getLogger()

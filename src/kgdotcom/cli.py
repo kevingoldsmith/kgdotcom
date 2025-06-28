@@ -18,12 +18,8 @@ import os
 import jinja2  # type: ignore
 from xmlrpc.client import boolean
 
-import generate_resume_page
-import generate_writing_page
-import generate_talk_pages
-import generate_photo_pages
-import generate_contact_pages
-from common import get_output_directory, initialize_logging
+from kgdotcom.generators import resume, writing, talks, photos, contact
+from kgdotcom.core.common import get_output_directory, initialize_logging
 
 
 def generate_other_pages(debug_mode: boolean = False) -> None:
@@ -46,16 +42,16 @@ def generate_other_pages(debug_mode: boolean = False) -> None:
 
 def main(debug_mode: boolean = False) -> None:
     """call the methods in the other modules"""
-    generate_writing_page.generate_writing_page(
+    writing.generate_writing_page(
         debug_mode=debug_mode, output_file="writing.html"
     )
-    generate_talk_pages.generate_conference_pages(debug_mode=debug_mode)
-    generate_resume_page.generate_resume_page(
+    talks.generate_conference_pages(debug_mode=debug_mode)
+    resume.generate_resume_page(
         debug_mode=debug_mode, output_file="resume.html"
     )
-    generate_photo_pages.generate_photo_pages(debug_mode)
+    photos.generate_photo_pages(debug_mode)
     generate_other_pages(debug_mode)
-    generate_contact_pages.generate_contact_pages(debug_mode)
+    contact.generate_contact_pages(debug_mode)
 
 
 if __name__ == "__main__":

@@ -20,8 +20,8 @@ from typing import Tuple
 
 from xmlrpc.client import boolean
 
-from navigation import get_href_root
-from common import get_output_directory, initialize_logging
+from kgdotcom.core.navigation import get_href_root
+from kgdotcom.core.common import get_output_directory, initialize_logging
 
 
 def generate_sitemap(debug_mode: boolean = False) -> None:
