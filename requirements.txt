@@ -91,5 +91,5 @@ types-requests==2.28.11.4
 types-urllib3==1.26.25.3
 typing_extensions==4.14.0
 url-normalize==1.4.3
-urllib3==1.26.5
+urllib3==2.5.0
 wrapt==1.12.1
