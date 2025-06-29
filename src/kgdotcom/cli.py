@@ -42,13 +42,9 @@ def generate_other_pages(debug_mode: boolean = False) -> None:
 
 def main(debug_mode: boolean = False) -> None:
     """call the methods in the other modules"""
-    writing.generate_writing_page(
-        debug_mode=debug_mode, output_file="writing.html"
-    )
+    writing.generate_writing_page(debug_mode=debug_mode, output_file="writing.html")
     talks.generate_conference_pages(debug_mode=debug_mode)
-    resume.generate_resume_page(
-        debug_mode=debug_mode, output_file="resume.html"
-    )
+    resume.generate_resume_page(debug_mode=debug_mode, output_file="resume.html")
     photos.generate_photo_pages(debug_mode)
     generate_other_pages(debug_mode)
     contact.generate_contact_pages(debug_mode)
