@@ -41,7 +41,7 @@ The main orchestrator is `generate_site.py` which calls specialized generators:
 - **generate_resume_page.py** - Processes `data/resume.json` into resume HTML
 - **generate_writing_page.py** - Converts `data/writing.json` into writing portfolio
 - **generate_talk_pages.py** - Creates individual and index pages from `data/current_talks.json`
-- **generate_photo_pages.py** - Processes `photos/` directory with Sigal integration
+- **generate_photo_pages.py** - Processes `photos/` directory for photo galleries
 - **generate_contact_pages.py** - Dynamic contact pages with QR codes from `data/contact_me.json`
 - **generate_sitemap.py** - XML sitemap generation
 
@@ -65,15 +65,12 @@ Jinja2 templates in `templates/` directory generate final HTML. Each generator l
 - **Production**: Outputs to `output/` directory
 - **Debug**: Outputs to `testoutput/` directory with debug flags enabled
 
-### Photo Processing
-Uses a custom fork of Sigal (photo gallery generator) to process images in `photos/` directory, creating thumbnails and gallery pages with EXIF data extraction.
 
 ## Dependencies
 
 Key dependencies include:
 - Jinja2 for templating
 - Pillow for image processing  
-- Custom Sigal fork for photo galleries
 - QRCode generation for contact pages
 - Markdown processing for content
 - Type checking with mypy and formatting with black
