@@ -18,9 +18,9 @@ import logging
 import os
 from datetime import date
 from operator import itemgetter
+from xmlrpc.client import boolean
 
 import jinja2  # type: ignore
-from xmlrpc.client import boolean
 
 from kgdotcom.core import common
 from kgdotcom.utils import talk_types as conference_talk_types
@@ -32,13 +32,13 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
     # pylint: disable=R0914, R0912, R0915, R1702
     """Generate the index page and the individual talk pages"""
     # get the conference data
-    with open("data/conferences.json", "r") as file:
+    with open("data/conferences.json", "r", encoding="utf-8") as file:
         conference_talks = json.load(file)
 
     # create the output directory
     output_directory = os.path.join(common.get_output_directory(debug_mode), "talks/")
 
-    unique_talks: dict = {}
+    unique_talks = {}
     panels = []
     labs = []
     upcoming_talks = []
@@ -53,7 +53,9 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
                 talk_index = talk["root-talk"] if "root-talk" in talk else talk["talk"]
                 if not conference_talk_types.has_valid_talk_type(talk):
                     logger.error(
-                        f"{talk['talk']} has invalid type {talk.get('talk-type', 'NONE')}"
+                        "%s has invalid type %s",
+                        talk["talk"],
+                        talk.get("talk-type", "NONE"),
                     )
                 if conference_talk_types.is_talk(talk):
                     if len(talk_index) > 0:
@@ -68,10 +70,10 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
             else:
                 upcoming_talks.append(conference)
 
-    index_page: dict = {"talks": [], "labs": [], "panels": []}
+    index_page = {"talks": [], "labs": [], "panels": []}
 
     # now walk through our talk list generating pages for each talk
-    for talk_index in unique_talks:
+    for talk_index in unique_talks:  # pylint: disable=consider-using-dict-items
         index_page = generate_talk_page(
             talk_index,
             unique_talks[talk_index],
@@ -113,7 +115,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
     # generate the index page
     # get the list of current talks, they will go in a separate section
     current_talks = {}
-    with open("data/current_talks.json") as file:
+    with open("data/current_talks.json", encoding="utf-8") as file:
         current_talk_list = json.load(file)
         for talk in current_talk_list:
             current_talks[talk["talk"]] = talk["description"]
@@ -128,12 +130,12 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
             if "url" in panel:
                 common.validate_url(panel["url"])
             panel_list.append(
-                dict(
-                    date=panel["date"].strftime("%B %d, %Y"),
-                    url=panel.get("url"),
-                    name=panel["name"],
-                    conference=panel["conference"],
-                )
+                {
+                    "date": panel["date"].strftime("%B %d, %Y"),
+                    "url": panel.get("url"),
+                    "name": panel["name"],
+                    "conference": panel["conference"],
+                }
             )
 
     # generate list for the labs
@@ -142,28 +144,31 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
         sorted_labs = sorted(index_page["labs"], key=itemgetter("date"), reverse=True)
         for lab in sorted_labs:
             lab_list.append(
-                dict(
-                    date=lab["date"].strftime("%B %d, %Y"),
-                    name=lab["name"],
-                    conference=lab["conference"],
-                )
+                {
+                    "date": lab["date"].strftime("%B %d, %Y"),
+                    "name": lab["name"],
+                    "conference": lab["conference"],
+                }
             )
 
     # create the featured and other talk lists
     other_talk_list = []
     featured_talks = []
     if len(index_page["talks"]) > 0:
-        other_talks = dict()
+        other_talks = {}
         sorted_talks = sorted(index_page["talks"], key=itemgetter("date"), reverse=True)
         for talk in sorted_talks:
             talk["file"] = get_talk_url(talk["file"], debug_mode)
-            if talk["name"] in current_talks.keys():
+            if (
+                talk["name"] in current_talks.keys() # pylint: disable=consider-iterating-dictionary
+            ):
+                # this is a current talk, so we put it in the featured list
                 featured_talks.append(
-                    dict(
-                        file=talk["file"],
-                        name=talk["name"],
-                        description=current_talks[talk["name"]],
-                    )
+                    {
+                        "file": talk["file"],
+                        "name": talk["name"],
+                        "description": current_talks[talk["name"]],
+                    }
                 )
             else:
                 other_talks[talk["name"]] = {
@@ -182,7 +187,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
             else:
                 years = f"{last_year}"
             other_talk_list.append(
-                dict(file=other_talk["file"], name=other_talk_key, years=years)
+                {"file": other_talk["file"], "name": other_talk_key, "years": years}
             )
 
     # get the page template
@@ -197,12 +202,12 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
             year = common.get_talk_date(conference["talks"][0]).year
             conference_name = conference["conference"].replace("'", "&apos;")
             marker_list.append(
-                dict(
-                    name=conference_name,
-                    year=year,
-                    lat=conference["talks"][0]["location"]["gps"][0],
-                    lon=conference["talks"][0]["location"]["gps"][1],
-                )
+                {
+                    "name": conference_name,
+                    "year": year,
+                    "lat": conference["talks"][0]["location"]["gps"][0],
+                    "lon": conference["talks"][0]["location"]["gps"][1],
+                }
             )
 
             talks = []
@@ -210,14 +215,12 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
                 talk_name = talk["talk"].replace("'", "&apos;")
                 if "outputfilename" in talk:
                     talks.append(
-                        '<a href="{0}">{1}</a>'.format(
-                            get_talk_url(talk["outputfilename"], debug_mode), talk_name
-                        )
+                        f"<a href=\"{get_talk_url(talk['outputfilename'], debug_mode)}\">{talk_name}</a>" # pylint: disable=line-too-long
                     )
                 else:
                     talks.append(talk_name)
             info_list.append(
-                dict(conference_name=conference_name, year=year, talks=talks)
+                {"conference_name": conference_name, "year": year, "talks": talks}
             )
 
     future_talks = []
@@ -240,18 +243,18 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
                 if "url" in conference:
                     common.validate_url(conference["url"])
 
-                item = dict(
-                    url=conference.get("url"),
-                    name=conference_name,
-                    date=talk_date.strftime("%B %d, %Y"),
-                    location=conference_location,
-                )
+                item = {
+                    "url": conference.get("url"),
+                    "name": conference_name,
+                    "date": talk_date.strftime("%B %d, %Y"),
+                    "location": conference_location,
+                }
 
                 if item not in future_talks:
                     future_talks.append(item)
 
     # get the page variables (which becomes our template dictionary)
-    with open("data/pagevariables.json") as file:
+    with open("data/pagevariables.json", encoding="utf-8") as file:
         pagevariables = json.load(file)
 
     pagevalues = copy.deepcopy(pagevariables)
@@ -265,7 +268,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
         pagevalues["futuretalks"] = future_talks
     pagevalues["debug_mode"] = debug_mode
     # common.check_for_missing_values(pagevariables, pagevalues)
-    with open(output_directory + "index.html", "w") as file:
+    with open(output_directory + "index.html", "w", encoding="utf-8") as file:
         file.write(talkpagetemplate.render(pagevalues))
 
 

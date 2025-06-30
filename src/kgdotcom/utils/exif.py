@@ -135,30 +135,28 @@ def _process_exif_dict(exif_dict: Exif) -> Exif:
 
     if "FNumber" in exif_dict:
         exif_dict["FNumber"]["processed"] = _derationalize(exif_dict["FNumber"]["raw"])
-        exif_dict["FNumber"]["processed"] = "f{}".format(
-            exif_dict["FNumber"]["processed"]
-        )
+        exif_dict["FNumber"]["processed"] = f"f{exif_dict['FNumber']['processed']}"
 
     if "MaxApertureValue" in exif_dict:
         exif_dict["MaxApertureValue"]["processed"] = _derationalize(
             exif_dict["MaxApertureValue"]["raw"]
         )
-        exif_dict["MaxApertureValue"]["processed"] = "f{:2.1f}".format(
-            exif_dict["MaxApertureValue"]["processed"]
-        )
+        exif_dict["MaxApertureValue"][
+            "processed"
+        ] = f"f{exif_dict['MaxApertureValue']['processed']:2.1f}"
 
     if "FocalLength" in exif_dict:
         exif_dict["FocalLength"]["processed"] = _derationalize(
             exif_dict["FocalLength"]["raw"]
         )
-        exif_dict["FocalLength"]["processed"] = "{}mm".format(
-            exif_dict["FocalLength"]["processed"]
-        )
+        exif_dict["FocalLength"][
+            "processed"
+        ] = f"{exif_dict['FocalLength']['processed']}mm"
 
     if "FocalLengthIn35mmFilm" in exif_dict:
-        exif_dict["FocalLengthIn35mmFilm"]["processed"] = "{}mm".format(
-            exif_dict["FocalLengthIn35mmFilm"]["raw"]
-        )
+        exif_dict["FocalLengthIn35mmFilm"][
+            "processed"
+        ] = f"{exif_dict['FocalLengthIn35mmFilm']['raw']}mm"
 
     if "Orientation" in exif_dict:
         exif_dict["Orientation"]["processed"] = lookups["orientations"][
@@ -202,9 +200,9 @@ def _process_exif_dict(exif_dict: Exif) -> Exif:
         exif_dict["ExposureBiasValue"]["processed"] = _derationalize(
             exif_dict["ExposureBiasValue"]["raw"]
         )
-        exif_dict["ExposureBiasValue"]["processed"] = "{} EV".format(
-            exif_dict["ExposureBiasValue"]["processed"]
-        )
+        exif_dict["ExposureBiasValue"][
+            "processed"
+        ] = f"{exif_dict['ExposureBiasValue']['processed']} EV"
 
     if "GPSInfo" in exif_dict:
         if exif_dict["GPSInfo"]["raw"] is not dict:

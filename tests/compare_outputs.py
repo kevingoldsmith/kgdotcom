@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Compare directory structures and file contents between output/ and lkgoutput/ directories.
+Compare directory structures and file contents between output/ and lkgoutput/
+directories.
 """
 
 import os
@@ -77,10 +78,11 @@ def show_file_diff(file1: Path, file2: Path, relative_path: str):
         print(f"\n--- Binary file difference in {relative_path} ---")
 
 
-def main():
+def main(): # pylint: disable=too-many-locals,too-many-branches, too-many-statements
     """Main comparison function."""
     parser = argparse.ArgumentParser(
-        description="Compare directory structures and file contents between two directories"
+        description="Compare directory structures and file contents between two "+
+        "directories"
     )
     parser.add_argument("dir1", help="First directory to compare")
     parser.add_argument("dir2", help="Second directory to compare")
@@ -135,7 +137,7 @@ def main():
             different_files.append(relative_path)
 
     # Report file differences
-    print(f"\nFile comparison results:")
+    print("\nFile comparison results:")
     print(f"  Identical files: {len(identical_files)}")
     print(f"  Different files: {len(different_files)}")
 
@@ -152,7 +154,8 @@ def main():
                 show_file_diff(file1, file2, relative_path)
         else:
             print(
-                f"\n(Too many different files to show diffs - showing first {args.max_diffs})"
+                "\n(Too many different files to show diffs - showing first "+
+                f"{args.max_diffs})"
             )
             for relative_path in different_files[: args.max_diffs]:
                 file1 = dir1 / relative_path

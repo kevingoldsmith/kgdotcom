@@ -5,26 +5,20 @@
 create the page for a talk
 """
 
-__version__ = "2.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
 import copy
 import json
 import logging
 import os
-import requests
+import urllib
 from datetime import timedelta
 from operator import itemgetter
 from typing import Tuple, List, Union, Dict
+from xmlrpc.client import boolean
 
 import jinja2  # type: ignore
+import requests
 import requests_cache  # type: ignore
-import urllib
 from bs4 import BeautifulSoup  # type: ignore
-from xmlrpc.client import boolean
 
 from kgdotcom.core import common
 from kgdotcom.core.navigation import get_href_root, get_talk_root_for_talk
@@ -41,7 +35,8 @@ def get_embed_code_from_video_url(video_url: str) -> str:
     # https://youtu.be/_67NPdn6ygY
     # https://www.youtube.com/watch?v=7U3cO3h8Pao
     # https://vimeo.com/102774091
-    # <iframe width="560" height="315" src="https://www.youtube.com/embed/_67NPdn6ygY?rel=0"
+    # <iframe width="560" height="315"
+    #   src="https://www.youtube.com/embed/_67NPdn6ygY?rel=0"
     # 	frameborder="0" allowfullscreen></iframe>
     # https://developer.vimeo.com/apis/oembed
     # https://www.turingfest.com/2019/speakers/kevin-goldsmith?wvideo=46th18adn3
@@ -57,15 +52,16 @@ def get_embed_code_from_video_url(video_url: str) -> str:
             youtube_id = parsed_query["v"][0]
     elif parsed.netloc == "vimeo.com":
         params: Dict[str, Union[int, str]] = {"url": video_url, "width": 600}
-        response = requests.get("https://vimeo.com/api/oembed.json", params=params)
+        response = requests.get("https://vimeo.com/api/oembed.json", params=params,
+                                timeout=10)
         if response.status_code == 200:
             return response.json()["html"]
     if len(youtube_id) > 0:
         return (
             '<iframe width="600" height="338" '
-            'src="https://www.youtube-nocookie.com/embed/{0}?rel=0" frameborder="0" '
-            "allowfullscreen></iframe>"
-        ).format(youtube_id)
+            f'src="https://www.youtube-nocookie.com/embed/{youtube_id}?rel=0" '
+            'frameborder="0" allowfullscreen></iframe>'
+        )
     return ""
 
 
@@ -101,7 +97,7 @@ def get_embed_code_from_slides_url(slides_url: str) -> Union[str, None]:
     }
     response = requests.get(
         "https://www.slideshare.net/api/oembed/2",
-        params=params,
+        params=params, timeout=10
     )
     if response.status_code == 200:
         soup = BeautifulSoup(response.json()["html"], "html.parser")
@@ -111,7 +107,7 @@ def get_embed_code_from_slides_url(slides_url: str) -> Union[str, None]:
         return soup.iframe.prettify()
     if response.status_code == 404:
         return f'<iframe src="{slides_url}" width="597" height="486"></iframe>'
-    logger.error(f"get slideshare embed failed: {response}")
+    logger.error("get slideshare embed failed: %s", response)
     return None
 
 
@@ -129,7 +125,7 @@ def generate_talk_page(
     talkpagetemplate = env.get_template("talk-page-template.html")
 
     # get the page variables (which becomes our template dictionary)
-    with open("data/pagevariables.json") as file:
+    with open("data/pagevariables.json", encoding="utf-8") as file:
         pagevariables = json.load(file)
 
     talktitle = talk_index
@@ -137,7 +133,7 @@ def generate_talk_page(
     outputfilename = filetitle + ".html"
     filepath = output_directory + filetitle + ".html"
 
-    logger.info(f"creating file: {filetitle}")
+    logger.info("creating file: %s", filetitle)
 
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["title"] = f"{talktitle}: a talk by Kevin Goldsmith"
@@ -202,12 +198,12 @@ def generate_talk_page(
             )
 
             presentations.append(
-                dict(
-                    type=this_talk["talk-type"],
-                    conference_name=conference_name,
-                    date=talk_date.strftime("%B %d, %Y"),
-                    location=conference_location,
-                )
+                {
+                    "type": this_talk["talk-type"],
+                    "conference_name": conference_name,
+                    "date": talk_date.strftime("%B %d, %Y"),
+                    "location": conference_location,
+                }
             )
 
             if "reactions" in this_talk:
@@ -264,7 +260,7 @@ def generate_talk_page(
 
     common.check_for_missing_values(pagevariables, pagevalues)
 
-    with open(filepath, "w") as file:
+    with open(filepath, "w", encoding="utf-8") as file:
         file.write(talkpagetemplate.render(pagevalues))
 
     return index_page

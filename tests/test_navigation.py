@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 
+"""test the navigation module in the core package of kgdotcom"""
+
 import unittest
 from kgdotcom.core import navigation
 
 
 class TestNavigation(unittest.TestCase):
+    """test the navigation module in the core package of kgdotcom"""
+
     def test_get_href_root(self) -> None:
         """test get_href_root in module navigation"""
         self.assertEqual(navigation.get_href_root("index.html", True), "index.html")
@@ -17,7 +21,8 @@ class TestNavigation(unittest.TestCase):
         self.assertEqual(
             navigation.get_href_root("index.html"), "https://kevingoldsmith.com/"
         )
-        # this is bogus as a corner case, but it is the expected behavior, we should fail if it changes
+        # this is bogus as a corner case, but it is the expected behavior,
+        # we should fail if it changes
         self.assertEqual(
             navigation.get_href_root("../index.html", False),
             "https://kevingoldsmith.com/../",
@@ -47,7 +52,8 @@ class TestNavigation(unittest.TestCase):
             navigation.get_href_root("index.html", False, True),
             "https://kevingoldsmith.com/",
         )
-        # this is bogus as a corner case, but it is the expected behavior, we should fail if it changes
+        # this is bogus as a corner case, but it is the expected behavior,
+        # we should fail if it changes
         self.assertEqual(
             navigation.get_href_root("../index.html", False, True),
             "https://kevingoldsmith.com/../",

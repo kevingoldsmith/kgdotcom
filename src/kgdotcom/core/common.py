@@ -3,13 +3,6 @@
 
 """utility functions"""
 
-__version__ = "1.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
-# --------------------------------------------------------------------------------
 
 import json
 import logging
@@ -44,7 +37,8 @@ def get_output_directory(debug: bool = False) -> str:
 
 
 def obfusticate_email(email_address: str) -> str:
-    """generate a hard to mailto link that will make it difficult to grab the addr by bots"""
+    """generate a hard to mailto link that will make it difficult to grab the addr
+    by bots"""
     format_email_character = '<td style="padding: 0px;">{0}</td><!-- blah! -->'
     format_charref_character = "&#{0};"
     format_email = (
@@ -94,21 +88,21 @@ def generate_paragraphs_for_lines(string_with_lines: str) -> str:
             lines.append(string_with_lines[start:])
         start = end + 1
 
-    paragraphs = ""
-    for line in lines:
-        paragraphs += "<p>{0}</p>\n".format(line)
+    paragraphs = "".join(f"<p>{line}</p>\n" for line in lines)
     return paragraphs
 
 
 def format_city_state_country_from_location(location: dict) -> str:
-    """given a location, turn it into a nicely formatted city, state and country string"""
+    """given a location, turn it into a nicely formatted city,
+    state and country string"""
     format_location_city_country = (
         '<span class="conferencecity">{0}</span>, '
         '<span class="conferencecountry">{1}</span>'
     )
     format_location_city_state_country = (
         '<span class="conferencecity">{0}</span>, '
-        '<span class="conferenceState">{1}</span>, <span class="conferencecountry">{2}</span>'
+        '<span class="conferenceState">{1}</span>, '
+        '<span class="conferencecountry">{2}</span>'
     )
 
     city = location["city"] if "city" in location else ""
@@ -149,9 +143,10 @@ def generate_filename(filename: str) -> str:
     """create a good filename for a URL"""
     filename = filename.replace(" ", "-")
     filename = filename.replace("@", "at")
-    # cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
+    # cleanedFilename = unicodedata.normalize(
+    # 'NFKD', unicode(filename)).encode('ASCII', 'ignore')
     cleaned_filename = filename
-    valid_filename_chars = "-_%s%s" % (string.ascii_letters, string.digits)
+    valid_filename_chars = f"-_{string.ascii_letters}{string.digits}"
     new_filename = "".join(c for c in cleaned_filename if c in valid_filename_chars)
     new_filename = new_filename.replace("--", "-")
     return new_filename.lower()
@@ -166,9 +161,9 @@ def validate_url(address: str) -> Boolean:
     """
 
     # print(f"validating URL: {address}")
-    logger.debug(f"validating URL: {address}")
+    logger.debug("validating URL: %s", address)
     response = True
-    with open("ignore_error_urls.json", "r") as url_file:
+    with open("ignore_error_urls.json", "r", encoding="utf-8") as url_file:
         ignore_list = json.load(url_file)
 
     if address in ignore_list:

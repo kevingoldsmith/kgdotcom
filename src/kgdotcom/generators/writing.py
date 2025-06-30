@@ -5,21 +5,14 @@
 create the writing.html page for my website with a list of articles to read
 """
 
-__version__ = "2.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
-# --------------------------------------------------------------------------------
-
 import argparse
 import json
 import logging
 import os
 
-import jinja2  # type: ignore
 from xmlrpc.client import boolean
+
+import jinja2  # type: ignore
 
 from kgdotcom.core.common import (
     get_output_directory,
@@ -39,7 +32,7 @@ def generate_writing_page(
     debug_mode: boolean = True, output_file: str = "writing.html"
 ) -> None:
     """from the writing.json file, create the writing.html file"""
-    with open("data/writing.json") as file:
+    with open("data/writing.json", encoding="utf-8") as file:
         writings = json.load(file)
 
     writings = sorted(writings, key=lambda k: k["date"], reverse=True)
@@ -73,12 +66,14 @@ def generate_writing_page(
 
     output_directory = get_output_directory(debug_mode)
 
-    writings = dict(
-        debug_mode=debug_mode, writinglist=article_list, tagbuttons=button_list
-    )
+    writings = {
+        "debug_mode": debug_mode,
+        "writinglist": article_list,
+        "tagbuttons": button_list,
+    }
     output_path = os.path.join(output_directory, output_file)
-    logger.info(f"writing: {output_path}")
-    with open(output_path, "w") as file:
+    logger.info("writing: %s", output_path)
+    with open(output_path, "w", encoding="utf-8") as file:
         file.write(writingpagetemplate.render(writings))
 
 

@@ -5,18 +5,13 @@
 generate the pages for kevingoldsmith.com
 """
 
-__version__ = "2.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
 import argparse
 import logging
 import os
 
-import jinja2  # type: ignore
 from xmlrpc.client import boolean
+
+import jinja2  # type: ignore
 
 from kgdotcom.generators import resume, writing, talks, photos, contact
 from kgdotcom.core.common import get_output_directory, initialize_logging
@@ -33,10 +28,10 @@ def generate_other_pages(debug_mode: boolean = False) -> None:
 
     for page in other_pages:
         template = env.get_template(page[1])
-        page_data = dict(debug_mode=debug_mode)
+        page_data = {"debug_mode": debug_mode}
         output_path = os.path.join(get_output_directory(debug_mode), page[0])
-        logger.info(f"writing: {output_path}")
-        with open(output_path, "w") as file:
+        logger.info("writing: %s", output_path)
+        with open(output_path, "w", encoding="utf-8") as file:
             file.write(template.render(page_data))
 
 

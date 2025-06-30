@@ -16,7 +16,6 @@ import datetime
 import logging
 import os
 from string import Template
-from typing import Tuple
 
 from xmlrpc.client import boolean
 
@@ -25,8 +24,12 @@ from kgdotcom.core.common import get_output_directory, initialize_logging
 
 
 def generate_sitemap(debug_mode: boolean = False) -> None:
+    # pylint: disable-msg=too-many-locals
     """walks the output directory and adds html files to the sitemap.xml file"""
-    format_url = "<url><loc>{url}</loc><lastmod>{date}</lastmod><changefreq>monthly</changefreq><priority>{priority}</priority></url>"
+    format_url = (
+        "<url><loc>{url}</loc><lastmod>{date}</lastmod>"
+        "<changefreq>monthly</changefreq><priority>{priority}</priority></url>"
+    )
 
     ignore_files = ["403page.html", "404page.html", "nortonsw_8ae7e2e0-1022-0.html"]
     ignore_paths = ["contact"]
@@ -70,12 +73,14 @@ def generate_sitemap(debug_mode: boolean = False) -> None:
             )
         )
 
-    with open("templates/sitemap-template.xml") as template_file:
+    with open("templates/sitemap-template.xml", encoding="utf-8") as template_file:
         template = Template(template_file.read())
 
-    sitemap_dict = dict(urllist="\n".join(sitemap_entries))
+    sitemap_dict = {"urllist": "\n".join(sitemap_entries)}
     logging.info("writing: sitemap.xml")
-    with open(get_output_directory(debug_mode) + "sitemap.xml", "w") as output_file:
+    with open(
+        get_output_directory(debug_mode) + "sitemap.xml", "w", encoding="utf-8"
+    ) as output_file:
         output_file.write(template.substitute(sitemap_dict))
 
 
