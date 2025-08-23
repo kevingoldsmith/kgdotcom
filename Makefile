@@ -21,6 +21,7 @@ test: venv/bin/activate
 	. venv/bin/activate; scripts/run_tests.sh
 
 debug: venv/bin/activate
+	@echo "Building and starting development server..."
 	. venv/bin/activate; scripts/build.sh -cd
 
 build: venv/bin/activate
