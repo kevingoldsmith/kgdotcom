@@ -3126,8 +3126,8 @@
 		"url": "https://lu.ma/v8ihldrg?tk=blHbT3",
 		"talks": [
 			{
-				"talk": "TBD",
-				"talk-description": "TBD",
+				"talk": "You’re Not Building a Product, You’re Building a System",
+				"talk-description": "Most startups obsess over their demo, pitch, or MVP, but the real winners think bigger. In this keynote, Kevin Goldsmith (CTO, DistroKid; former Spotify, Adobe) will challenge founders to stop thinking in terms of features and start thinking in terms of systems: how you ship, how you listen, and how you grow. Drawing on decades of experience scaling engineering organizations and launching products at a global scale, Kevin shares the overlooked structures that turn prototypes into resilient businesses, as well as the traps that can kill momentum before it even starts. If you're building a startup, this is the talk that will change how you think about what you're really building.",
 				"talk-type": "keynote",
 				"date": "2025-07-30",
 				"length": 30,
