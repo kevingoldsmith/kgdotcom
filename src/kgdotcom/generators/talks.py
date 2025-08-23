@@ -161,7 +161,8 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
         for talk in sorted_talks:
             talk["file"] = get_talk_url(talk["file"], debug_mode)
             if (
-                talk["name"] in current_talks.keys() # pylint: disable=consider-iterating-dictionary
+                talk["name"]
+                in current_talks.keys()  # pylint: disable=consider-iterating-dictionary
             ):
                 # this is a current talk, so we put it in the featured list
                 featured_talks.append(
@@ -216,7 +217,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
                 talk_name = talk["talk"].replace("'", "&apos;")
                 if "outputfilename" in talk:
                     talks.append(
-                        f"<a href=\"{get_talk_url(talk['outputfilename'], debug_mode)}\">{talk_name}</a>" # pylint: disable=line-too-long
+                        f"<a href=\"{get_talk_url(talk['outputfilename'], debug_mode)}\">{talk_name}</a>"  # pylint: disable=line-too-long
                     )
                 else:
                     talks.append(talk_name)

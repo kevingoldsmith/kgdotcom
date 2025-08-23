@@ -29,9 +29,7 @@ from kgdotcom.core import common
 logger = logging.getLogger()
 
 
-def generate_card_file(
-    data: Dict[str, Any], output_directory: str
-) -> str:
+def generate_card_file(data: Dict[str, Any], output_directory: str) -> str:
     """
     generate_card_file _summary_
 
@@ -64,7 +62,8 @@ def generate_card_file(
 
 
 def generate_contact_page(
-    data: Dict[str, Any], output_directory: str, card_file_path: str) -> str:
+    data: Dict[str, Any], output_directory: str, card_file_path: str
+) -> str:
     """
     generate_contact_page _summary_
 
@@ -95,7 +94,8 @@ def generate_contact_page(
 
 
 def generate_contact_wallpaper(
-        data: dict, card_page_url: str, output_directory: str) -> None:
+    data: dict, card_page_url: str, output_directory: str
+) -> None:
     """
     generate_contact_wallpaper _summary_
 
@@ -177,13 +177,9 @@ def generate_contact_pages(debug_mode: bool = False) -> None:
         merged_data.update(common_contact_data)
         merged_data.update(page)
         card_file = generate_card_file(merged_data, output_directory)
-        card_page = generate_contact_page(
-            merged_data, output_directory, card_file
-        )
+        card_page = generate_contact_page(merged_data, output_directory, card_file)
         card_page_url = os.path.join("https://kevingoldsmith.com/contact", card_page)
-        generate_contact_wallpaper(
-            merged_data, card_page_url, output_directory
-        )
+        generate_contact_wallpaper(merged_data, card_page_url, output_directory)
 
 
 if __name__ == "__main__":

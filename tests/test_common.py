@@ -26,25 +26,29 @@ class TestCommon(unittest.TestCase):
         # valid e-mail address
         self.assertEqual(
             common.obfusticate_email("dev@null.com"),
-            ('<a href="mailto:&#100;&#101;&#118;&#64;&#110;&#117;&#108;&#108;&#46;'+
-             '&#99;&#111;&#109;?subject=Saw%20your%20resume"><table style="border-'+
-             'spacing: 0px;"><tr><td style="padding: 0px;">&#100;</td><!-- blah! -->'+
-             '<td style="padding: 0px;">&#101;</td><!-- blah! --><td style="padding:'+
-             ' 0px;">&#118;</td><!-- blah! --><td style="padding: 0px;">&#64;</td><!'+
-             '-- blah! --><td style="padding: 0px;">&#110;</td><!-- blah! --><td style'+
-             '="padding: 0px;">&#117;</td><!-- blah! --><td style="padding: 0px;">'+
-             '&#108;</td><!-- blah! --><td style="padding: 0px;">&#108;</td><!-- blah!'+
-             ' --><td style="padding: 0px;">&#46;</td><!-- blah! --><td style="'+
-             'padding: 0px;">&#99;</td><!-- blah! --><td style="padding: 0px;">&#111;'+
-             '</td><!-- blah! --><td style="padding: 0px;">&#109;</td><!-- blah! -->'+
-             '</tr></table></a>'),
+            (
+                '<a href="mailto:&#100;&#101;&#118;&#64;&#110;&#117;&#108;&#108;&#46;'
+                + '&#99;&#111;&#109;?subject=Saw%20your%20resume"><table style="border-'
+                + 'spacing: 0px;"><tr><td style="padding: 0px;">&#100;</td><!-- blah! -->'
+                + '<td style="padding: 0px;">&#101;</td><!-- blah! --><td style="padding:'
+                + ' 0px;">&#118;</td><!-- blah! --><td style="padding: 0px;">&#64;</td><!'
+                + '-- blah! --><td style="padding: 0px;">&#110;</td><!-- blah! --><td style'
+                + '="padding: 0px;">&#117;</td><!-- blah! --><td style="padding: 0px;">'
+                + '&#108;</td><!-- blah! --><td style="padding: 0px;">&#108;</td><!-- blah!'
+                + ' --><td style="padding: 0px;">&#46;</td><!-- blah! --><td style="'
+                + 'padding: 0px;">&#99;</td><!-- blah! --><td style="padding: 0px;">&#111;'
+                + '</td><!-- blah! --><td style="padding: 0px;">&#109;</td><!-- blah! -->'
+                + "</tr></table></a>"
+            ),
         )
 
         # invalid e-mail address (don't expect validation)
         self.assertEqual(
             common.obfusticate_email(""),
-            ('<a href="mailto:?subject=Saw%20your%20resume"><table style="border'+
-             '-spacing: 0px;"><tr></tr></table></a>'),
+            (
+                '<a href="mailto:?subject=Saw%20your%20resume"><table style="border'
+                + '-spacing: 0px;"><tr></tr></table></a>'
+            ),
         )
 
     def test_format_year_from_string(self) -> None:
@@ -116,9 +120,11 @@ class TestCommon(unittest.TestCase):
                     "gps": [41.853306, -87.616059],
                 }
             ),
-            ('<span class="conferencecity">Chicago</span>, <span class='+
-             '"conferenceState">IL</span>, <span class="conferencecountry">United'+
-             ' States</span>'),
+            (
+                '<span class="conferencecity">Chicago</span>, <span class='
+                + '"conferenceState">IL</span>, <span class="conferencecountry">United'
+                + " States</span>"
+            ),
         )
         self.assertEqual(
             common.format_city_state_country_from_location(
@@ -132,9 +138,11 @@ class TestCommon(unittest.TestCase):
                     "gps": [45.480890, 9.153661],
                 }
             ),
-            ('<span class="conferencecity">Milano</span>, <span class='+
-            '"conferenceState">MI</span>, <span class="conferencecountry">Italy'+
-            '</span>'),
+            (
+                '<span class="conferencecity">Milano</span>, <span class='
+                + '"conferenceState">MI</span>, <span class="conferencecountry">Italy'
+                + "</span>"
+            ),
         )
         self.assertEqual(
             common.format_city_state_country_from_location(
@@ -147,8 +155,10 @@ class TestCommon(unittest.TestCase):
                     "gps": [59.327917, 18.050547],
                 }
             ),
-            ('<span class="conferencecity">Stockholm</span>, <span ' +
-            'class="conferencecountry">Sweden</span>')
+            (
+                '<span class="conferencecity">Stockholm</span>, <span '
+                + 'class="conferencecountry">Sweden</span>'
+            ),
         )
 
     def test_validate_url(self) -> None:

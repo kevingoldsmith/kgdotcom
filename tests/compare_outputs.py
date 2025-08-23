@@ -78,11 +78,11 @@ def show_file_diff(file1: Path, file2: Path, relative_path: str) -> None:
         print(f"\n--- Binary file difference in {relative_path} ---")
 
 
-def main() -> None: # pylint: disable=too-many-locals,too-many-branches, too-many-statements
+def main() -> None:  # pylint: disable=too-many-locals,too-many-branches, too-many-statements
     """Main comparison function."""
     parser = argparse.ArgumentParser(
-        description="Compare directory structures and file contents between two "+
-        "directories"
+        description="Compare directory structures and file contents between two "
+        + "directories"
     )
     parser.add_argument("dir1", help="First directory to compare")
     parser.add_argument("dir2", help="Second directory to compare")
@@ -154,8 +154,8 @@ def main() -> None: # pylint: disable=too-many-locals,too-many-branches, too-man
                 show_file_diff(file1, file2, relative_path)
         else:
             print(
-                "\n(Too many different files to show diffs - showing first "+
-                f"{args.max_diffs})"
+                "\n(Too many different files to show diffs - showing first "
+                + f"{args.max_diffs})"
             )
             for relative_path in different_files[: args.max_diffs]:
                 file1 = dir1 / relative_path

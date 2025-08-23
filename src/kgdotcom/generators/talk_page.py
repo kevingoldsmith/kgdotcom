@@ -52,8 +52,9 @@ def get_embed_code_from_video_url(video_url: str) -> str:
             youtube_id = parsed_query["v"][0]
     elif parsed.netloc == "vimeo.com":
         params: Dict[str, Union[int, str]] = {"url": video_url, "width": 600}
-        response = requests.get("https://vimeo.com/api/oembed.json", params=params,
-                                timeout=10)
+        response = requests.get(
+            "https://vimeo.com/api/oembed.json", params=params, timeout=10
+        )
         if response.status_code == 200:
             return str(response.json()["html"])
     if len(youtube_id) > 0:
@@ -96,8 +97,7 @@ def get_embed_code_from_slides_url(slides_url: str) -> Optional[str]:
         "maxwidth": 600,
     }
     response = requests.get(
-        "https://www.slideshare.net/api/oembed/2",
-        params=params, timeout=10
+        "https://www.slideshare.net/api/oembed/2", params=params, timeout=10
     )
     if response.status_code == 200:
         soup = BeautifulSoup(response.json()["html"], "html.parser")

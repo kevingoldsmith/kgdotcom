@@ -31,10 +31,11 @@ __PHOTOS_DIRECTORY = "photos"
 __SITE_URL = "https://kevingoldsmith.com/"
 
 
-class Gallery: # pylint: disable=too-many-instance-attributes
+class Gallery:  # pylint: disable=too-many-instance-attributes
     """
-     A class representing a photo gallery.
+    A class representing a photo gallery.
     """
+
     def __init__(self, name: str, directory: str, parent: Any = None) -> None:
         self.name = name
         self.description = ""
@@ -85,10 +86,10 @@ class Gallery: # pylint: disable=too-many-instance-attributes
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
         if len(self.images) > 0:
-            self.preview_image = self.images[0] # type: ignore
+            self.preview_image = self.images[0]  # type: ignore
         self.load_JSON_metadata()
 
-    def load_JSON_metadata(self) -> None: # pylint: disable=invalid-name
+    def load_JSON_metadata(self) -> None:  # pylint: disable=invalid-name
         """
         load_JSON_metadata loads metadata from a JSON file
         with the same name as the gallery in the gallery's directory.
@@ -107,14 +108,15 @@ class Gallery: # pylint: disable=too-many-instance-attributes
                 preview_name = gallery_data.get("preview")
                 if preview_name:
                     list(
-                        filter(lambda image: image["name"] == preview_name, self.images) # type: ignore
+                        filter(lambda image: image["name"] == preview_name, self.images)  # type: ignore
                     )
 
 
-class Image: # pylint: disable=too-many-instance-attributes
-    """ A class representing a photo image.
+class Image:  # pylint: disable=too-many-instance-attributes
+    """A class representing a photo image.
     It contains the name, path, image data, EXIF data, IPTC data,
-    and any overrides from a JSON file with the same name as the image. """
+    and any overrides from a JSON file with the same name as the image."""
+
     __GALLERY_PHOTO_MAX = (2000, 2000)
     __GALLERY_THUMB_MAX = (1000, 1000)
 
@@ -151,7 +153,7 @@ class Image: # pylint: disable=too-many-instance-attributes
         self.data_overrides = self.get_JSON_overrides()
         self.image.close()
 
-    def get_JSON_overrides(self) -> dict: # pylint: disable=invalid-name
+    def get_JSON_overrides(self) -> dict:  # pylint: disable=invalid-name
         """
         get_JSON_overrides reads a JSON file with the same name as the image
 
@@ -317,7 +319,7 @@ def get_prev_next_nextnext(
             if index + 2 < len(image_list):
                 next_next_el = image_list[index + 2]
             break
-    return prev_el, next_el, next_next_el # type: ignore
+    return prev_el, next_el, next_next_el  # type: ignore
 
 
 def get_iptc_data(image: PILImage.Image) -> Dict[str, Any]:
@@ -328,26 +330,26 @@ def get_iptc_data(image: PILImage.Image) -> Dict[str, Any]:
     # with malformed metadata, see PIL/IptcImagePlugin.py", line 71.
     # ( https://github.com/python-pillow/Pillow/blob/
     # 9dd0348be2751beb2c617e32ff9985aa2f92ae5f/src/PIL/IptcImagePlugin.py#L71 )
-    raw_iptc = IptcImagePlugin.getiptcinfo(image) # type: ignore
+    raw_iptc = IptcImagePlugin.getiptcinfo(image)  # type: ignore
 
     # IPTC fields are catalogued in:
     # https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata
     # 2:05 is the IPTC title property
     if raw_iptc and (2, 5) in raw_iptc:
-        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace") # type: ignore
+        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace")  # type: ignore
 
     # 2:120 is the IPTC description property
     if raw_iptc and (2, 120) in raw_iptc:
-        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace") # type: ignore
+        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace")  # type: ignore
 
     # 2:105 is the IPTC headline property
     if raw_iptc and (2, 105) in raw_iptc:
-        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace") # type: ignore
+        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace")  # type: ignore
 
     return iptc_data
 
 
-def create_image_page( # pylint: disable=too-many-locals
+def create_image_page(  # pylint: disable=too-many-locals
     gallery: Gallery, image: Image, path: str, root_path: str, debug_mode: bool
 ) -> None:
     """create_image_page creates the image page for the given image in the given gallery
@@ -380,8 +382,9 @@ def create_image_page( # pylint: disable=too-many-locals
         relative_path = "../" + relative_path
     breadcrumbs.reverse()
 
-    previous, next_image, next_next_image = get_prev_next_nextnext(gallery.images,
-                                                                   image)
+    previous, next_image, next_next_image = get_prev_next_nextnext(
+        gallery.images, image
+    )
     image.image_page = image.name + ".html"
     image.image_page_path = os.path.join(path, image.name + ".html")
 
@@ -406,7 +409,7 @@ def create_image_page( # pylint: disable=too-many-locals
         file.write(gallery_page_template.render(pagevalues))
 
 
-def create_gallery( # pylint: disable=too-many-locals
+def create_gallery(  # pylint: disable=too-many-locals
     gallery: Gallery, path: str, depth: int = 0, debug_mode: bool = False
 ) -> None:
     """create_gallery creates the gallery pages
