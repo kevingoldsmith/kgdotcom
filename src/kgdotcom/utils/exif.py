@@ -3,6 +3,7 @@
 """
 
 # pylint: disable=C0103, R0912, R0915
+# mypy: ignore-errors
 
 import datetime
 

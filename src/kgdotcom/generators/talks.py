@@ -18,6 +18,7 @@ import logging
 import os
 from datetime import date
 from operator import itemgetter
+from typing import Any, Dict, List
 from xmlrpc.client import boolean
 
 import jinja2  # type: ignore
@@ -38,7 +39,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
     # create the output directory
     output_directory = os.path.join(common.get_output_directory(debug_mode), "talks/")
 
-    unique_talks = {}
+    unique_talks: Dict[str, Any] = {}
     panels = []
     labs = []
     upcoming_talks = []
@@ -70,7 +71,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
             else:
                 upcoming_talks.append(conference)
 
-    index_page = {"talks": [], "labs": [], "panels": []}
+    index_page: Dict[str, List[Any]] = {"talks": [], "labs": [], "panels": []}
 
     # now walk through our talk list generating pages for each talk
     for talk_index in unique_talks:  # pylint: disable=consider-using-dict-items

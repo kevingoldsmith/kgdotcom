@@ -15,7 +15,7 @@ from typing import Set, Tuple
 
 def get_all_files(directory: Path) -> Set[str]:
     """Get all files in directory relative to the directory root."""
-    files = set()
+    files: Set[str] = set()
     if not directory.exists():
         return files
 
@@ -48,7 +48,7 @@ def compare_file_contents(file1: Path, file2: Path) -> bool:
         return False
 
 
-def show_file_diff(file1: Path, file2: Path, relative_path: str):
+def show_file_diff(file1: Path, file2: Path, relative_path: str) -> None:
     """Show diff between two files."""
     try:
         with open(file1, "r", encoding="utf-8") as f1, open(
@@ -78,7 +78,7 @@ def show_file_diff(file1: Path, file2: Path, relative_path: str):
         print(f"\n--- Binary file difference in {relative_path} ---")
 
 
-def main(): # pylint: disable=too-many-locals,too-many-branches, too-many-statements
+def main() -> None: # pylint: disable=too-many-locals,too-many-branches, too-many-statements
     """Main comparison function."""
     parser = argparse.ArgumentParser(
         description="Compare directory structures and file contents between two "+

@@ -5,6 +5,8 @@
 create the talks/ subdirectory of the website
 """
 
+from __future__ import annotations
+
 __version__ = "3.0.0"
 __author__ = "Kevin Goldsmith"
 __copyright__ = "Copyright 2022, Kevin Goldsmith"
@@ -16,7 +18,7 @@ import copy
 import json
 import logging
 import os
-from typing import Any, Tuple, List
+from typing import Any, Tuple, List, Dict, Optional
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
@@ -38,10 +40,11 @@ class Gallery: # pylint: disable=too-many-instance-attributes
         self.description = ""
         self.output_path = ""
         self.directory = directory
-        self.sub_galleries = []
-        self.images = []
+        self.sub_galleries: List[Gallery] = []
+        self.images: List[Image] = []
         self.preview_image = None
         self.parent = parent
+        self.relative_path = ""
 
     def __str__(self) -> str:
         return (
@@ -82,7 +85,7 @@ class Gallery: # pylint: disable=too-many-instance-attributes
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
         if len(self.images) > 0:
-            self.preview_image = self.images[0]
+            self.preview_image = self.images[0] # type: ignore
         self.load_JSON_metadata()
 
     def load_JSON_metadata(self) -> None: # pylint: disable=invalid-name
@@ -104,7 +107,7 @@ class Gallery: # pylint: disable=too-many-instance-attributes
                 preview_name = gallery_data.get("preview")
                 if preview_name:
                     list(
-                        filter(lambda image: image["name"] == preview_name, self.images)
+                        filter(lambda image: image["name"] == preview_name, self.images) # type: ignore
                     )
 
 
@@ -118,15 +121,17 @@ class Image: # pylint: disable=too-many-instance-attributes
     def __init__(self, name: str, path: str) -> None:
         self.name = name
         self.path = path
-        self.image = None
-        self.exif = {}
-        self.iptc = {}
-        self.data_overrides = {}
+        self.image: Optional[PILImage.Image] = None
+        self.exif: Dict[str, Any] = {}
+        self.iptc: Dict[str, Any] = {}
+        self.data_overrides: Dict[str, Any] = {}
         self.output_filename = ""
         self.output_file_path = ""
         self.thumb_filename = ""
         self.thumb_file_path = ""
         self.description = ""
+        self.image_page = ""
+        self.image_page_path = ""
         self.load_image()
 
     def __str__(self) -> str:
@@ -141,7 +146,7 @@ class Image: # pylint: disable=too-many-instance-attributes
         It also checks for a JSON file with the same name as the image
         to override the name and description."""
         self.image = PILImage.open(self.path)
-        self.exif = get_exif_data(self.image)
+        self.exif = get_exif_data(self.image)  # type: ignore
         self.iptc = get_iptc_data(self.image)
         self.data_overrides = self.get_JSON_overrides()
         self.image.close()
@@ -249,7 +254,7 @@ class Image: # pylint: disable=too-many-instance-attributes
             new_thumbnail.save(self.thumb_file_path)
 
     @staticmethod
-    def is_image_file(filename: str, extensions=None) -> bool:
+    def is_image_file(filename: str, extensions: Optional[List[str]] = None) -> bool:
         """
         is_image_file checks if a file is an image file based on its extension.
 
@@ -312,40 +317,38 @@ def get_prev_next_nextnext(
             if index + 2 < len(image_list):
                 next_next_el = image_list[index + 2]
             break
-    return prev_el, next_el, next_next_el
+    return prev_el, next_el, next_next_el # type: ignore
 
 
-def get_iptc_data(image: PILImage.Image) -> dict:
+def get_iptc_data(image: PILImage.Image) -> Dict[str, Any]:
     """Return a dict with the raw IPTC data."""
 
-    iptc_data = {}
-    raw_iptc = {}
-
+    iptc_data: Dict[str, Any] = {}
     # PILs IptcImagePlugin issues a SyntaxError in certain circumstances
     # with malformed metadata, see PIL/IptcImagePlugin.py", line 71.
     # ( https://github.com/python-pillow/Pillow/blob/
     # 9dd0348be2751beb2c617e32ff9985aa2f92ae5f/src/PIL/IptcImagePlugin.py#L71 )
-    raw_iptc = IptcImagePlugin.getiptcinfo(image)
+    raw_iptc = IptcImagePlugin.getiptcinfo(image) # type: ignore
 
     # IPTC fields are catalogued in:
     # https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata
     # 2:05 is the IPTC title property
     if raw_iptc and (2, 5) in raw_iptc:
-        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace")
+        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace") # type: ignore
 
     # 2:120 is the IPTC description property
     if raw_iptc and (2, 120) in raw_iptc:
-        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace")
+        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace") # type: ignore
 
     # 2:105 is the IPTC headline property
     if raw_iptc and (2, 105) in raw_iptc:
-        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace")
+        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace") # type: ignore
 
     return iptc_data
 
 
 def create_image_page( # pylint: disable=too-many-locals
-    gallery: Gallery, image: Image, path: str, root_path: str, debug_mode
+    gallery: Gallery, image: Image, path: str, root_path: str, debug_mode: bool
 ) -> None:
     """create_image_page creates the image page for the given image in the given gallery
     :param gallery: the Gallery object that contains the image

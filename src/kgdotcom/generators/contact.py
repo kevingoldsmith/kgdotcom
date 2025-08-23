@@ -19,8 +19,9 @@ import os
 from datetime import datetime
 
 import jinja2  # type: ignore
-import qrcode
+import qrcode  # type: ignore
 from PIL import Image, ImageDraw, ImageFont
+from typing import Any, Dict
 
 from kgdotcom.core import common
 
@@ -29,7 +30,7 @@ logger = logging.getLogger()
 
 
 def generate_card_file(
-    data: dict, output_directory: str
+    data: Dict[str, Any], output_directory: str
 ) -> str:
     """
     generate_card_file _summary_
@@ -59,11 +60,11 @@ def generate_card_file(
     with open(output_path, "w", encoding="utf-8") as file:
         file.write(pagetemplate.render(data))
 
-    return data["vcf_filename"]
+    return str(data["vcf_filename"])
 
 
 def generate_contact_page(
-    data: dict, output_directory: str, card_file_path: str) -> str:
+    data: Dict[str, Any], output_directory: str, card_file_path: str) -> str:
     """
     generate_contact_page _summary_
 
@@ -90,7 +91,7 @@ def generate_contact_page(
     with open(output_path, "w", encoding="utf-8") as file:
         file.write(pagetemplate.render(data))
 
-    return data["filename"]
+    return str(data["filename"])
 
 
 def generate_contact_wallpaper(

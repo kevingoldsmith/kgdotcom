@@ -12,7 +12,7 @@ import os
 import urllib
 from datetime import timedelta
 from operator import itemgetter
-from typing import Tuple, List, Union, Dict
+from typing import Tuple, List, Union, Dict, Optional
 from xmlrpc.client import boolean
 
 import jinja2  # type: ignore
@@ -55,7 +55,7 @@ def get_embed_code_from_video_url(video_url: str) -> str:
         response = requests.get("https://vimeo.com/api/oembed.json", params=params,
                                 timeout=10)
         if response.status_code == 200:
-            return response.json()["html"]
+            return str(response.json()["html"])
     if len(youtube_id) > 0:
         return (
             '<iframe width="600" height="338" '
@@ -86,7 +86,7 @@ def generate_video_embed(recordings: list) -> Tuple[str, List[dict]]:
     return embed_video_string, other_recordings
 
 
-def get_embed_code_from_slides_url(slides_url: str) -> Union[str, None]:
+def get_embed_code_from_slides_url(slides_url: str) -> Optional[str]:
     """get the embed code from slideshare given a slideshare URL"""
     # https://www.slideshare.net/developers/oembed
     common.validate_url(slides_url)
@@ -104,7 +104,7 @@ def get_embed_code_from_slides_url(slides_url: str) -> Union[str, None]:
         aspect_ratio = float(soup.iframe["height"]) / float(soup.iframe["width"])
         soup.iframe["width"] = "600"
         soup.iframe["height"] = str(int(600 * aspect_ratio))
-        return soup.iframe.prettify()
+        return str(soup.iframe.prettify())
     if response.status_code == 404:
         return f'<iframe src="{slides_url}" width="597" height="486"></iframe>'
     logger.error("get slideshare embed failed: %s", response)
