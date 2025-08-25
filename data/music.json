@@ -1,0 +1,504 @@
+{
+  "featured_video": {
+    "type": "youtube",
+    "url": "//www.youtube.com/embed/Qw3YQL2Z_ZE?rel=0",
+    "description": "Featured music video"
+  },
+  "solo_projects": [
+    {
+      "name": "Answers to April",
+      "url": "https://answerstoapril.com/",
+      "releases": [
+        {
+          "title": "An Elegy for Brian McBride",
+          "image": "https://unitcircle.com/rekkids/img/tUC098-large.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only Single",
+          "year": 2023,
+          "url": ""
+        },
+        {
+          "title": "Interlude EP",
+          "image": "https://unitcircle.com/rekkids/img/tUC096-large.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only EP",
+          "year": 2023,
+          "url": "https://unitcircle.com/rekkids/releases/tUC096/"
+        },
+        {
+          "title": "Molochna",
+          "image": "https://unitcircle.com/rekkids/img/tUC093-large.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only Single",
+          "year": 2022,
+          "url": "https://unitcircle.com/rekkids/releases/tUC093/"
+        },
+        {
+          "title": "Lilium EP",
+          "image": "https://unitcircle.com/rekkids/img/tUC091-large.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only EP",
+          "year": 2015,
+          "url": "https://unitcircle.com/rekkids/releases/tUC091/"
+        }
+      ]
+    },
+    {
+      "name": "Those Who Attack Space",
+      "url": "https://thosewhoattackspace.com/",
+      "releases": [
+        {
+          "title": "Machine Men",
+          "image": "https://unitcircle.com/rekkids/img/tUC097-large.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only Single",
+          "year": 2023,
+          "url": "https://thosewhoattackspace.com/"
+        },
+        {
+          "title": "Astral Ambush",
+          "image": "https://thosewhoattackspace.com/astral_ambush@2x.png",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only Single",
+          "year": 2023,
+          "url": "https://thosewhoattackspace.com/"
+        },
+        {
+          "title": "Orange Outrage Machine",
+          "image": "https://thosewhoattackspace.com/those_who_attack_space_theme@2x.png",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only Single",
+          "year": 2022,
+          "url": "https://thosewhoattackspace.com/"
+        },
+        {
+          "title": "Those Who Attack Space Theme",
+          "image": "https://thosewhoattackspace.com/those_who_attack_space_theme@2x.png",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only Single",
+          "year": 2022,
+          "url": "https://thosewhoattackspace.com/"
+        }
+      ]
+    },
+    {
+      "name": "Intonarumori",
+      "url": "https://intonarumori.com",
+      "releases": [
+        {
+          "title": "1999|2021",
+          "image": "https://unitcircle.com/rekkids/img/tUC092-large@2X.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only LP",
+          "year": 2022,
+          "url": "https://www.unitcircle.com/rekkids/releases/tUC092/"
+        },
+        {
+          "title": "L-ST",
+          "image": "https://unitcircle.com/images/UCReleases/tUC090-big.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Digital-only EP",
+          "year": 2013,
+          "url": "http://unitcircle.com/rekkids/releases/tUC090/"
+        },
+        {
+          "title": "GTR Remix",
+          "image": "https://unitcircle.com/images/UCReleases/tUC089-big.jpg",
+          "label": "Singular Sphere Records",
+          "media": "CD",
+          "year": 2004,
+          "url": "http://www.singularsphere.com/releases/ss1.html"
+        },
+        {
+          "title": "Material",
+          "image": "https://unitcircle.com/images/UCReleases/tUC075-big.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "CD",
+          "year": 2002,
+          "url": "http://unitcircle.com/rekkids/releases/tUC075/"
+        },
+        {
+          "title": "Intonarumori",
+          "image": "https://unitcircle.com/images/UCReleases/tUC062-big.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "CD",
+          "year": 1999,
+          "url": "http://unitcircle.com/rekkids/releases/tUC062/"
+        },
+        {
+          "title": "Sound Collages 1991-1994",
+          "image": "https://unitcircle.com/images/UCReleases/tUC018-big.jpg",
+          "label": "Unit Circle Rekkids",
+          "media": "Cassette",
+          "year": 1995,
+          "url": "http://unitcircle.com/rekkids/releases/tUC018/",
+          "image_style": "width:121px; margin-left:40px;"
+        }
+      ],
+      "compilations": [
+        {
+          "song": "untitled",
+          "album": "Surround Sound Transmissions",
+          "label": "mimeograph",
+          "media": "DVD-R",
+          "year": 2004
+        },
+        {
+          "song": "Intonarumori Remix",
+          "album": "Ham and Treachery - Nervous",
+          "label": "All The Transients",
+          "media": "CDR",
+          "year": 2001
+        },
+        {
+          "song": "Live At Consolidated Works 12.15.00",
+          "album": "Sonicabal 2",
+          "label": "The SoniCabal",
+          "media": "CD",
+          "year": 2001
+        },
+        {
+          "song": "OS2",
+          "album": "Pleasure Vibe 2000 - A Unit Circle Rekkids Sampler",
+          "label": "Unit Circle Rekkids",
+          "media": "CD",
+          "year": 2000
+        },
+        {
+          "song": "JSI1",
+          "album": "SoniCabal 1999 Compilation",
+          "label": "The SoniCabal",
+          "media": "CD",
+          "year": 1999
+        },
+        {
+          "song": "KVRX Improvisation #1",
+          "album": "Educational Programming - KVRX Local LiveVolume 3",
+          "label": "KVRX Radio",
+          "media": "CD",
+          "year": 1999
+        },
+        {
+          "song": "Whispers, Murmurs, Mumbles, Grumbles & Gurgles",
+          "album": "Soundtrack To A Font",
+          "label": "P22 Records",
+          "media": "CD",
+          "year": 1998
+        },
+        {
+          "song": "Layer Parallelism",
+          "album": "Nocturne Concrète Compilation",
+          "label": "Unit Circle Rekkids",
+          "media": "CD",
+          "year": 1996
+        },
+        {
+          "song": "Focus and Decay",
+          "album": "RMI Mind/Body Vol. 3",
+          "label": "Atomic Novelties",
+          "media": "2CD",
+          "year": 1996
+        },
+        {
+          "album": "Unauthorized Taping Compilation",
+          "label": "NEC",
+          "media": "Cassette",
+          "year": 1995
+        },
+        {
+          "song": "Constant Bit Select of a Vector Net",
+          "album": "RMI Mind/Body Vol. 1",
+          "label": "Atomic Novelties",
+          "media": "2CD",
+          "year": 1992
+        },
+        {
+          "album": "Unit Circle Compilation",
+          "label": "Unit Circle Rekkids",
+          "media": "Cassette",
+          "year": 1991
+        }
+      ],
+      "singles": [
+        {
+          "title": "A Curse Uttered, A Dream Forgotten",
+          "image": "https://www.intonarumori.com/images/cursedreamcover300x300.jpg",
+          "label": "Singular Sphere Records",
+          "media": "MP3 single",
+          "year": 2008
+        },
+        {
+          "title": "Fridhemsplan",
+          "image": "https://www.intonarumori.com/images/fridhemsplancover300x300.jpg",
+          "label": "self-released",
+          "media": "MP3 single",
+          "year": 2013
+        },
+        {
+          "title": "We Aural Orbs",
+          "image": "https://www.kevingoldsmith.com/img/Intonarumori_WeAuralOrbs.jpg",
+          "label": "Silber",
+          "media": "MP3 single",
+          "year": 2019
+        },
+        {
+          "title": "On Hosier Lane, I Dreamt of Masonry",
+          "image": "https://www.kevingoldsmith.com/img/On_Hosier_Lane_I_dreamt_of_masonry.jpg",
+          "label": "Silber",
+          "media": "MP3 single",
+          "year": 2021
+        }
+      ]
+    }
+  ],
+  "embeds": {
+    "soundcloud": {
+      "url": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/2327847&color=ff6600&auto_play=false&show_artwork=true",
+      "width": "90%",
+      "height": "450"
+    },
+    "bandcamp": {
+      "url": "https://bandcamp.com/EmbeddedPlayer/album=3172204652/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/",
+      "width": "90%",
+      "height": "300px",
+      "link_text": "Transpacific by TRANSPACIFIC",
+      "link_url": "https://transpacific-us.bandcamp.com/album/transpacific"
+    },
+    "spotify": {
+      "url": "https://open.spotify.com/embed/playlist/4SFlRodzuAiLUwa0otEuUP?utm_source=generator",
+      "width": "100%",
+      "height": "352"
+    }
+  },
+  "videos": [
+    {
+      "type": "youtube",
+      "url": "//www.youtube.com/embed/WprxBfODLkE?rel=0",
+      "description": "Group performance video"
+    }
+  ],
+  "group_recordings": {
+    "releases": [
+      {
+        "band": "Transpacific",
+        "album": "Transpacific",
+        "label": "Unit Circle",
+        "media": "Digital/Vinyl",
+        "year": 2024,
+        "url": "https://transpacificsound.com/music"
+      },
+      {
+        "band": "transPacific",
+        "album": "2004 Demo",
+        "label": "self-released",
+        "media": "CDR",
+        "year": 2004
+      },
+      {
+        "band": "transAtlantic iceFloe",
+        "album": "2002 Demo",
+        "label": "self-released",
+        "media": "CDR",
+        "year": 2002
+      },
+      {
+        "band": "The Fellini Outtakes",
+        "album": "4-Play",
+        "label": "self-released",
+        "media": "Cassette",
+        "year": 1997
+      },
+      {
+        "band": "Vassily",
+        "album": "Kym / Allegory",
+        "label": "Unit Circle Rekkids",
+        "media": "7\" Vinyl Single",
+        "year": 1994
+      },
+      {
+        "band": "Vassily",
+        "album": "Faster 4A, Kill, Kill",
+        "label": "self-released",
+        "media": "Cassette",
+        "year": 1994
+      }
+    ],
+    "compilations": [
+      {
+        "band": "Transpacific",
+        "song": "Fall River Mills",
+        "album": "Hall of Mirrors",
+        "label": "Emperor Jones Records",
+        "media": "CD",
+        "year": 2005
+      },
+      {
+        "band": "Vassily",
+        "song": "Highgate",
+        "album": "Nocturne Concrète Compilation",
+        "label": "Unit Circle Rekkids",
+        "media": "CD",
+        "year": 1996
+      },
+      {
+        "band": "The Rotary Fields",
+        "song": "Red Sea",
+        "album": "Nocturne Concrète Compilation",
+        "label": "Unit Circle Rekkids",
+        "media": "CD",
+        "year": 1996
+      }
+    ]
+  },
+  "guest_performances": [
+    {
+      "band": "bios+a+ic",
+      "songs": ["Forever Is Another Place", "15 Degrees"],
+      "album": "Texture Blue",
+      "label": "Entropic Advance",
+      "media": "CD",
+      "year": 2003
+    },
+    {
+      "band": "Mason Jones",
+      "instrument": "Electric Cello",
+      "song": "A Slow, Wide Vibration (collaboration with Mason Jones and Bill Horist)",
+      "album": "Midnight in the Twilight Factory",
+      "label": "Monotremata Records",
+      "media": "CD",
+      "year": 1999
+    },
+    {
+      "band": "The Queen Annes",
+      "role": "Cello Arrangements, 2nd Cello",
+      "song": "Please Come Back",
+      "album": "Revenge!",
+      "label": "Vagrant Records",
+      "media": "CD",
+      "year": 1999
+    }
+  ],
+  "producer_credits": [
+    {
+      "band": "Intonarumori",
+      "album": "Material",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 2002
+    },
+    {
+      "band": "Amy Denio",
+      "album": "Tattoo",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 2000
+    },
+    {
+      "band": "Intonaumori",
+      "album": "Intonarumori",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 2000
+    },
+    {
+      "band": "Amy Denio",
+      "album": "Greatest Hits",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 1999
+    },
+    {
+      "band": "Trixie Does Speed",
+      "album": "self-titled",
+      "label": "Trixie Records",
+      "media": "Cassette",
+      "year": 1998
+    },
+    {
+      "band": "Bethany Curve",
+      "album": "Gold",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 1998
+    },
+    {
+      "band": "Bill Horist",
+      "album": "Soylent Radio",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 1997
+    },
+    {
+      "band": "SubArachnoid Space",
+      "album": "Ether Or",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 1997
+    },
+    {
+      "band": "Bethany Curve",
+      "album": "Skies A Crossed Sky",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 1996
+    },
+    {
+      "album": "Nocturne Concrète Compilation",
+      "label": "Unit Circle Rekkids",
+      "media": "CD",
+      "year": 1996
+    },
+    {
+      "band": "Intonarumori",
+      "album": "Sound Collages",
+      "label": "Unit Circle Rekkids",
+      "year": 1996
+    },
+    {
+      "band": "The Garden",
+      "album": "A Doll's Life",
+      "label": "Unit Circle Rekkids",
+      "media": "7\" Vinyl",
+      "year": 1996
+    },
+    {
+      "band": "Vassily",
+      "album": "Kym / Allegory",
+      "label": "Unit Circle Rekkids",
+      "media": "7\" Vinyl",
+      "year": 1995
+    },
+    {
+      "album": "Unit Circle Compilation",
+      "label": "Unit Circle Rekkids",
+      "media": "Cassette",
+      "year": 1991
+    }
+  ],
+  "other_credits": [
+    {
+      "title": "The Fourth Dimension",
+      "description": "Drew Olbrich/Gilles Dezeustre, iPhone/iPad application, 2012 - Sound Design",
+      "url": "http://fourthdimensionapp.com/",
+      "year": 2012
+    },
+    {
+      "title": "Sundance Film Festival",
+      "description": "Hammered Design / Disney Pictures Inc. - Conceptual Sound Design for 1999 Sundance Film Festival Trailers",
+      "year": 1999
+    },
+    {
+      "band": "The Queen Annes",
+      "role": "Cello Arrangement",
+      "song": "Please Don't Go",
+      "label": "Vagrant Records",
+      "media": "CD",
+      "year": 1999
+    },
+    {
+      "title": "16 Shades of Spring",
+      "description": "Magical Pony Productions - Produced several new longform musical compositions and vignettes for original theatre production - presented at The Empty Space Theatre, Seattle, WA",
+      "year": 1996
+    }
+  ]
+}

@@ -13,7 +13,7 @@ from xmlrpc.client import boolean
 
 import jinja2  # type: ignore
 
-from kgdotcom.generators import resume, writing, talks, photos, contact
+from kgdotcom.generators import resume, writing, talks, photos, contact, music
 from kgdotcom.core.common import get_output_directory, initialize_logging
 
 
@@ -21,7 +21,6 @@ def generate_other_pages(debug_mode: boolean = False) -> None:
     """generate the simpler pages"""
     other_pages = [
         ("index.html", "site-index-template.html"),
-        ("music.html", "music-template.html"),
         ("photography.html", "photography-template.html"),
     ]
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
@@ -41,6 +40,7 @@ def main(debug_mode: boolean = False) -> None:
     talks.generate_conference_pages(debug_mode=debug_mode)
     resume.generate_resume_page(debug_mode=debug_mode, output_file="resume.html")
     photos.generate_photo_pages(debug_mode)
+    music.generate_music_page(debug_mode=debug_mode, output_file="music.html")
     generate_other_pages(debug_mode)
     contact.generate_contact_pages(debug_mode)
 
