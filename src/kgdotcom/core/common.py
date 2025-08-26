@@ -48,6 +48,12 @@ DEPENDENCIES = {
         "templates": ["templates/contactpage.html", "templates/contactfile.vcf"],
         "static": ["assets/"],
         "output_pattern": "contact/*"
+    },
+    "talks/": {
+        "data": ["data/conferences.json", "data/current_talks.json", "data/pagevariables.json"],
+        "templates": ["templates/talk-index-template.html", "templates/talk-page-template.html"],
+        "static": ["public/talks/"],
+        "output_pattern": "talks/*.html"
     }
 }
 
@@ -348,6 +354,54 @@ def get_contact_output_files(debug_mode: bool = False) -> List[str]:
     return contact_outputs
 
 
+def get_talks_output_files(debug_mode: bool = False) -> List[str]:
+    """Get all talk files that should exist based on talk data"""
+    talk_outputs = []
+    output_dir = get_output_directory(debug_mode)
+    talks_dir = os.path.join(output_dir, "talks")
+    
+    # Always include the main index page
+    index_file = os.path.join(talks_dir, "index.html")
+    talk_outputs.append(index_file)
+    
+    # Include static files copied from public/talks/
+    public_talks_dir = "public/talks/"
+    if os.path.exists(public_talks_dir):
+        for item in os.listdir(public_talks_dir):
+            if not item.startswith('.'):  # Skip hidden files
+                static_output = os.path.join(talks_dir, item)
+                talk_outputs.append(static_output)
+    
+    # Include generated individual talk pages
+    try:
+        with open("data/conferences.json", "r", encoding="utf-8") as file:
+            conference_talks = json.load(file)
+        
+        unique_talks = set()
+        for conference in conference_talks:
+            for talk in conference["talks"]:
+                # Mirror the logic from talks.py for determining unique talks
+                from datetime import date
+                if get_talk_date(talk) < date.today():
+                    talk_index = talk.get("root-talk", talk["talk"])
+                    # Only add talks that get individual pages (talk and keynote types)
+                    talk_type = talk.get("talk-type", "")
+                    if talk_type in ["talk", "keynote"]:  # Only these types get individual pages
+                        if talk_index:
+                            unique_talks.add(talk_index)
+        
+        # Generate output file paths for each unique talk
+        for talk_title in unique_talks:
+            filename = generate_filename(talk_title) + ".html"
+            talk_file = os.path.join(talks_dir, filename)
+            talk_outputs.append(talk_file)
+            
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+    
+    return talk_outputs
+
+
 def needs_rebuild(page_key: str, debug_mode: bool = False) -> bool:
     """Determine if a page needs to be rebuilt"""
     output_dir = get_output_directory(debug_mode)
@@ -357,6 +411,8 @@ def needs_rebuild(page_key: str, debug_mode: bool = False) -> bool:
         return needs_photos_rebuild(debug_mode)
     elif page_key == "contact/":
         return needs_contacts_rebuild(debug_mode)
+    elif page_key == "talks/":
+        return needs_talks_rebuild(debug_mode)
     
     # Standard single-file output
     output_file = os.path.join(output_dir, page_key)
@@ -397,6 +453,23 @@ def needs_contacts_rebuild(debug_mode: bool = False) -> bool:
     
     # If any contact output is missing or older than dependencies
     for output_file in contact_outputs:
+        if not os.path.exists(output_file):
+            return True
+        if os.path.getmtime(output_file) < latest_dep_mtime:
+            return True
+    
+    return False
+
+
+def needs_talks_rebuild(debug_mode: bool = False) -> bool:
+    """Special handling for talks - check if any talk outputs need rebuilding"""
+    dependencies = get_all_dependencies("talks/")
+    latest_dep_mtime = get_latest_modification_time(dependencies)
+    
+    talk_outputs = get_talks_output_files(debug_mode)
+    
+    # If any talk output is missing or older than dependencies
+    for output_file in talk_outputs:
         if not os.path.exists(output_file):
             return True
         if os.path.getmtime(output_file) < latest_dep_mtime:

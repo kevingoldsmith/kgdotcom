@@ -42,6 +42,7 @@ def main(debug_mode: boolean = False, force_rebuild: boolean = False) -> None:
         "resume.html": lambda: resume.generate_resume_page(debug_mode=debug_mode, output_file="resume.html"),
         "photos/": lambda: photos.generate_photo_pages(debug_mode),
         "contact/": lambda: contact.generate_contact_pages(debug_mode),
+        "talks/": lambda: talks.generate_conference_pages(debug_mode=debug_mode),
     }
     
     for page_key, generator_func in generators.items():
@@ -51,9 +52,8 @@ def main(debug_mode: boolean = False, force_rebuild: boolean = False) -> None:
         else:
             logger.info("Skipping %s - up to date", page_key)
     
-    # Always generate talks pages and other pages for now
+    # Always generate other pages for now
     # TODO: Add dependency tracking for these
-    talks.generate_conference_pages(debug_mode=debug_mode)
     generate_other_pages(debug_mode)
 
 
