@@ -90,55 +90,52 @@
     {% set active_page = 'musician' %}
     {% include 'header.html' %}
     <main id="content">
-        {% if music.featured_video %}
+        {%- if music.featured_video %}
         <div class="ut"><iframe class="ut youtube" src="{{ music.featured_video.url }}" frameborder="0" allowfullscreen></iframe></div>
-        {% endif %}
-        
-        {% for project in music.solo_projects %}
+        {%- endif %}
+        {%- for project in music.solo_projects %}
         <h2>Solo Recordings (<a href="{{ project.url }}">{{ project.name }}</a>)</h2>
         <section id="{{ project.name|replace(' ', '')|replace(' Who ', 'Who') }}SoloReleases" class="release-box-list">
             <h3>Solo Releases</h3>
             <ul>
-                {% for release in project.releases %}
+                {%- for release in project.releases %}
                 <li>
-                    {% if release.url %}<a href="{{ release.url }}">{% endif %}
+                    {%- if release.url %}<a href="{{ release.url }}">{% endif -%}
                     <img src="{{ release.image }}"{% if release.image_style %} style="{{ release.image_style }}"{% endif %} />
-                    {% if release.url %}</a>{% endif %}
+                    {%- if release.url %}</a>{% endif %}
                     <div>
-                        {% if release.url %}<a href="{{ release.url }}">{% endif %}
+                        {%- if release.url %}<a href="{{ release.url }}">{% endif -%}
                         <span class="release-album">{{ release.title }}</span>
-                        {% if release.url %}</a>{% endif %}, 
+                        {%- if release.url %}</a>{% endif %}, 
                         <span class="release-recordlabel">{{ release.label }}</span>, 
                         <span class="release-media">{{ release.media }}</span>, 
                         <span class="release-year">{{ release.year }}</span>
                     </div>
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
-        
-        {% if project.compilations %}
+        {%- if project.compilations %}
         <section id="{{ project.name|replace(' ', '')|lower }}-compilations">
             <h3>Compilations</h3>
             <ul>
-                {% for comp in project.compilations %}
+                {%- for comp in project.compilations %}
                 <li>
-                    {% if comp.song %}<span class="release-song">{{ comp.song }}</span>, {% endif %}
+                    {%- if comp.song %}<span class="release-song">{{ comp.song }}</span>, {% endif -%}
                     <span class="release-album">{{ comp.album }}</span>, 
                     <span class="release-recordlabel">{{ comp.label }}</span>, 
                     <span class="release-media">{{ comp.media }}</span>, 
                     <span class="release-year">{{ comp.year }}</span>
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
-        {% endif %}
-        
-        {% if project.singles %}
+        {%- endif %}
+        {%- if project.singles %}
         <section id="{{ project.name|replace(' ', '')|replace(' Who ', 'Who') }}Singles" class="release-box-list">
             <h3>Singles</h3>
             <ul>
-                {% for single in project.singles %}
+                {%- for single in project.singles %}
                 <li>
                     <img src="{{ single.image }}" />
                     <div>
@@ -148,46 +145,42 @@
                         <span class="release-year">{{ single.year }}</span>
                     </div>
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
-        {% endif %}
-        
-        {% if loop.index == 3 and music.embeds.soundcloud %}
+        {%- endif %}
+        {%- if loop.index == 3 and music.embeds.soundcloud %}
         <div id="soundcloud" class="ut">
             <iframe width="{{ music.embeds.soundcloud.width }}" height="{{ music.embeds.soundcloud.height }}" scrolling="no" frameborder="no" src="{{ music.embeds.soundcloud.url }}"></iframe>
         </div>
-        {% endif %}
-        {% endfor %}
-        
+        {%- endif %}
+        {%- endfor %}
         <h2>Group Recordings</h2>
         <section>
             <h3>Releases</h3>
             <ul>
-                {% for release in music.group_recordings.releases %}
+                {%- for release in music.group_recordings.releases %}
                 <li>
                     <span class="release-band">{{ release.band }}</span> - 
-                    {% if release.url %}<span class="release-album"><a href="{{ release.url }}">{{ release.album }}</a></span>{% else %}<span class="release-album">{{ release.album }}</span>{% endif %} - 
+                    {%- if release.url %}<span class="release-album"><a href="{{ release.url }}">{{ release.album }}</a></span>{%- else %}<span class="release-album">{{ release.album }}</span>{%- endif %} - 
                     <span class="release-recordlabel">{{ release.label }}</span>, 
                     <span class="release-media">{{ release.media }}</span>, 
                     <span class="release-year">{{ release.year }}</span>
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
-        
-        {% if music.embeds.bandcamp %}
+        {%- if music.embeds.bandcamp %}
         <div id="bandcamp" class="ut">
             <iframe style="border: 0; width: {{ music.embeds.bandcamp.width }}; height: {{ music.embeds.bandcamp.height }};" src="{{ music.embeds.bandcamp.url }}" seamless>
                 <a href="{{ music.embeds.bandcamp.link_url }}">{{ music.embeds.bandcamp.link_text }}</a>
             </iframe>
         </div>
-        {% endif %}
-        
+        {%- endif %}
         <section>
             <h3>Compilations</h3>
             <ul>
-                {% for comp in music.group_recordings.compilations %}
+                {%- for comp in music.group_recordings.compilations %}
                 <li>
                     <span class="release-band">{{ comp.band }}</span> - 
                     <span class="release-song">{{ comp.song }}</span>, 
@@ -196,76 +189,71 @@
                     <span class="release-media">{{ comp.media }}</span>, 
                     <span class="release-year">{{ comp.year }}</span>
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
-        
-        {% for video in music.videos %}
+        {%- for video in music.videos %}
         <div class="ut">
             <iframe class="youtube" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
         </div>
-        {% endfor %}
-        
+        {%- endfor %}
         <h2>Guest Performer</h2>
         <section>
             <ul>
-                {% for guest in music.guest_performances %}
+                {%- for guest in music.guest_performances %}
                 <li>
                     <span class="release-band">{{ guest.band }}</span>
-                    {% if guest.instrument %} - {{ guest.instrument }}{% endif %}
-                    {% if guest.role %} - {{ guest.role }}{% endif %} - 
-                    {% if guest.songs %}
-                        {% for song in guest.songs %}
-                            <span class="release-song">{{ song }}</span>{% if not loop.last %} &amp; {% endif %}
-                        {% endfor %}
-                    {% else %}
+                    {%- if guest.instrument %} - {{ guest.instrument }}{%- endif -%}
+                    {%- if guest.role %} - {{ guest.role }}{%- endif %} - 
+                    {%- if guest.songs -%}
+                        {%- for song in guest.songs -%}
+                            <span class="release-song">{{ song }}</span>{%- if not loop.last %} &amp; {%- endif -%}
+                        {%- endfor -%}
+                    {%- else %}
                         <span class="release-song">{{ guest.song }}</span>
-                    {% endif %}, 
+                    {%- endif %}, 
                     <span class="release-album">{{ guest.album }}</span> - 
                     <span class="release-recordlabel">{{ guest.label }}</span>, 
                     <span class="release-media">{{ guest.media }}</span>, 
                     <span class="release-year">{{ guest.year }}</span>
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
-        
         <h2>Producer</h2>
         <section>
             <ul>
-                {% for prod in music.producer_credits %}
+                {%- for prod in music.producer_credits %}
                 <li>
-                    {% if prod.band %}<span class="release-band">{{ prod.band }}</span>, {% endif %}
+                    {%- if prod.band %}<span class="release-band">{{ prod.band }}</span>, {%- endif %}
                     <span class="release-album">{{ prod.album }}</span>, 
-                    <span class="release-recordlabel">{{ prod.label }}</span>{% if prod.media %}, 
-                    <span class="release-media">{{ prod.media }}</span>{% endif %}, 
+                    <span class="release-recordlabel">{{ prod.label }}</span>{%- if prod.media %}, 
+                    <span class="release-media">{{ prod.media }}</span>{%- endif %}, 
                     <span class="release-year">{{ prod.year }}</span>
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
-        
-        {% if music.embeds.spotify %}
+        {%- if music.embeds.spotify %}
         <div class="ut">
             <iframe style="border-radius:12px" src="{{ music.embeds.spotify.url }}" width="{{ music.embeds.spotify.width }}" height="{{ music.embeds.spotify.height }}" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
-        {% endif %}
-        
+        {%- endif %}
         <h2>Other</h2>
         <section>
             <ul>
-                {% for other in music.other_credits %}
+                {%- for other in music.other_credits %}
                 <li>
-                    {% if other.url %}<a class="outbound" href="{{ other.url }}" target="_new">{{ other.title }}</a>{% else %}<span class="release-band">{{ other.band if other.band else other.title }}</span>{% endif %}
-                    {% if other.role %} - {{ other.role }}{% endif %}
-                    {% if other.song %} - <span class="release-song">{{ other.song }}</span>{% endif %}
-                    {% if other.album %} - <span class="release-album">{{ other.album }}</span>{% endif %}
-                    {% if other.label %} - <span class="release-recordlabel">{{ other.label }}</span>{% endif %}
-                    {% if other.media %}, <span class="release-media">{{ other.media }}</span>{% endif %}
-                    {% if other.description %} - {{ other.description }}{% endif %}
-                    {% if other.year %} - <span class="release-year">{{ other.year }}</span>{% endif %}
+                    {%- if other.url %}<a class="outbound" href="{{ other.url }}" target="_new">{{ other.title }}</a>{%- else %}<span class="release-band">{{ other.band if other.band else other.title }}</span>{%- endif -%}
+                    {%- if other.role %} - {{ other.role }}{%- endif -%}
+                    {%- if other.song %} - <span class="release-song">{{ other.song }}</span>{%- endif -%}
+                    {%- if other.album %} - <span class="release-album">{{ other.album }}</span>{%- endif -%}
+                    {%- if other.label %} - <span class="release-recordlabel">{{ other.label }}</span>{%- endif -%}
+                    {%- if other.media %}, <span class="release-media">{{ other.media }}</span>{%- endif -%}
+                    {%- if other.description %} - {{ other.description }}{%- endif -%}
+                    {%- if other.year %} - <span class="release-year">{{ other.year }}</span>{%- endif %}
                 </li>
-                {% endfor %}
+                {%- endfor %}
             </ul>
         </section>
     </main>
