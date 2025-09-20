@@ -39,10 +39,10 @@ def main(debug_mode: boolean = False, force_rebuild: boolean = False) -> None:
     generators = {
         "writing.html": lambda: writing.generate_writing_page(debug_mode=debug_mode, output_file="writing.html"),
         "music.html": lambda: music.generate_music_page(debug_mode=debug_mode, output_file="music.html"),
-        "resume.html": lambda: resume.generate_resume_page(debug_mode=debug_mode, output_file="resume.html"),
         "photos/": lambda: photos.generate_photo_pages(debug_mode),
         "contact/": lambda: contact.generate_contact_pages(debug_mode),
         "talks/": lambda: talks.generate_conference_pages(debug_mode=debug_mode),
+        "resume.html": lambda: resume.generate_resume_page(debug_mode=debug_mode, output_file="resume.html"),
     }
     
     for page_key, generator_func in generators.items():
