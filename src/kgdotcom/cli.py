@@ -14,20 +14,27 @@ from xmlrpc.client import boolean
 import jinja2  # type: ignore
 
 from kgdotcom.generators import resume, writing, talks, photos, contact, music
-from kgdotcom.core.common import get_output_directory, initialize_logging, needs_rebuild
+from kgdotcom.core.common import get_output_directory, initialize_logging, needs_rebuild, generate_page_metadata
 
 
 def generate_other_pages(debug_mode: boolean = False) -> None:
     """generate the simpler pages"""
     other_pages = [
-        ("index.html", "site-index-template.html"),
-        ("photography.html", "photography-template.html"),
+        ("index.html", "site-index-template.html", "index"),
+        ("photography.html", "photography-template.html", "photography"),
     ]
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
 
     for page in other_pages:
         template = env.get_template(page[1])
-        page_data = {"debug_mode": debug_mode}
+
+        # Generate metadata for each page
+        metadata = generate_page_metadata(page[2], None, debug_mode)
+
+        page_data = {
+            "debug_mode": debug_mode,
+            "metadata": metadata,
+        }
         output_path = os.path.join(get_output_directory(debug_mode), page[0])
         logger.info("writing: %s", output_path)
         with open(output_path, "w", encoding="utf-8") as file:

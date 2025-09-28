@@ -161,6 +161,9 @@ def generate_resume_page(
             )
         publications.append(publication)
 
+    # Generate metadata
+    metadata = common.generate_page_metadata("resume", resume_data, debug_mode)
+
     page_variables = {
         "debug_mode": debug_mode,
         "email": common.obfusticate_email(resume_data["basics"]["email"]),
@@ -177,6 +180,7 @@ def generate_resume_page(
         "publication_list": publications,
         "production_list": resume_data["productionCredits"],
         "honor_list": resume_data["awards"],
+        "metadata": metadata,
     }
 
     output_path = os.path.join(common.get_output_directory(debug_mode), output_file)

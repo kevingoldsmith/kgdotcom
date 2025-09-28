@@ -468,6 +468,14 @@ def create_gallery(  # pylint: disable=too-many-locals
     sorted_galleries.reverse()
     sorted_images = sorted(gallery.images, key=lambda i: i.name)
 
+    # Generate metadata for photo gallery
+    photo_data = {
+        "photo_count": len(sorted_images),
+        "gallery_count": len(sorted_galleries),
+        "gallery_name": gallery.name
+    }
+    metadata = common.generate_page_metadata("photos", photo_data, debug_mode)
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
     pagevalues["title"] = f"{gallery.name}: a photographic gallery by Kevin Goldsmith"
@@ -476,6 +484,7 @@ def create_gallery(  # pylint: disable=too-many-locals
     pagevalues["rootpath"] = root_path
     pagevalues["subgalleries"] = sorted_galleries
     pagevalues["images"] = sorted_images
+    pagevalues["metadata"] = metadata
     if breadcrumbs:
         pagevalues["breadcrumbs"] = breadcrumbs
 

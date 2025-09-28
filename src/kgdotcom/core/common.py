@@ -9,8 +9,9 @@ import logging
 import os
 import string
 
+from dataclasses import dataclass
 from datetime import date
-from typing import Union, Dict, List, Set
+from typing import Union, Dict, List, Set, Optional
 from xmlrpc.client import Boolean
 
 import requests
@@ -474,5 +475,328 @@ def needs_talks_rebuild(debug_mode: bool = False) -> bool:
             return True
         if os.path.getmtime(output_file) < latest_dep_mtime:
             return True
-    
+
     return False
+
+
+@dataclass
+class PageMetadata:
+    """Structured metadata for web pages"""
+    title: str
+    description: str
+    keywords: List[str]
+    canonical_url: str
+    og_title: Optional[str] = None
+    og_description: Optional[str] = None
+    og_image: Optional[str] = None
+    og_type: str = "website"
+    twitter_card: str = "summary"
+    schema_type: Optional[str] = None
+    last_modified: Optional[str] = None
+
+
+def generate_page_metadata(
+    page_type: str,
+    data: Dict = None,
+    debug_mode: bool = False
+) -> PageMetadata:
+    """Generate structured metadata from existing data"""
+    # Load base metadata
+    with open("data/common_meta.json", "r", encoding="utf-8") as file:
+        base_data = json.load(file)
+    base_url = "https://kevingoldsmith.com" if not debug_mode else "http://localhost:8000"
+    author = base_data.get("author", "Kevin Goldsmith")
+
+    # Default metadata
+    metadata = PageMetadata(
+        title=f"{author}",
+        description="Technology leader, speaker, and creative professional",
+        keywords=["technology", "leadership", "software engineering"],
+        canonical_url=f"{base_url}/",
+        og_title=None,
+        og_description=None,
+        schema_type="Person"
+    )
+
+    # Generate page-specific metadata
+    if page_type == "writing":
+        return _generate_writing_metadata(metadata, data, base_url, author)
+    elif page_type == "resume":
+        return _generate_resume_metadata(metadata, data, base_url, author)
+    elif page_type == "talks":
+        return _generate_talks_metadata(metadata, data, base_url, author)
+    elif page_type == "music":
+        return _generate_music_metadata(metadata, data, base_url, author)
+    elif page_type == "photos" or page_type == "photography":
+        return _generate_photos_metadata(metadata, data, base_url, author)
+    elif page_type == "index":
+        return _generate_index_metadata(metadata, data, base_url, author)
+
+    return metadata
+
+
+def _extract_keywords_from_text(text: str, existing_keywords: List[str] = None) -> List[str]:
+    """Extract keywords from text content"""
+    if existing_keywords is None:
+        existing_keywords = []
+
+    # Simple keyword extraction - split on common delimiters and filter
+    stop_words = {
+        "the", "and", "or", "but", "in", "on", "at", "to", "for", "of", "with",
+        "by", "a", "an", "is", "are", "was", "were", "be", "been", "have", "has",
+        "do", "does", "did", "will", "would", "could", "should", "may", "might"
+    }
+
+    words = []
+    for word in text.lower().replace(",", " ").replace(".", " ").split():
+        word = word.strip("()[]{}\"'")
+        if len(word) > 3 and word not in stop_words and word.isalpha():
+            words.append(word)
+
+    # Combine with existing keywords and limit to 10
+    all_keywords = list(set(existing_keywords + words))
+    return all_keywords[:10]
+
+
+def _truncate_description(text: str, max_length: int = 155) -> str:
+    """Truncate description to SEO-friendly length"""
+    if len(text) <= max_length:
+        return text
+
+    # Try to truncate at word boundary
+    truncated = text[:max_length]
+    last_space = truncated.rfind(" ")
+    if last_space > max_length - 20:  # Don't truncate too aggressively
+        truncated = truncated[:last_space]
+
+    return truncated + "..."
+
+
+def _generate_writing_metadata(metadata: PageMetadata, data: Dict, base_url: str, author: str) -> PageMetadata:
+    """Generate metadata for writing page"""
+    articles = data.get("articles", []) if data else []
+
+    # Extract data from articles
+    article_count = len(articles)
+    latest_article = articles[0] if articles else None
+
+    # Collect all tags as keywords
+    keywords = ["writing", "articles", "blog", "technology"]
+    for article in articles[:5]:  # Top 5 articles for keywords
+        keywords.extend(article.get("tags", []))
+
+    # Add keywords from latest article description
+    if latest_article:
+        keywords = _extract_keywords_from_text(latest_article.get("description", ""), keywords)
+
+    # Build description
+    if latest_article:
+        description = f"Articles and publications by {author}. Latest: {latest_article['name']}"
+    else:
+        description = f"Articles and publications by {author}"
+
+    description = _truncate_description(description)
+
+    metadata.title = f"Writing - {author}"
+    metadata.description = description
+    metadata.keywords = list(set(keywords))[:10]
+    metadata.canonical_url = f"{base_url}/writing.html"
+    metadata.og_title = f"Writing by {author}"
+    metadata.og_description = description
+    metadata.schema_type = "Blog"
+
+    if latest_article:
+        metadata.last_modified = latest_article.get("date")
+
+    return metadata
+
+
+def _generate_resume_metadata(metadata: PageMetadata, data: Dict, base_url: str, author: str) -> PageMetadata:
+    """Generate metadata for resume page"""
+    basics = data.get("basics", {}) if data else {}
+
+    # Extract professional info
+    label = basics.get("label", "Technology Leader")
+    headline = basics.get("headline", "")
+
+    # Extract keywords from headline and summary
+    keywords = ["resume", "cv", "technology", "leadership", "engineering"]
+    if headline:
+        keywords = _extract_keywords_from_text(headline, keywords)
+
+    summary = basics.get("summary", "")
+    if summary:
+        keywords = _extract_keywords_from_text(summary[:200], keywords)  # First part of summary
+
+    description = _truncate_description(headline or f"{label} with expertise in technology and engineering")
+
+    metadata.title = f"Resume - {author}"
+    metadata.description = description
+    metadata.keywords = list(set(keywords))[:10]
+    metadata.canonical_url = f"{base_url}/resume.html"
+    metadata.og_title = f"{author} - {label}"
+    metadata.og_description = description
+    metadata.schema_type = "Person"
+
+    return metadata
+
+
+def _generate_talks_metadata(metadata: PageMetadata, data: Dict, base_url: str, author: str) -> PageMetadata:
+    """Generate metadata for talks page"""
+    talks = data.get("talks", []) if data else []
+
+    # Extract talk topics for keywords
+    keywords = ["talks", "speaking", "conferences", "presentations"]
+    talk_topics = []
+
+    for talk in talks[:5]:  # Top 5 talks
+        talk_title = talk.get("talk", "")
+        talk_desc = talk.get("description", "")
+
+        # Extract keywords from talk content
+        keywords = _extract_keywords_from_text(talk_title, keywords)
+        keywords = _extract_keywords_from_text(talk_desc[:100], keywords)  # First part of description
+
+        talk_topics.append(talk_title)
+
+    # Build description with talk count and topics
+    talk_count = len(talks)
+    if talk_count > 0:
+        description = f"Conference talks and presentations by {author}. {talk_count} talks available"
+        if talk_topics:
+            description += f" including '{talk_topics[0]}'"
+    else:
+        description = f"Conference talks and presentations by {author}"
+
+    description = _truncate_description(description)
+
+    metadata.title = f"Talks - {author}"
+    metadata.description = description
+    metadata.keywords = list(set(keywords))[:10]
+    metadata.canonical_url = f"{base_url}/talks/"
+    metadata.og_title = f"Conference Talks by {author}"
+    metadata.og_description = description
+    metadata.schema_type = "CreativeWork"
+
+    return metadata
+
+
+def _generate_music_metadata(metadata: PageMetadata, data: Dict, base_url: str, author: str) -> PageMetadata:
+    """Generate metadata for music page"""
+    solo_projects = data.get("solo_projects", []) if data else []
+
+    keywords = ["music", "musician", "audio", "creative", "albums"]
+
+    # Extract project and release info
+    latest_release = None
+    total_releases = 0
+
+    for project in solo_projects:
+        project_name = project.get("name", "")
+        releases = project.get("releases", [])
+        total_releases += len(releases)
+
+        if releases and not latest_release:
+            latest_release = releases[0]  # Assuming first is latest
+
+        # Add project name as keyword
+        if project_name:
+            keywords = _extract_keywords_from_text(project_name, keywords)
+
+    # Build description
+    if latest_release:
+        description = f"Music by {author}. Latest release: {latest_release.get('title', 'Recent work')}"
+    elif total_releases > 0:
+        description = f"Music by {author}. {total_releases} releases available"
+    else:
+        description = f"Music and creative audio work by {author}"
+
+    description = _truncate_description(description)
+
+    metadata.title = f"Music - {author}"
+    metadata.description = description
+    metadata.keywords = list(set(keywords))[:10]
+    metadata.canonical_url = f"{base_url}/music.html"
+    metadata.og_title = f"Music by {author}"
+    metadata.og_description = description
+    metadata.schema_type = "MusicRecording"
+
+    if latest_release:
+        year = latest_release.get("year")
+        if year:
+            metadata.last_modified = f"{year}-01-01"
+
+    return metadata
+
+
+def _generate_photos_metadata(metadata: PageMetadata, data: Dict, base_url: str, author: str) -> PageMetadata:
+    """Generate metadata for photos/photography page"""
+    keywords = ["photography", "photos", "visual", "creative", "gallery"]
+
+    # If photo data is provided, extract info
+    if data:
+        photo_count = data.get("photo_count", 0)
+        gallery_count = data.get("gallery_count", 0)
+        gallery_name = data.get("gallery_name", "")
+
+        if photo_count > 0:
+            if gallery_count > 0:
+                # Main photos index with multiple galleries
+                description = f"Photography by {author}. {photo_count} photos across {gallery_count} galleries"
+            elif gallery_name and gallery_name != "Albums":
+                # Individual gallery page
+                description = f"Photography from {gallery_name} by {author}. {photo_count} photos"
+            else:
+                # Main photos index or unknown context
+                description = f"Photography by {author}. {photo_count} photos"
+        else:
+            description = f"Photography and visual work by {author}"
+    else:
+        description = f"Photography and visual work by {author}"
+
+    description = _truncate_description(description)
+
+    metadata.title = f"Photography - {author}"
+    metadata.description = description
+    metadata.keywords = keywords
+    metadata.canonical_url = f"{base_url}/photography.html"
+    metadata.og_title = f"Photography by {author}"
+    metadata.og_description = description
+    metadata.schema_type = "ImageGallery"
+
+    return metadata
+
+
+def _generate_index_metadata(metadata: PageMetadata, data: Dict, base_url: str, author: str) -> PageMetadata:
+    """Generate metadata for index/home page"""
+    keywords = ["technology", "leadership", "speaker", "musician", "photographer", "engineer"]
+
+    # If aggregated data is provided, use it to enhance description
+    if data:
+        highlights = []
+        if data.get("latest_article"):
+            highlights.append("writer")
+        if data.get("recent_talks"):
+            highlights.append("speaker")
+        if data.get("music_releases"):
+            highlights.append("musician")
+
+        if highlights:
+            role_text = ", ".join(highlights[:-1]) + f" and {highlights[-1]}" if len(highlights) > 1 else highlights[0]
+            description = f"{author} is a technology leader, {role_text}"
+        else:
+            description = f"{author} - Technology leader, speaker, and creative professional"
+    else:
+        description = f"{author} - Technology leader, speaker, and creative professional"
+
+    description = _truncate_description(description)
+
+    metadata.title = author
+    metadata.description = description
+    metadata.keywords = keywords
+    metadata.canonical_url = base_url + "/"
+    metadata.og_title = author
+    metadata.og_description = description
+    metadata.schema_type = "Person"
+
+    return metadata

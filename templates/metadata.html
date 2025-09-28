@@ -1,0 +1,40 @@
+    <!-- Page Metadata -->
+    <title>{{ metadata.title }}</title>
+    <meta name="description" content="{{ metadata.description }}">
+    <meta name="keywords" content="{{ metadata.keywords | join(', ') }}">
+    <meta name="author" content="Kevin Goldsmith">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ metadata.canonical_url }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{{ metadata.og_type }}">
+    <meta property="og:url" content="{{ metadata.canonical_url }}">
+    <meta property="og:title" content="{{ metadata.og_title or metadata.title }}">
+    <meta property="og:description" content="{{ metadata.og_description or metadata.description }}">
+    {% if metadata.og_image %}
+    <meta property="og:image" content="{{ metadata.og_image }}">
+    {% endif %}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="{{ metadata.twitter_card }}">
+    <meta property="twitter:url" content="{{ metadata.canonical_url }}">
+    <meta property="twitter:title" content="{{ metadata.og_title or metadata.title }}">
+    <meta property="twitter:description" content="{{ metadata.og_description or metadata.description }}">
+    {% if metadata.og_image %}
+    <meta property="twitter:image" content="{{ metadata.og_image }}">
+    {% endif %}
+
+    <!-- Schema.org markup -->
+    {% if metadata.schema_type %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{{ metadata.schema_type }}",
+        "name": "{{ metadata.title }}",
+        "description": "{{ metadata.description }}",
+        "url": "{{ metadata.canonical_url }}"{% if metadata.last_modified %},
+        "dateModified": "{{ metadata.last_modified }}"{% endif %}
+    }
+    </script>
+    {% endif %}
