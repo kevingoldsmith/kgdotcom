@@ -529,6 +529,8 @@ def generate_page_metadata(
         return _generate_music_metadata(metadata, data, base_url, author)
     elif page_type == "photos" or page_type == "photography":
         return _generate_photos_metadata(metadata, data, base_url, author)
+    elif page_type == "photo":
+        return _generate_photo_metadata(metadata, data, base_url, author)
     elif page_type == "index":
         return _generate_index_metadata(metadata, data, base_url, author)
 
@@ -763,6 +765,47 @@ def _generate_photos_metadata(metadata: PageMetadata, data: Dict, base_url: str,
     metadata.og_title = f"Photography by {author}"
     metadata.og_description = description
     metadata.schema_type = "ImageGallery"
+
+    return metadata
+
+
+def _generate_photo_metadata(metadata: PageMetadata, data: Dict, base_url: str, author: str) -> PageMetadata:
+    """Generate metadata for individual photo page"""
+    keywords = ["photography", "photo", "image", "visual", "gallery"]
+
+    # Extract photo information from data
+    photo_title = data.get("photo_title", "Untitled Photo")
+    photo_description = data.get("photo_description", "")
+    gallery_name = data.get("gallery_name", "")
+    capture_date = data.get("capture_date", "")
+    photo_url = data.get("photo_url", "")
+
+    # Create title and description
+    title = f"{photo_title}: a photo by {author}"
+
+    if photo_description:
+        description = f"{photo_description} - Photo by {author}"
+    elif gallery_name:
+        description = f"Photo from {gallery_name} by {author}"
+    else:
+        description = f"Photo by {author}"
+
+    if capture_date:
+        description += f" (captured {capture_date})"
+
+    # Add gallery to keywords if available
+    if gallery_name:
+        keywords.append(gallery_name.lower())
+
+    description = _truncate_description(description)
+
+    metadata.title = title
+    metadata.description = description
+    metadata.keywords = keywords
+    metadata.canonical_url = photo_url if photo_url else f"{base_url}/photos/"
+    metadata.og_title = photo_title
+    metadata.og_description = description
+    metadata.schema_type = "Photograph"
 
     return metadata
 

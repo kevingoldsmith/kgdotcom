@@ -4,12 +4,10 @@
 	<meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>{{title}}</title>
-    <meta name="description" content="Photo {{metadata.title}} by {{author}}" />
-    <meta name="author" content="{{author}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-site-verification" content="{{googsiteverification}}" />
-    <link rel="canonical" href="https://kevingoldsmith.com/photos/{{filename}}" />
+
+    {% include 'metadata.html' %}
 	{% include 'favicon.html' %}
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 	<link rel="dns-prefetch" href="https://ajax.googleapis.com" />
@@ -84,12 +82,12 @@
 	<main id="content">
         <div id="header">
             <div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>
-            <div><h1>{{metadata.title}}</h1></div>
+            <div><h1>{{photo_metadata.title}}</h1></div>
         </div>
         <div class="mcol">
             <figure>
                     <img class="fullsize" src="{{photo.output_filename}}" onContextMenu="return false;"/>
-                {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}        
+                {% if photo_metadata.description %}<div id="photodescription">{{photo_metadata.description}}</div>{% endif %}        
             </figure>
         </div>
         <div class="rcol">
@@ -125,7 +123,7 @@
                     <h3>Metadata</h3>
                     <div id="photo-metadata">
                         <table>
-                            {% for key, value in metadata.items() %}
+                            {% for key, value in photo_metadata.items() %}
                             <tr>
                                 {% if key == "GPS" %}
                                 <td class="md-title">GPS:</td>

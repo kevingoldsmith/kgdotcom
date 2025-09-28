@@ -364,6 +364,16 @@ def create_image_page(  # pylint: disable=too-many-locals
 
     simple_metadata = image.get_simple_metadata()
 
+    # Generate structured metadata for the photo page
+    photo_data = {
+        "photo_title": simple_metadata.get("title", image.name),
+        "photo_description": simple_metadata.get("description", ""),
+        "gallery_name": gallery.name,
+        "capture_date": simple_metadata.get("Capture Date", ""),
+        "photo_url": f"{__SITE_URL}{image.image_page_path}"
+    }
+    page_metadata = common.generate_page_metadata("photo", photo_data, debug_mode)
+
     # get the page template
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
     gallery_page_template = env.get_template("photo-page-template.html")
@@ -394,7 +404,8 @@ def create_image_page(  # pylint: disable=too-many-locals
     pagevalues["rootpath"] = root_path
     pagevalues["photo"] = image
     pagevalues["gallery"] = gallery
-    pagevalues["metadata"] = simple_metadata
+    pagevalues["photo_metadata"] = simple_metadata
+    pagevalues["metadata"] = page_metadata
     pagevalues["breadcrumbs"] = breadcrumbs
     if "Capture Date" in simple_metadata:
         pagevalues["date_taken"] = simple_metadata["Capture Date"].strftime("%B %d, %Y")
