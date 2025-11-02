@@ -99,3 +99,4 @@ Key dependencies include:
 - pylint for linting
 - unittest for testing framework
 - bandit and pip-audit for security scanning
+- all pages should be optimized for SEO including structured metadata for LLM parsing

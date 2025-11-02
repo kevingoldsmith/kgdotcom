@@ -1,9 +1,5 @@
 [
 	{
-		"talk": "Don't Quit Your Day Job (Unleashing Creativity: The Inspiring Synergy between Software Developers and Emerging Technologies)",
-		"description": "Technologies like No-Code/Low-Code platforms and Large Language Models (such as ChatGPT) can make developers question low long they will be employed, but this talks put those technologies in their historical place with everything else that was supposed to get rid of software developers."
-	},
-	{
 		"talk": "It's teams all the way down: Design patterns for engineering organizations",
 		"description": "While there is no \"one size fits all\" solution for organizational structure, there are patterns for the different stages of startups that can be adapted to your culture and best practices to leverage."
 	},
@@ -14,10 +10,6 @@
 	{
 		"talk": "How do you keep growing when you are the leader of the organization?",
 		"description": "Your organization looks to you to be the expert, and you are often the most senior around. However, reaching senior leadership doesn't mean that we no longer need to grow professionally. On the contrary, we should never stop trying to improve and get better at our jobs. We should always be striving to learn and grow. We now need to take full responsibility for it."
-	},
-	{
-		"talk": "Developing Your Developers: Constructing Career Paths For Your Technologists",
-		"description": "How you construct development paths in your company can support and deepen your company values. Doing it well means heightening employee engagement and improving retention. This talk gives technology and people team leaders a place to start their conversations."
 	},
 	{
 		"talk": "Architecture and Organization",
@@ -32,7 +24,11 @@
 		"description": "As you progress in leadership, more and more of your responsibilities have less and less to do with coding. When is it time to make coding your hobby instead of your job? How do you do it?"
 	},
 	{
-		"talk": "Presenting to executives",
-		"description": "Presenting to executives at your company is different than giving a presentation to your team, other teams, at a meetup, a conference, or customers. This talk presents some concrete strategies for planning your presentation, preparing the attendees, handling unexpected questions, going down rabbit holes, driving the attendees to a decision (if that is your goal), and following up afterward."
+		"talk": "The path from Director to CTO: How to follow it, or how to mentor it",
+		"description": "Transitioning from a Director role to a CTO position requires a shift in mindset, skill set, and approach. This talk explores the key steps in this journey, including the importance of mentorship, building a strong network, and developing a strategic vision for technology within the organization."
+	},
+	{
+		"talk": "From Friction to Function: Strengthening the Product-Engineering Alliance",
+		"description": "In this talk, I explore the common sources of friction between product and engineering teams, and provide practical strategies for fostering collaboration and alignment. I discuss the importance of shared goals, effective communication, and mutual respect in building a strong partnership between these two critical functions. Attendees will leave with actionable insights and tools to help them strengthen the product-engineering alliance within their own organizations."
 	}
 ]
