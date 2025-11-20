@@ -3167,5 +3167,45 @@
 				}
 			}
 		]
+	},
+	{
+		"conference": "ConFoo Montreal",
+		"url": "https://confoo.ca/en",
+		"talks": [
+						{
+				"talk": "The Director to CTO path: following it, or mentoring it",
+				"talk-description": "For aspiring CTOs and their mentors: a systematic approach to the Director-to-CTO growth path. Covers essential skill development (technical depth, strategic planning, leadership), mentorship strategies for identifying and nurturing potential, plus real-world examples of successful transitions and everyday challenges.",
+				"talk-type": "talk",
+				"date": "2026-02-25",
+				"length": 45,
+				"slides-link": "https://www.slideshare.net/slideshow/the-director-to-cto-path-how-to-follow-it-or-how-to-mentor-it/271639092",
+				"slides-url": "https://www.slideshare.net/slideshow/embed_code/key/3mo8pG1bvHF1AW",
+				"location": {
+					"venue": "Hotel Bonaventure Montréal",
+					"address": "900 Rue De la Gauchetière Ouest",
+					"city": "Montréal",
+					"state": "QC",
+					"postal code": "H5A 1E4",
+					"country": "CA",
+					"gps": [45.499137291747516, -73.56552066095253]
+				}
+			},
+			{
+				"talk": "Rising After the Fall: Engineering Your Career Comeback",
+				"talk-description": "Everyone faces career inflection points: some by choice, others thrust upon us, including me. When your career gets disrupted, recover faster with proven frameworks. Learn systematic methods for self-assessment, market positioning, and opportunity evaluation. Convert setbacks into skill-building advantages through structured approaches to networking, decision-making, and professional growth that work for analytical minds.",
+				"talk-type": "talk",
+				"date": "2026-02-26",
+				"length": 45,
+				"location": {
+					"venue": "Hotel Bonaventure Montréal",
+					"address": "900 Rue De la Gauchetière Ouest",
+					"city": "Montréal",
+					"state": "QC",
+					"postal code": "H5A 1E4",
+					"country": "CA",
+					"gps": [45.499137291747516, -73.56552066095253]
+				}
+			}
+		]
 	}
 ]
