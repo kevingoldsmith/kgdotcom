@@ -3,13 +3,6 @@
 
 """utility functions"""
 
-__version__ = "1.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
-# --------------------------------------------------------------------------------
 
 import json
 import logging
@@ -17,7 +10,7 @@ import os
 import string
 
 from datetime import date
-from typing import Union
+from typing import Union, Dict, List, Set
 from xmlrpc.client import Boolean
 
 import requests
@@ -25,6 +18,44 @@ import pycountry  # type: ignore
 
 
 logger = logging.getLogger(__name__)
+
+
+# Dependency graph for incremental builds
+DEPENDENCIES = {
+    "music.html": {
+        "data": ["data/music.json"],
+        "templates": ["templates/music-template.html", "templates/header.html", "templates/footer.html", "templates/favicon.html"],
+        "static": []
+    },
+    "resume.html": {
+        "data": ["data/resume.json"],
+        "templates": ["templates/resume-template.html", "templates/header.html", "templates/footer.html", "templates/favicon.html"],
+        "static": []
+    },
+    "writing.html": {
+        "data": ["data/writing.json"],
+        "templates": ["templates/writing-template.html", "templates/header.html", "templates/footer.html", "templates/favicon.html"],
+        "static": []
+    },
+    "photos/": {
+        "data": ["data/pagevariables.json"],
+        "templates": ["templates/photo-page-template.html", "templates/photo-gallery-template.html", "templates/header.html", "templates/footer.html", "templates/favicon.html"],
+        "static": ["photos/"],
+        "output_pattern": "photos/*.html"
+    },
+    "contact/": {
+        "data": ["data/contact_me.json", "data/common_meta.json"],
+        "templates": ["templates/contactpage.html", "templates/contactfile.vcf"],
+        "static": ["assets/"],
+        "output_pattern": "contact/*"
+    },
+    "talks/": {
+        "data": ["data/conferences.json", "data/current_talks.json", "data/pagevariables.json"],
+        "templates": ["templates/talk-index-template.html", "templates/talk-page-template.html"],
+        "static": ["public/talks/"],
+        "output_pattern": "talks/*.html"
+    }
+}
 
 
 def get_output_directory(debug: bool = False) -> str:
@@ -44,7 +75,8 @@ def get_output_directory(debug: bool = False) -> str:
 
 
 def obfusticate_email(email_address: str) -> str:
-    """generate a hard to mailto link that will make it difficult to grab the addr by bots"""
+    """generate a hard to mailto link that will make it difficult to grab the addr
+    by bots"""
     format_email_character = '<td style="padding: 0px;">{0}</td><!-- blah! -->'
     format_charref_character = "&#{0};"
     format_email = (
@@ -94,21 +126,21 @@ def generate_paragraphs_for_lines(string_with_lines: str) -> str:
             lines.append(string_with_lines[start:])
         start = end + 1
 
-    paragraphs = ""
-    for line in lines:
-        paragraphs += "<p>{0}</p>\n".format(line)
+    paragraphs = "".join(f"<p>{line}</p>\n" for line in lines)
     return paragraphs
 
 
 def format_city_state_country_from_location(location: dict) -> str:
-    """given a location, turn it into a nicely formatted city, state and country string"""
+    """given a location, turn it into a nicely formatted city,
+    state and country string"""
     format_location_city_country = (
         '<span class="conferencecity">{0}</span>, '
         '<span class="conferencecountry">{1}</span>'
     )
     format_location_city_state_country = (
         '<span class="conferencecity">{0}</span>, '
-        '<span class="conferenceState">{1}</span>, <span class="conferencecountry">{2}</span>'
+        '<span class="conferenceState">{1}</span>, '
+        '<span class="conferencecountry">{2}</span>'
     )
 
     city = location["city"] if "city" in location else ""
@@ -149,9 +181,10 @@ def generate_filename(filename: str) -> str:
     """create a good filename for a URL"""
     filename = filename.replace(" ", "-")
     filename = filename.replace("@", "at")
-    # cleanedFilename = unicodedata.normalize('NFKD', unicode(filename)).encode('ASCII', 'ignore')
+    # cleanedFilename = unicodedata.normalize(
+    # 'NFKD', unicode(filename)).encode('ASCII', 'ignore')
     cleaned_filename = filename
-    valid_filename_chars = "-_%s%s" % (string.ascii_letters, string.digits)
+    valid_filename_chars = f"-_{string.ascii_letters}{string.digits}"
     new_filename = "".join(c for c in cleaned_filename if c in valid_filename_chars)
     new_filename = new_filename.replace("--", "-")
     return new_filename.lower()
@@ -166,9 +199,9 @@ def validate_url(address: str) -> Boolean:
     """
 
     # print(f"validating URL: {address}")
-    logger.debug(f"validating URL: {address}")
+    logger.debug("validating URL: %s", address)
     response = True
-    with open("ignore_error_urls.json", "r") as url_file:
+    with open("ignore_error_urls.json", "r", encoding="utf-8") as url_file:
         ignore_list = json.load(url_file)
 
     if address in ignore_list:
@@ -220,3 +253,226 @@ def initialize_logging(
         file_formatter.datefmt = "%Y-%m-%d %H:%M:%S %z"
         file_handler.setFormatter(file_formatter)
         logger.addHandler(file_handler)
+
+
+def get_all_dependencies(page_key: str) -> Set[str]:
+    """Get all file dependencies for a page, expanding directories"""
+    deps = set()
+    config = DEPENDENCIES.get(page_key, {})
+    
+    # Add data and template files
+    for dep_type in ["data", "templates", "static"]:
+        for dep_path in config.get(dep_type, []):
+            if os.path.isdir(dep_path):
+                # Expand directory to all files (recursively)
+                for root, dirs, files in os.walk(dep_path):
+                    for file in files:
+                        # Skip hidden files and common non-source files
+                        if not file.startswith('.') and not file.endswith(('.pyc', '.DS_Store')):
+                            deps.add(os.path.join(root, file))
+            else:
+                deps.add(dep_path)
+    
+    return deps
+
+
+def get_latest_modification_time(dependencies: Set[str]) -> float:
+    """Get the latest modification time from all dependencies"""
+    latest = 0
+    for dep in dependencies:
+        if os.path.exists(dep):
+            mtime = os.path.getmtime(dep)
+            latest = max(latest, mtime)
+    return latest
+
+
+def get_photo_output_files(debug_mode: bool = False) -> List[str]:
+    """Get all photo HTML files that should exist based on photo directory structure"""
+    photo_outputs = []
+    output_dir = get_output_directory(debug_mode)
+    photo_output_dir = os.path.join(output_dir, "photos")
+    
+    def collect_gallery_outputs(directory: str, output_path: str) -> None:
+        """Recursively collect output files for a gallery directory"""
+        if not os.path.exists(directory):
+            return
+            
+        # Each directory gets an index.html
+        index_file = os.path.join(output_path, "index.html")
+        photo_outputs.append(index_file)
+        
+        items = os.listdir(directory)
+        for item in items:
+            item_path = os.path.join(directory, item)
+            
+            # Check if it's an image file (matching photo generator logic)
+            if os.path.isfile(item_path) and any(item.lower().endswith(ext) for ext in ['.jpg', '.jpeg', '.gif', '.png']):
+                # Each image gets its own HTML page
+                image_name = os.path.splitext(item)[0]
+                image_html = os.path.join(output_path, f"{image_name}.html")
+                photo_outputs.append(image_html)
+                
+                # Each image also generates resized versions (but we don't track those for rebuild logic)
+                
+            elif os.path.isdir(item_path):
+                # Process subdirectory (gallery generator creates alphanumeric directory names)
+                subdirectory_name = "".join(c for c in item if c.isalnum())
+                sub_output_path = os.path.join(output_path, subdirectory_name)
+                collect_gallery_outputs(item_path, sub_output_path)
+    
+    # Start from the photos directory
+    collect_gallery_outputs("photos", photo_output_dir)
+    
+    return photo_outputs
+
+
+def get_contact_output_files(debug_mode: bool = False) -> List[str]:
+    """Get all contact files that should exist based on contact data"""
+    contact_outputs = []
+    output_dir = get_output_directory(debug_mode)
+    contact_dir = os.path.join(output_dir, "contact")
+    
+    try:
+        with open("data/contact_me.json", "r", encoding="utf-8") as file:
+            contact_data = json.load(file)
+        
+        for contact in contact_data.get("contacts", []):
+            # Each contact generates multiple files
+            if "filename" in contact:
+                html_file = os.path.join(contact_dir, contact["filename"])
+                contact_outputs.append(html_file)
+            if "vcf_filename" in contact:
+                vcf_file = os.path.join(contact_dir, contact["vcf_filename"])
+                contact_outputs.append(vcf_file)
+                # Also wallpaper file
+                filename, _ = os.path.splitext(contact["filename"])
+                wallpaper_file = os.path.join(contact_dir, filename + "_wallpaper.png")
+                contact_outputs.append(wallpaper_file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+    
+    return contact_outputs
+
+
+def get_talks_output_files(debug_mode: bool = False) -> List[str]:
+    """Get all talk files that should exist based on talk data"""
+    talk_outputs = []
+    output_dir = get_output_directory(debug_mode)
+    talks_dir = os.path.join(output_dir, "talks")
+    
+    # Always include the main index page
+    index_file = os.path.join(talks_dir, "index.html")
+    talk_outputs.append(index_file)
+    
+    # Include static files copied from public/talks/
+    public_talks_dir = "public/talks/"
+    if os.path.exists(public_talks_dir):
+        for item in os.listdir(public_talks_dir):
+            if not item.startswith('.'):  # Skip hidden files
+                static_output = os.path.join(talks_dir, item)
+                talk_outputs.append(static_output)
+    
+    # Include generated individual talk pages
+    try:
+        with open("data/conferences.json", "r", encoding="utf-8") as file:
+            conference_talks = json.load(file)
+        
+        unique_talks = set()
+        for conference in conference_talks:
+            for talk in conference["talks"]:
+                # Mirror the logic from talks.py for determining unique talks
+                from datetime import date
+                if get_talk_date(talk) < date.today():
+                    talk_index = talk.get("root-talk", talk["talk"])
+                    # Only add talks that get individual pages (talk and keynote types)
+                    talk_type = talk.get("talk-type", "")
+                    if talk_type in ["talk", "keynote"]:  # Only these types get individual pages
+                        if talk_index:
+                            unique_talks.add(talk_index)
+        
+        # Generate output file paths for each unique talk
+        for talk_title in unique_talks:
+            filename = generate_filename(talk_title) + ".html"
+            talk_file = os.path.join(talks_dir, filename)
+            talk_outputs.append(talk_file)
+            
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+    
+    return talk_outputs
+
+
+def needs_rebuild(page_key: str, debug_mode: bool = False) -> bool:
+    """Determine if a page needs to be rebuilt"""
+    output_dir = get_output_directory(debug_mode)
+    
+    # Handle special cases
+    if page_key == "photos/":
+        return needs_photos_rebuild(debug_mode)
+    elif page_key == "contact/":
+        return needs_contacts_rebuild(debug_mode)
+    elif page_key == "talks/":
+        return needs_talks_rebuild(debug_mode)
+    
+    # Standard single-file output
+    output_file = os.path.join(output_dir, page_key)
+    
+    if not os.path.exists(output_file):
+        return True
+    
+    dependencies = get_all_dependencies(page_key)
+    output_mtime = os.path.getmtime(output_file)
+    latest_dep_mtime = get_latest_modification_time(dependencies)
+    
+    return latest_dep_mtime > output_mtime
+
+
+def needs_photos_rebuild(debug_mode: bool = False) -> bool:
+    """Special handling for photos - check if any photo outputs need rebuilding"""
+    dependencies = get_all_dependencies("photos/")
+    latest_dep_mtime = get_latest_modification_time(dependencies)
+    
+    photo_outputs = get_photo_output_files(debug_mode)
+    
+    # If any photo output is missing or older than dependencies
+    for output_file in photo_outputs:
+        if not os.path.exists(output_file):
+            return True
+        if os.path.getmtime(output_file) < latest_dep_mtime:
+            return True
+    
+    return False
+
+
+def needs_contacts_rebuild(debug_mode: bool = False) -> bool:
+    """Special handling for contacts - check if any contact outputs need rebuilding"""
+    dependencies = get_all_dependencies("contact/")
+    latest_dep_mtime = get_latest_modification_time(dependencies)
+    
+    contact_outputs = get_contact_output_files(debug_mode)
+    
+    # If any contact output is missing or older than dependencies
+    for output_file in contact_outputs:
+        if not os.path.exists(output_file):
+            return True
+        if os.path.getmtime(output_file) < latest_dep_mtime:
+            return True
+    
+    return False
+
+
+def needs_talks_rebuild(debug_mode: bool = False) -> bool:
+    """Special handling for talks - check if any talk outputs need rebuilding"""
+    dependencies = get_all_dependencies("talks/")
+    latest_dep_mtime = get_latest_modification_time(dependencies)
+    
+    talk_outputs = get_talks_output_files(debug_mode)
+    
+    # If any talk output is missing or older than dependencies
+    for output_file in talk_outputs:
+        if not os.path.exists(output_file):
+            return True
+        if os.path.getmtime(output_file) < latest_dep_mtime:
+            return True
+    
+    return False

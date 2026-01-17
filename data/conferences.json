@@ -3151,8 +3151,11 @@
 				"talk": "From Friction to Function: Strengthening the Product-Engineering Alliance",
 				"talk-description": "<p>The product-engineering partnership forms the backbone of technical delivery, yet remains one of the most challenging relationships to navigate effectively. When this alliance falters, the consequences cascade throughout the organization: delivery timelines slip, technical quality suffers, and team morale deteriorates. Development leads and engineering managers frequently encounter specific pain points: priorities that seem to change without technical consideration, insufficient investment in system health, opaque decision-making processes, and difficulty connecting daily work to strategic objectives.</p><p>Drawing from extensive experience spanning startups to enterprise organizations, this session offers battle-tested approaches that engineering leaders can implement immediately. You'll learn how to establish mutually respected prioritization frameworks that balance business momentum with technical sustainability, create structured processes for engineering input during product planning stages, and develop shared metrics that unite rather than divide these critical functions.</p><p>Beyond process improvements, we'll address the critical human elements of successful collaboration: building psychological safety when advocating for technical needs, establishing confidence-building communication patterns between teams, and creating the conditions where product and engineering leaders become genuine strategic partners rather than occasional collaborators.</p><p>This practical session delivers concrete tools for transforming product-engineering dynamics from a source of organizational friction to a catalyst for delivery excellence. You'll walk away with implementation frameworks you can adapt to your specific context, regardless of your organization's size or maturity level.</p>",
 				"talk-type": "talk",
-				"date": "2025-10-16",
-				"length": 20,
+				"date": "2025-10-15",
+				"length": 25,
+				"slides-link": "https://www.slideshare.net/slideshow/from-friction-to-function-strengthening-the-product-engineering-alliance/283824783",
+				"slides-url": "https://www.slideshare.net/slideshow/embed_code/key/E4zN6QLdZJRa5F",
+				"recording-url": "https://leaddev.com/communication/from-friction-to-function-strengthening-the-product-engineering-alliance",
 				"location": {
 					"venue": "Jacob Javits Convention Center",
 					"address": "429 11th Ave",

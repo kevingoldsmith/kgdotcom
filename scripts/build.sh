@@ -39,5 +39,31 @@ if ! $simple ; then
 fi
 
 if $debug ; then
-    open testoutput/index.html
+    echo "Starting development server on http://localhost:8000"
+    
+    # Start server in testoutput directory
+    (cd testoutput && exec python -m http.server 8000) &
+    SERVER_PID=$!
+    sleep 1
+    open http://localhost:8000
+    echo "Development server running (PID: $SERVER_PID)"
+    echo "Press Ctrl+C to stop the server"
+    
+    # Function to cleanup server
+    cleanup() {
+        echo "Stopping development server..."
+        # Kill the process group to ensure we get the Python process
+        kill -TERM -$SERVER_PID 2>/dev/null || kill $SERVER_PID 2>/dev/null
+        # Also kill any remaining http.server processes on port 8000
+        pkill -f "http.server 8000" 2>/dev/null
+        exit 0
+    }
+    
+    # Trap signals to kill server
+    trap cleanup SIGINT SIGTERM EXIT
+    
+    # Keep script running until interrupted
+    while kill -0 $SERVER_PID 2>/dev/null; do
+        sleep 1
+    done
 fi

@@ -5,6 +5,8 @@
 create the talks/ subdirectory of the website
 """
 
+from __future__ import annotations
+
 __version__ = "3.0.0"
 __author__ = "Kevin Goldsmith"
 __copyright__ = "Copyright 2022, Kevin Goldsmith"
@@ -16,12 +18,11 @@ import copy
 import json
 import logging
 import os
-from typing import Any, Tuple, List
+from typing import Any, Tuple, List, Dict, Optional
 
 import jinja2  # type: ignore
 from PIL import Image as PILImage
 from PIL import IptcImagePlugin
-from PIL.ExifTags import TAGS
 
 from kgdotcom.core import common
 from kgdotcom.utils.exif import get_exif_data
@@ -30,16 +31,21 @@ __PHOTOS_DIRECTORY = "photos"
 __SITE_URL = "https://kevingoldsmith.com/"
 
 
-class Gallery:
+class Gallery:  # pylint: disable=too-many-instance-attributes
+    """
+    A class representing a photo gallery.
+    """
+
     def __init__(self, name: str, directory: str, parent: Any = None) -> None:
         self.name = name
         self.description = ""
         self.output_path = ""
         self.directory = directory
-        self.sub_galleries = []
-        self.images = []
+        self.sub_galleries: List[Gallery] = []
+        self.images: List[Image] = []
         self.preview_image = None
         self.parent = parent
+        self.relative_path = ""
 
     def __str__(self) -> str:
         return (
@@ -50,6 +56,25 @@ class Gallery:
         return str(self)
 
     def populate(self) -> None:
+        """
+        populate create the gallery from the directory
+        This will create a list of images and sub-galleries.
+        It will also set the preview image to the first image in the gallery.
+        If the directory contains a JSON file with the same name as the gallery,
+        it will load the metadata from that file.
+        If the directory contains a subdirectory, it will create a new Gallery object
+        for that subdirectory and populate it as well.
+        If the directory contains no images or sub-galleries, it will not be added
+        to the parent gallery's sub_galleries list.
+        :return: None
+        :rtype: None
+        :raises: None
+        :note: This method will modify the Gallery object in place.
+        :note: This method will not return anything.
+        :note: This method will not raise any exceptions.
+        :note: This method will not create any files or directories.
+        :note: This method will not modify any files or directories.
+        """
         items = os.listdir(self.directory)
         for item in items:
             path = os.path.join(self.directory, item)
@@ -61,34 +86,54 @@ class Gallery:
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
         if len(self.images) > 0:
-            self.preview_image = self.images[0]
+            self.preview_image = self.images[0]  # type: ignore
         self.load_JSON_metadata()
 
-    def load_JSON_metadata(self) -> None:
+    def load_JSON_metadata(self) -> None:  # pylint: disable=invalid-name
+        """
+        load_JSON_metadata loads metadata from a JSON file
+        with the same name as the gallery in the gallery's directory.
+        If the file exists, it will read the JSON data and update the gallery's
+        name, description, and preview image.
+        :return: None
+        :rtype: None
+        :raises: None
+        """
         json_file = os.path.join(self.directory, self.name + ".json")
         if os.path.exists(json_file):
-            with open(json_file, "r") as f:
+            with open(json_file, "r", encoding="utf-8") as f:
                 gallery_data = json.load(f)
                 self.name = gallery_data.get("name", self.name)
                 self.description = gallery_data.get("description", "")
                 preview_name = gallery_data.get("preview")
                 if preview_name:
                     list(
-                        filter(lambda image: image["name"] == preview_name, self.images)
+                        filter(lambda image: image["name"] == preview_name, self.images)  # type: ignore
                     )
 
 
-class Image:
+class Image:  # pylint: disable=too-many-instance-attributes
+    """A class representing a photo image.
+    It contains the name, path, image data, EXIF data, IPTC data,
+    and any overrides from a JSON file with the same name as the image."""
+
     __GALLERY_PHOTO_MAX = (2000, 2000)
     __GALLERY_THUMB_MAX = (1000, 1000)
 
     def __init__(self, name: str, path: str) -> None:
         self.name = name
         self.path = path
-        self.image = None
-        self.exif = {}
-        self.iptc = {}
-        self.data_overrides = {}
+        self.image: Optional[PILImage.Image] = None
+        self.exif: Dict[str, Any] = {}
+        self.iptc: Dict[str, Any] = {}
+        self.data_overrides: Dict[str, Any] = {}
+        self.output_filename = ""
+        self.output_file_path = ""
+        self.thumb_filename = ""
+        self.thumb_file_path = ""
+        self.description = ""
+        self.image_page = ""
+        self.image_page_path = ""
         self.load_image()
 
     def __str__(self) -> str:
@@ -98,24 +143,40 @@ class Image:
         return str(self)
 
     def load_image(self) -> None:
+        """
+        load_image loads the image from the path and extracts EXIF and IPTC data.
+        It also checks for a JSON file with the same name as the image
+        to override the name and description."""
         self.image = PILImage.open(self.path)
-        self.exif = get_exif_data(self.image)
+        self.exif = get_exif_data(self.image)  # type: ignore
         self.iptc = get_iptc_data(self.image)
         self.data_overrides = self.get_JSON_overrides()
         self.image.close()
 
-    def get_JSON_overrides(self) -> dict:
+    def get_JSON_overrides(self) -> dict:  # pylint: disable=invalid-name
+        """
+        get_JSON_overrides reads a JSON file with the same name as the image
+
+        Returns:
+            dict: a dictionary with the overrides for the image
+        """
         root_name = os.path.splitext(self.path)[0]
         json_file = root_name + ".json"
         overrides = {}
         if os.path.exists(json_file):
-            with open(json_file, "r") as f:
+            with open(json_file, "r", encoding="utf-8") as f:
                 overrides = json.load(f)
                 self.name = overrides.get("name", self.name)
                 self.description = overrides.get("description", "")
         return overrides
 
     def get_simple_metadata(self) -> dict:
+        """
+        get_simple_metadata returns a simplified version of the image metadata.
+
+        Returns:
+            dict: a dictionary with the simplified metadata
+        """
         simple = {}
         simple["title"] = self.iptc.get("title", self.name)
         if "description" in self.iptc:
@@ -163,6 +224,12 @@ class Image:
         return simple
 
     def generate_output_images(self, destination_path: str) -> None:
+        """
+        generate_output_images generates the output images for the gallery.
+
+        Args:
+            destination_path (str): the path to save the output images to
+        """
         self.output_filename = os.path.basename(self.path)
         self.output_file_path = os.path.join(destination_path, self.output_filename)
         filename_split = os.path.splitext(self.output_filename)
@@ -188,14 +255,37 @@ class Image:
             )
             new_thumbnail.save(self.thumb_file_path)
 
-    def is_image_file(
-        filename: str, extensions=[".jpg", ".jpeg", ".gif", ".png"]
-    ) -> bool:
+    @staticmethod
+    def is_image_file(filename: str, extensions: Optional[List[str]] = None) -> bool:
+        """
+        is_image_file checks if a file is an image file based on its extension.
+
+        Args:
+            filename (str): _filename to check_
+            extensions (_type_, optional): _list of extensions to check against_
+            Defaults to None.
+
+        Returns:
+            bool: _True if the file is an image file, False otherwise_
+        """
+        if extensions is None:
+            extensions = [".jpg", ".jpeg", ".gif", ".png"]
         return any(filename.endswith(e) for e in extensions)
 
+    @staticmethod
     def get_resized_image_dimensions(
         orig_size: Tuple[int, int], max_size: Tuple[int, int]
     ) -> Tuple[int, int]:
+        """
+        get_resized_image_dimensions calculates the new dimensions for an image
+
+        Args:
+            orig_size (Tuple[int, int]): _original size of the image_
+            max_size (Tuple[int, int]): _maximum size for the image_
+
+        Returns:
+            Tuple[int, int]: _new dimensions for the image_
+        """
         if (orig_size[0] <= max_size[0]) and (orig_size[1] <= max_size[1]):
             return orig_size
         aspect_ratio = float(orig_size[0]) / float(orig_size[1])
@@ -207,6 +297,16 @@ class Image:
 def get_prev_next_nextnext(
     image_list: List[Image], image: Image
 ) -> Tuple[Image, Image, Image]:
+    """
+    get_prev_next_nextnext returns the previous, next, and next-next images
+
+    Args:
+        image_list (List[Image]): _list of images in the gallery
+        image (Image): _image to find the previous, next, and next-next images for_
+
+    Returns:
+        Tuple[Image, Image, Image]: _previous, next, and next-next images_
+    """
     prev_el = None
     next_el = None
     next_next_el = None
@@ -219,42 +319,48 @@ def get_prev_next_nextnext(
             if index + 2 < len(image_list):
                 next_next_el = image_list[index + 2]
             break
-    return prev_el, next_el, next_next_el
+    return prev_el, next_el, next_next_el  # type: ignore
 
 
-def get_iptc_data(image: PILImage.Image) -> dict:
+def get_iptc_data(image: PILImage.Image) -> Dict[str, Any]:
     """Return a dict with the raw IPTC data."""
 
-    iptc_data = {}
-    raw_iptc = {}
-
+    iptc_data: Dict[str, Any] = {}
     # PILs IptcImagePlugin issues a SyntaxError in certain circumstances
     # with malformed metadata, see PIL/IptcImagePlugin.py", line 71.
     # ( https://github.com/python-pillow/Pillow/blob/
     # 9dd0348be2751beb2c617e32ff9985aa2f92ae5f/src/PIL/IptcImagePlugin.py#L71 )
-    raw_iptc = IptcImagePlugin.getiptcinfo(image)
+    raw_iptc = IptcImagePlugin.getiptcinfo(image)  # type: ignore
 
     # IPTC fields are catalogued in:
     # https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata
     # 2:05 is the IPTC title property
     if raw_iptc and (2, 5) in raw_iptc:
-        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace")
+        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace")  # type: ignore
 
     # 2:120 is the IPTC description property
     if raw_iptc and (2, 120) in raw_iptc:
-        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace")
+        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace")  # type: ignore
 
     # 2:105 is the IPTC headline property
     if raw_iptc and (2, 105) in raw_iptc:
-        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace")
+        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace")  # type: ignore
 
     return iptc_data
 
 
-def create_image_page(
-    gallery: Gallery, image: Image, path: str, root_path: str, debug_mode
+def create_image_page(  # pylint: disable=too-many-locals
+    gallery: Gallery, image: Image, path: str, root_path: str, debug_mode: bool
 ) -> None:
-    logging.info("creating image page for: %s at %s", image.output_filename, path)
+    """create_image_page creates the image page for the given image in the given gallery
+    :param gallery: the Gallery object that contains the image
+    :param image: the Image object to create the page for
+    :param path: the path to create the image page in
+    :param root_path: the root path for the gallery
+    :param debug_mode: whether to run in debug mode
+    :return: None
+    :rtype: None"""
+    logger.info("creating image page for: %s at %s", image.output_filename, path)
 
     simple_metadata = image.get_simple_metadata()
 
@@ -263,7 +369,7 @@ def create_image_page(
     gallery_page_template = env.get_template("photo-page-template.html")
 
     # get the page variables (which becomes our template dictionary)
-    with open("data/pagevariables.json") as file:
+    with open("data/pagevariables.json", encoding="utf-8") as file:
         pagevariables = json.load(file)
 
     # build breadcrumbs
@@ -276,7 +382,9 @@ def create_image_page(
         relative_path = "../" + relative_path
     breadcrumbs.reverse()
 
-    previous, next, next_next = get_prev_next_nextnext(gallery.images, image)
+    previous, next_image, next_next_image = get_prev_next_nextnext(
+        gallery.images, image
+    )
     image.image_page = image.name + ".html"
     image.image_page_path = os.path.join(path, image.name + ".html")
 
@@ -292,19 +400,27 @@ def create_image_page(
         pagevalues["date_taken"] = simple_metadata["Capture Date"].strftime("%B %d, %Y")
         del simple_metadata["Capture Date"]
     pagevalues["previous_image"] = previous
-    pagevalues["next_image"] = next
+    pagevalues["next_image"] = next_image
     if not previous:
-        pagevalues["next_next_image"] = next_next
+        pagevalues["next_next_image"] = next_next_image
     pagevalues["url"] = __SITE_URL + image.image_page_path
 
-    with open(image.image_page_path, "w") as file:
+    with open(image.image_page_path, "w", encoding="utf-8") as file:
         file.write(gallery_page_template.render(pagevalues))
 
 
-def create_gallery(
+def create_gallery(  # pylint: disable=too-many-locals
     gallery: Gallery, path: str, depth: int = 0, debug_mode: bool = False
 ) -> None:
-    logging.info("creating gallery: %s at %s", gallery.name, path)
+    """create_gallery creates the gallery pages
+    :param gallery: the Gallery object to create
+    :param path: the path to create the gallery in
+    :param depth: the depth of the gallery in the directory structure
+    :param debug_mode: whether to run in debug mode
+    :return: None
+    :rtype: None
+    :raises: None"""
+    logger.info("creating gallery: %s at %s", gallery.name, path)
 
     for sub_gallery in gallery.sub_galleries:
         subdirectory_name = "".join(c for c in sub_gallery.name if c.isalnum())
@@ -330,7 +446,7 @@ def create_gallery(
     gallery_page_template = env.get_template("photo-gallery-template.html")
 
     # get the page variables (which becomes our template dictionary)
-    with open("data/pagevariables.json") as file:
+    with open("data/pagevariables.json", encoding="utf-8") as file:
         pagevariables = json.load(file)
 
     # build breadcrumbs
@@ -364,11 +480,12 @@ def create_gallery(
         pagevalues["breadcrumbs"] = breadcrumbs
 
     # common.check_for_missing_values(pagevariables, pagevalues)
-    with open(os.path.join(path, "index.html"), "w") as file:
+    with open(os.path.join(path, "index.html"), "w", encoding="utf-8") as file:
         file.write(gallery_page_template.render(pagevalues))
 
 
 def generate_photo_pages(debug_mode: bool = False) -> None:
+    """generate the photo pages for the website"""
     logger.debug("generate_photo_pages")
     top_gallery = Gallery("Albums", __PHOTOS_DIRECTORY)
     top_gallery.populate()
@@ -395,63 +512,3 @@ if __name__ == "__main__":
     generate_photo_pages(args.debug)
 else:
     logger = logging.getLogger()
-
-
-""" # FROM OPEN AI
-import os
-
-# Create an empty dictionary
-nested_dict = {}
-
-# Define a function to recursively traverse the directory tree and build the dictionary
-def build_dict(directory, nested_dict):
-  # Get the list of items in the current directory
-  items = os.listdir(directory)
-
-  # Iterate over the items
-  for item in items:
-    # Get the full path of the item
-    item_path = os.path.join(directory, item)
-
-    # Check if the item is a directory
-    if os.path.isdir(item_path):
-      # If it is a directory, create an empty dictionary for it
-      nested_dict[item] = {}
-
-      # Recursively traverse the directory tree and build the dictionary
-      build_dict(item_path, nested_dict[item])
-    else:
-      # If it is a file, add it to the dictionary
-      nested_dict[item] = None
-
-# Start the recursive traversal of the directory tree from the current directory
-build_dict(os.getcwd(), nested_dict)
-
-# Print the resulting dictionary
-print(nested_dict)
-
-
-# FROM OPENAI USING WALK
-import os
-
-# Create an empty dictionary
-nested_dict = {}
-
-# Use os.walk() to iterate over the items in the directory tree
-for root, dirs, files in os.walk("."):
-  # Create an empty dictionary for the current directory
-  nested_dict[root] = {}
-
-  # Iterate over the directories in the current directory
-  for dir in dirs:
-    # Add the directory to the dictionary
-    nested_dict[root][dir] = {}
-
-  # Iterate over the files in the current directory
-  for file in files:
-    # Add the file to the dictionary
-    nested_dict[root][file] = None
-
-# Print the resulting dictionary
-print(nested_dict)
- """

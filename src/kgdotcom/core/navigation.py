@@ -3,13 +3,6 @@
 
 """Functions for the navigation bar"""
 
-__version__ = "2.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
-# --------------------------------------------------------------------------------
 
 import os
 from xmlrpc.client import boolean

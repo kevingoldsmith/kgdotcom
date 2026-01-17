@@ -3,13 +3,6 @@
 
 """Constants and utility functions for the types of talks in conferences.json"""
 
-__version__ = "1.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
-# --------------------------------------------------------------------------------
 
 # string constants
 from xmlrpc.client import boolean

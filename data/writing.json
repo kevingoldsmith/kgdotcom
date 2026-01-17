@@ -1,5 +1,27 @@
 [
 	{
+		"name": "The Hidden Architecture of Engineering",
+		"description": "This article examines the often-overlooked relationship between the way engineering organisations are structured and the way work actually happens. It explains how choices about team boundaries, communication paths and software architecture directly shape velocity, quality and culture, and offers practical guidance for identifying bottlenecks, reorganising effectively and evolving with purpose.",
+		"date": "2025-10-19",
+		"url": "https://kevingoldsmith.substack.com/p/the-hidden-architecture-of-engineering",
+		"tags": [
+			"Organizational Design",
+			"Engineering Culture",
+			"Software Architecture"
+		]
+	},
+	{
+		"name": "Values -> Culture -> Everything",
+		"description": "This post examines how an organisation’s stated values evolve into the behaviours that define its true culture, and how misalignment between the two can quietly erode performance. It argues that authentic culture is revealed by what people do instinctively, and that clear, lived values create a cascading effect that shapes decisions, norms and outcomes across the entire company.",
+		"date": "2025-10-05",
+		"url": "https://kevingoldsmith.substack.com/p/values-culture-everything",
+		"tags": [
+			"Leadership",
+			"Organizational Design",
+			"Engineering Culture"
+		]
+	},
+	{
 		"name": "You should give that talk or write that blog",
 		"description": "<p>At least once a month, someone in a 1:1 or a mentoring session will ask me why I write these articles or give talks at conferences and want to know how they could get started themselves.</p><p>It can be daunting if you’ve never published something with your name attached or spoken in front of a group of your peers. The most common fear I hear is that people are afraid that they “have nothing to say” or relatively nothing to say that is new.</p>",
 		"date": "2024-08-09",

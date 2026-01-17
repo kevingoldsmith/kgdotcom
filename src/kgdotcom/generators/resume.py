@@ -5,20 +5,15 @@
 create the resume.html page for my website
 """
 
-__version__ = "2.0.0"
-__author__ = "Kevin Goldsmith"
-__copyright__ = "Copyright 2021, Kevin Goldsmith"
-__license__ = "MIT"
-__status__ = "Production"  # Prototype, Development or Production
-
 import argparse
 import json
 import logging
 import os
 from typing import List
 
-import jinja2  # type: ignore
 from xmlrpc.client import boolean
+
+import jinja2  # type: ignore
 
 from kgdotcom.core import common
 
@@ -32,20 +27,20 @@ def format_job_list(work: List[dict]) -> List[dict]:
     for work_item in work:
         if "website" in work_item:
             common.validate_url(work_item["website"])
-        job = dict(
-            title=work_item["position"],
-            from_date=common.format_month_year_from_string(work_item["startDate"]),
-            to_date=(
+        job = {
+            "title": work_item["position"],
+            "from_date": common.format_month_year_from_string(work_item["startDate"]),
+            "to_date": (
                 common.format_month_year_from_string(work_item["endDate"])
                 if "endDate" in work_item
                 else "present"
             ),
-            company=work_item["company"],
-            website=work_item.get("website"),
-            city=work_item["location"],
-            description=common.generate_paragraphs_for_lines(work_item["summary"]),
-            jobstatus="alumniOf" if "endDate" in work_item else "worksFor",
-        )
+            "company": work_item["company"],
+            "website": work_item.get("website"),
+            "city": work_item["location"],
+            "description": common.generate_paragraphs_for_lines(work_item["summary"]),
+            "jobstatus": "alumniOf" if "endDate" in work_item else "worksFor",
+        }
         job_list.append(job)
 
     return job_list
@@ -56,17 +51,19 @@ def format_patent_list(patents: List[dict]) -> List[dict]:
     patent_list = []
     for patent in patents:
         common.validate_url(patent["url"])
-        patent = dict(
-            title=patent["name"],
-            url=patent["url"],
-            number=patent["number"],
-            author="co-author" if len(patent["authors"]) > 1 else "sole author",
-            filing_date=common.format_month_day_year_from_string(patent["filingDate"]),
-            granted_date=common.format_month_day_year_from_string(
+        patent = {
+            "title": patent["name"],
+            "url": patent["url"],
+            "number": patent["number"],
+            "author": "co-author" if len(patent["authors"]) > 1 else "sole author",
+            "filing_date": common.format_month_day_year_from_string(
+                patent["filingDate"]
+            ),
+            "granted_date": common.format_month_day_year_from_string(
                 patent["grantedDate"]
             ),
-            abstract=patent["abstract"],
-        )
+            "abstract": patent["abstract"],
+        }
         patent_list.append(patent)
 
     return patent_list
@@ -116,22 +113,22 @@ def format_keynote_list(conferences: List[dict], debug_mode: boolean) -> List[di
                         talk["talk-url"] = talk_path
                     else:
                         logger.error(
-                            f"ERROR: talk-path does not exist for {talk['talk']}!"
+                            "ERROR: talk-path does not exist for %s!", talk["talk"]
                         )
                 else:
                     common.validate_url(talk["talk-url"])
-                keynote = dict(
-                    talk=talk["talk"],
-                    talk_url=talk.get("talk-url"),
-                    conference=conference["conference"],
-                    conference_url=conference.get("url"),
-                    date=common.format_month_year_from_string(talk["date"]),
-                    location=(
+                keynote = {
+                    "talk": talk["talk"],
+                    "talk_url": talk.get("talk-url"),
+                    "conference": conference["conference"],
+                    "conference_url": conference.get("url"),
+                    "date": common.format_month_year_from_string(talk["date"]),
+                    "location": (
                         common.format_city_state_country_from_location(talk["location"])
                         if "location" in talk
                         else "virtual"
                     ),
-                )
+                }
                 keynote_list.append(keynote)
     return keynote_list
 
@@ -145,18 +142,18 @@ def generate_resume_page(
     pagetemplate = env.get_template("resume-template.html")
 
     # get the conference data
-    with open("data/conferences.json", "r") as file:
+    with open("data/conferences.json", "r", encoding="utf-8") as file:
         conference_data = json.load(file)
 
     # get the resume data
-    with open("data/resume.json", "r") as file:
+    with open("data/resume.json", "r", encoding="utf-8") as file:
         resume_data = json.load(file)
 
     # get the interview data
-    with open("data/interviews.json", "r") as file:
+    with open("data/interviews.json", "r", encoding="utf-8") as file:
         interview_data = json.load(file)
 
-    publications = list()
+    publications = []
     for publication in resume_data["publications"]:
         if "releaseDate" in publication:
             publication["year"] = common.format_year_from_string(
@@ -164,30 +161,32 @@ def generate_resume_page(
             )
         publications.append(publication)
 
-    page_variables = dict(
-        debug_mode=debug_mode,
-        email=common.obfusticate_email(resume_data["basics"]["email"]),
-        website=resume_data["basics"]["website"],
-        headline=resume_data["basics"]["headline"],
-        summary=resume_data["basics"]["summary"],
-        job_list=format_job_list(resume_data["work"]),
-        patent_list=format_patent_list(resume_data["patents"]),
-        education=format_education(resume_data["education"][0]),
-        interview_list=format_interview_list(interview_data),
-        keynote_list=format_keynote_list(list(reversed(conference_data)), debug_mode),
-        publication_list=publications,
-        production_list=resume_data["productionCredits"],
-        honor_list=resume_data["awards"],
-    )
+    page_variables = {
+        "debug_mode": debug_mode,
+        "email": common.obfusticate_email(resume_data["basics"]["email"]),
+        "website": resume_data["basics"]["website"],
+        "headline": resume_data["basics"]["headline"],
+        "summary": resume_data["basics"]["summary"],
+        "job_list": format_job_list(resume_data["work"]),
+        "patent_list": format_patent_list(resume_data["patents"]),
+        "education": format_education(resume_data["education"][0]),
+        "interview_list": format_interview_list(interview_data),
+        "keynote_list": format_keynote_list(
+            list(reversed(conference_data)), debug_mode
+        ),
+        "publication_list": publications,
+        "production_list": resume_data["productionCredits"],
+        "honor_list": resume_data["awards"],
+    }
 
     output_path = os.path.join(common.get_output_directory(debug_mode), output_file)
-    logger.info(f"writing: {output_path}")
-    with open(output_path, "w") as file:
+    logger.info("writing: %s", output_path)
+    with open(output_path, "w", encoding="utf-8") as file:
         file.write(pagetemplate.render(page_variables))
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="generate the writings file")
+    parser = argparse.ArgumentParser(description="generate the resume file")
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
     logger = logging.getLogger(__name__)
