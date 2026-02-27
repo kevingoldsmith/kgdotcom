@@ -1,5 +1,69 @@
 [
 	{
+		"name": "The Shift to Managing Managers",
+		"description": "The article examines why the transition to managing managers is so hard: the instincts that made you a good manager actively work against you at this level, because staying close to execution erodes your managers' ownership and turns you into a bottleneck. The core shift is from managing work to managing context, where your job becomes giving managers enough framing and clarity that they can make good decisions without routing everything through you. Feeling indispensable is framed not as a success metric but as a warning sign that you've capped both your own growth and your organization's.",
+		"date": "2026-02-08",
+		"url": "https://kevingoldsmith.substack.com/p/the-shift-to-managing-managers",
+		"tags": [
+			"Leadership",
+			"Career"
+		]
+	},
+	{
+		"name": "Leading What You’ve Never Done Before",
+		"description": "The article addresses the inevitable moment when a technology leader's scope outgrows their technical background, and why the instinct to compensate by learning everything is the wrong move. As scope grows, the job shifts from solving problems directly to designing the systems and conditions that produce good decisions, which requires building mental models and asking good questions rather than deep expertise. Feeling exposed because you're leading something unfamiliar isn't a sign of failure; it's usually a sign your role has evolved faster than your self-image has caught up.",
+		"date": "2026-01-25",
+		"url": "https://kevingoldsmith.substack.com/p/leading-what-youve-never-done-before",
+		"tags": [
+			"Leadership",
+			"Career"
+		]
+	},
+	{
+		"name": "Reflection is a Crucial Leadership Skill",
+		"description": "The article argues that reflection becomes more important, not less, as you get more senior, because feedback drops off and experience can quietly turn into autopilot. Without a structured practice for stepping back, success calcifies into habit and blind spots go unexamined. The specific format matters less than having some regular cadence, and modeling the behavior signals to your team that deliberateness matters more than just grinding through the plan.",
+		"date": "2026-01-11",
+		"url": "https://kevingoldsmith.substack.com/p/reflection-is-a-leadership-skill",
+		"tags": [
+			"Leadership",
+			"Strategy",
+			"Career"
+		]
+	},
+	{
+		"name": "Process Is a Tool, Not a Virtue",
+		"description": "The article argues that process should be treated as a tool for solving specific coordination problems, not a default response to friction or a sign of organizational maturity. Every process decision is really a decision about autonomy, and the goal is to add the minimum needed to solve the problem, then actively prune it when it stops helping. The failure modes are predictable: copying processes from larger orgs, never revisiting what you've added, or using process to paper over communication and trust issues.",
+		"date": "2025-12-28",
+		"url": "https://kevingoldsmith.substack.com/p/process-is-a-tool-not-a-virtue",
+		"tags": [
+			"Leadership",
+			"Organizational Design",
+			"Engineering Culture"
+		]
+	},
+	{
+		"name": "What Really Happens in a Board Meeting",
+		"description": "The article demystifies board meetings by framing them as a quarterly performance review for the entire company, where leadership demonstrates progress and judgment to the people who ultimately hold them accountable. It covers how the CTO's role is translation rather than technical depth, and how the biggest mistakes are surprising the CEO in the room or diving too deep into implementation details. The key takeaway is that boards care about clarity, alignment, and good judgment, not cleverness.",
+		"date": "2025-11-30",
+		"url": "https://kevingoldsmith.substack.com/p/what-really-happens-in-a-board-meeting",
+		"tags": [
+			"Leadership",
+			"Strategy",
+			"Career"
+		]
+	},
+	{
+		"name": "Crafting a Technical Strategy That Actually Works",
+		"description": "The article makes the case that undocumented technical strategy leads to misalignment and drift. It walks through what a good strategy looks like, how to build one by working backwards from a desired future state, and how to communicate it so teams can make good decisions without constant oversight.",
+		"date": "2025-11-16",
+		"url": "https://kevingoldsmith.substack.com/p/crafting-a-technical-strategy-that",
+		"tags": [
+			"Technical Strategy",
+			"Leadership",
+			"Engineering Culture"
+		]
+	},
+	{
 		"name": "The Hidden Architecture of Engineering",
 		"description": "This article examines the often-overlooked relationship between the way engineering organisations are structured and the way work actually happens. It explains how choices about team boundaries, communication paths and software architecture directly shape velocity, quality and culture, and offers practical guidance for identifying bottlenecks, reorganising effectively and evolving with purpose.",
 		"date": "2025-10-19",

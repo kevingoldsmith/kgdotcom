@@ -3175,6 +3175,7 @@
 			{
 				"talk": "The Director to CTO path: following it, or mentoring it",
 				"talk-url": "https://confoo.ca/en/2026/session/the-director-to-cto-path-following-it-or-mentoring-it",
+				"root-talk": "The path from Director to CTO: How to follow it, or how to mentor it",
 				"talk-description": "For aspiring CTOs and their mentors: a systematic approach to the Director-to-CTO growth path. Covers essential skill development (technical depth, strategic planning, leadership), mentorship strategies for identifying and nurturing potential, plus real-world examples of successful transitions and everyday challenges.",
 				"talk-type": "talk",
 				"date": "2026-02-25",
@@ -3187,11 +3188,19 @@
 					"postal code": "H5A 1E4",
 					"country": "CA",
 					"gps": [45.49933084623092, -73.56521668484285]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "Very insightful and very well delivered",
+						"credit": "Anonymous"
+					}
+				]
 			},
 			{
 				"talk": "Rising After the Fall: Engineering Your Career Comeback",
 				"talk-url": "https://confoo.ca/en/2026/session/rising-after-the-fall-engineering-your-career-comeback",
+				"slides-link": "https://www.slideshare.net/slideshow/rising-after-the-fall-engineering-your-career-comeback/286262421",
+				"slides-url": "https://www.slideshare.net/slideshow/embed_code/key/hZoj78rFceqZWh",
 				"talk-description": "Everyone faces career inflection points: some by choice, others thrust upon us, including me. When your career gets disrupted, recover faster with proven frameworks. Learn systematic methods for self-assessment, market positioning, and opportunity evaluation. Convert setbacks into skill-building advantages through structured approaches to networking, decision-making, and professional growth that work for analytical minds.",
 				"talk-type": "talk",
 				"date": "2026-02-26",
@@ -3204,7 +3213,17 @@
 					"postal code": "H5A 1E4",
 					"country": "CA",
 					"gps": [45.49933084623092, -73.56521668484285]
-				}
+				},
+				"reactions": [
+					{
+						"quote": "Great life story. Useful advice. Loved it!",
+						"credit": "Anonymous"
+					},
+					{
+						"quote": "Actionable advice. Concrete! Practical examples.",
+						"credit": "Anonymous"
+					}
+				]	
 			}
 		]
 	}
