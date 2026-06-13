@@ -9,8 +9,13 @@ import os
 import shutil
 import tempfile
 import unittest
+from unittest import mock
 
-from kgdotcom.generators.photos import Gallery, Image
+from kgdotcom.generators.photos import (
+    Gallery,
+    Image,
+    get_prev_next_nextnext,
+)
 
 
 # example photos that carry their title only in a JSON sidecar (no embedded
@@ -70,6 +75,46 @@ class TestGalleryPreview(unittest.TestCase):
         gallery = Gallery("TestGallery", self.tmp)
         gallery.populate()
         self.assertEqual(os.path.basename(gallery.preview_image.path), self.OLDER)
+
+
+class TestImageNavigation(unittest.TestCase):
+    """prev/next navigation must follow the same newest-first order as the grid"""
+
+    # created oldest-first on disk; expected display/nav order is newest-first
+    NAMES = ["20200101-a.jpg", "20220101-b.jpg", "20240101-c.jpg"]
+
+    def setUp(self) -> None:
+        source = _find_source_jpg()
+        if not source:
+            self.skipTest("no source photo available")
+        self.tmp = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, self.tmp)
+        for name in self.NAMES:
+            shutil.copy(source, os.path.join(self.tmp, name))
+
+    def _populate_oldest_first(self) -> Gallery:
+        """populate with a deterministic oldest-first listdir order, so the test
+        fails unless populate() explicitly sorts the images newest-first"""
+        gallery = Gallery("TestGallery", self.tmp)
+        with mock.patch(
+            "kgdotcom.generators.photos.os.listdir", return_value=list(self.NAMES)
+        ):
+            gallery.populate()
+        return gallery
+
+    def test_images_sorted_newest_first(self) -> None:
+        gallery = self._populate_oldest_first()
+        order = [os.path.basename(img.path) for img in gallery.images]
+        self.assertEqual(order, ["20240101-c.jpg", "20220101-b.jpg", "20200101-a.jpg"])
+
+    def test_prev_next_follow_display_order(self) -> None:
+        gallery = self._populate_oldest_first()
+        # middle image is the 2022 one; in newest-first order its previous is
+        # the newer 2024 image and its next is the older 2020 image
+        middle = next(img for img in gallery.images if "20220101-b" in img.path)
+        previous, next_image, _ = get_prev_next_nextnext(gallery.images, middle)
+        self.assertEqual(os.path.basename(previous.path), "20240101-c.jpg")
+        self.assertEqual(os.path.basename(next_image.path), "20200101-a.jpg")
 
 
 if __name__ == "__main__":

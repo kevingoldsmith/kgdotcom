@@ -85,10 +85,12 @@ class Gallery:  # pylint: disable=too-many-instance-attributes
                 newgal.populate()
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
+        # keep images in a single newest-first order so the gallery grid and the
+        # per-image prev/next navigation share one source of truth (filenames are
+        # date-prefixed, so descending name order is newest-first)
+        self.images.sort(key=lambda image: image.name, reverse=True)
         if len(self.images) > 0:
-            # default cover is the newest image (filenames are date-prefixed,
-            # so the lexicographically greatest name is the most recent)
-            self.preview_image = max(self.images, key=lambda image: image.name)  # type: ignore
+            self.preview_image = self.images[0]  # type: ignore
         self.load_JSON_metadata()
 
     def load_JSON_metadata(self) -> None:  # pylint: disable=invalid-name
@@ -492,7 +494,8 @@ def create_gallery(  # pylint: disable=too-many-locals
         gallery.sub_galleries, key=lambda g: len(g.sub_galleries) * 2 + len(g.images)
     )
     sorted_galleries.reverse()
-    sorted_images = sorted(gallery.images, key=lambda i: i.name, reverse=True)
+    # gallery.images is already sorted newest-first in Gallery.populate(), which
+    # is the same order used for prev/next navigation on each image page
 
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
@@ -501,7 +504,7 @@ def create_gallery(  # pylint: disable=too-many-locals
     pagevalues["gallerydescription"] = gallery.description
     pagevalues["rootpath"] = root_path
     pagevalues["subgalleries"] = sorted_galleries
-    pagevalues["images"] = sorted_images
+    pagevalues["images"] = gallery.images
     if breadcrumbs:
         pagevalues["breadcrumbs"] = breadcrumbs
 
