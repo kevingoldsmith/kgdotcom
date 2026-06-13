@@ -86,7 +86,9 @@ class Gallery:  # pylint: disable=too-many-instance-attributes
                 if (len(newgal.images) > 0) or (len(newgal.sub_galleries) > 0):
                     self.sub_galleries.append(newgal)
         if len(self.images) > 0:
-            self.preview_image = self.images[0]  # type: ignore
+            # default cover is the newest image (filenames are date-prefixed,
+            # so the lexicographically greatest name is the most recent)
+            self.preview_image = max(self.images, key=lambda image: image.name)  # type: ignore
         self.load_JSON_metadata()
 
     def load_JSON_metadata(self) -> None:  # pylint: disable=invalid-name
@@ -107,9 +109,24 @@ class Gallery:  # pylint: disable=too-many-instance-attributes
                 self.description = gallery_data.get("description", "")
                 preview_name = gallery_data.get("preview")
                 if preview_name:
-                    list(
-                        filter(lambda image: image["name"] == preview_name, self.images)  # type: ignore
+                    # match on the image filename (not the display title) so
+                    # galleries with duplicate titles select an unambiguous cover
+                    match = next(
+                        (
+                            image
+                            for image in self.images
+                            if os.path.basename(image.path) == preview_name
+                        ),
+                        None,
                     )
+                    if match:
+                        self.preview_image = match
+                    else:
+                        logger.warning(
+                            "preview '%s' for gallery '%s' matched no image filename",
+                            preview_name,
+                            self.name,
+                        )
 
 
 class Image:  # pylint: disable=too-many-instance-attributes
