@@ -127,6 +127,7 @@ class Image:  # pylint: disable=too-many-instance-attributes
         self.exif: Dict[str, Any] = {}
         self.iptc: Dict[str, Any] = {}
         self.data_overrides: Dict[str, Any] = {}
+        self.title = name
         self.output_filename = ""
         self.output_file_path = ""
         self.thumb_filename = ""
@@ -151,7 +152,15 @@ class Image:  # pylint: disable=too-many-instance-attributes
         self.exif = get_exif_data(self.image)  # type: ignore
         self.iptc = get_iptc_data(self.image)
         self.data_overrides = self.get_JSON_overrides()
+        self.title = self.resolve_title()
         self.image.close()
+
+    def resolve_title(self) -> str:
+        """resolve the display title using the same precedence everywhere:
+        JSON sidecar override > embedded IPTC title > filename."""
+        if "title" in self.data_overrides:
+            return self.data_overrides["title"]
+        return self.iptc.get("title", self.name)
 
     def get_JSON_overrides(self) -> dict:  # pylint: disable=invalid-name
         """
@@ -178,7 +187,7 @@ class Image:  # pylint: disable=too-many-instance-attributes
             dict: a dictionary with the simplified metadata
         """
         simple = {}
-        simple["title"] = self.iptc.get("title", self.name)
+        simple["title"] = self.title
         if "description" in self.iptc:
             simple["description"] = self.iptc["description"]
         exif_tags = [

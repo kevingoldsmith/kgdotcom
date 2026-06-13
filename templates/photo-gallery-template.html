@@ -136,7 +136,7 @@
         {% if subgalleries %}<h2>images</h2>{% endif %}
         <div class="wrapper">
             {% for image in images %}
-            <div><a href="{{image.image_page}}"><img src="{{image.thumb_filename}}" /><div>{% if image.iptc.title %}{{image.iptc.title}}{% else %}{{image.name}}{% endif %}</a></div></div>
+            <div><a href="{{image.image_page}}"><img src="{{image.thumb_filename}}" /><div>{{image.title}}</a></div></div>
             {% endfor %}
         </div>
         {% endif %}
