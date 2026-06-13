@@ -475,7 +475,7 @@ def create_gallery(  # pylint: disable=too-many-locals
         gallery.sub_galleries, key=lambda g: len(g.sub_galleries) * 2 + len(g.images)
     )
     sorted_galleries.reverse()
-    sorted_images = sorted(gallery.images, key=lambda i: i.name)
+    sorted_images = sorted(gallery.images, key=lambda i: i.name, reverse=True)
 
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
