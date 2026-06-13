@@ -2,7 +2,17 @@
 # *_* coding: utf-8 *_*
 
 """
-create the talks/ subdirectory of the website
+create the photos/ photo galleries of the website
+
+Walks the ``photos/`` content tree, building a Gallery/Image model and
+rendering a grid page per directory plus an individual page per image.
+
+Conventions (see README.md for details):
+- Image files are named ``YYYYMMDD-<name>.ext``; images sort newest-first.
+- An optional ``<image>.json`` sidecar overrides ``title``/``description``.
+- An optional ``<DirName>.json`` gallery sidecar sets ``name``/``description``
+  and may pick the cover image by filename via ``preview`` (default cover is
+  the newest image). prev/next navigation follows the same newest-first order.
 """
 
 from __future__ import annotations
