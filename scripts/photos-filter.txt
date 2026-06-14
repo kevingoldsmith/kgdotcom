@@ -1,0 +1,6 @@
+# rclone filter for photo sync. Keeps macOS/OS cruft out of S3.
+- .DS_Store
+- ._*
+- .Spotlight-V100/**
+- .Trashes/**
+- .fseventsd/**

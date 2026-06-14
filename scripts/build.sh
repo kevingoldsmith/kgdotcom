@@ -14,6 +14,11 @@ while getopts cdsw opts; do
     esac
 done
 
+# Pull the latest photos from S3 before generating galleries. Non-destructive
+# (rclone copy) and non-fatal: if offline or rclone is missing, build with whatever
+# photos are present locally.
+"$(dirname "$0")/photos.sh" pull || echo "WARNING: photo pull failed; building with local photos only."
+
 if $debug ; then
     if $clean ; then
         rm -rf testoutput

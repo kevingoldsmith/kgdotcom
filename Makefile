@@ -34,6 +34,12 @@ build: venv/bin/activate
 publish: venv/bin/activate
 	. venv/bin/activate; scripts/publish.sh
 
+photos-pull:
+	scripts/photos.sh pull
+
+photos-push:
+	scripts/photos.sh push
+
 lint: venv/bin/activate
 	. venv/bin/activate; pylint src/kgdotcom/ tests/
 
@@ -57,4 +63,4 @@ testdebugcheckpoint: testoutput
 list:
 	@grep '^[^#[:space:]].*:' Makefile
 
-.PHONY: venv clean test debug debugclean publish build list lint black mypy scan checkpoint checkpoint-debug testcheckpoint testdebugcheckpoint
+.PHONY: venv clean test debug debugclean publish build list lint black mypy scan checkpoint checkpoint-debug testcheckpoint testdebugcheckpoint photos-pull photos-push

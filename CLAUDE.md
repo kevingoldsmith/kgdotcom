@@ -43,6 +43,12 @@ make testdebugcheckpoint # Compare testoutput/ vs lkgtestoutput/
 make publish    # Deploy to production (via scripts/publish.sh)
 ```
 
+### Photo Sync
+```bash
+make photos-pull   # Download new/changed photos from S3 (non-destructive)
+make photos-push   # Mirror local photos/ up to S3 (run after adding photos)
+```
+
 ## Architecture
 
 ### Core Generation Flow
@@ -83,6 +89,13 @@ Each subdirectory of `photos/` becomes a gallery (grid page) and each image gets
 - Image files are named `YYYYMMDD-<name>.ext` (date prefix required for new photos). Images sort **newest-first**, and per-image prev/next navigation follows that same order.
 - Optional `<image>.json` sidecar overrides `title`/`description`. Title precedence: sidecar `title` → embedded IPTC title → filename.
 - Optional `<DirName>.json` gallery sidecar sets the gallery `name`/`description` and may select the cover via `preview` (matched by image **filename**); the default cover is the newest image.
+
+#### Photo Storage and Sync
+`photos/` is **gitignored** — the repo is public, so photos live in a private S3 bucket instead and are synced across machines with rclone (not checked into git, not manually copied). `scripts/photos.sh` wraps both directions; `scripts/photos-filter.txt` excludes macOS cruft (`.DS_Store`, etc.) from the bucket.
+- **pull** (`make photos-pull` / `scripts/photos.sh pull`) — non-destructive `rclone copy` from S3; brings in new/changed photos, never deletes local files.
+- **push** (`make photos-push` / `scripts/photos.sh push`) — `rclone sync` local → S3, **including deletions**. Local is the source of truth, so only push from a machine whose `photos/` is current.
+- `build.sh` runs **pull** automatically before generation (non-fatal if offline), so builds reflect the latest photos. Push is always manual to avoid a stale machine overwriting newer photos in the bucket.
+- Bucket is configured in `scripts/photos.sh` (override with the `PHOTOS_REMOTE` env var); rclone needs an `s3` remote configured per machine.
 
 ### Template System
 Jinja2 templates in `templates/` directory generate final HTML. Each generator loads appropriate templates and passes structured data for rendering.
