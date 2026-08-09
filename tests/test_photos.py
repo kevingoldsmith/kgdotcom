@@ -14,7 +14,7 @@ from unittest import mock
 from kgdotcom.generators.photos import (
     Gallery,
     Image,
-    get_prev_next_nextnext,
+    get_prev_next,
 )
 
 
@@ -112,7 +112,7 @@ class TestImageNavigation(unittest.TestCase):
         # middle image is the 2022 one; in newest-first order its previous is
         # the newer 2024 image and its next is the older 2020 image
         middle = next(img for img in gallery.images if "20220101-b" in img.path)
-        previous, next_image, _ = get_prev_next_nextnext(gallery.images, middle)
+        previous, next_image = get_prev_next(gallery.images, middle)
         self.assertEqual(os.path.basename(previous.path), "20240101-c.jpg")
         self.assertEqual(os.path.basename(next_image.path), "20200101-a.jpg")
 

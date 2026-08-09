@@ -22,9 +22,39 @@
     <link rel="stylesheet" href="{{rootpath}}css/genericons.css" />
     <style>
         .navthumb {
-            width: 60px;
-            height: 60px;
+            width: 72px;
+            height: 72px;
             object-fit: cover;
+        }
+        /* the filmstrip is the only prev/next control: the current photo is
+           marked rather than being an anonymous third thumbnail, and each
+           label sits under the thumbnail it describes. */
+        .filmstrip ul {
+            display: flex;
+            gap: 0.5em;
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        /* the anchor needs this too, not just the li: on linked entries the
+           img and label are wrapped in an <a>, so styling only the li would
+           leave them laid out inline next to each other */
+        .filmstrip li,
+        .filmstrip li > a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .filmstrip span {
+            font-size: .8em;
+            color: #666666;
+            text-align: center;
+        }
+        /* outline, not border: drawn outside the box, so the marked thumbnail
+           stays exactly the same size as its neighbours */
+        .filmstrip .current img {
+            outline: 2px solid #AA0000;
+            outline-offset: 2px;
         }
         .thumbnail {
             max-width: 400px;
@@ -80,9 +110,6 @@
         .rcol section h3 {
            margin-bottom: .5em;
         }
-        .right {
-            float:right;
-        }
         #photo-metadata tr {
             vertical-align: top;
         }
@@ -120,21 +147,14 @@
         </div>
         <div class="rcol">
             <aside>
-                <section>
-                    <div>
-                        {% if next_image %}<div class="right"><span class="wrap last"><a href="{{next_image.image_page}}">Next</a></span></div>{% endif %}
-                        {% if previous_image %}<span class="wrap first"><a href="{{previous_image.image_page}}">Previous</a></span>{% endif %}
-                    </div>    
-                </section>
-                <section>
+                <nav class="filmstrip" aria-label="Gallery navigation">
                     <h3>{{gallery.name}}</h3>
-                    <div>
-                        {% if previous_image %}<a href="{{previous_image.image_page}}"><img class="navthumb" src="{{previous_image.thumb_filename}}" alt="{{previous_image.name}}" /></a>{% endif %}
-                        <img class="navthumb" src="{{photo.thumb_filename}}" />
-                        {% if next_image %}<a href="{{next_image.image_page}}"><img class="navthumb" src="{{next_image.thumb_filename}}" alt="{{next_image.name}}" /></a>{% endif %}
-                        {% if next_next_image %}<a href="{{next_next_image.image_page}}"><img class="navthumb" src="{{next_next_image.thumb_filename}}" alt="{{next_next_image.name}}" /></a>{% endif %}
-                    </div>
-                </section>
+                    <ul>
+                        {% if previous_image %}<li><a href="{{previous_image.image_page}}"><img class="navthumb" src="{{previous_image.thumb_filename}}" alt="{{previous_image.title}}" /><span>&lsaquo; prev</span></a></li>{% endif %}
+                        <li class="current" aria-current="page"><img class="navthumb" src="{{photo.thumb_filename}}" alt="" /><span>current</span></li>
+                        {% if next_image %}<li><a href="{{next_image.image_page}}"><img class="navthumb" src="{{next_image.thumb_filename}}" alt="{{next_image.title}}" /><span>next &rsaquo;</span></a></li>{% endif %}
+                    </ul>
+                </nav>
                 <section>
                     <h3>Sharing</h3>
                     <div id="sharing">

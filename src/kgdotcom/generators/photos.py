@@ -332,32 +332,27 @@ class Image:  # pylint: disable=too-many-instance-attributes
         return (int(max_size[0] * aspect_ratio), int(max_size[1]))
 
 
-def get_prev_next_nextnext(
-    image_list: List[Image], image: Image
-) -> Tuple[Image, Image, Image]:
+def get_prev_next(image_list: List[Image], image: Image) -> Tuple[Image, Image]:
     """
-    get_prev_next_nextnext returns the previous, next, and next-next images
+    get_prev_next returns the previous and next images
 
     Args:
         image_list (List[Image]): _list of images in the gallery
-        image (Image): _image to find the previous, next, and next-next images for_
+        image (Image): _image to find the previous and next images for_
 
     Returns:
-        Tuple[Image, Image, Image]: _previous, next, and next-next images_
+        Tuple[Image, Image]: _previous and next images_
     """
     prev_el = None
     next_el = None
-    next_next_el = None
     for index, elem in enumerate(image_list):
         if image.name == elem.name:
             if index - 1 >= 0:
                 prev_el = image_list[index - 1]
             if index + 1 < len(image_list):
                 next_el = image_list[index + 1]
-            if index + 2 < len(image_list):
-                next_next_el = image_list[index + 2]
             break
-    return prev_el, next_el, next_next_el  # type: ignore
+    return prev_el, next_el  # type: ignore
 
 
 def get_iptc_data(image: PILImage.Image) -> Dict[str, Any]:
@@ -420,9 +415,7 @@ def create_image_page(  # pylint: disable=too-many-locals
         relative_path = "../" + relative_path
     breadcrumbs.reverse()
 
-    previous, next_image, next_next_image = get_prev_next_nextnext(
-        gallery.images, image
-    )
+    previous, next_image = get_prev_next(gallery.images, image)
     image.image_page = image.name + ".html"
     image.image_page_path = os.path.join(path, image.name + ".html")
 
@@ -439,8 +432,6 @@ def create_image_page(  # pylint: disable=too-many-locals
         del simple_metadata["Capture Date"]
     pagevalues["previous_image"] = previous
     pagevalues["next_image"] = next_image
-    if not previous:
-        pagevalues["next_next_image"] = next_next_image
     pagevalues["url"] = __SITE_URL + image.image_page_path
 
     with open(image.image_page_path, "w", encoding="utf-8") as file:
