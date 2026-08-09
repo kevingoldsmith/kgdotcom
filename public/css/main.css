@@ -43,6 +43,9 @@ header {
 	padding-top: .5em;
 	border-bottom-width: .1em;
 	border-bottom-style: solid;
+	/* border-box so horizontal padding stays inside the 100% width instead of
+	   adding to it, which pushed the page wider than the viewport */
+	box-sizing: border-box;
 	width: 100%;
 	background: #FFFFFF;
 	position: fixed;
@@ -105,6 +108,8 @@ header {
 footer {
 	border-top-width: .1em;
 	border-top-style: solid;
+	/* see header: keep padding inside the 100% width */
+	box-sizing: border-box;
 	width: 100%;
 	padding: 0.5em 0em 0em .5em;
 }

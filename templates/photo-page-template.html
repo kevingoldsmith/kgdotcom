@@ -32,17 +32,47 @@
             pointer-events: none;
         }
         .fullsize {
-            max-width: 1000px;
+            /* fluid: fill the photo column, never overflow it */
+            max-width: 100%;
             max-height: 1000px;
             pointer-events: none;
         }
+        /* photo + sidebar. flex (not floats) so they sit side by side when there
+           is room and stack cleanly when there isn't, instead of escaping
+           #content and letting the footer ride up over them. */
+        .photo-layout {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1em 2em;
+            /* queried below so the sidebar can react to the real available
+               width. a viewport media query can't: it counts the scrollbar,
+               so it never lines up with where flex actually wraps. */
+            container-type: inline-size;
+        }
         .mcol {
-            float: left;
+            flex: 1 1 400px;
+            min-width: 0;
+            max-width: 1000px;
+        }
+        .mcol figure {
+            margin: 0 0 1em 0;
         }
         .rcol {
-            float: left;
-            width: 300px;
-            margin-top: 1em;
+            flex: 1 1 300px;
+            max-width: 300px;
+            /* no top margin: .mcol's figure has none either, so the sidebar's
+               first row stays flush with the top of the photo */
+            margin-top: 0;
+        }
+        /* 732px = .mcol basis 400 + .rcol basis 300 + the 2em column gap, i.e.
+           exactly the width below which the two columns can no longer share a
+           line. Once the sidebar wraps under the photo it spans the full width
+           rather than sitting in a 300px stub. */
+        @container (max-width: 731px) {
+            .rcol {
+                max-width: none;
+            }
         }
         .rcol section {
             padding-bottom: 1em;
@@ -71,11 +101,6 @@
         #sharing {
             padding: 10px 0px 10px 0px;
         }
-        @media only screen and (max-width: 1000px) {
-            .fullsize {
-                max-width: 500px;
-            }
-        }
     </style>
 </head>
 {% include 'google-analytics.html' %}
@@ -86,10 +111,11 @@
             <div id="breadcrumbs">{% for crumb in breadcrumbs %}<a href="{{crumb[1]}}">{{crumb[0]}}</a> / {% endfor %}</div>
             <div><h1>{{metadata.title}}</h1></div>
         </div>
+        <div class="photo-layout">
         <div class="mcol">
             <figure>
                     <img class="fullsize" src="{{photo.output_filename}}" onContextMenu="return false;"/>
-                {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}        
+                {% if metadata.description %}<div id="photodescription">{{metadata.description}}</div>{% endif %}
             </figure>
         </div>
         <div class="rcol">
@@ -147,9 +173,9 @@
                 </section>
             </aside>
         </div>
+        </div>
 		<!-- end #mainContent -->
 	</main>
-    <div style="clear:both"></div>
 	{% include 'footer.html' %}
 	<script src="{{rootpath}}js/fontfaceobserver.js"></script>
 </body>

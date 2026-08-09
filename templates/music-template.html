@@ -71,7 +71,11 @@
         }
         .youtube {
             width:420px;
-            height:315px;
+            /* never exceed the container: a hard 420px overflowed the viewport
+               on narrow screens. aspect-ratio keeps the 4:3 shape as it shrinks. */
+            max-width:100%;
+            aspect-ratio: 4 / 3;
+            height:auto;
         }
         .spotify {
              width:420px;
