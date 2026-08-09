@@ -15,7 +15,7 @@ checkpoint-debug: testoutput
 	cp -r testoutput lkgtestoutput
 
 clean:
-	scripts/build.sh -c
+	rm -rf output testoutput
 
 test: venv/bin/activate
 	. venv/bin/activate; scripts/run_tests.sh
