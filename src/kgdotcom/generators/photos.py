@@ -419,20 +419,42 @@ def create_image_page(  # pylint: disable=too-many-locals
     image.image_page = image.name + ".html"
     image.image_page_path = os.path.join(path, image.name + ".html")
 
+    # image_page_path is an on-disk path under output/ or testoutput/, so it
+    # cannot be appended to the site URL directly: that yields
+    # kevingoldsmith.com/output/photos/... which 404s. Strip the build directory
+    # to get the path as it will be served.
+    site_relative_path = os.path.relpath(
+        image.image_page_path, common.get_output_directory(debug_mode)
+    )
+    page_url = __SITE_URL + site_relative_path
+
+    # structured metadata for the photo page. must come after image_page_path is
+    # assigned above, or photo_url would be built from an empty path and every
+    # photo would claim the site root as its canonical URL.
+    photo_data = {
+        "photo_title": simple_metadata.get("title", image.name),
+        "photo_description": simple_metadata.get("description", ""),
+        "gallery_name": gallery.name,
+        "capture_date": simple_metadata.get("Capture Date", ""),
+        "photo_url": page_url,
+    }
+    page_metadata = common.generate_page_metadata("photo", photo_data, debug_mode)
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
     pagevalues["title"] = f"{simple_metadata['title']}: a photo by Kevin Goldsmith"
     pagevalues["rootpath"] = root_path
     pagevalues["photo"] = image
     pagevalues["gallery"] = gallery
-    pagevalues["metadata"] = simple_metadata
+    pagevalues["photo_metadata"] = simple_metadata
+    pagevalues["metadata"] = page_metadata
     pagevalues["breadcrumbs"] = breadcrumbs
     if "Capture Date" in simple_metadata:
         pagevalues["date_taken"] = simple_metadata["Capture Date"].strftime("%B %d, %Y")
         del simple_metadata["Capture Date"]
     pagevalues["previous_image"] = previous
     pagevalues["next_image"] = next_image
-    pagevalues["url"] = __SITE_URL + image.image_page_path
+    pagevalues["url"] = page_url
 
     with open(image.image_page_path, "w", encoding="utf-8") as file:
         file.write(gallery_page_template.render(pagevalues))
@@ -498,6 +520,20 @@ def create_gallery(  # pylint: disable=too-many-locals
     # gallery.images is already sorted newest-first in Gallery.populate(), which
     # is the same order used for prev/next navigation on each image page
 
+    # Generate metadata for photo gallery. gallery_url must be per-gallery: a
+    # shared canonical would tell search engines every gallery is a duplicate of
+    # photography.html. Site-relative, so it excludes output/ or testoutput/.
+    gallery_url = __SITE_URL + os.path.relpath(
+        os.path.join(path, "index.html"), common.get_output_directory(debug_mode)
+    )
+    photo_data = {
+        "photo_count": len(gallery.images),
+        "gallery_count": len(sorted_galleries),
+        "gallery_name": gallery.name,
+        "gallery_url": gallery_url,
+    }
+    metadata = common.generate_page_metadata("photos", photo_data, debug_mode)
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["debug_mode"] = debug_mode
     pagevalues["title"] = f"{gallery.name}: a photographic gallery by Kevin Goldsmith"
@@ -506,6 +542,7 @@ def create_gallery(  # pylint: disable=too-many-locals
     pagevalues["rootpath"] = root_path
     pagevalues["subgalleries"] = sorted_galleries
     pagevalues["images"] = gallery.images
+    pagevalues["metadata"] = metadata
     if breadcrumbs:
         pagevalues["breadcrumbs"] = breadcrumbs
 

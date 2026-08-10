@@ -20,6 +20,7 @@ from kgdotcom.core.common import (
     validate_url,
     format_month_day_year_from_string,
     initialize_logging,
+    generate_page_metadata,
 )
 
 
@@ -67,10 +68,15 @@ def generate_writing_page(
 
     output_directory = get_output_directory(debug_mode)
 
+    # Generate metadata
+    writing_data = {"articles": writings}
+    metadata = generate_page_metadata("writing", writing_data, debug_mode)
+
     template_context = {
         "debug_mode": debug_mode,
         "writinglist": article_list,
         "tagbuttons": button_list,
+        "metadata": metadata,
     }
     output_path = os.path.join(output_directory, output_file)
     logger.info("writing: %s", output_path)

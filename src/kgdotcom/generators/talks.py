@@ -259,6 +259,14 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
     with open("data/pagevariables.json", encoding="utf-8") as file:
         pagevariables = json.load(file)
 
+    # Load current talks for metadata generation
+    with open("data/current_talks.json", "r", encoding="utf-8") as file:
+        current_talks = json.load(file)
+
+    # Generate metadata
+    talks_data = {"talks": current_talks}
+    metadata = common.generate_page_metadata("talks", talks_data, debug_mode)
+
     pagevalues = copy.deepcopy(pagevariables)
     pagevalues["currenttalklist"] = featured_talks
     pagevalues["othertalklist"] = other_talk_list
@@ -269,6 +277,7 @@ def generate_conference_pages(debug_mode: boolean = False) -> None:
     if len(future_talks) > 0:
         pagevalues["futuretalks"] = future_talks
     pagevalues["debug_mode"] = debug_mode
+    pagevalues["metadata"] = metadata
     # common.check_for_missing_values(pagevariables, pagevalues)
     with open(output_directory + "index.html", "w", encoding="utf-8") as file:
         file.write(talkpagetemplate.render(pagevalues))

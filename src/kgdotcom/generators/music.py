@@ -17,6 +17,7 @@ import jinja2  # type: ignore
 from kgdotcom.core.common import (
     get_output_directory,
     initialize_logging,
+    generate_page_metadata,
 )
 
 
@@ -33,9 +34,13 @@ def generate_music_page(
 
     output_directory = get_output_directory(debug_mode)
 
+    # Generate metadata
+    metadata = generate_page_metadata("music", music_data, debug_mode)
+
     template_context = {
         "debug_mode": debug_mode,
         "music": music_data,
+        "metadata": metadata,
     }
     
     output_path = os.path.join(output_directory, output_file)
