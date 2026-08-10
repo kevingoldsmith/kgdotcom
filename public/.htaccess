@@ -1,16 +1,34 @@
 Options -Indexes
 ErrorDocument 403 /403page.html
 ErrorDocument 404 /404page.html
-Redirect /discography.html /music.html
-Redirect /photos.html /photography.html
-Redirect /music/index.html /music.html
-Redirect /index.php /index.html
-Redirect /labs/index.html /resume.html
-Redirect /photography/index.html /photography.html
-Redirect /photography/ /photography.html
+
+# Permanent moves: 301 rather than the default 302, so link equity follows.
+Redirect 301 /discography.html /music.html
+Redirect 301 /photos.html /photography.html
+Redirect 301 /music/index.html /music.html
+Redirect 301 /index.php /index.html
+Redirect 301 /labs/index.html /resume.html
+Redirect 301 /photography/index.html /photography.html
+Redirect 301 /photography/ /photography.html
 
 RewriteEngine On
+
+# Canonical host is kevingoldsmith.com, with no www. This matches the canonical
+# URLs the generator emits, so the two cannot disagree.
+#
+# It must come BEFORE the HTTPS rule below. Otherwise http://www.kevingoldsmith.com
+# takes two hops -- first to https://www..., then to the bare domain -- and each
+# hop is a full connection on a slow link. Ordered this way it is one hop, since
+# the target here is already https.
+#
+# NOTE: DreamHost also decides per-domain whether the site is served as
+# www.kevingoldsmith.com or kevingoldsmith.com. That setting must agree with this
+# rule; if the panel forces www while this forces non-www, they redirect to each
+# other forever and the site becomes unreachable.
+RewriteCond %{HTTP_HOST} ^www\.kevingoldsmith\.com [NC]
+RewriteRule (.*) https://kevingoldsmith.com/$1 [R=301,L]
+
 RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 AddType 'application/xml; charset=UTF-8' xml
