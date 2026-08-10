@@ -1,5 +1,5 @@
 """
-    functions for gathering and manipulating EXIF data
+functions for gathering and manipulating EXIF data
 """
 
 # pylint: disable=C0103, R0912, R0915

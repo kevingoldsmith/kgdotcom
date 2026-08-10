@@ -17,7 +17,6 @@ from kgdotcom.generators.photos import (
     get_prev_next,
 )
 
-
 # example photos that carry their title only in a JSON sidecar (no embedded
 # IPTC/EXIF/XMP title), used to guard against the gallery pages falling back
 # to the filename instead of the sidecar title.
@@ -31,6 +30,7 @@ class TestImageTitle(unittest.TestCase):
     """verify the resolved display title honors the JSON sidecar override"""
 
     def test_json_sidecar_title_resolved(self) -> None:
+        """a sidecar title must win over the filename on gallery pages"""
         for path, expected in SIDECAR_EXAMPLES:
             if not os.path.exists(path):
                 self.skipTest(f"missing example photo: {path}")
@@ -63,18 +63,26 @@ class TestGalleryPreview(unittest.TestCase):
         shutil.copy(source, os.path.join(self.tmp, self.NEWER))
 
     def test_default_preview_is_newest(self) -> None:
+        """with no sidecar, the gallery cover is the newest image"""
         gallery = Gallery("TestGallery", self.tmp)
         gallery.populate()
-        self.assertEqual(os.path.basename(gallery.preview_image.path), self.NEWER)
+        preview = gallery.preview_image
+        self.assertIsNotNone(preview, "gallery should pick a preview image")
+        assert preview is not None  # narrows Optional for mypy
+        self.assertEqual(os.path.basename(preview.path), self.NEWER)
 
     def test_preview_override_by_filename(self) -> None:
+        """a sidecar preview selects the cover by filename"""
         with open(
             os.path.join(self.tmp, "TestGallery.json"), "w", encoding="utf-8"
         ) as sidecar:
             json.dump({"preview": self.OLDER}, sidecar)
         gallery = Gallery("TestGallery", self.tmp)
         gallery.populate()
-        self.assertEqual(os.path.basename(gallery.preview_image.path), self.OLDER)
+        preview = gallery.preview_image
+        self.assertIsNotNone(preview, "gallery should pick a preview image")
+        assert preview is not None  # narrows Optional for mypy
+        self.assertEqual(os.path.basename(preview.path), self.OLDER)
 
 
 class TestImageNavigation(unittest.TestCase):
@@ -103,11 +111,13 @@ class TestImageNavigation(unittest.TestCase):
         return gallery
 
     def test_images_sorted_newest_first(self) -> None:
+        """gallery images are ordered newest first"""
         gallery = self._populate_oldest_first()
         order = [os.path.basename(img.path) for img in gallery.images]
         self.assertEqual(order, ["20240101-c.jpg", "20220101-b.jpg", "20200101-a.jpg"])
 
     def test_prev_next_follow_display_order(self) -> None:
+        """prev/next must follow the same order as the grid"""
         gallery = self._populate_oldest_first()
         # middle image is the 2022 one; in newest-first order its previous is
         # the newer 2024 image and its next is the older 2020 image

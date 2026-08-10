@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-    test the common module in the core package of kgdotcom
+test the common module in the core package of kgdotcom
 """
 
 import unittest
@@ -24,6 +24,9 @@ class TestCommon(unittest.TestCase):
     def test_obfusticate_email(self) -> None:
         """test the obfusticate_email function"""
         # valid e-mail address
+        # the expected markup is one long literal; wrapping it further would
+        # make the fixture harder to compare against real output
+        # pylint: disable=line-too-long
         self.assertEqual(
             common.obfusticate_email("dev@null.com"),
             (

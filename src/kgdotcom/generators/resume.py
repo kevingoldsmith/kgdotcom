@@ -17,7 +17,6 @@ import jinja2  # type: ignore
 
 from kgdotcom.core import common
 
-
 logger = logging.getLogger()
 
 

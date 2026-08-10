@@ -42,7 +42,7 @@ def generate_music_page(
         "music": music_data,
         "metadata": metadata,
     }
-    
+
     output_path = os.path.join(output_directory, output_file)
     logger.info("writing: %s", output_path)
     with open(output_path, "w", encoding="utf-8") as file:

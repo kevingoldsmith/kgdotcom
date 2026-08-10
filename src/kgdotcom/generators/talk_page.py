@@ -23,7 +23,6 @@ from bs4 import BeautifulSoup  # type: ignore
 from kgdotcom.core import common
 from kgdotcom.core.navigation import get_href_root, get_talk_root_for_talk
 
-
 # requests cache
 requests_cache.install_cache(expire_after=timedelta(days=1))
 requests_cache.delete(expired=True)
@@ -101,10 +100,15 @@ def get_embed_code_from_slides_url(slides_url: str) -> Optional[str]:
     )
     if response.status_code == 200:
         soup = BeautifulSoup(response.json()["html"], "html.parser")
-        aspect_ratio = float(soup.iframe["height"]) / float(soup.iframe["width"])
-        soup.iframe["width"] = "600"
-        soup.iframe["height"] = str(int(600 * aspect_ratio))
-        return str(soup.iframe.prettify())
+        iframe = soup.iframe
+        if iframe is None:
+            logger.error("slideshare embed for %s contained no iframe", slides_url)
+            return None
+        # attribute values come back as str | list[str]; coerce before float()
+        aspect_ratio = float(str(iframe["height"])) / float(str(iframe["width"]))
+        iframe["width"] = "600"
+        iframe["height"] = str(int(600 * aspect_ratio))
+        return str(iframe.prettify())
     if response.status_code == 404:
         return f'<iframe src="{slides_url}" width="597" height="486"></iframe>'
     logger.error("get slideshare embed failed: %s", response)

@@ -3,7 +3,6 @@
 
 """Functions for the navigation bar"""
 
-
 import os
 from xmlrpc.client import boolean
 

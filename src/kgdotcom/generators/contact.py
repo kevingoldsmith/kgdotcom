@@ -17,14 +17,13 @@ import json
 import logging
 import os
 from datetime import datetime
+from typing import Any, Dict
 
 import jinja2  # type: ignore
 import qrcode  # type: ignore
 from PIL import Image, ImageDraw, ImageFont
-from typing import Any, Dict
 
 from kgdotcom.core import common
-
 
 logger = logging.getLogger()
 

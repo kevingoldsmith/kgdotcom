@@ -30,7 +30,7 @@ def tagify_tag(tag: str) -> str:
     return tag.lower()
 
 
-def generate_writing_page(
+def generate_writing_page(  # pylint: disable=too-many-locals
     debug_mode: boolean = True, output_file: str = "writing.html"
 ) -> None:
     """from the writing.json file, create the writing.html file"""

@@ -53,7 +53,7 @@ class Gallery:  # pylint: disable=too-many-instance-attributes
         self.directory = directory
         self.sub_galleries: List[Gallery] = []
         self.images: List[Image] = []
-        self.preview_image = None
+        self.preview_image: Optional[Image] = None
         self.parent = parent
         self.relative_path = ""
 
@@ -100,7 +100,7 @@ class Gallery:  # pylint: disable=too-many-instance-attributes
         # date-prefixed, so descending name order is newest-first)
         self.images.sort(key=lambda image: image.name, reverse=True)
         if len(self.images) > 0:
-            self.preview_image = self.images[0]  # type: ignore
+            self.preview_image = self.images[0]
         self.load_JSON_metadata()
 
     def load_JSON_metadata(self) -> None:  # pylint: disable=invalid-name
@@ -188,8 +188,8 @@ class Image:  # pylint: disable=too-many-instance-attributes
         """resolve the display title using the same precedence everywhere:
         JSON sidecar override > embedded IPTC title > filename."""
         if "title" in self.data_overrides:
-            return self.data_overrides["title"]
-        return self.iptc.get("title", self.name)
+            return str(self.data_overrides["title"])
+        return str(self.iptc.get("title", self.name))
 
     def get_JSON_overrides(self) -> dict:  # pylint: disable=invalid-name
         """
@@ -215,7 +215,8 @@ class Image:  # pylint: disable=too-many-instance-attributes
         Returns:
             dict: a dictionary with the simplified metadata
         """
-        simple = {}
+        # Any, not str: EXIF values include the GPS sub-dict and a datetime
+        simple: Dict[str, Any] = {}
         simple["title"] = self.title
         if "description" in self.iptc:
             simple["description"] = self.iptc["description"]
@@ -367,17 +368,16 @@ def get_iptc_data(image: PILImage.Image) -> Dict[str, Any]:
 
     # IPTC fields are catalogued in:
     # https://www.iptc.org/std/photometadata/specification/IPTC-PhotoMetadata
-    # 2:05 is the IPTC title property
-    if raw_iptc and (2, 5) in raw_iptc:
-        iptc_data["title"] = raw_iptc[(2, 5)].decode("utf-8", errors="replace")  # type: ignore
-
-    # 2:120 is the IPTC description property
-    if raw_iptc and (2, 120) in raw_iptc:
-        iptc_data["description"] = raw_iptc[(2, 120)].decode("utf-8", errors="replace")  # type: ignore
-
-    # 2:105 is the IPTC headline property
-    if raw_iptc and (2, 105) in raw_iptc:
-        iptc_data["headline"] = raw_iptc[(2, 105)].decode("utf-8", errors="replace")  # type: ignore
+    # 2:05 title, 2:120 description, 2:105 headline
+    iptc_fields = {(2, 5): "title", (2, 120): "description", (2, 105): "headline"}
+    for field, key in iptc_fields.items():
+        if raw_iptc and field in raw_iptc:
+            raw_value = raw_iptc[field]
+            # repeatable IPTC fields come back as a list of values; take the
+            # first rather than calling decode() on the list and crashing
+            if isinstance(raw_value, list):
+                raw_value = raw_value[0]
+            iptc_data[key] = raw_value.decode("utf-8", errors="replace")
 
     return iptc_data
 

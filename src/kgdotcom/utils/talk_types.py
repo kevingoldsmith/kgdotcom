@@ -3,10 +3,8 @@
 
 """Constants and utility functions for the types of talks in conferences.json"""
 
-
 # string constants
 from xmlrpc.client import boolean
-
 
 TALK_TYPE_KEYNOTE = "keynote"
 TALK_TYPE_TALK = "talk"
