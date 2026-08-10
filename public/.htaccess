@@ -13,20 +13,14 @@ Redirect 301 /photography/ /photography.html
 
 RewriteEngine On
 
-# Canonical host is kevingoldsmith.com, with no www. This matches the canonical
-# URLs the generator emits, so the two cannot disagree.
+# NOTE: a rule forcing the bare domain used to live here and was reverted. It
+# caused a redirect loop, because DreamHost is configured to serve this site as
+# www.kevingoldsmith.com and redirects the bare domain to it. Two redirects
+# pointing at each other take the site down.
 #
-# It must come BEFORE the HTTPS rule below. Otherwise http://www.kevingoldsmith.com
-# takes two hops -- first to https://www..., then to the bare domain -- and each
-# hop is a full connection on a slow link. Ordered this way it is one hop, since
-# the target here is already https.
-#
-# NOTE: DreamHost also decides per-domain whether the site is served as
-# www.kevingoldsmith.com or kevingoldsmith.com. That setting must agree with this
-# rule; if the panel forces www while this forces non-www, they redirect to each
-# other forever and the site becomes unreachable.
-RewriteCond %{HTTP_HOST} ^www\.kevingoldsmith\.com [NC]
-RewriteRule (.*) https://kevingoldsmith.com/$1 [R=301,L]
+# To make kevingoldsmith.com canonical, change the host's domain setting first,
+# so DreamHost stops forcing www. Only then add the rewrite. The generator
+# already emits canonical URLs without www, so no code change is needed.
 
 RewriteCond %{HTTPS} !=on
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
