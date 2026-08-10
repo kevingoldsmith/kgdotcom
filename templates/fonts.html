@@ -1,0 +1,20 @@
+    <!-- Webfonts, loaded without blocking first paint.
+
+         main.css already styles the page in fallback faces and only applies the
+         webfonts under .fonts-loaded, which js/fontfaceobserver.js adds once both
+         families resolve. A plain <link rel="stylesheet"> here would block
+         rendering on a third-party round trip and defeat that mechanism, which is
+         what it was measured doing: ~1,650ms of render-blocking time.
+
+         Both families come in one request; display=swap keeps text visible while
+         they download. The preload+onload swap is the standard non-blocking CSS
+         pattern, with a <noscript> fallback for scripting-disabled clients. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style"
+          href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab&amp;display=swap"
+          onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab&amp;display=swap" />
+    </noscript>
