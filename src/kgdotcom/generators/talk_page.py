@@ -262,6 +262,21 @@ def generate_talk_page(
     pagevalues["talkroot"] = get_talk_root_for_talk(debug_mode)
     pagevalues["debug_mode"] = debug_mode
 
+    # structured metadata. the URL is built from the site root rather than the
+    # output path so it never picks up output/ or testoutput/.
+    talk_data = {
+        "talk_title": talktitle,
+        "talk_description": description,
+        "talk_url": f"https://kevingoldsmith.com/talks/{outputfilename}",
+        "presentation_count": len(presentations),
+        "conferences": [
+            p["conference_name"] for p in presentations if p.get("conference_name")
+        ],
+    }
+    pagevalues["metadata"] = common.generate_page_metadata(
+        "talk", talk_data, debug_mode
+    )
+
     common.check_for_missing_values(pagevariables, pagevalues)
 
     with open(filepath, "w", encoding="utf-8") as file:
