@@ -33,8 +33,15 @@
 			list-style: none;
 			padding-left: 1em;
 		}
-		#featured-talks .talk-title {
-			font-weight: 800;
+		/* Titles are set in Roboto Slab rather than bolded. Didact Gothic, the
+		   body face, ships only weight 400, so any bold here was invented by
+		   the browser: Chrome declined to synthesise at 600 and rendered no
+		   emphasis at all, while WebKit faked a heavy one. Contrasting the
+		   typeface separates the title from the rest of the line reliably, and
+		   Roboto Slab is already loaded for headings. */
+		.talk-title {
+			font-family: 'Roboto Slab', serif;
+			font-weight: 400;
 		}
 		#upcoming-talks ul {
 			list-style: none;
@@ -57,14 +64,8 @@
 		.panel-list {
 			padding-left: 1em;
 		}
-		.panel-list .talk-title {
-			font-weight: 600;
-		}
 		.workshop-list {
 			padding-left: 1em;
-		}
-		.workshop-list .talk-title {
-			font-weight: 600;
 		}
 		.no-js #map_wrapper {
 			height: 0px;

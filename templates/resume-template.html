@@ -92,8 +92,13 @@
 		.job-header {
 			padding-bottom: .3em;
 		}
+		/* Roboto Slab rather than bold: the body face, Didact Gothic, has no
+		   bold weight, so browsers had to synthesise one and each did it
+		   differently. Typeface contrast plus the larger size separates the
+		   job title from the employer line without inventing a weight. */
 		.job-title {
-			font-weight: bold;
+			font-family: 'Roboto Slab', serif;
+			font-weight: 400;
 			font-size: 1.2em;
 		}
 		.job-dates {

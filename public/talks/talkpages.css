@@ -58,8 +58,11 @@
 #presentations li {
 	margin-bottom: .3em;
 }
+/* Roboto Slab rather than a weight: Didact Gothic has no bold, so 600
+   was synthesised (or ignored) depending on the browser. */
 .conferencename {
-	font-weight:600;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 400;
 }
 .conferencedate {
 	font-style: italic;
