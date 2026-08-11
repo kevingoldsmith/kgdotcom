@@ -55,7 +55,10 @@ header {
 	line-height: 80%;
 	font-size: 2em;
 	font-family: serif;
-	font-weight: bold;
+	/* 400, not bold: at 2em the name reads clearly without the extra weight,
+	   and this is a real Roboto Slab face rather than a synthesised one, so it
+	   renders the same in every browser */
+	font-weight: 400;
 	display: block;
 }
 .fonts-loaded #name {
