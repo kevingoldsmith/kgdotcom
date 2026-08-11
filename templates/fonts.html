@@ -8,13 +8,19 @@
 
          Both families come in one request; display=swap keeps text visible while
          they download. The preload+onload swap is the standard non-blocking CSS
-         pattern, with a <noscript> fallback for scripting-disabled clients. -->
+         pattern, with a <noscript> fallback for scripting-disabled clients.
+
+         Roboto Slab is requested at 400 AND 700. h1-h4 and #name are bold, so
+         without a real 700 the browser synthesises one, and every engine fakes
+         bold differently: Blink's is subtle, Safari's and Firefox's are heavier
+         and coarser. That is why headings looked wrong outside Chrome. Didact
+         Gothic has only one weight upstream, so .md-title stays synthetic. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style"
-          href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab&amp;display=swap"
+          href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab:400,700&amp;display=swap"
           onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
         <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab&amp;display=swap" />
+              href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab:400,700&amp;display=swap" />
     </noscript>
