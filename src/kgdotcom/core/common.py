@@ -12,6 +12,8 @@ from datetime import date
 from typing import Any, Union, Dict, List, Set
 from xmlrpc.client import Boolean
 
+import jinja2  # type: ignore
+import jinja2.meta  # type: ignore
 import requests
 import pycountry  # type: ignore
 
@@ -304,7 +306,40 @@ def get_all_dependencies(  # pylint: disable=too-many-nested-blocks
             else:
                 deps.add(dep_path)
 
+    # A template's {% include %}s are dependencies too. Listing them by hand in
+    # DEPENDENCIES meant shared partials went untracked: editing fonts.html or
+    # metadata.html rebuilt nothing, so an incremental build shipped a mix of
+    # old and new pages. Resolving them from the templates keeps this correct
+    # as partials are added.
+    deps |= _expand_template_includes({d for d in deps if d.endswith(".html")})
+
     return deps
+
+
+def _expand_template_includes(templates: Set[str]) -> Set[str]:
+    """Recursively collect the templates included by the given templates."""
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
+    found: Set[str] = set()
+    queue = list(templates)
+    while queue:
+        path = queue.pop()
+        if not os.path.exists(path):
+            continue
+        try:
+            with open(path, "r", encoding="utf-8") as file:
+                referenced = jinja2.meta.find_referenced_templates(
+                    env.parse(file.read())
+                )
+        except (OSError, jinja2.TemplateSyntaxError):  # unreadable or not Jinja
+            continue
+        for name in referenced:
+            if not name:  # a dynamic include; nothing to resolve statically
+                continue
+            included = os.path.join("templates", name)
+            if included not in found:
+                found.add(included)
+                queue.append(included)
+    return found
 
 
 def get_latest_modification_time(dependencies: Set[str]) -> float:

@@ -176,3 +176,29 @@ class TestCommon(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestTemplateDependencies(unittest.TestCase):
+    """shared partials must be tracked, or an incremental build ships a mix of
+    old and new pages: editing fonts.html once left writing.html and
+    music.html on a stale font URL while other pages were regenerated"""
+
+    def test_included_partials_are_dependencies(self) -> None:
+        """a template's {% include %}s count as dependencies of its page"""
+        deps = common.get_all_dependencies("writing.html")
+        for partial in ("fonts.html", "metadata.html", "header.html"):
+            self.assertIn(
+                os.path.join("templates", partial),
+                deps,
+                f"{partial} is included by writing-template.html but untracked",
+            )
+
+    def test_nested_includes_are_followed(self) -> None:
+        """partials included by partials count too (header.html -> sitenav.html)"""
+        deps = common.get_all_dependencies("writing.html")
+        self.assertIn(os.path.join("templates", "sitenav.html"), deps)
+
+    def test_page_specific_headers_are_tracked(self) -> None:
+        """talk pages use talk-header.html rather than the shared header"""
+        deps = common.get_all_dependencies("talks/")
+        self.assertIn(os.path.join("templates", "talk-header.html"), deps)
