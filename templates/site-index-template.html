@@ -152,13 +152,16 @@
 {% include 'google-analytics.html' %}
 <body>
 	<div id="header"><h1><span itemprop="name">Kevin Goldsmith</span></h1></div>
-	<div id="menu">
+	{# <main> rather than <div>: this page had no main landmark, so assistive
+	   tech had no "skip to content" target. The id is kept so #menu styling
+	   is unaffected. #}
+	<main id="menu">
 		<nav>
-			<ul>
-				{% set active_page = 'index' %}
-				{% set vertical = true %}
-				{% include 'sitenav.html' %}
-			</ul>
+			{# no <ul> here: sitenav.html emits its own <div><ul>, so wrapping it
+			   produced a <ul> containing a <div>, which is not a valid list. #}
+			{% set active_page = 'index' %}
+			{% set vertical = true %}
+			{% include 'sitenav.html' %}
 		</nav>
 		<div id="links">
 			<span class="myButton"><a class="outbound" rel="me" itemprop="url" aria-label="Kevin Goldsmith on Bluesky" href="https://bsky.app/profile/kevingoldsmith.com"><img class="genericon" src="img/bsky.svg" alt=""></a></span>
@@ -168,7 +171,7 @@
 			<span class="myButton"><a class="outbound" rel="me" itemprop="url" aria-label="Kevin Goldsmith on YouTube" href="https://www.youtube.com/user/kevingoldsmith/"><span class="genericon genericon-youtube"></span></a></span>
 			<span class="myButton"><a class="outbound" rel="me" itemprop="url" aria-label="Kevin Goldsmith on GitHub" href="https://github.com/kevingoldsmith"><span class="genericon genericon-github"></span></a></span>
 		</div>
-	</div>
+	</main>
     
 	<script src="js/googleevents.js"></script>
 	<script src="js/fontfaceobserver.js"></script>
