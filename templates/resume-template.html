@@ -424,10 +424,45 @@
 			return;
 		}
 
-		// The i-th section title drives the i-th nav item. A section becomes
-		// current once its heading passes above the header line, and the last such
-		// section wins -- the same rule the jQuery version applied.
+		function setActive(index) {
+			for (var j = 0; j < navItems.length; j++) {
+				navItems[j].classList.toggle('active', j === index);
+			}
+		}
+
+		// A click wins until the reader scrolls for themselves. The last few
+		// sections sit too close to the end of the document for the page to
+		// scroll their headings up to the header line, so position alone can
+		// never select them: clicking "Publishing Credits" lands at maximum
+		// scroll, where the heading is still below the line. Without this the
+		// nav would highlight some other section than the one just clicked.
+		var pinned = false;
+		var pinGraceUntil = 0;
+		// The click's own smooth scroll fires scroll events, so ignore those for
+		// a moment; the first scroll after that is the reader's and hands control
+		// back to the spy. Keying off scroll rather than wheel covers every way a
+		// page can be scrolled -- trackpad, scrollbar, keyboard, touch.
+		var PIN_GRACE_MS = 1200;
+		for (var k = 0; k < navItems.length; k++) {
+			(function (index) {
+				var link = navItems[index].querySelector('a');
+				if (link) {
+					link.addEventListener('click', function () {
+						pinned = true;
+						pinGraceUntil = Date.now() + PIN_GRACE_MS;
+						setActive(index);
+					});
+				}
+			})(k);
+		}
+
+		// The i-th section title drives the i-th nav item: a section becomes
+		// current once its heading passes above the header line, and the last
+		// such section wins.
 		function update() {
+			if (pinned) {
+				return;
+			}
 			var line = (header ? header.offsetHeight : 0) + 20;
 			var current = 0;
 			for (var i = 0; i < titles.length; i++) {
@@ -435,18 +470,14 @@
 					current = i;
 				}
 			}
-			// at the bottom the final section may never reach the line, so force it,
-			// as the old code did
-			if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) {
-				current = navItems.length - 1;
-			}
-			for (var j = 0; j < navItems.length; j++) {
-				navItems[j].classList.toggle('active', j === current);
-			}
+			setActive(current);
 		}
 
 		var queued = false;
 		function onScroll() {
+			if (pinned && Date.now() > pinGraceUntil) {
+				pinned = false;
+			}
 			if (queued) {
 				return;
 			}
