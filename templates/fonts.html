@@ -24,3 +24,18 @@
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab:400,700&amp;display=swap" />
     </noscript>
+    <!-- If the fonts already loaded earlier this session they are in the HTTP
+         cache, so apply them here, before first paint, rather than waiting for
+         js/fontfaceobserver.js at the end of the body. That means the swap is
+         seen at most once per session instead of on every page navigation.
+         Inline and in the head deliberately: an external script could not run
+         early enough to beat the first paint. -->
+    <script>
+        try {
+            if (sessionStorage.getItem('fonts-loaded')) {
+                document.documentElement.className += ' fonts-loaded';
+            }
+        } catch (e) {
+            /* private mode or storage disabled: fall back to observing */
+        }
+    </script>

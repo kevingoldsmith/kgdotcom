@@ -13,6 +13,37 @@ L(c,'"'+c.family+'",sans-serif'));A(p,function(a){g=a;v()});u(p,L(c,'"'+c.family
 
 var fontA = new FontFaceObserver('Didact Gothic');
 var fontB = new FontFaceObserver('Roboto Slab');
-Promise.all([fontA.load(), fontB.load()]).then(function () {
-    document.documentElement.className += " fonts-loaded";
-});
+
+// 10s, not the 3s default. Both fonts are awaited together so they swap in one
+// go rather than staggering, but on a slow connection 3s expired, the promise
+// rejected, and with no catch the class was never added -- leaving the page in
+// the fallback serif permanently, which is far worse than a late swap.
+var FONT_TIMEOUT = 10000;
+
+function markFontsLoaded(cacheForSession) {
+    if (document.documentElement.className.indexOf('fonts-loaded') === -1) {
+        document.documentElement.className += ' fonts-loaded';
+    }
+    if (cacheForSession) {
+        // Remember for the rest of the session: the fonts are in the HTTP cache
+        // now, so later pages can apply them before first paint and show no
+        // swap at all. Only set on success -- if loading failed we want the
+        // next page to observe again rather than assume.
+        try {
+            sessionStorage.setItem('fonts-loaded', '1');
+        } catch (e) {
+            // private mode or storage disabled; the swap just happens per page
+        }
+    }
+}
+
+Promise.all([fontA.load(null, FONT_TIMEOUT), fontB.load(null, FONT_TIMEOUT)]).then(
+    function () {
+        markFontsLoaded(true);
+    },
+    function () {
+        // timed out or failed: still apply the fonts. font-display: swap means
+        // the browser uses them as soon as they arrive.
+        markFontsLoaded(false);
+    }
+);

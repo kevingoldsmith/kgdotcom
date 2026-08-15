@@ -29,6 +29,15 @@
             <link rel="stylesheet"
                   href="https://fonts.googleapis.com/css?family=Didact+Gothic%7CRoboto+Slab:400,700&amp;display=swap" />
         </noscript>
+    <script>
+        try {
+            if (sessionStorage.getItem('fonts-loaded')) {
+                document.documentElement.className += ' fonts-loaded';
+            }
+        } catch (e) {
+            /* private mode or storage disabled: fall back to observing */
+        }
+    </script>
         <link rel="stylesheet" href="../css/main.css" />
         <link rel="stylesheet" href="talkpages.css" />
         <style>
