@@ -436,21 +436,34 @@
 		// never select them: clicking "Publishing Credits" lands at maximum
 		// scroll, where the heading is still below the line. Without this the
 		// nav would highlight some other section than the one just clicked.
+		// The click's own smooth scroll fires scroll events the whole way, so the
+		// pin cannot be released on a timer: a long scroll outlasts any fixed
+		// grace period and releases mid-flight, letting the spy overwrite the
+		// selection before the page has arrived. Instead, watch for scrolling to
+		// stop. Once the position has held still briefly the click's scroll is
+		// done, and the next scroll after that belongs to the reader.
 		var pinned = false;
-		var pinGraceUntil = 0;
-		// The click's own smooth scroll fires scroll events, so ignore those for
-		// a moment; the first scroll after that is the reader's and hands control
-		// back to the spy. Keying off scroll rather than wheel covers every way a
-		// page can be scrolled -- trackpad, scrollbar, keyboard, touch.
-		var PIN_GRACE_MS = 1200;
+		var scrollSettled = false;
+		var settleTimer = null;
+		var SETTLE_MS = 150;
 		for (var k = 0; k < navItems.length; k++) {
 			(function (index) {
 				var link = navItems[index].querySelector('a');
 				if (link) {
 					link.addEventListener('click', function () {
 						pinned = true;
-						pinGraceUntil = Date.now() + PIN_GRACE_MS;
+						scrollSettled = false;
 						setActive(index);
+						// Start the countdown here rather than waiting for a scroll
+						// event. A click that moves the page only a little, or not
+						// at all, produces no scroll events, and then the reader's
+						// next scroll would be spent starting this timer instead of
+						// releasing the pin. Scroll events from the animation reset
+						// it, so it still only elapses once travelling has stopped.
+						window.clearTimeout(settleTimer);
+						settleTimer = window.setTimeout(function () {
+							scrollSettled = true;
+						}, SETTLE_MS);
 					});
 				}
 			})(k);
@@ -475,8 +488,17 @@
 
 		var queued = false;
 		function onScroll() {
-			if (pinned && Date.now() > pinGraceUntil) {
-				pinned = false;
+			if (pinned) {
+				if (scrollSettled) {
+					// scrolling resumed after having stopped: the reader is driving
+					pinned = false;
+				} else {
+					// still travelling; restart the clock and wait for it to hold
+					window.clearTimeout(settleTimer);
+					settleTimer = window.setTimeout(function () {
+						scrollSettled = true;
+					}, SETTLE_MS);
+				}
 			}
 			if (queued) {
 				return;
