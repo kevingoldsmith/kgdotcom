@@ -21,6 +21,19 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
 	<style>
+		/* Native smooth scrolling, replacing jQuery's animate(). scroll-padding-top
+		   keeps anchor targets clear of the fixed header; the script at the end
+		   of the body sets --header-offset from its measured height. */
+		html {
+			scroll-behavior: smooth;
+			scroll-padding-top: var(--header-offset, 6rem);
+		}
+		@media (prefers-reduced-motion: reduce) {
+			html {
+				scroll-behavior: auto;
+			}
+		}
+
 		/* Common header elements, move to separate file? */
 		body {
 			margin: 0;
@@ -384,43 +397,69 @@
 	</div>
     {% include 'footer.html' %}
 	<script src="js/modernizr.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="js/googleevents.js"></script>
 	<script src="js/fontfaceobserver.js"></script>
 
     <script>
-	$(document).ready(function() {
-		$('a[href*=\\#]').bind('click', function(e) {
-				e.preventDefault(); // prevent hard jump, the default behavior
+	// This page used to pull 85KB of jQuery from a CDN for two things: smooth
+	// anchor scrolling, now a CSS declaration, and the nav scroll-spy below.
+	// The old handler recalculated every section offset on every scroll event,
+	// unthrottled; this one runs at most once per frame.
+	(function () {
+		var header = document.getElementById('header');
+		var navItems = Array.prototype.slice.call(document.querySelectorAll('.navigation'));
+		var titles = Array.prototype.slice.call(document.querySelectorAll('.section-title'));
 
-				var target = $(this).attr("href"); // Set the target as variable
-
-				// perform animated scrolling by getting top-position of target-element and set it as scroll target
-				$('html, body').stop().animate({
-						scrollTop: $(target).offset().top - $('#header').height() - 20
-				}, 600);
-
-				return false;
-		});
-	});
-
-	$(window).scroll(function() {
-		var content = $('#scrolled-content');
-		var scrollDistance = $(window).scrollTop() + content.position().top;
-
-		// Assign active class to nav links while scolling
-		$('.section-title').each(function(i) {
-				if ($(this).position().top <= scrollDistance) {
-						$('.navigation, .active').removeClass('active');
-						$('.navigation').eq(i).addClass('active');
-				}
-		});
-		//console.log($$(window).scrollTop() + ', ' + window.innerHeight + ', ' + $$(document).height());
-		if($(window).scrollTop() + window.innerHeight == $(document).height()) {
-			$('.navigation, .active').removeClass('active');
-			$('.navigation').last().addClass('active');
+		// Anchor targets must clear the fixed header, which is what the old code
+		// subtracted by hand before animating. scroll-padding-top does the same for
+		// native smooth scrolling; keep it in step with the real header height.
+		function setHeaderOffset() {
+			var offset = (header ? header.offsetHeight : 0) + 20;
+			document.documentElement.style.setProperty('--header-offset', offset + 'px');
 		}
-	}).scroll();
+		setHeaderOffset();
+		window.addEventListener('resize', setHeaderOffset);
+
+		if (!navItems.length || !titles.length) {
+			return;
+		}
+
+		// The i-th section title drives the i-th nav item. A section becomes
+		// current once its heading passes above the header line, and the last such
+		// section wins -- the same rule the jQuery version applied.
+		function update() {
+			var line = (header ? header.offsetHeight : 0) + 20;
+			var current = 0;
+			for (var i = 0; i < titles.length; i++) {
+				if (titles[i].getBoundingClientRect().top <= line) {
+					current = i;
+				}
+			}
+			// at the bottom the final section may never reach the line, so force it,
+			// as the old code did
+			if (window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 2) {
+				current = navItems.length - 1;
+			}
+			for (var j = 0; j < navItems.length; j++) {
+				navItems[j].classList.toggle('active', j === current);
+			}
+		}
+
+		var queued = false;
+		function onScroll() {
+			if (queued) {
+				return;
+			}
+			queued = true;
+			window.requestAnimationFrame(function () {
+				queued = false;
+				update();
+			});
+		}
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onScroll);
+		update();
+	})();
     </script>
 </body>
 </html>
