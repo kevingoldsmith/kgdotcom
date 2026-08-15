@@ -1,4 +1,8 @@
-@import url('normalize.css');
+/* normalize.css is linked separately in each template, before this file.
+   It used to be @imported here, which meant the browser could not even
+   discover it until main.css had downloaded and parsed -- a serialised
+   ~600ms on the render-blocking path. Two <link>s download in parallel,
+   and document order still gives this file precedence. */
 
 .fonts-loaded body {
 	font-family: 'Didact Gothic', sans-serif;
