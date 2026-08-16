@@ -40,8 +40,15 @@ make testdebugcheckpoint # Compare testoutput/ vs lkgtestoutput/
 
 ### Publishing
 ```bash
-make publish    # Deploy to production (via scripts/publish.sh)
+SCP_DEST=user@host:/path/to/webroot make publish   # Deploy output/ via scripts/publish.sh
 ```
+`SCP_DEST` is required and is not stored in the repo, which is public.
+`publish.sh` refuses to run without it: an empty value used to expand to
+nothing, leaving `scp` to treat the last file in `output/` as the destination.
+
+`.htaccess` is **not** deployed — `scp`'s glob skips dotfiles — so the copy on
+the server is maintained by hand. `public/.htaccess` is kept in sync so that
+copying `output/` with invisibles shown cannot silently revert host rules.
 
 ### Photo Sync
 ```bash
@@ -66,10 +73,30 @@ The main orchestrator is `src/kgdotcom/cli.py` which calls specialized generator
 `cli.py` also renders simpler standalone pages (`index.html`, `photography.html`) via `generate_other_pages()`. Builds are **incremental**: `main()` only regenerates pages whose inputs changed (`needs_rebuild` in `core/common.py`); pass `--force` to rebuild everything.
 
 ### Key Modules
-- **src/kgdotcom/core/common.py** - Shared utilities including `get_output_directory()`, JSON loading, and logging setup
+- **src/kgdotcom/core/common.py** - Shared utilities including `get_output_directory()`, JSON loading, logging setup, and the incremental-build dependency graph
+- **src/kgdotcom/core/metadata.py** - Structured page metadata (title, description, canonical, Open Graph, Twitter card, schema.org JSON-LD). `generate_page_metadata(page_type, data, debug_mode)` dispatches to a builder per page type; `common.py` re-exports it so callers can use either import path
 - **src/kgdotcom/core/navigation.py** - Navigation-related utilities
 - **src/kgdotcom/utils/** - Utility modules for EXIF processing and talk types
 - **scripts/build.sh** - Build orchestration with debug/production modes and asset copying
+
+### Page Metadata
+Every generated page renders `templates/metadata.html` from a `PageMetadata`
+built for its page type (`writing`, `resume`, `talks`, `talk`, `music`,
+`photos`, `photo`, `index`). Adding a page type means adding a builder in
+`core/metadata.py` and registering it in the lookup inside
+`generate_page_metadata()`.
+
+Two things to preserve:
+- **URLs must be site-relative.** `Image.image_page_path` is an on-disk path under
+  `output/` or `testoutput/`; appending it to the site URL yields
+  `kevingoldsmith.com/output/photos/...`, which 404s. `photos.py` strips the build
+  directory with `os.path.relpath(..., get_output_directory(debug_mode))` and reuses
+  one `page_url` for both the canonical tag and the sharing links.
+- **Canonicals must be per-page.** A shared canonical tells search engines every
+  gallery is a duplicate of one page.
+
+The contact pages are deliberately `noindex` (per-persona QR/vCard handouts) and
+are intentionally excluded from this system.
 
 ### Data Structure
 All content is stored as structured JSON in `data/`:
@@ -99,6 +126,42 @@ Each subdirectory of `photos/` becomes a gallery (grid page) and each image gets
 
 ### Template System
 Jinja2 templates in `templates/` directory generate final HTML. Each generator loads appropriate templates and passes structured data for rendering.
+
+Shared partials are included rather than duplicated: `header.html` (and the
+page-specific `photo-header.html` / `talk-header.html`), `sitenav.html`,
+`footer.html`, `favicon.html`, `fonts.html`, `metadata.html`,
+`google-analytics.html`.
+
+`get_all_dependencies()` resolves a template's `{% include %}`s recursively via
+`jinja2.meta.find_referenced_templates`, so a new partial is tracked for
+incremental builds automatically. This used to be a hand-written list, and when
+`fonts.html` and `metadata.html` were added but not listed, editing them
+rebuilt nothing — shipping a site where some pages were regenerated and others
+were stale. Tests in `tests/test_common.py` cover it.
+
+### Front-end Conventions
+Non-obvious constraints that are easy to undo by accident:
+
+- **Never bold Didact Gothic.** The body face ships only weight 400, so any
+  bold is synthesised, and engines disagree: Chrome declines at 600 and renders
+  no emphasis at all, WebKit fakes a heavy one. Use Roboto Slab (which has real
+  400 and 700) for titles that need to stand apart from their line.
+- **Fonts load without blocking.** `fonts.html` preloads one stylesheet for both
+  families with `display=swap`; `main.css` styles the page in fallback faces
+  until `js/fontfaceobserver.js` adds `.fonts-loaded`, so both families swap
+  together instead of staggering. The observer's failure path must apply the
+  class anyway — otherwise a slow connection leaves the page in the fallback
+  serif permanently. A `sessionStorage` flag lets later pages apply it before
+  first paint, so the swap is seen at most once per session.
+- **Don't `@import` stylesheets.** `normalize.css` is linked separately, before
+  `main.css`. As an `@import` inside `main.css` the browser could not discover it
+  until `main.css` had downloaded and parsed, serialising it on the
+  render-blocking path.
+- **`resume.html` has no jQuery.** Its smooth scrolling is CSS
+  (`scroll-behavior` plus `scroll-padding-top` fed by a `--header-offset` custom
+  property) and its nav scroll-spy is vanilla. Because the last sections sit too
+  close to the end of the document to scroll to the top, a click pins its own nav
+  item until scrolling stops and the reader scrolls again.
 
 ### Build Modes
 - **Production**: Outputs to `output/` directory, includes sitemap generation

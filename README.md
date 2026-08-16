@@ -27,7 +27,10 @@ make clean      # remove output directories
 ```
 
 Builds are **incremental**: `kgdotcom.cli` only regenerates pages whose inputs
-changed (see `needs_rebuild` in `src/kgdotcom/core/common.py`). Force a full
+changed (see `needs_rebuild` in `src/kgdotcom/core/common.py`). A page's inputs
+include its data files, its template, and every partial that template
+`{% include %}`s, resolved recursively — so editing a shared partial such as
+`templates/fonts.html` correctly rebuilds all the pages using it. Force a full
 rebuild with the `--force` flag:
 
 ```bash
@@ -62,8 +65,16 @@ per-file content diffs, exiting non-zero if the trees differ.
 ## Publishing
 
 ```bash
-make publish    # deploy to production via scripts/publish.sh
+SCP_DEST=user@host:/path/to/webroot make publish   # deploy output/ via scripts/publish.sh
 ```
+
+`SCP_DEST` is required — it isn't stored in the repo, which is public — and
+`publish.sh` exits rather than run without it.
+
+`.htaccess` is **not** uploaded by `make publish`, because `scp`'s glob skips
+dotfiles. The server's copy is maintained by hand; `public/.htaccess` is kept in
+sync so that copying `output/` with invisible files shown can't silently revert
+it.
 
 ## Architecture
 
@@ -84,7 +95,17 @@ make publish    # deploy to production via scripts/publish.sh
 `cli.py` also renders the simpler standalone pages (`index.html`,
 `photography.html`). Shared helpers live in `src/kgdotcom/core/` (e.g.
 `common.py` for output paths, JSON loading, logging, and rebuild checks;
-`navigation.py` for nav URLs) and `src/kgdotcom/utils/` (EXIF, talk types).
+`metadata.py` for structured page metadata; `navigation.py` for nav URLs) and
+`src/kgdotcom/utils/` (EXIF, talk types).
+
+### Page metadata
+
+Every generated page renders `templates/metadata.html` — title, description,
+canonical URL, Open Graph, Twitter card, and schema.org JSON-LD — from a
+`PageMetadata` built by `core/metadata.py` for that page's type. Adding a page
+type means adding a builder there and registering it in
+`generate_page_metadata()`. The contact pages are deliberately `noindex` and are
+excluded.
 
 ### Entry points
 
