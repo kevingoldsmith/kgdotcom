@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="no-js" lang="en">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -25,7 +25,32 @@
                the track wider than the viewport */
             max-width: 100%;
             max-height: 400px;
+            /* Every thumbnail carries width and height attributes (below), which
+               count as specified sizes, so the two max-* constraints above would
+               otherwise clamp each axis independently and squash the image --
+               measurably, 1000x664 rendered as 396x400.
+
+               height:auto hands the vertical axis back to the aspect ratio. Width
+               is deliberately NOT auto: the attribute keeps it determinate, which
+               is what lets the browser reserve the right amount of space for a
+               lazily-loaded image before it arrives. With width:auto too, an
+               unloaded image has no intrinsic size to shrink-to-fit against and
+               collapses to 0x0, undoing the reservation entirely.
+
+               object-fit then covers the one case height:auto cannot: a portrait
+               thumbnail tall enough to hit max-height gets clamped on that axis,
+               so contain letterboxes it instead of stretching it. */
+            height: auto;
+            object-fit: contain;
         }
+        /* alt="" is deliberate: each thumbnail sits inside a link that already
+           carries the title as text, so alt would announce the same name twice.
+           width/height on every thumbnail so the grid reserves space before a
+           lazily-loaded image arrives; max-width keeps them fluid regardless.
+           The first four load eagerly: lazy-loading anything above the fold
+           delays the largest contentful paint rather than helping it. A phone
+           shows three, a desktop eight, so four is the point where deferring
+           starts being free. */
         .wrapper {
             display: grid;
             /* fit as many ~280px columns as the width allows and reflow on its
@@ -109,15 +134,19 @@
         {% if images %}<h2>albums</h2>{% endif %}
         <div class="wrapper">
             {% for gallery in subgalleries %}
-            <div><a href="{{gallery.relative_path}}{% if debug_mode %}index.html{% endif %}">{% if gallery.preview_image %}<img src="{{gallery.relative_path}}{{gallery.preview_image.thumb_filename}}" />{% endif %}<div>{{gallery.name}}</div></a></div>
+            <div><a href="{{gallery.relative_path}}{% if debug_mode %}index.html{% endif %}">{% if gallery.preview_image %}<img src="{{gallery.relative_path}}{{gallery.preview_image.thumb_filename}}" alt="" width="{{gallery.preview_image.thumb_width}}" height="{{gallery.preview_image.thumb_height}}"{% if loop.index > 4 %} loading="lazy"{% endif %} />{% endif %}<div>{{gallery.name}}</div></a></div>
             {% endfor %}
         </div>
         {% endif %}
         {% if images %}
         {% if subgalleries %}<h2>images</h2>{% endif %}
         <div class="wrapper">
+            {# The caption <div> below sits outside the <a> (the closing tags are
+               interleaved), so the link's only accessible name is this alt text --
+               unlike the sub-gallery links above, where the caption is inside the
+               link and the alt is correctly empty. #}
             {% for image in images %}
-            <div><a href="{{image.image_page}}"><img src="{{image.thumb_filename}}" /><div>{{image.title}}</a></div></div>
+            <div><a href="{{image.image_page}}"><img src="{{image.thumb_filename}}" alt="{{image.title}}" width="{{image.thumb_width}}" height="{{image.thumb_height}}"{% if loop.index > 4 %} loading="lazy"{% endif %} /><div>{{image.title}}</a></div></div>
             {% endfor %}
         </div>
         {% endif %}

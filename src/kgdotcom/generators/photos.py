@@ -161,6 +161,10 @@ class Image:  # pylint: disable=too-many-instance-attributes
         self.output_file_path = ""
         self.thumb_filename = ""
         self.thumb_file_path = ""
+        # intrinsic thumbnail size, so templates can set width/height and the
+        # grid reserves space before a lazily-loaded image arrives
+        self.thumb_width = 0
+        self.thumb_height = 0
         self.description = ""
         self.image_page = ""
         self.image_page_path = ""
@@ -285,11 +289,16 @@ class Image:  # pylint: disable=too-many-instance-attributes
             )
             new_image.save(self.output_file_path)
 
+        # computed even when the file already exists: incremental builds skip the
+        # resize, but the templates still need the dimensions
+        thumb_size = Image.get_resized_image_dimensions(
+            pil_image.size, Image.__GALLERY_THUMB_MAX
+        )
+        self.thumb_width, self.thumb_height = thumb_size
+
         if not os.path.exists(self.thumb_file_path):
             new_thumbnail = pil_image.resize(
-                Image.get_resized_image_dimensions(
-                    pil_image.size, Image.__GALLERY_THUMB_MAX
-                ),
+                thumb_size,
                 resample=PILImage.Resampling.LANCZOS,
             )
             new_thumbnail.save(self.thumb_file_path)
