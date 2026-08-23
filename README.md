@@ -15,7 +15,7 @@ templates from `templates/`.
 ## Setup
 
 ```bash
-make setup      # create the virtualenv and install dependencies (alias: make venv)
+make venv       # create the virtualenv and install dependencies
 ```
 
 ## Building
@@ -153,6 +153,20 @@ image by **filename** (default cover is the newest image):
 ```json
 { "name": "Czech Republic", "preview": "20240611-DSCF0705.jpg" }
 ```
+
+Thumbnails carry explicit `width`/`height` so the grid reserves their space,
+and all but the first four load lazily — a gallery page fetches 10 images
+instead of 53. The CSS that makes those attributes safe is easy to break; see
+"Front-end Conventions" in `CLAUDE.md` before changing it.
+
+## Crawler-facing files
+
+`public/robots.txt` and `public/llms.txt` are hand-maintained; they are copied
+into `output/` by `scripts/build.sh`, not by the Python generators, so they only
+refresh on a full `make build`. `robots.txt` points at the generated `sitemap.xml`. `llms.txt`
+follows the [llmstxt.org](https://llmstxt.org) convention and summarises the
+site for LLM crawlers; it quotes counts (talks, galleries, roles, patents,
+publications) that need updating when the content grows.
 
 ## Dependencies
 

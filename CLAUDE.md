@@ -10,8 +10,7 @@ This is a Python-based static site generator for Kevin Goldsmith's personal webs
 
 ### Setup
 ```bash
-make setup      # Creates virtual environment and installs dependencies
-make venv       # Alternative command for setup
+make venv       # Creates virtual environment and installs dependencies
 ```
 
 ### Building
@@ -157,11 +156,45 @@ Non-obvious constraints that are easy to undo by accident:
   `main.css`. As an `@import` inside `main.css` the browser could not discover it
   until `main.css` had downloaded and parsed, serialising it on the
   render-blocking path.
+- **Gallery thumbnails need `height: auto`, and `width` must stay
+  attribute-driven.** Every thumbnail carries `width`/`height` attributes so the
+  grid reserves space before a lazily-loaded image arrives. Those attributes
+  count as *specified* sizes, so the `max-width`/`max-height` pair starts
+  clamping each axis independently and squashes the image — 1000x664 rendered as
+  396x400. `height: auto` returns the vertical axis to the aspect ratio.
+  Do **not** also set `width: auto`: an unloaded image then has no intrinsic size
+  to shrink-to-fit against, collapses to 0x0, and silently undoes the space
+  reservation (the gallery measured 1627px tall instead of 6443px). `object-fit:
+  contain` letterboxes the one case `height: auto` cannot cover, a portrait
+  thumbnail tall enough to hit `max-height`.
+- **The two thumbnail links need different `alt` rules.** A sub-gallery cover's
+  caption sits *inside* its link, so the image takes `alt=""` and the text names
+  the link. An image thumbnail's caption does not: the closing tags interleave
+  (`<div>{{title}}</a></div>`), so the caption parses as the link's *sibling* and
+  the `alt` is the only accessible name it has. Setting both to `alt=""` leaves
+  the image links unnamed. Check the parsed DOM, not the template, before
+  changing either.
+- **The first four thumbnails load eagerly, the rest lazily.** A phone shows
+  three above the fold and a desktop eight, so four is where deferring stops
+  costing anything; lazy-loading above the fold delays the largest contentful
+  paint instead of helping it. This takes a gallery page from 53 images / 5.6 MB
+  to 10 images / 1.1 MB.
 - **`resume.html` has no jQuery.** Its smooth scrolling is CSS
   (`scroll-behavior` plus `scroll-padding-top` fed by a `--header-offset` custom
   property) and its nav scroll-spy is vanilla. Because the last sections sit too
   close to the end of the document to scroll to the top, a click pins its own nav
   item until scrolling stops and the reader scrolls again.
+
+### Crawler-facing files
+`public/robots.txt` and `public/llms.txt` are hand-maintained; no generator
+writes them. They reach `output/` through `scripts/build.sh` (`cp -r public/*`),
+so editing them and re-running `kgdotcom.cli` alone leaves the build stale —
+use `make build`. `robots.txt` points at
+`sitemap.xml`. `llms.txt` (the llmstxt.org convention) summarises the site for
+LLM crawlers and **quotes counts that drift** — talk pages, photo galleries,
+roles, patents, publications. The sitemap is authoritative for page counts
+(`grep -c '/talks/' output/sitemap.xml`), not `ls`, which also sees assets.
+Every template's `<html>` carries `lang="en"`; new templates must too.
 
 ### Build Modes
 - **Production**: Outputs to `output/` directory, includes sitemap generation
