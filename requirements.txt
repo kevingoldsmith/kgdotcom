@@ -7,7 +7,7 @@ Authlib==1.6.12
 backports-datetime-fromisoformat==2.0.3
 bandit==1.8.3
 beautifulsoup4==4.9.3
-black==26.3.1
+black==26.10.1
 blinker==1.5
 boolean.py==5.0
 CacheControl==0.14.3
