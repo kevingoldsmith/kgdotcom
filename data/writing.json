@@ -1,12 +1,36 @@
 [
 	{
+		"name": "Becoming a Business Leader, Not Just a Technical One",
+		"description": "The article argues that most senior technical leaders don’t stall on technical or organizational skill but on business fluency, because the conversation shifts from whether something is the right architecture to whether it’s the right business, and they keep answering the first question. It lays out four learnable moves (translate, trade-off, commit, compound) and four places to build them: the P&L and unit economics, sales and customer work, fundraising and due diligence, and strategy and resource allocation. The closing point is that seniority creates the expectation of business fluency, not the fluency itself, so you have to build it deliberately.",
+		"date": "2026-05-03",
+		"url": "https://kevingoldsmith.substack.com/p/becoming-a-business-leader-not-just",
+		"tags": [
+			"Leadership",
+			"Career",
+			"Strategy"
+		]
+	},
+	{
+		"name": "Don't Let Your Boss Do Your Job",
+		"description": "The article argues that leaders often lose credibility not by failing to act but by failing to signal that they’re acting, because silence reads to the organization as nobody owning the problem, and eventually your boss steps in and does your job in front of everyone. Ownership is framed as three repeatable behaviors rather than a personality trait: signal quickly that you see the issue, route it to the right person, and verify it got done. The real test of a leader isn’t how fast a problem gets solved but how fast the organization knows someone is on it.",
+		"date": "2026-04-05",
+		"url": "https://kevingoldsmith.substack.com/p/dont-let-your-boss-do-your-job",
+		"tags": [
+			"Leadership",
+			"Career",
+			"Management",
+			"Accountability"
+		]
+	},
+	{
 		"name": "The Shift to Managing Managers",
 		"description": "The article examines why the transition to managing managers is so hard: the instincts that made you a good manager actively work against you at this level, because staying close to execution erodes your managers' ownership and turns you into a bottleneck. The core shift is from managing work to managing context, where your job becomes giving managers enough framing and clarity that they can make good decisions without routing everything through you. Feeling indispensable is framed not as a success metric but as a warning sign that you've capped both your own growth and your organization's.",
 		"date": "2026-02-08",
 		"url": "https://kevingoldsmith.substack.com/p/the-shift-to-managing-managers",
 		"tags": [
 			"Leadership",
-			"Career"
+			"Career",
+			"Accountability"
 		]
 	},
 	{
@@ -49,7 +73,8 @@
 		"tags": [
 			"Leadership",
 			"Strategy",
-			"Career"
+			"Career",
+			"Accountability"
 		]
 	},
 	{
@@ -179,7 +204,8 @@
 		"date": "2021-07-26",
 		"tags": [
 			"Management",
-			"Engineering Culture"
+			"Engineering Culture",
+			"Accountability"
 		]
 	},
 	{
